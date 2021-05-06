@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1. 无监督学习实践1 - PCA与白化 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="3. 无监督学习" href="index.html"/>
+        <link rel="next" title="4. 名词术语" href="../glossary.html"/>
+        <link rel="prev" title="3. 无监督学习" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">机器学习</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SupervisedLearning/index.html">2. 监督学习</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3. 无监督学习</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.1. 无监督学习实践1 - PCA与白化</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">4. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuralNetwork/index.html">神经网络</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">机器学习</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">3. </span>无监督学习</a> &raquo;</li>
+        
+      <li><span class="section-number">3.1. </span>无监督学习实践1 - PCA与白化</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pca">
+<h1><span class="section-number">3.1. </span>无监督学习实践1 - PCA与白化<a class="headerlink" href="#pca" title="永久链接至标题">¶</a></h1>
+<p>Preprocessing: PCA and Whitening</p>
+<div class="section" id="id1">
+<h2><span class="section-number">3.1.1. </span>主成分分析(PCA)<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://deeplearning.stanford.edu/wiki/index.php/PCA">PCA</a></p>
+</div>
+<div class="section" id="whitening">
+<h2><span class="section-number">3.1.2. </span>白化(Whitening)<a class="headerlink" href="#whitening" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://deeplearning.stanford.edu/wiki/index.php/Whitening">Whitening</a></p>
+<p>白化的目的就是降低输入的冗余性，即想通过白化过程使得输入：</p>
+<ol class="arabic simple">
+<li><p>特征间的相关性较低; (PCA)</p></li>
+<li><p>所有特征具有相同的方差. (<span class="math">\(1\over\sqrt{\lambda_i+\epsilon}\)</span>缩放)</p></li>
+</ol>
+<p>PCA已经使得数据间的相关性降低，为使每个输入特征具有单位方差，用<span class="math">\(1\over\sqrt{\lambda_i+\epsilon}\)</span>作为缩放因子（<span class="math">\(\epsilon\)</span>用于<strong>正则化</strong>，防止分母为零，导致数据上溢到无穷，同时具有平滑即低通滤波作用），缩放每个特征<span class="math">\(x_{rot,i}\)</span>，即PCA白化后的数据<span class="math">\(x_{PCAwhite}\)</span>满足：</p>
+<div class="math">
+\[x_{PCAwhite,i}={x_{rot,i}\over\sqrt{\lambda_i+\epsilon}}, \space i代表成分或维度
+
+\]</div>
+<p>PCA白化后的数据已经具有单位协方差，ZCA白化是在PCA白化的基础上，左乘一个任意正交矩阵<span class="math">\(R\)</span>（<span class="math">\(RR^{T}=R^{T}R=I\)</span>，也可以是旋转或反射矩阵），那么处理后的数据<strong>仍然具有单位协方差</strong>，在ZCA白化中，取PCA投影矩阵<span class="math">\(R=U\)</span>，则：</p>
+<div class="math">
+\[x_{ZCAwhite}=Ux_{PCAwhite}
+
+\]</div>
+<p>这种旋转使得<span class="math">\(x_{ZCAwhite}\)</span>尽可能的接近原始数据<span class="math">\(x\)</span>.</p>
+</div>
+<div class="section" id="pca-whitening">
+<h2><span class="section-number">3.1.3. </span>PCA/Whitening 计算步骤<a class="headerlink" href="#pca-whitening" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://deeplearning.stanford.edu/wiki/index.php/Implementing_PCA/Whitening">Implementing PCA/Whitening</a></p>
+<ol class="arabic simple">
+<li><p>使数据均值为零;</p></li>
+<li><p>计算协方差矩阵;</p></li>
+<li><p>计算协方差矩阵的特征值和特征向量;</p></li>
+<li><p>使用特征向量组成的<strong>PCA变换矩阵</strong><span class="math">\(U\)</span>（旋转矩阵，按特征值大小<em>降序</em>且按列排）旋转数据，得到<strong>PCA变换</strong>后的数据<span class="math">\(x_{rot}\)</span>，取前<span class="math">\(k\)</span>个特征向量组成旋转矩阵旋转数据，得到<strong>PCA降维</strong>后的数据（假设输入<span class="math">\(x\in R^n, \space k&lt;n\)</span>）;</p></li>
+<li><p>使用<span class="math">\(1\over\sqrt{\lambda_i+\epsilon}\)</span>对PCA旋转后的数据缩放，使其具有相同单位协方差，得到<strong>PCA白化</strong>后的数据<span class="math">\(x_{PCAwhite}\)</span>;</p></li>
+<li><p>对PCA白化后的数据，左乘PCA变换矩阵得到<strong>ZCA白化</strong>后的数据<span class="math">\(x_{ZCAwhite}\)</span>.</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">3.1.4. </span>二维数据PCA实验<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://deeplearning.stanford.edu/wiki/index.php/Exercise:PCA_in_2D">Exercise:PCA_in_2D</a></p>
+<p><strong>MATLAB实现：</strong></p>
+<ul>
+<li><p>使数据均值为零：（提供的二维数据以具有相同均值0，此步省去）</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">avg</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">x</span> <span class="o">-</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>计算协方差矩阵：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">sigma</span> <span class="p">=</span> <span class="n">cov</span><span class="p">(</span><span class="n">x</span><span class="o">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c">% MATLAB function, &#39;1&#39; normalize with n</span>
+<span class="n">sigma</span> <span class="p">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">&#39;/</span><span class="nb">size</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c">% or you can use this code</span>
+</pre></div>
+</div>
+<p>原始数据协方差：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">sigma</span> <span class="p">=</span>
+    <span class="mf">0.0883</span>    <span class="mf">0.0733</span>
+    <span class="mf">0.0733</span>    <span class="mf">0.0890</span>
+</pre></div>
+</div>
+</li>
+<li><p>计算协方差矩阵的特征值和特征向量：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="p">[</span><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="o">~</span><span class="p">]</span> <span class="p">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">sigma</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="figure align-center" id="id9">
+<span id="fig-machinelearningunsupervisedpca2drawdata"></span><a class="reference internal image-reference" href="../../../_images/PCA2dRawData.png"><img alt="原始二维数据及其协方差矩阵的特征向量" src="../../../_images/PCA2dRawData.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.18 </span><span class="caption-text">原始二维数据及其协方差矩阵的特征向量</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>原始二维数据及其协方差矩阵的特征向量</p>
+</div>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">U</span> <span class="p">=</span>
+   <span class="o">-</span><span class="mf">0.7055</span>   <span class="o">-</span><span class="mf">0.7087</span>
+   <span class="o">-</span><span class="mf">0.7087</span>    <span class="mf">0.7055</span>
+<span class="n">S</span> <span class="p">=</span>
+    <span class="mf">0.1620</span>         <span class="mi">0</span>
+         <span class="mi">0</span>    <span class="mf">0.0154</span>
+</pre></div>
+</div>
+<ul>
+<li><p>PCA变换旋转数据<span class="math">\(x\)</span>得到<span class="math">\(x_{rot}\)</span>：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">xRot</span> <span class="p">=</span> <span class="n">U</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="figure align-center" id="id10">
+<span id="fig-machinelearningunsupervisedpca2drotatedata"></span><a class="reference internal image-reference" href="../../../_images/PCA2dRotateData.png"><img alt="PCA旋转后的数据" src="../../../_images/PCA2dRotateData.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.19 </span><span class="caption-text">PCA旋转后的数据</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>PCA旋转后的数据</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>PCA降维数据:</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">xRot</span> <span class="p">=</span> <span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="n">k</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span> <span class="c">% projecting to 1 dimension</span>
+<span class="n">xHat</span> <span class="p">=</span> <span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">xRot</span><span class="p">;</span> <span class="c">% projecting the xRot back</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id11">
+<span id="fig-machinelearningunsupervisedpca2dxhatdata"></span><a class="reference internal image-reference" href="../../../_images/PCA2dxHatData.png"><img alt="xHat" src="../../../_images/PCA2dxHatData.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.20 </span><span class="caption-text">PCA降维 - 旋转后映射回的数据</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>PCA降维 - 旋转后映射回的数据</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>PCA白化：</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">xPCAWhite</span> <span class="p">=</span> <span class="nb">diag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">+</span><span class="n">epsilon</span><span class="p">))</span><span class="o">*</span><span class="n">U</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span> <span class="c">% xPCAWhite_i = xRot_i/sqrt(lambda_i)</span>
+
+<span class="n">sigmaPCAWhite</span> <span class="p">=</span> <span class="n">cov</span><span class="p">(</span><span class="n">xPCAWhite</span><span class="o">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c">% computes the covariance of PCAWhite data</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id12">
+<span id="fig-machinelearningunsupervisedpca2dpcawhite"></span><a class="reference internal image-reference" href="../../../_images/PCA2dPCAWhite.png"><img alt="PCA白化后的数据" src="../../../_images/PCA2dPCAWhite.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.21 </span><span class="caption-text">PCA降维 - PCA白化后的数据</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>PCA降维 - PCA白化后的数据</p>
+</div>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">sigmaPCAWhite</span> <span class="p">=</span>
+    <span class="mf">0.9921</span>    <span class="mf">0.0066</span>
+    <span class="mf">0.0066</span>    <span class="mf">0.9937</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>ZCA白化：</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">xZCAWhite</span> <span class="p">=</span> <span class="n">U</span><span class="o">*</span><span class="nb">diag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">+</span><span class="n">epsilon</span><span class="p">))</span><span class="o">*</span><span class="n">U</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span> <span class="c">% xZCAWhite_i = U*xPCAWhite</span>
+
+<span class="n">sigmaZCAWhite</span> <span class="p">=</span> <span class="n">cov</span><span class="p">(</span><span class="n">xZCAWhite</span><span class="o">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c">% computes the covariance of ZCAWhite data</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id13">
+<span id="id5"></span><a class="reference internal image-reference" href="../../../_images/PCA2dZCAWhite.png"><img alt="ZCA白化后的数据" src="../../../_images/PCA2dZCAWhite.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.22 </span><span class="caption-text">ZCA降维 - ZCA白化后的数据</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>ZCA降维 - ZCA白化后的数据</p>
+</div>
+</div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">sigmaZCAWhite</span> <span class="p">=</span>
+    <span class="mf">0.9996</span>   <span class="o">-</span><span class="mf">0.0008</span>
+   <span class="o">-</span><span class="mf">0.0008</span>    <span class="mf">0.9863</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">3.1.5. </span>PCA与白化图像数据实验<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://deeplearning.stanford.edu/wiki/index.php/Exercise:PCA_and_Whitening">Exercise:PCA and Whitening</a></p>
+<div class="section" id="id7">
+<h3>PCA实验<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>当把PCA应用于图像时，有点疑惑的是，按照协方差的公式：</p>
+<div class="math">
+\[Cov(X,Y)=E[(X-E[X])(Y-E[Y])] ,
+
+\]</div>
+<p>减去的均值应该是所有样本的均值. 这样，对于图像块矩阵<span class="math">\(\rm{x}_{n \times m}\)</span>，其中，<span class="math">\(n\)</span>为一个样本的特征维度即一个图像块拉成列向量的维度，<span class="math">\(m\)</span>为图像块的数目，求其特征维上的协方差时，均值应该这样求：<span class="math">\(\overline{\rm x}={1\over m}\sum_{i=1}^{m}{{\rm x}^{(i)}}\)</span>，而教程中是这样求的：<span class="math">\(\overline{{\rm x}^{(i)}}={1\over n}\sum_{j=1}^{n}{{\rm x}^{(i)}_j}\)</span>，即每个块求均值. 文中说我们对图像块的平均亮度值不感兴趣，所以可以减去这个值进行均值规整化.</p>
+<blockquote>
+<div><p>So, we won’t use variance normalization. The only normalization we
+need to perform then is mean normalization, to <strong>ensure that the
+features have a mean around zero</strong>. Depending on the application,
+very often we are not interested in how bright the overall input
+image is. For example, in object recognition tasks, the overall
+brightness of the image doesn’t affect what objects there are in the
+image. <strong>More formally, we are not interested in the mean intensity
+value of an image patch; thus, we can subtract out this value, as a
+form of mean normalization</strong>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h3>PCA白化实验<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://ufldl.stanford.edu/tutorial/unsupervised/ExercisePCAWhitening">Exercise: PCA Whitening</a></p>
+<p><strong>一点说明</strong>：教程中叙述的与展示的实验结果图不一致：文中叙述的是<span class="math">\(144\times10000\)</span>的矩阵（与Wiki上的教程一致），实验数据集却是手写体<span class="math">\(784\times60000\)</span>，这里也用手写体数据，可以到<a class="reference external" href="http://yann.lecun.com/exdb/mnist/">THE
+MNIST DATABASE</a>下载.</p>
+<ul class="simple">
+<li><p>零均值化数据</p></li>
+</ul>
+<p>这里处理的是手写体图像，所以求得是每个图像块（patch）的均值.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">% avg = mean(x, 1);</span>
+<span class="c">% x = x - repmat(avg, size(x,1), 1);</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">bsxfun</span><span class="p">(@</span><span class="n">minus</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span> <span class="c">% or this code</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id14">
+<span id="fig-machinelearningunsupervisedpca-mnist-raw"></span><a class="reference internal image-reference" href="../../../_images/PCA_MNIST_RAW.png"><img alt="手写体数据" src="../../../_images/PCA_MNIST_RAW.png" style="width: 1003.0px; height: 404.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.23 </span><span class="caption-text">手写体数据及零均值化数据示意</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>手写体数据及零均值化数据示意</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>旋转数据：</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">sigma</span> <span class="p">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">&#39;/</span><span class="n">m</span><span class="p">;</span> <span class="c">% n-by-n</span>
+<span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="o">~</span><span class="p">]</span> <span class="p">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">sigma</span><span class="p">);</span>
+<span class="n">xRot</span> <span class="p">=</span> <span class="n">u</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span><span class="c">% n-by-m</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>验证PCA实现的正确性，即旋转数据的协方差仅对角元素非零：</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">covar</span> <span class="p">=</span> <span class="n">xRot</span><span class="o">*</span><span class="n">xRot</span><span class="o">&#39;/</span><span class="n">m</span><span class="p">;</span> <span class="c">% the mean of xRot is 0</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id15">
+<span id="fig-machinelearningunsupervisedpca-mnist-cov"></span><a class="reference internal image-reference" href="../../../_images/PCA_MNIST_Cov.png"><img alt="手写体数据旋转后数据的协方差" src="../../../_images/PCA_MNIST_Cov.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.24 </span><span class="caption-text">手写体数据旋转后数据的协方差</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>手写体数据旋转后数据的协方差</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>寻找保留主成分数目：</p></li>
+</ul>
+<p>保留方差百分比：99%：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">lambda</span> <span class="p">=</span> <span class="nb">diag</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="n">lambda_sum</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">lambda</span><span class="p">);</span>
+<span class="n">lambda_sumk</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">perc</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">k</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="n">perc</span> <span class="o">&lt;</span> <span class="mf">0.99</span>
+    <span class="n">k</span> <span class="p">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">lambda_sumk</span> <span class="p">=</span> <span class="n">lambda_sumk</span> <span class="o">+</span> <span class="n">lambda</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+    <span class="n">perc</span> <span class="p">=</span> <span class="n">lambda_sumk</span> <span class="o">/</span> <span class="n">lambda_sum</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>维数约简与重构：</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">xDimk</span> <span class="p">=</span> <span class="n">u</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="n">k</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span>
+<span class="n">xHat</span> <span class="p">=</span> <span class="n">u</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">xDimk</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id16">
+<span id="fig-machinelearningunsupervisedpca-mnist-recovery"></span><a class="reference internal image-reference" href="../../../_images/PCA_MNIST_recovery.png"><img alt="PCA维数约简后重构的图像" src="../../../_images/PCA_MNIST_recovery.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.25 </span><span class="caption-text">PCA维数约简后重构的图像</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>PCA维数约简后重构的图像  (采用每个图像块的均值零均值化图像, 方差保留百分比：99.01%，784 -&gt; 300)</p>
+</div>
+</div>
+<p>如果零均值化过程，采用所有图像块的均值，则零均值化后的图像和PCA重构后的图像如下图所示：</p>
+<div class="figure align-center" id="id17">
+<span id="fig-machinelearningunsupervisedpca-mnist-recovery-meanallpatches"></span><a class="reference internal image-reference" href="../../../_images/PCA_MNIST_recovery_meanAllpatches.png"><img alt="PCA维数约简后重构的图像" src="../../../_images/PCA_MNIST_recovery_meanAllpatches.png" style="width: 949.0px; height: 359.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.26 </span><span class="caption-text">PCA维数约简后重构的图像</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>PCA维数约简后重构的图像 (采用所有图像块的均值零均值化图像, 方差保留百分比：99.01%，784 -&gt; 300)</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>PCA白化及检验：</p></li>
+</ul>
+<p>通过观察白化后数据的协方差矩阵，分别使用不同的值正则化和不使用正则化（epsilon近似为0）：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">epsilon</span> <span class="p">=</span> <span class="mf">1e-1</span><span class="p">;</span>
+<span class="c">%%% YOUR CODE HERE %%%</span>
+<span class="n">xPCAWhite</span> <span class="p">=</span> <span class="nb">diag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="n">epsilon</span><span class="p">))</span><span class="o">*</span><span class="n">u</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id18">
+<span id="fig-machinelearningunsupervisedpca-mnist-covepsilon"></span><a class="reference internal image-reference" href="../../../_images/PCA_MNIST_CovEpsilon.png"><img alt="白化后数据的协方差矩阵" src="../../../_images/PCA_MNIST_CovEpsilon.png" style="width: 1010.0px; height: 817.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.27 </span><span class="caption-text">白化后数据的协方差矩阵</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>白化后数据的协方差矩阵</p>
+</div>
+</div>
+<ul class="simple">
+<li><p>ZCA白化：</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">xZCAWhite</span> <span class="p">=</span> <span class="n">u</span><span class="o">*</span><span class="nb">diag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="n">epsilon</span><span class="p">))</span><span class="o">*</span><span class="n">u</span><span class="o">&#39;*</span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id19">
+<span id="fig-machinelearningunsupervisedzca-mnist-recovery"></span><a class="reference internal image-reference" href="../../../_images/ZCA_MNIST_recovery.png"><img alt="ZCA维数约简后重构的图像" src="../../../_images/ZCA_MNIST_recovery.png" style="width: 961.0px; height: 723.0px;" /></a>
+<p class="caption"><span class="caption-number">图 3.28 </span><span class="caption-text">ZCA维数约简后重构的图像</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>ZCA维数约简后重构的图像</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../glossary.html" class="btn btn-neutral float-right" title="4. 名词术语" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="3. 无监督学习" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

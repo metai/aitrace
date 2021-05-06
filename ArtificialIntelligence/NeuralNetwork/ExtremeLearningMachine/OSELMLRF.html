@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.6. 基于局部感受野的在线极速学习机 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="6. 极速学习机" href="index.html"/>
+        <link rel="next" title="6.7. 参考文献" href="zreference.html"/>
+        <link rel="prev" title="6.5. 在线极速学习机" href="OSELM.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MachineLearning/index.html">机器学习</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">神经网络</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ModulesOfNN/index.html">2. 神经网络组件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LossFunctions/index.html">3. 神经网络常用损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SimpleNeuralNetwork/index.html">4. 简单神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SupportVectorMachine/index.html">5. 支撑矢量机</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">6. 极速学习机</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ELM.html">6.1. 经典极速学习机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ELMLRF.html">6.2. 基于局部感受野的极速学习机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FuzzyELM.html">6.3. 模糊极速学习机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FuzzyELMLRF.html">6.4. 基于局部感受野的模糊极速学习机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OSELM.html">6.5. 在线极速学习机</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">6.6. 基于局部感受野的在线极速学习机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zreference.html">6.7. 参考文献</a></li>
+<li class="toctree-l4"><a class="reference internal" href="glossary.html">6.8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RecursiveNeuralNetwork/index.html">9. 递归神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResidualNeuralNetwork/index.html">11. 残差神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FractalNeuralNetwork/index.html">12. 分形神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticNeuralNetwork/index.html">13. 随机神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ComplexityAnalysis/index.html">14. 复杂度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">15. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">16. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">神经网络</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">6. </span>极速学习机</a> &raquo;</li>
+        
+      <li><span class="section-number">6.6. </span>基于局部感受野的在线极速学习机</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-onilinesequeextremelearningmachinelocalreceptivefields">
+<span id="id1"></span><h1><span class="section-number">6.6. </span>基于局部感受野的在线极速学习机<a class="headerlink" href="#section-onilinesequeextremelearningmachinelocalreceptivefields" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">6.6.1. </span>简介<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>一般来说, 隐藏层节点要足够多, ELM 算法如果要取得较好的效果, 一方面由于训练数据集往往比较大, 不能一次性送入ELM进行训练, 另一方面, 现实生活中, 数据往往不能一次性获得.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ul class="simple">
+<li><p>在线极速学习机参见章节 <a class="reference internal" href="OSELM.html#section-onilinesequentialextremelearningmachine"><span class="std std-ref">在线极速学习机</span></a></p></li>
+<li><p>有关基于局部感受野的极速学习机参见章节 <a class="reference internal" href="ELMLRF.html#section-extremelearningmachinelocalreceptivefields"><span class="std std-ref">基于局部感受野的极速学习机</span></a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="oselm-lrf">
+<h2><span class="section-number">6.6.2. </span>OSELM-LRF原理<a class="headerlink" href="#oselm-lrf" title="永久链接至标题">¶</a></h2>
+<p>下面介绍 <strong>基于局部感受野的在线极速学习机</strong> (Local Receptive Fields based Oniline Sequential Extreme Learning Machine, OSELM-LRF) 原理.</p>
+<p>考虑如下ELM问题</p>
+<div class="math">
+\[\|\boldsymbol{\beta}\|_{2}^{2}+C\|\bm{H} \boldsymbol{\beta}-\bm{T}\|_{2}^{2}
+
+\]</div>
+<p>其最小二乘解为</p>
+<div class="math">
+\[{\bm \beta}=\left\{\begin{array}{ll}{\bm{H}^{T}\left(\frac{\bm{I}}{C}+\bm{H} \bm{H}^{T}\right)^{-1} \bm{T},} & {\text { if } N \leq L} \\ {\left(\frac{\bm{I}}{C}+\bm{H}^{T} \bm{H}\right)^{-1} \bm{H}^{T} \bm{T},} & {\text { if } N>L}\end{array}\right.
+
+\]</div>
+<p>考虑解 <span class="math">\(\left(\frac{\bm{I}}{C}+\bm{H}^{T} \bm{H}\right)^{-1} \bm{H}^{T} \bm{T}\)</span> .</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>虽然初始样本数 <span class="math">\(N_0 &lt; L\)</span> , 但随着样本源源不断地到来, 最终会有 <span class="math">\(\sum_{j=1}^k N_k &gt; L\)</span> .</p>
+</div>
+<p>给定初始训练集 <span class="math">\({\mathbb S}_0 = \{({\bm x}_i, {\bm t}_i)\}_{i=1}^{N_0}\)</span> , 其中, <span class="math">\(N_0\)</span> 为样本数, 且 <span class="math">\(N_0 &gt; L\)</span> . 从而有初始解</p>
+<div class="math">
+\[{\bm \beta_{0}}=\bm{K}_{0}^{-1} \bm{H}_{0}^{T} \bm{T}_{0}, \;\bm{K}_{0}=\frac{\bm{I}}{C} + \bm{H}_{0}^{T} \bm{H}_{0}
+
+\]</div>
+<p>假如又可以获得训练集 <span class="math">\({\mathbb S}_1 = \{({\bm x}_i, {\bm t}_i)\}_{i=N_0+1}^{N_0+N_1}\)</span> , 其中 <span class="math">\(N_1\)</span> 为新样本数目, 问题变为最小化</p>
+<div class="math">
+\[\left\| {\bm{\beta }} \right\|_2^2 + C\left\| {\left[ {\begin{array}{ccc}
+{{{\bf{H}}_0}}\\
+{{{\bf{H}}_1}}
+\end{array}} \right]{\bm{\beta }} - \left[ {\begin{array}{ccc}
+{{{\bf{T}}_0}}\\
+{{{\bf{T}}_1}}
+\end{array}} \right]} \right\|_2^2
+
+\]</div>
+<p>其解为:</p>
+<div class="math">
+\[\boldsymbol{\beta}_{1}=\bm{K}_{1}^{-1} \left[ \begin{array}{c}{\bm{H}_{0}} \\ {\bm{H}_{1}}\end{array}\right]^{T} \left[ \begin{array}{c}{\bm{T}_{0}} \\ {\bm{T}_{1}}\end{array}\right],
+
+\]</div>
+<p>其中,</p>
+<div class="math">
+\[\begin{aligned} \bm{K}_{1} &=\frac{\bm{I}}{C}+\left[ \begin{array}{c}{\bm{H}_{0}} \\ {\bm{H}_{1}}\end{array}\right]^{T} \left[ \begin{array}{c}{\bm{H}_{0}} \\ {\bm{H}_{1}}\end{array}\right] \\ &=\frac{\bm{I}}{C}+\bm{H}_{0}^{T} \bm{H}_{0}+\bm{H}_{1}^{T} \bm{H}_{1} \\ &=\bm{K}_{0}+\bm{H}_{1}^{T} \bm{H}_{1} \end{aligned}
+
+\]</div>
+<p>又</p>
+<div class="math">
+\[\begin{aligned} \left[ \begin{array}{c}{\bm{H}_{0}} \\ {\bm{H}_{1}}\end{array}\right]^{T} \left[ \begin{array}{c}{\bm{T}_{0}} \\ {\bm{T}_{1}}\end{array}\right] &=\bm{H}_{0}^{T} \bm{T}_{0}+\bm{H}_{1}^{T} \bm{T}_{1} \\ &=\bm{K}_{0} \bm{K}_{0}^{-1} \bm{H}_{0}^{T} \bm{T}_{0}+\bm{H}_{1}^{T} \bm{T}_{1} \\ &=\bm{K}_{0} {\bm \beta_{0}}+\bm{H}_{1}^{T} \bm{T}_{1} \\ &=\left(\bm{K}_{1}-\bm{H}_{1}^{T} \bm{H}_{1}\right) {\bm \beta_{0}}+\bm{H}_{1}^{T} \bm{T}_{1} \\ &=\bm{K}_{1} {\bm \beta_{0}}-\bm{H}_{1}^{T} \bm{H}_{1} \boldsymbol{\beta}_{0}+\bm{H}_{1}^{T} \bm{T}_{1} \end{aligned}
+
+\]</div>
+<p>所以, <span class="math">\({\boldsymbol \beta}_1\)</span> 可以表示成 <span class="math">\({\boldsymbol \beta}_0\)</span> 的函数</p>
+<div class="math">
+\[\begin{aligned} {\bm \beta_{1}} &=\bm{K}_{1}^{-1} \left[ \begin{array}{c}{\bm{H}_{0}} \\ {\bm{H}_{1}}\end{array}\right]^{T} \left[ \begin{array}{c}{\bm{T}_{0}} \\ {\bm{T}_{1}}\end{array}\right] \\ &=\bm{K}_{1}^{-1}\left(\bm{K}_{1} \boldsymbol{\beta}_{0}-\bm{H}_{1}^{T} \bm{H}_{1} \boldsymbol{\beta}_{0}+\bm{H}_{1}^{T} \bm{T}_{1}\right) \\ &=\boldsymbol{\beta}_{0}+\bm{K}_{1}^{-1} \bm{H}_{1}^{T}\left(\bm{T}_{1}-\bm{H}_{1} {\bm \beta_{0}}\right) \end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(\bm{K}_{1}=\bm{K}_{0}+\bm{H}_{1}^{T} \bm{H}_{1}\)</span> . 依次类推, 可以得到权重 <span class="math">\(\bm \beta\)</span> 的迭代更新公式</p>
+<div class="math" id="equation-equ-oselmlrf-solution-beta-iterative">
+<span class="eqno">(6.9)<a class="headerlink" href="#equation-equ-oselmlrf-solution-beta-iterative" title="公式的永久链接">¶</a></span>\[\begin{aligned} \bm{K}_{k+1} &=\bm{K}_{k}+\bm{H}_{k+1}^{T} \bm{H}_{k+1} \\ {\bm \beta}_{k+1} &={\bm \beta}_{k}+\bm{K}_{k+1}^{-1} \bm{H}_{k+1}^{T}\left(\bm{T}_{k+1}-\bm{H}_{k+1} \boldsymbol{\beta}_{k}\right), \end{aligned}
+
+\]</div>
+<p>可见, 含权重正则的 OSELM 问题与不含权重正则的 OSELM 问题的权重迭代更新公式相同, 区别在于初始化权重 <span class="math">\({\bm \beta}_0\)</span> 的计算. 根据 <a class="reference internal" href="OSELM.html#section-onilinesequentialextremelearningmachine"><span class="std std-ref">在线极速学习机</span></a> 小节推导, 可知含权重正则的基于局部感受野的在线极速学习机的权重更新公式为</p>
+<div class="math" id="equation-equ-oselmlrf-solution-beta-iterative-better-chunkbychunk">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-equ-oselmlrf-solution-beta-iterative-better-chunkbychunk" title="公式的永久链接">¶</a></span>\[\begin{aligned} \bm{P}_{k+1} &=\bm{P}_{k}-\bm{P}_{k} \bm{H}_{k+1}^{T}\left(\bm{I}+\bm{H}_{k+1} \bm{P}_{k} \bm{H}_{k+1}^{T}\right)^{-1} \bm{H}_{k+1} \bm{P}_{k} \\ \boldsymbol{\beta}_{k+1} &=\boldsymbol{\beta}_{k}+\bm{P}_{k+1} \bm{H}_{k+1}^{T}\left(\bm{T}_{k+1}-\bm{H}_{k+1} \boldsymbol{\beta}_{k}\right) \end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\({\bm I}\in{\mathbb R}^{N_k\times N_k}\)</span> 为单位矩阵, 当 <span class="math">\(N_k &lt; L\)</span> 时, <a class="reference internal" href="OSELM.html#equation-equ-oselm-solution-beta-iterative-better-chunkbychunk">式.6.7</a> 可以减小计算量.</p>
+<p>若样本以 one-by-one 的形式输入 OSELM, 则更新公 <a class="reference internal" href="#equation-equ-oselmlrf-solution-beta-iterative-better-chunkbychunk">式.6.10</a> 简化为</p>
+<div class="math" id="equation-equ-oselm-solution-beta-iterative-better-onebyone">
+<span class="eqno">(6.11)<a class="headerlink" href="#equation-equ-oselm-solution-beta-iterative-better-onebyone" title="公式的永久链接">¶</a></span>\[\begin{array}{l}{\bm{P}_{k+1}=\bm{P}_{k}-\frac{\bm{P}_{k} \bm{h}_{k+1} \bm{h}_{k+1}^{T} \bm{P}_{k}}{1+\bm{h}_{k+1}^{T} \bm{P}_{k} \bm{h}_{k+1}}} \\ {{\bm \beta}_{k+1}={\bm \beta}_{k}+\bm{P}_{k+1} \bm{h}_{k+1}\left(\bm{t}_{k+1}^{T}-\bm{h}_{k+1}^{T} {\bm \beta}_{k}\right)}\end{array}.
+
+\]</div>
+<p>基于局部感受野的在线极速学习机训练算法总结如下:</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>输入</strong>: 样本序列 <span class="math">\(\mathbb{S}_{0}=\left\{\left(\bm{x}_{i}, \bm{t}_{i}\right)\right\}_{i=1}^{N_{0}}\)</span> , <span class="math">\({\mathbb S}_{1}=\left\{\left(\bm{x}_{i}, \bm{t}_{i}\right)\right\}_{i=N_{0}+1}^{N_{0}+N_{1}}\)</span> , <span class="math">\(\cdots\)</span> , <span class="math">\({\mathbb S}_{k+1}=\left\{\left(\bm{x}_{i}, \bm{t}_{i}\right)\right\}_{i=\sum_{j=1}^k N_{j}+1}^{\sum_{j=1}^{k+1} N_{j}}\)</span> , <span class="math">\(k=1, 2, \cdots, K\)</span> , 最大训练代数 <span class="math">\(O\)</span> .</p>
+<p><strong>输出</strong>: 更新输出层权重 <span class="math">\({\bm \beta}_{O}\)</span></p>
+<ol class="arabic">
+<li><p>初始训练(<span class="math">\(k=0\)</span>, <span class="math">\(N_0 &gt; L\)</span>):</p>
+<p>计算初始样本集 <span class="math">\({\mathbb S}_0\)</span> 的隐藏层输出 <span class="math">\({\bm H}_0\)</span> , 估计初始权重 <span class="math">\({\bm \beta}_0 = \bm{P}_{0} \bm{H}_{0}^{T} \bm{T}_{0}\)</span> , 其中 <span class="math">\(\bm{P}_{0}= \left(\frac{\bm I}{C} + \bm{H}_{0}^{T} \bm{H}_{0}\right)^{-1}\)</span> , <span class="math">\(\bm{T}_{0}=\left[\bm{t}_{1}, \dots, \bm{t}_{N_{0}}\right]^{T}\)</span> .</p>
+</li>
+<li><p>序列学习(<span class="math">\(k=1, 2, \cdots, K\)</span>, <span class="math">\(N_k\)</span> 为样本数):</p>
+<ul>
+<li><p>若 <span class="math">\(N_k &gt; 1\)</span> , 计算第 <span class="math">\(k+1\)</span> 个样本集 <span class="math">\({\mathbb S}_{k+1}\)</span> 的隐藏层输出 <span class="math">\({\bm H}_{k+1}\in {\mathbb R}^{N_k\times L}\)</span>, 并根据下式更新权重;</p>
+<blockquote>
+<div><div class="math">
+\[\begin{aligned} \bm{P}_{k+1} &=\bm{P}_{k}-\bm{P}_{k} \bm{H}_{k+1}^{T}\left(\bm{I}+\bm{H}_{k+1} \bm{P}_{k} \bm{H}_{k+1}^{T}\right)^{-1} \bm{H}_{k+1} \bm{P}_{k} \\ \boldsymbol{\beta}_{k+1} &=\boldsymbol{\beta}_{k}+\bm{P}_{k+1} \bm{H}_{k+1}^{T}\left(\bm{T}_{k+1}-\bm{H}_{k+1} \boldsymbol{\beta}_{k}\right) \end{aligned}
+
+\]</div>
+</div></blockquote>
+</li>
+<li><p>若 <span class="math">\(N_k = 1\)</span> , 计算第 <span class="math">\(k+1\)</span> 个样本集 <span class="math">\({\mathbb S}_{k+1}\)</span> 的隐藏层输出 <span class="math">\({\bm h}_{k+1}\in {\mathbb R}^{L\times 1}\)</span>,  则根据下式更新权重;</p>
+<div class="math">
+\[\begin{array}{l}{\bm{P}_{k+1}=\bm{P}_{k}-\frac{\bm{P}_{k} \bm{h}_{k+1} \bm{h}_{k+1}^{T} \bm{P}_{k}}{1+\bm{h}_{k+1}^{T} \bm{P}_{k} \bm{h}_{k+1}}} \\ {\boldsymbol{\beta}_{k+1}=\boldsymbol{\beta}_{k}+\bm{P}_{k+1} \bm{h}_{k+1}\left(\bm{t}_{k+1}^{T}-\bm{h}_{k+1}^{T} \boldsymbol{\beta}_{k}\right)}\end{array}
+
+\]</div>
+</li>
+</ul>
+<p>当 <span class="math">\(k = K\)</span> 时完成一代训练, 并输出权重 <span class="math">\({\bm \beta}_{o} = {\bm \beta}_{K}\)</span> , <span class="math">\(o = o + 1\)</span> .</p>
+</li>
+<li><p>随机打乱样本集 <span class="math">\(\mathbb{S}_{k}, k=1,2,\cdots, K\)</span> 的顺序, 并重复步骤2至最大训练代数 <span class="math">\(o = O\)</span> 时停止.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zreference.html" class="btn btn-neutral float-right" title="6.7. 参考文献" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OSELM.html" class="btn btn-neutral" title="6.5. 在线极速学习机" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2.1. Sinc插值 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../../index.html"/>
+        <link rel="up" title="2.2. 插值算法" href="index.html"/>
+        <link rel="next" title="3. 谱估计理论" href="../../SpectralEstimation/index.html"/>
+        <link rel="prev" title="2.2. 插值算法" href="index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">数字信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../Introduction.html">1. 引言</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">2. 基础内容</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Introduction.html">2.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">2.2. 插值算法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../SpectralEstimation/index.html">3. 谱估计理论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../TimeFrequencyAnalysis/index.html">4. 时频分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">5. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Sparse/index.html">稀疏信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../../index.html">数字信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html"><span class="section-number">2. </span>基础内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2.2. </span>插值算法</a> &raquo;</li>
+        
+      <li><span class="section-number">2.2.1. </span>Sinc插值</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sinc">
+<span id="section-sincinterpolationinterpolationbasicdigitalsignalprocessing"></span><h1><span class="section-number">2.2.1. </span>Sinc插值<a class="headerlink" href="#sinc" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>Sinc插值原理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><strong>Sinc插值</strong> ( <a class="reference internal" href="../../glossary.html#term-sinc-interpolation"><span class="xref std std-term">Sinc Interpolation</span></a> ) 也叫 <strong>Whittaker–Shannon interpolation</strong> 是一种从真实离散序列构造一个连续时间带限函数的方法， 即根据实际离散采样点逼近连续函数.</p>
+<div class="math">
+\[x(t) = \sum_{n=-\infty}^{+\infty}{x[n]{\rm sinc}\left(\frac{t-nT}{T}\right)}\\
+~~~~ = \sum_{n=-\infty}^{+\infty}{x[n]{\rm sinc}\left(\frac{t}{T}-n\right)}
+
+\]</div>
+<p>其中, <span class="math">\(T\)</span> 为采样间隔, <span class="math">\({\rm sinc}(t) = \frac{{\rm sin}(\pi t)}{\pi t}\)</span> 称为归一化的 <span class="math">\({\rm sinc}\)</span> , 与数学中定义的 <span class="math">\({\rm sinc}(x) = \frac{{\rm sin}(x)}{x}\)</span> 不同.</p>
+<p>上式可以表示为卷积形式:</p>
+<div class="math">
+\[x(t) = \left(\sum_{n=-\infty}^{+\infty}x[n]\cdot \delta(t-nT)\right)*{\rm sinc}\left(\frac{t}{T}\right),
+
+\]</div>
+<p>相当于采用一个低通滤波器滤波.</p>
+</div>
+<div class="section" id="id2">
+<h2>实验与分析<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>sinc 函数特性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id4">
+<h4>实验代码<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<p>本书Python实现代码, 参见文件 <a class="reference external" href="../../../../_static/src/python/SignalProcessing/Digital/Basic/Interpolation/demo_SincProperties.py">demo_SincProperties.py</a>  .</p>
+</div>
+<div class="section" id="id5">
+<h4>实验结果<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/sincTp=1.png"><img alt="properties of sinc" src="../../../../_images/sincTp=1.png" style="width: 904.8000000000001px; height: 463.20000000000005px;" /></a>
+<p class="caption"><span class="caption-number">图 2.12 </span><span class="caption-text">Properties of sinc, <span class="math">\(T_p=1s\)</span></span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/sincTp=4.png"><img alt="properties of sinc" src="../../../../_images/sincTp=4.png" style="width: 981.6px; height: 486.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 2.13 </span><span class="caption-text">Properties of sinc, <span class="math">\(T_p=4s\)</span></span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>sinc 插值<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>实验代码<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>可参考代码:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.johnloomis.org/ece561/notes/sinc_interp/sinc_interp.html">MATLAB code by Dr. John S. Loomis</a></p></li>
+<li><p><a class="reference external" href="https://ww2.mathworks.cn/matlabcentral/fileexchange/59027-time-domain-sinc-interpolation-resampling">Time-domain Sinc Interpolation (Resampling)</a></p></li>
+</ul>
+<p>“MATLAB code by Dr. John S. Loomis” –&gt; <cite>sinc_interp.m</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">function</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sinc_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+  <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.*</span><span class="n">sinc</span><span class="p">(</span><span class="n">m</span><span class="o">-</span> <span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">)));</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p><cite>demo_sinc_interp.m</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">n</span><span class="o">.*</span><span class="n">a</span><span class="o">.^</span><span class="n">n</span><span class="p">;</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">k</span><span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)));</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">512</span><span class="p">);</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">sinc_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">256</span><span class="p">),</span> <span class="n">x2</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">256</span><span class="p">),</span> <span class="s1">&#39;-r&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;sinc interpolated&#39;</span><span class="p">)</span>
+<span class="n">hold</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">interp1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">256</span><span class="p">),</span><span class="n">xi</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">256</span><span class="p">),</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;interp1 interpolated&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="s1">&#39;o&#39;</span><span class="p">);</span>
+
+<span class="n">legend</span><span class="p">({</span><span class="s1">&#39;sinc interpolated&#39;</span><span class="p">,</span> <span class="s1">&#39;interp1 interpolated&#39;</span><span class="p">,</span> <span class="s1">&#39;orignal&#39;</span><span class="p">})</span>
+<span class="n">hold</span> <span class="n">off</span>
+</pre></div>
+</div>
+<p>本书Python实现代码, 参见文件 <a class="reference external" href="../../../../_static/src/python/SignalProcessing/Digital/Basic/Interpolation/demo_SincInterpolation.py">demo_SincInterpolation.py</a>  .</p>
+</div>
+<div class="section" id="id8">
+<h4>实验结果<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/SincInterpolation.png"><img alt="sinc 插值示例1" src="../../../../_images/SincInterpolation.png" style="width: 640.0px; height: 480.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.14 </span><span class="caption-text">sinc 插值示例1</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/SincInterpolation2.png"><img alt="sinc 插值示例1" src="../../../../_images/SincInterpolation2.png" style="width: 640.0px; height: 480.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.15 </span><span class="caption-text">sinc 插值示例2</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../SpectralEstimation/index.html" class="btn btn-neutral float-right" title="3. 谱估计理论" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2.2. 插值算法" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

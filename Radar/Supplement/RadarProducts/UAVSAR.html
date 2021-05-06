@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.10. UAVSAR 产品介绍 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 雷达产品" href="index.html"/>
+        <link rel="next" title="1.11. LVIS产品介绍" href="LVIS.html"/>
+        <link rel="prev" title="1.9. AIRSAR 产品介绍" href="AIRSAR.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SAR/index.html">合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">补充内容</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 雷达产品</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">1.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GetDataOverview.html">1.2. 雷达数据获取</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProductDataFormations.html">1.3. 雷达产品数据格式简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RADARSAT.html">1.4. RADARSAT 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ERS.html">1.5. ERS系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnvisatASAR.html">1.6. Envisat ASAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ALOSPALSAR.html">1.7. ALOS PALSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SentinelX.html">1.8. Sentinel系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIRSAR.html">1.9. AIRSAR 产品介绍</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.10. UAVSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LVIS.html">1.11. LVIS产品介绍</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Dataset/index.html">2. 雷达数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LibrariesSoftwares/index.html">3. 雷达库与软件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">4. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">补充内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>雷达产品</a> &raquo;</li>
+        
+      <li><span class="section-number">1.10. </span>UAVSAR 产品介绍</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="uavsar">
+<span id="section-uavsarradarproductsupplementradar"></span><h1><span class="section-number">1.10. </span>UAVSAR 产品介绍<a class="headerlink" href="#uavsar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">1.10.1. </span>UAVSAR 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>UAVSAR (Uninhabited/Unmanned Aerial Vehicle Synthetic Aperture Radar) 是由美国国家航空和航天局 (National Aeronautics and Space Administration, NASA) 的喷气推进实验室（Jet Propulsion Laboratory, JPL）设计和建造的一种无人驾驶飞行器合成孔径雷达, 属于机载合成孔径雷达的一种, 专门被设计用于获取机载重复轨道SAR数据, 从而用于差分干涉测量. UAVSAR 于2007年8月发射, 服役至今(2020年). 有关 UAVSAR 的信息可在 <a class="reference external" href="https://uavsar.jpl.nasa.gov/">这里</a> 和 <a class="reference external" href="https://asf.alaska.edu/data-sets/sar-data-sets/uavsar/">这里</a>   查看, 从 <a class="reference external" href="https://www.asf.alaska.edu/">ASF</a> 和 <a class="reference external" href="https://uavsar.jpl.nasa.gov/cgi-bin/data.pl">JPL</a>  上均可以下载 UAVSAR 产品数据.</p>
+<ul class="simple">
+<li><p>PolSAR: MLC, Compressed Stokes Matrix, Ground Projected Complex, Pauli Decomposition</p></li>
+<li><p>RPI: Interferogram, Ground Projected Interferogram, Amplitude, Ground Projected Amplitude</p></li>
+</ul>
+<div class="section" id="id4">
+<h3>UAVSAR 平台参数与工作模式<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">table-ParametersUAVSARPlatform</span></code></p>
+<p>详细的参数参见 <a class="reference external" href="https://earth.esa.int/web/eoportal/airborne-sensors/uavsar">这里</a></p>
+<p>AIRSAR有两种工作模式, 分别为: 极化合成孔径雷达 (POLarimetric Synthetic Aperture Radar, POLSAR) 模式, 重复轨道干涉合成孔径雷达 (Repeat Pass Interferometry, RPI) 模式</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">1.10.2. </span>数据读取<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3>多视数据<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>多视数据文件后缀名为 <code class="docutils literal notranslate"><span class="pre">.mlc</span></code>, 其中为数据的二进制值, 每个浮点数占4字节, 按行顺序存储, 若为复数数据, 则按实部虚部的顺序存储, 在MATLAB中可以使用如下代码读取:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">im_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3185</span><span class="p">,</span> <span class="mi">5843</span><span class="p">];</span>
+<span class="n">im_size_c</span> <span class="o">=</span> <span class="n">im_size</span><span class="o">.*</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="o">%</span> <span class="k">for</span> <span class="n">real</span> <span class="n">floating</span><span class="o">-</span><span class="n">point</span> <span class="n">data</span>
+<span class="n">fid</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">);</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span><span class="n">im_size</span><span class="p">,</span><span class="s1">&#39;real*4=&gt;single&#39;</span><span class="p">);</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fid</span><span class="p">);</span>
+
+
+<span class="o">%</span> <span class="k">for</span> <span class="nb">complex</span> <span class="n">floating</span><span class="o">-</span><span class="n">point</span> <span class="n">data</span>
+<span class="n">fid</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">);</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span><span class="n">im_size_c</span><span class="p">,</span><span class="s1">&#39;real*4=&gt;single&#39;</span><span class="p">);</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">end</span><span class="p">,</span> <span class="p">:)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">X</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">end</span><span class="p">,</span> <span class="p">:);</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fid</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>以 <strong>Salt Lake City</strong> 的区域为例, 如 <a class="reference internal" href="#fig-asf-searchuavsardata"><span class="std std-numref">图 1.40</span></a> 所示, 从ASF上可查询到 Salt Lake City 区域的两景数据, 选择数据 <code class="docutils literal notranslate"><span class="pre">stlake_27129_20002_008_200131_L090_CX_01_mlc.zip</span></code> 下载, 对应  <a class="reference internal" href="#fig-asf-searchuavsardata"><span class="std std-numref">图 1.40</span></a> 中的红色框, 读取后显示得到 <a class="reference internal" href="#fig-uavsar-stlake-27129-20002-008-200131-l090hhhv-cx-01"><span class="std std-numref">图 1.41</span></a> 所示结果, 对比 <a class="reference internal" href="#fig-asf-searchuavsardata"><span class="std std-numref">图 1.40</span></a> 和 <a class="reference internal" href="#fig-uavsar-stlake-27129-20002-008-200131-l090hhhv-cx-01"><span class="std std-numref">图 1.41</span></a>, 可知数据读取正确.</p>
+<div class="figure align-center" id="id9">
+<span id="fig-asf-searchuavsardata"></span><img alt="Search UAVSAR data" src="../../../_images/ASF_UAVSAR_MLC_SaltLakeCity.png" />
+<p class="caption"><span class="caption-number">图 1.40 </span><span class="caption-text">Search UAVSAR data</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<p>需要注意的是, 原始数据大小为 <span class="math">\(3185×5843\)</span>,  <a class="reference internal" href="#fig-uavsar-stlake-27129-20002-008-200131-l090hhhv-cx-01"><span class="std std-numref">图 1.41</span></a> 所示结果被降采样至 <span class="math">\(1366×744\)</span>. 此外, 由于飞机自西向东飞行, 成像后的数据进行水平翻转后才能与实际区域相吻合.</p>
+<div class="figure align-center" id="id10">
+<span id="fig-uavsar-stlake-27129-20002-008-200131-l090hhhv-cx-01"></span><img alt="Visualization of stlake_27129_20002_008_200131_L090HHHV_CX_01" src="../../../_images/UAVSAR_stlake_27129_20002_008_200131_L090HHHV_CX_01.png" />
+<p class="caption"><span class="caption-number">图 1.41 </span><span class="caption-text">Visualization of data stlake_27129_20002_008_200131_L090HHHV_CX_01</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">1.10.3. </span>数据成像<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="LVIS.html" class="btn btn-neutral float-right" title="1.11. LVIS产品介绍" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="AIRSAR.html" class="btn btn-neutral" title="1.9. AIRSAR 产品介绍" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

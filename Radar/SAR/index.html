@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>合成孔径雷达 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../index.html"/>
+        <link rel="up" title="第七卷 雷达信号处理" href="../index.html"/>
+        <link rel="next" title="1. 合成孔径雷达简介" href="Introduction.html"/>
+        <link rel="prev" title="6. 参考文献" href="../ContinuousWaveRadar/zreference.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">合成孔径雷达</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/index.html">2. SAR系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simulation/index.html">3. SAR仿真技术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/index.html">4. SAR成像理论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/index.html">9. 实验集锦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+      <li>合成孔径雷达</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="part-sarradar">
+<span id="id1"></span><h1>合成孔径雷达<a class="headerlink" href="#part-sarradar" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">1. 合成孔径雷达简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#what-is">1.1. What is？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SystemOverview/index.html">2. SAR系统概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SystemOverview/Concept.html">2.1. 相关概念汇总</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#sar">2.1.1. SAR分类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#id2">2.1.2. SAR成像几何关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#id3">2.1.3. 符号列表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#id4">2.1.4. SAR数据获取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#id7">2.1.5. SAR成像模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#speckle">2.1.6. 斑点噪声(Speckle)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#id9">2.1.7. 公式总结</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/Concept.html#id10">2.1.8. 术语解释</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SystemOverview/System.html">2.2. SAR系统组成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/System.html#id1">2.2.1. 硬件系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/System.html#id2">2.2.2. 脉冲时序与采样</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/System.html#id3">2.2.3. 几何建模</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SystemOverview/SAREmittedSignal.html">2.3. SAR发射信号及其性质</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/SAREmittedSignal.html#id1">2.3.1. SAR发射信号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/SAREmittedSignal.html#id3">2.3.2. 为什么采用复指数信号</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SystemOverview/SAREchoSignal.html">2.4. SAR回波信号及其性质</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/SAREchoSignal.html#id1">2.4.1. SAR回波信号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/SAREchoSignal.html#id3">2.4.2. 回波信号解调</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/SAREchoSignal.html#id5">2.4.3. SAR 冲击响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SystemOverview/SAREchoSignal.html#id6">2.4.4. 小斜视SAR回波信号的频谱</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SystemOverview/PulseCompression.html">2.5. 脉冲压缩</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Simulation/index.html">3. SAR仿真技术</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Simulation/EchoSignalModelBased.html">3.1. 回波信号模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Simulation/EchoSignalModelBased.html#sar">3.1.1. SAR回波信号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simulation/EchoSignalModelBased.html#id4">3.1.2. 时域回波仿真</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Simulation/SpectrumAnalysis.html">3.2. SAR回波频谱分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Simulation/SpectrumAnalysis.html#id1">3.2.1. 仿真数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simulation/SpectrumAnalysis.html#id2">3.2.2. 真实数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Imaging/index.html">4. SAR成像理论</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Imaging/intro.html">4.1. SAR成像简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/intro.html#id1">4.1.1. 不同成像方法结果对比</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Imaging/RangeDopplerAlgorithm.html">4.2. 距离多普勒成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/RangeDopplerAlgorithm.html#id2">4.2.1. 距离多普勒方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/RangeDopplerAlgorithm.html#id16">4.2.2. 实验与分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Imaging/ChirpScalingAlgorithm.html">4.3. 调频变标成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/ChirpScalingAlgorithm.html#id2">4.3.1. 调频变标原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/ChirpScalingAlgorithm.html#id3">4.3.2. 调频变标成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/ChirpScalingAlgorithm.html#id9">4.3.3. 实验与分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Imaging/Regularization.html">4.4. 正则化成像方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/Regularization.html#id2">4.4.1. 正则化成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/Regularization.html#id3">4.4.2. 实验与分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Imaging/CompressiveSensing.html">4.5. 压缩感知成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/CompressiveSensing.html#sar">4.5.1. 压缩感知SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Imaging/CompressiveSensing.html#id6">4.5.2. 实验与分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HighresolutionImaging/index.html">5. SAR高分辨成像</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="HighresolutionImaging/intro.html">5.1. SAR高分辨成像简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HighresolutionImaging/DopplerCentroidEstimation.html">5.2. 多普勒中心估计</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HighresolutionImaging/DopplerCentroidEstimation.html#id2">5.2.1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HighresolutionImaging/DopplerCentroidEstimation.html#id5">5.2.2. 传统估计方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HighresolutionImaging/DopplerCentroidEstimation.html#id6">5.2.3. 怎么做</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HighresolutionImaging/DopplerRateEstimation.html">5.3. 多普勒率估计</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HighresolutionImaging/DopplerRateEstimation.html#id2">5.3.1. 引言</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SuperresolutionImaging/index.html">6. SAR超分辨成像</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SuperresolutionImaging/intro.html">6.1. SAR超分辨成像简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/intro.html#id1">6.1.1. 不同成像方法结果对比</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SuperresolutionImaging/BandwidthExtrapolation.html">6.2. 带宽外推超分辨SAR成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/BandwidthExtrapolation.html#id1">6.2.1. 带宽外推</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SuperresolutionImaging/ClassicalSpectralEstimation.html">6.3. 经典谱估计超分辨SAR成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/ClassicalSpectralEstimation.html#id1">6.3.1. 经典谱估计</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SuperresolutionImaging/ModernSpectralEstimation.html">6.4. 现代谱估计超分辨SAR成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/ModernSpectralEstimation.html#id1">6.4.1. 现代谱估计</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SuperresolutionImaging/Regularization.html">6.5. 正则化超分辨成像方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/Regularization.html#id2">6.5.1. 实验与分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SuperresolutionImaging/CompressiveSensing.html">6.6. 压缩感知超分辨SAR成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/CompressiveSensing.html#id1">6.6.1. 压缩感知超分辨SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/CompressiveSensing.html#id4">6.6.2. 实验与分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SuperresolutionImaging/CompressiveSensing.html#id5">6.6.3. 实验与分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DeepLearningImaging/index.html">7. 深度学习与SAR成像</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DeepLearningImaging/intro.html">7.1. 深度学习与SAR成像简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DeepLearningImaging/LCI-DCN.html">7.2. 学习式压缩感知成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/LCI-DCN.html#id2">7.2.1. 动机与贡献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/LCI-DCN.html#id3">7.2.2. 原理与方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/LCI-DCN.html#id6">7.2.3. 学习式压缩成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/LCI-DCN.html#id8">7.2.4. 实验与分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DeepLearningImaging/GCI-IQGAN.html">7.3. 基于IQGAN的生成式超分辨SAR成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/GCI-IQGAN.html#id1">7.3.1. 动机与贡献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/GCI-IQGAN.html#id2">7.3.2. 原理与方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/GCI-IQGAN.html#id6">7.3.3. 实验与分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DeepLearningImaging/SiameseSR.html">7.4. 学习式压缩感知成像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DeepLearningImaging/SiameseSR.html#id2">7.4.1. 动机与贡献</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ImageSuperresolution/index.html">8. SAR图像超分辨</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Experiments/index.html">9. 实验集锦</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Experiments/BasicExperiments.html">9.1. 基础分析实验</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/BasicExperiments.html#id2">9.1.1. 实验说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/BasicExperiments.html#id5">9.1.2. 调频方向分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/BasicExperiments.html#id6">9.1.3. 分辨率分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/BasicExperiments.html#subsection-rcmcbasicexperimentsexperimentssarradar">9.1.4. 距离徙动校正</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Experiments/SubRegionImaging.html">9.2. 子区域成像实验</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/SubRegionImaging.html#id2">9.2.1. 实验说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/SubRegionImaging.html#id3">9.2.2. 仿真数据实验</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Experiments/SubRegionImaging.html#id7">9.2.3. 真实数据实验</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zreference.html">10. 参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">11. 名词术语</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Introduction.html" class="btn btn-neutral float-right" title="1. 合成孔径雷达简介" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ContinuousWaveRadar/zreference.html" class="btn btn-neutral" title="6. 参考文献" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3. 范数的应用 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 范数理论及应用" href="index.html"/>
+        <link rel="next" title="3. 矩阵分析及应用" href="../MatrixAnalysis/index.html"/>
+        <link rel="prev" title="2.2. 矩阵范数" href="MatrixNorm.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../LinearSpace/index.html">1. 线性空间与线性变换</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 范数理论及应用</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="VectorNorm.html">2.1. 向量范数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixNorm.html">2.2. 矩阵范数</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.3. 范数的应用</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>范数理论及应用</a> &raquo;</li>
+        
+      <li><span class="section-number">2.3. </span>范数的应用</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-normapplication">
+<span id="id1"></span><h1><span class="section-number">2.3. </span>范数的应用<a class="headerlink" href="#section-normapplication" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.3.1. </span>矩阵的谱半径<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>什么是谱半径<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id9">
+<span id="def-spectralradius"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 2.8</span>
+        
+            <span class="proof-title-name">(矩阵的谱半径)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n\times n}\)</span> 的 <span class="math">\(n\)</span> 个特征值为 <span class="math">\(\lambda_1, \lambda_2, \cdots, \lambda_n\)</span> , 称</p>
+<div class="math">
+\[\rho({\bm A}) =  \mathop {\max }\limits_i |\lambda_i|
+
+\]</div>
+<p>为 <strong>谱半径</strong> (<a class="reference internal" href="../glossary.html#term-spectral-radius"><span class="xref std std-term">Spectral Radius</span></a>).</p>
+</div></div><div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ol class="arabic simple">
+<li><p>矩阵 <span class="math">\({\bm A}\)</span> 的谱半径是正实数</p></li>
+<li><p>矩阵 <span class="math">\({\bm A}\)</span> 的谱半径是矩阵的特征值的模值, 且为最大的那个</p></li>
+<li><p>矩阵 <span class="math">\({\bm A}\)</span> 的2-范数是 <span class="math">\({\bm A}^H{\bm A}\)</span> 的最大特征值的平方根</p></li>
+<li><p>矩阵 <span class="math">\({\bm A}\)</span> 的谱半径不超过矩阵的范数 <span class="math">\(\|{\bm A}\|\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>性质<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ol class="arabic">
+<li><p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n\times n}\)</span> , 则对于 <span class="math">\({\mathbb C}^{n\times n}\)</span> 上的任意矩阵范数 <span class="math">\(\|\cdot\|_M\)</span> , 都有</p>
+<div class="math">
+\[\rho({\bm A}) \leq \|{\bm A}\|_M
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>取与矩阵范数 <span class="math">\(\|\cdot\|_M\)</span> 相容的向量范数 <span class="math">\(\|\cdot\|_V\)</span> , 设矩阵 <span class="math">\({\bm A}\)</span> 的特征值 <span class="math">\(\lambda\)</span> 对应的特征向量为 <span class="math">\({\bm x}\)</span> , 则</p>
+<div class="math">
+\[|\lambda|\|{\bm x}\|_V = \|\lambda{\bm x}\|_V = \|{\bm{Ax}}\|_V \leq \|{\bm A}\|_M \|{\bm x}\|_V
+
+\]</div>
+<p>由 <span class="math">\({\bm x} \neq {\bm 0}\)</span> 得, <span class="math">\(\rho({\bm A}) \leq \|{\bm A}\|_M\)</span> .</p>
+</div>
+</li>
+<li><p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n\times n}\)</span> , 则 <span class="math">\(\rho({\bm A}^k) = [\rho({\bm A})]^k\)</span></p></li>
+<li><p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n\times n}\)</span> , 则 <span class="math">\(\|{\bm A}\|_2 = \rho^{1/2}({\bm A}^H{\bm A}) = \rho^{1/2}({\bm A} {\bm A}^H)\)</span> , 当 <span class="math">\({\bm A}\)</span> 为Hermite正定阵时, <span class="math">\(\|{\bm A}\|_2 = \rho({\bm A})\)</span></p></li>
+<li><p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n\times n}\)</span> , 则 <span class="math">\(\forall \epsilon \in {\mathbb Z}^+\)</span> , 存在某种矩阵范数 <span class="math">\(\|\cdot\|_M\)</span> 使得 <span class="math">\(\|{\bm A}\|_M \leq \rho({\bm A})+\epsilon\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.3.2. </span>矩阵非奇异性条件<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n\times n}\)</span> , 若对 <span class="math">\({\mathbb C}^{n\times n}\)</span> 上的某种矩阵范数 <span class="math">\(\|\cdot\|_M\)</span> 有 <span class="math">\(\|{\bm A}\| &lt; 1\)</span> , 则矩阵 <span class="math">\({\bm I} - {\bm A}\)</span> 非奇异, 且</p>
+<div class="math">
+\[\|({\bm I} - {\bm A})^{-1}\|_M \leq \frac{\|{\bm I}\|_M}{1-\|{\bm A}\|_M}
+
+\]</div>
+<div class="math">
+\[\|{\bm I} - ({\bm I} - {\bm A})^{-1}\|_M \leq \frac{\|{\bm A}\|_M}{1-\|{\bm A}\|_M}
+
+\]</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">2.3.3. </span>逆矩阵的摄动与条件数<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n\times n}\)</span> , 且非奇异, <span class="math">\({\bm B} \in {\mathbb C}^{n\times n}\)</span>
+若对 <span class="math">\({\mathbb C}^{n\times n}\)</span> 上的某种矩阵范数 <span class="math">\(\|\cdot\|_M\)</span> , 有 <span class="math">\(\|{\bm A}^{-1}{\bm B}\|_M &lt; 1\)</span> , 则</p>
+<ol class="arabic simple">
+<li><p><span class="math">\({\bm A} + {\bm B}\)</span> 非奇异</p></li>
+<li><p><span class="math">\(\|{\bm I} - ({\bm I} + {\bm A}^{-1}{\bm B})^{-1}\|_M \leq \frac{\|{\bm A}^{-1}{\bm B}\|_M}{1 - \|{\bm A}^{-1}{\bm B}\|_M}\)</span></p></li>
+<li><p><span class="math">\(\frac{\|{\bm A}^{-1} - ({\bm A} + {\bm B})^{-1}\|_M}{\|{\bm A}\|_M} \leq \frac{\|{\bm A}^{-1} {\bm B}\|_M}{1 - \|{\bm A}^{-1}{\bm B}\|_M}\)</span></p></li>
+</ol>
+<div class="section" id="id7">
+<h3>矩阵的摄动<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>设 <span class="math">\({\bm A} = (a_{ij}) \in {\mathbb C}^{n\times n}\)</span> , <span class="math">\(\delta{\bm A} = (\delta a_{ij}) \in {\mathbb C}^{n\times n}\)</span> , 且 <span class="math">\(\delta a_{ij}\)</span> 表示元素 <span class="math">\(a_{ij}\)</span> 的误差, 称矩阵 <span class="math">\(\delta {\bm A}\)</span> 为 <span class="math">\({\bm A}\)</span> 的 <strong>摄动矩阵</strong> .</p>
+</div>
+<div class="section" id="id8">
+<h3>条件数<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>设 <span class="math">\({\bm A} = (a_{ij}) \in {\mathbb C}^{n\times n}\)</span> 非奇异, <span class="math">\(\|{\bm A}\|_M\)</span> 为 <span class="math">\({\mathbb C}^{n\times n}\)</span> 上的某种矩阵范数, 则称</p>
+<div class="math">
+\[{\rm{cond}}({\bm A}) = \|{\bm A}\|_M\|{\bm A}^{-1}\|_M
+
+\]</div>
+<p>为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>条件数</strong> .</p>
+<p>对应地, 当 <span class="math">\(\|{\bm A}^{-1} \delta{\bm A}\|_M &lt; 1\)</span> 时有</p>
+<ol class="arabic simple">
+<li><p><span class="math">\(\|{\bm I} - ({\bm I} + {\bm A}^{-1}\delta{\bm A})^{-1}\|_M \leq \frac{{\rm{cond}}({\bm A})\frac{\|\delta {\bm A}\|_M}{\|{\bm A}\|_M}}{1 - {\rm{cond}}({\bm A})\frac{\|\delta {\bm A}\|_M}{\|{\bm A}\|_M}}\)</span></p></li>
+<li><p><span class="math">\(\frac{\|{\bm A}^{-1} - ({\bm A} + \delta{\bm A})^{-1}\|_M}{\|{\bm A}\|_M} \leq \frac{{\rm{cond}}({\bm A})\frac{\|\delta {\bm A}\|_M}{\|{\bm A}\|_M}}{1 - {\rm{cond}}({\bm A})\frac{\|\delta {\bm A}\|_M}{\|{\bm A}\|_M}}\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MatrixAnalysis/index.html" class="btn btn-neutral float-right" title="3. 矩阵分析及应用" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MatrixNorm.html" class="btn btn-neutral" title="2.2. 矩阵范数" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

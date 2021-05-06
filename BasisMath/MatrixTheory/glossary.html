@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. 名词术语 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../index.html"/>
+        <link rel="up" title="矩阵论" href="index.html"/>
+        <link rel="next" title="概率与统计" href="../ProbabilityStatistics/index.html"/>
+        <link rel="prev" title="7.5. 矩阵运算" href="Misc/MatrixOperation.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace/index.html">1. 线性空间与线性变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="index.html">矩阵论</a> &raquo;</li>
+        
+      <li><span class="section-number">8. </span>名词术语</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="glossary">
+<span id="id1"></span><h1><span class="section-number">8. </span>名词术语<a class="headerlink" href="#glossary" title="永久链接至标题">¶</a></h1>
+<dl class="glossary simple">
+<dt id="term-characteristic-polynomial">Characteristic Polynomial</dt><dd><p>特征多项式 ( <a class="reference external" href="http://en.volupedia.org/wiki/Characteristic_polynomial">Characteristic polynomial</a> ) 在线性代数中,</p>
+</dd>
+<dt id="term-characteristic-subspace">Characteristic Subspace</dt><dd><p>特征子空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Minimal_polynomial">Characteristic subspace</a> ) 在线性代数中,</p>
+</dd>
+<dt id="term-cholesky-decomposition">Cholesky decomposition</dt><dd><p>Cholesky 分解 ( <a class="reference external" href="http://en.volupedia.org/wiki/Cholesky_decomposition">Cholesky decomposition</a> ) 三角分解的一种, 把一个对称正定的矩阵表示成一个下三角矩阵 <span class="math">\({\bm L}\)</span> 和其转置 <span class="math">\({\bm L}^T\)</span> 的乘积的分解. 它要求矩阵的所有特征值必须大于零, 故分解的下三角的对角元也是大于零的. Cholesky分解法又称平方根法, 是当 <span class="math">\({\bm A}\)</span> 为实对称正定矩阵时, LU三角分解法的变形.</p>
+</dd>
+<dt id="term-conjugate-transpose">Conjugate transpose</dt><dd><p>共轭转置 ( <a class="reference external" href="http://en.volupedia.org/wiki/Conjugate_transpose">Conjugate transpose</a> ) , 也叫Hermitian转置 (Hermitian transpose), 是对矩阵中的元素取共轭复数后再转置的操作.</p>
+</dd>
+<dt id="term-diagonal-matrix">Diagonal Matrix</dt><dd><p>对角矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Diagonal_matrix">Diagonal Matrix</a> ) 主对角线以外的所有元素都为零的矩阵称为对角矩阵.</p>
+</dd>
+<dt id="term-direct-sum">Direct Sum</dt><dd><p>直和 ( <a class="reference external" href="http://en.volupedia.org/wiki/Direct_sum">Direct Sum</a> )</p>
+</dd>
+<dt id="term-doolittle-decomposition">Doolittle decomposition</dt><dd><p>Doolittle 分解 ( <a class="reference external" href="http://en.volupedia.org/wiki/LU_decomposition">Doolittle Decomposition</a> ) 三角分解的一种, 把一个对称正定的矩阵表示成一个下三角矩阵 <span class="math">\({\bm L}\)</span> 和其转置 <span class="math">\({\bm L}^T\)</span> 的乘积的分解. 它要求矩阵的所有特征值必须大于零, 故分解的下三角的对角元也是大于零的. Cholesky分解法又称平方根法, 是当 <span class="math">\({\bm A}\)</span> 为实对称正定矩阵时, LU三角分解法的变形.</p>
+</dd>
+<dt id="term-elementary-transformation">Elementary Transformation</dt><dd><p>初等变换 (Elementary transformation) 线性代数的基本概念之一, 包含初等行变换与初等列变换. 以矩阵的初等变换为例, 具体包含三种操作: 1) 某一行(列)乘以一个数; 2) 某一行(列)乘以一个数的结果加到另一行(列); 3) 互换两行(列).</p>
+</dd>
+<dt id="term-full-rank-decomposition">Full Rank Decomposition</dt><dd><p>满秩分解(Full Rank Decomposition)是指将一矩阵分解为行满秩 <span class="math">\({\bm F}\)</span> 与列满秩 <span class="math">\({\bm G}\)</span> 的两个矩阵的乘积的分解.</p>
+</dd>
+<dt id="term-generalized-eigenvalue-problem">Generalized eigenvalue problem</dt><dd><p>广义特征值问题 ( <a class="reference external" href="http://en.volupedia.org/wiki/Eigendecomposition_of_a_matrix#Generalized_eigenvalue_problem">Generalized eigenvalue problem</a> )</p>
+</dd>
+<dt id="term-givens-transformation">Givens transformation</dt><dd><p>Givens 变换 ( <a class="reference external" href="http://en.volupedia.org/wiki/Givens_rotation">Givens transformation</a> )  在线性代数中, Givens 变换, 也称 Givens 旋转 (Givens rotation), 是描述将某一平面内的向量进行旋转的线性变换. 由  Wallace Givens 于1950年提出.</p>
+</dd>
+<dt id="term-gramschmidt-process">Gram–Schmidt process</dt><dd><p>Gram–Schmidt 过程 ( <a class="reference external" href="http://en.volupedia.org/wiki/Gram%E2%80%93Schmidt_process">Gram–Schmidt process</a> )是指实内积空间的等度量线性变换, 保持内积不变, 对应于复内积空间的酉变换.</p>
+</dd>
+<dt id="term-hermitian-matrix">Hermitian matrix</dt><dd><p>Hermitian 矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Hermitian_matrix">Hermitian matrix</a> )</p>
+</dd>
+<dt id="term-householder-transformation">Householder transformation</dt><dd><p>Householder 变换 ( <a class="reference external" href="http://en.volupedia.org/wiki/Householder_transformation">Householder transformation</a> )  在线性代数中, Householder变换, 也称为Householder反射 (Householder reflection), 是描述包含原点的平面或超平面的反射的线性变换. 由 Alston Scott Householder 于1958年提出.</p>
+</dd>
+<dt id="term-inner-product-space">Inner Product Space</dt><dd><p>内积空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Inner_product_space">Inner product space</a> ) 在线性代数中, 内积空间是具有称为内积的附加结构的向量空间. 这个附加结构将空间中的每对向量与称为向量内积的标量量相关联. 内积允许严格引入直观的几何概念, 如向量的长度或两个向量之间的角度. 它们还提供了定义向量之间的正交性 (零内积) 的方法. 内积空间将欧氏空间 (其中内积是点积, 也称为标量积) 推广到任意 (可能是无限) 维的向量空间, 并在泛函分析中加以研究. 带内积的向量空间概念的首次使用是由于Peano在1898年提出的.</p>
+</dd>
+<dt id="term-invariant-subspace">Invariant Subspace</dt><dd><p>不变子空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Invariant_subspace">Invariant subspace</a> ) 在线性代数中,</p>
+</dd>
+<dt id="term-kernel-space">Kernel Space</dt><dd><p>核空间 (<a class="reference external" href="http://en.volupedia.org/wiki/Kernel_(linear_algebra)">Kernel Space</a>  )</p>
+</dd>
+<dt id="term-linear-combination">Linear Combination</dt><dd><p>线性组合 (Linear Combination) 线性代数的基本概念之一, 它表示一些项与其相应系数相乘后的累加和, 如 <span class="math">\(z=ax+by\)</span> .</p>
+</dd>
+<dt id="term-linear-representation">Linear Representation</dt><dd><p>线性表示 (Linear Representation)</p>
+</dd>
+<dt id="term-linear-space">Linear Space</dt><dd><p>线性空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Vector_space">Linear Space</a> )</p>
+</dd>
+<dt id="term-linear-span">Linear Span</dt><dd><p>线性生成空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Linear_span">Linear Span</a> )</p>
+</dd>
+<dt id="term-linear-subspace">Linear Subspace</dt><dd><p>线性子空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Linear_subspace">Linear Subspace</a> )</p>
+</dd>
+<dt id="term-linearly-dependent">Linearly Dependent</dt><dd><p>线性相关 (Linear Correlation, Linearly Dependent) 线性代数的基本概念之一,</p>
+</dd>
+<dt id="term-linearly-independent">Linearly Independent</dt><dd><p>线性无关 (Linear Independence, Linearly Independent) 线性代数的基本概念之一, 也称线性独立</p>
+</dd>
+<dt id="term-lower-triangular-matrix">Lower Triangular Matrix</dt><dd><p>下三角矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Triangular_matrix">Triangular Matrix</a> )  指主对角线上方的所有元素都为零的矩阵.</p>
+</dd>
+<dt id="term-minimal-polynomial">Minimal Polynomial</dt><dd><p>最小多项式 ( <a class="reference external" href="http://en.volupedia.org/wiki/Minimal_polynomial">Minimal polynomial</a> ) 在线性代数中,</p>
+</dd>
+<dt id="term-noise-subspace">Noise Subspace</dt><dd><p>噪声子空间</p>
+</dd>
+<dt id="term-non-homogeneous">Non-Homogeneous</dt><dd><p>非齐次 (Non-Homogeneous) , 常数项不为零.</p>
+</dd>
+<dt id="term-normal-matrix">Normal Matrix</dt><dd><p>正规矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Normal_matrix">Normal Matrix</a> )</p>
+</dd>
+<dt id="term-null-space">Null Space</dt><dd><p>零空间 (<a class="reference external" href="http://en.volupedia.org/wiki/Kernel_(linear_algebra)">Null Space</a> )</p>
+</dd>
+<dt id="term-orthogonal-matrix">Orthogonal Matrix</dt><dd><p>正交矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Orthogonal_matrix">Orthogonal Matrix</a> )</p>
+</dd>
+<dt id="term-orthogonal-transformation">Orthogonal transformation</dt><dd><p>正交变换 ( <a class="reference external" href="http://en.volupedia.org/wiki/Orthogonal_transformation">Orthogonal transformation</a> )是指实内积空间的等度量线性变换, 保持内积不变, 对应于复内积空间的酉变换.</p>
+</dd>
+<dt id="term-orthogonal-triangular-decomposition">Orthogonal Triangular Decomposition</dt><dd><p>正交三角分解 ( <a class="reference external" href="http://en.volupedia.org/wiki/QR_decomposition">Orthogonal Triangular Decomposition</a> ) 分解是把一个矩阵分解为一个正交矩阵 <span class="math">\({\bm Q}\)</span> 与一个上三角矩阵 <span class="math">\({\bm R}\)</span> 乘积的分解.</p>
+</dd>
+<dt id="term-permutation-matrix">Permutation matrix</dt><dd><p>置换矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Permutation_matrix">Permutation matrix</a> )  指每行或每列只有1个元素为 <span class="math">\(1\)</span> , 其余均为 <span class="math">\(1\)</span> 的二值矩阵, 这种矩阵具有置换矩阵两行或两列的功能.</p>
+</dd>
+<dt id="term-polynomial-matrix">Polynomial Matrix</dt><dd><p>多项式矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Polynomial_matrix">Polynomial Matrix</a> )</p>
+</dd>
+<dt id="term-positive-definite-matrix">Positive-definite matrix</dt><dd><p>正定矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Positive-definite_matrix">Positive-definite matrix</a> )</p>
+</dd>
+<dt id="term-series">Series</dt><dd><p>级数 ( <a class="reference external" href="http://en.volupedia.org/wiki/Series_(mathematics)">Series (mathematics)</a> ) ,</p>
+</dd>
+<dt id="term-signal-subspace">Signal Subspace</dt><dd><p>信号子空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Signal_subspace">Signal subspace</a> ) In signal processing, signal subspace methods are empirical linear methods for dimensionality reduction and noise reduction. These approaches have attracted significant interest and investigation recently in the context of speech enhancement, speech modeling, and speech classification research. The signal subspace is also used in radio direction finding using the MUSIC (algorithm).</p>
+</dd>
+<dt id="term-singular-value">Singular Value</dt><dd><p>奇异值 ( <a class="reference external" href="http://en.volupedia.org/wiki/Singular_value">Singular value</a> ) .</p>
+</dd>
+<dt id="term-singular-value-decomposition">Singular Value Decomposition</dt><dd><p>奇异值分解 ( <a class="reference external" href="http://en.volupedia.org/wiki/Singular_value_decomposition">Singular value decomposition</a> ) 分解是把一个矩阵分解为一个酉矩阵 ( unitary matrix) <span class="math">\({\bm U}\)</span> , 矩形对角矩阵 <span class="math">\({\bm \Sigma}\)</span> 与一个酉矩阵 <span class="math">\({\bm V}\)</span> 乘积的分解.</p>
+</dd>
+<dt id="term-skew-hermitian-matrix">Skew-Hermitian matrix</dt><dd><p>反Hermitian 矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Skew-Hermitian_matrix">Skew-Hermitian matrix</a> )</p>
+</dd>
+<dt id="term-skew-symmetric-matrix">Skew-symmetric matrix</dt><dd><p>反对称矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Skew-symmetric_matrix">Skew-symmetric matrix</a> )</p>
+</dd>
+<dt id="term-spectral-decomposition">Spectral decomposition</dt><dd><p>谱分解 ( <a class="reference external" href="http://en.volupedia.org/wiki/Spectral_theorem">Spectral decomposition</a> ) 分解是把一个矩阵分解为一个酉矩阵 ( unitary matrix) <span class="math">\({\bm U}\)</span> , 矩形对角矩阵 <span class="math">\({\bm \Sigma}\)</span> 与一个酉矩阵 <span class="math">\({\bm V}\)</span> 乘积的分解.</p>
+</dd>
+<dt id="term-spectral-radius">Spectral Radius</dt><dd><p>谱半径 ( <a class="reference external" href="http://en.volupedia.org/wiki/Spectral_radius)">Spectral Radius</a> ) ,</p>
+</dd>
+<dt id="term-subordinate-norm">Subordinate Norm</dt><dd><p>从属范数 ( <a class="reference external" href="http://en.volupedia.org/wiki/Matrix_norm#Induced_norm)">Subordinate norm</a> ) ,</p>
+</dd>
+<dt id="term-symmetric-matrix">Symmetric matrix</dt><dd><p>对称矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Symmetric_matrix">Symmetric matrix</a> )</p>
+</dd>
+<dt id="term-symmetry-transformation">Symmetry transformation</dt><dd><p>对称变换 ( <a class="reference external" href="http://en.volupedia.org/wiki/Symmetry">Symmetry transformation</a> )是指实内积空间的一种具有对称性的线性变换, 对应于复内积空间的酉对称变换.</p>
+</dd>
+<dt id="term-system-of-linear-equations">System of linear equations</dt><dd><p>线性方程组</p>
+</dd>
+<dt id="term-triangular-decomposition">Triangular Decomposition</dt><dd><p>三角分解 ( <a class="reference external" href="http://en.volupedia.org/wiki/Triangular_decomposition">Triangular Decomposition</a> ) 分解是把一个矩阵分解为一个下三角矩阵 <span class="math">\({\bm L}\)</span> 与一个上三角矩阵 <span class="math">\({\bm R}\)</span> 乘积的分解, 也可分解为一个下三角矩阵 <span class="math">\({\bm L}\)</span> 与一个对角阵 <span class="math">\({\bm D}\)</span> 及一个上三角矩阵 <span class="math">\({\bm R}\)</span> 乘积.</p>
+</dd>
+<dt id="term-triangular-matrix">Triangular Matrix</dt><dd><p>三角矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Triangular_matrix">Triangular Matrix</a> )   在线性代数中, 三角矩阵是一种特殊的方阵. 如果主对角线上方的所有元素都为零, 则称矩阵为下三角矩阵. 类似地, 如果主对角线下方的所有元素都为零, 则方形矩阵称为上三角矩阵.</p>
+</dd>
+<dt id="term-unit-lower-triangular-matrix">Unit Lower Triangular Matrix</dt><dd><p>单位下三角矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Triangular_matrix">Triangular Matrix</a> )  指主对角线上所有元素均为 <span class="math">\(1\)</span> 的下三角矩阵.</p>
+</dd>
+<dt id="term-unit-triangular-matrix">Unit Triangular Matrix</dt><dd><p>单位三角矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Triangular_matrix">Triangular Matrix</a> )   在线性代数中, 单位三角矩阵是指主对角线上的元素均为1的三角矩阵.</p>
+</dd>
+<dt id="term-unit-upper-triangular-matrix">Unit Upper Triangular Matrix</dt><dd><p>单位上三角矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Triangular_matrix">Triangular Matrix</a> )  指主对角线上所有元素均为 <span class="math">\(1\)</span> 的上三角矩阵.</p>
+</dd>
+<dt id="term-unitary-symmetry-transformation">Unitary Symmetry transformation</dt><dd><p>酉对称变换 ( <a class="reference external" href="http://en.volupedia.org/wiki/Unitary_transformation">Unitary Symmetry transformation</a> )是指酉空间的一种具有对称性的线性变换, 对应于实内积空间的对称变换.</p>
+</dd>
+<dt id="term-unitary-transformation">Unitary transformation</dt><dd><p>酉变换 ( <a class="reference external" href="http://en.volupedia.org/wiki/Unitary_transformation">Unitary transformation</a> )是指复内积空间的等度量线性变换, 保持内积不变, 对应于实内积空间的正交变换.</p>
+</dd>
+<dt id="term-upper-triangular-matrix">Upper Triangular Matrix</dt><dd><p>上三角矩阵 ( <a class="reference external" href="http://en.volupedia.org/wiki/Triangular_matrix">Triangular Matrix</a> )  指主对角线下方的所有元素都为零的矩阵.</p>
+</dd>
+<dt id="term-weighted-norm">Weighted Norm</dt><dd><p>加权范数 ( <a class="reference external" href="http://en.volupedia.org/wiki/Weighted_norm)">Weighted Norm</a> ) ,</p>
+</dd>
+<dt id="term-weighted-subspace">Weighted Subspace</dt><dd><p>加权子空间 ( <a class="reference external" href="http://en.volupedia.org/wiki/Weighted_subspace)">Weighted Subspace</a> ) , 定义在加权范数下的子空间.</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ProbabilityStatistics/index.html" class="btn btn-neutral float-right" title="概率与统计" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Misc/MatrixOperation.html" class="btn btn-neutral" title="7.5. 矩阵运算" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

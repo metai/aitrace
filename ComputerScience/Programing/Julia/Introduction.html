@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.1. 引言 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="7. Julia程序设计" href="index.html"/>
+        <link rel="next" title="7.2. 常用依赖库" href="CommonUsedLibrary.html"/>
+        <link rel="prev" title="7. Julia程序设计" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第四卷 计算机学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../OperatingSystem/index.html">操作系统</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">程序设计</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../C/index.html">1. C程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lua/index.html">2. Lua程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../IDL/index.html">3. IDL程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lisp/index.html">4. Lisp程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Python/index.html">5. Python程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Matlab/index.html">6. Matlab程序设计</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7. Julia程序设计</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.1. 引言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CommonUsedLibrary.html">7.2. 常用依赖库</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PyTorch/index.html">8. PyTorch简明教程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Shell/index.html">9. Shell程序设计</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../AlgorithmDesign/index.html">算法设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Internet/index.html">互联部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ArtificialIntelligenceProcessor/index.html">人工智能处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmbeddedDevelopment/index.html">嵌入式系统开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第四卷 计算机学</a> &raquo;</li>
+        
+          <li><a href="../index.html">程序设计</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">7. </span>Julia程序设计</a> &raquo;</li>
+        
+      <li><span class="section-number">7.1. </span>引言</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-introductionjuliaprogramingcomputerscience">
+<span id="id1"></span><h1><span class="section-number">7.1. </span>引言<a class="headerlink" href="#section-introductionjuliaprogramingcomputerscience" title="永久链接至标题">¶</a></h1>
+<div class="section" id="julia">
+<h2><span class="section-number">7.1.1. </span>什么是Julia语言<a class="headerlink" href="#julia" title="永久链接至标题">¶</a></h2>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>资源链接</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://julialang.org/">Homepage of Julia</a></p></li>
+<li><p><a class="reference external" href="https://juliacomputing.com/">Julia computing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaLang">Github of Julia</a></p></li>
+<li><p><a class="reference external" href="https://docs.julialang.org/">Julia doc, en</a></p></li>
+<li><p><a class="reference external" href="https://docs.juliacn.com/latest/">Julia doc, zh</a></p></li>
+<li><p><a class="reference external" href="https://julia-cn.readthedocs.io/">Julia doc, zh</a></p></li>
+<li><p><a class="reference external" href="https://juliabyexample.helpmanual.io/">Julia By Example</a></p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/JuliaLang">JuliaLang</a></p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaIO">JuliaIO</a> : MAT, HDF5,</p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaPackaging">JuliaPackaging</a> : BinaryBuilder, BinaryProvider,</p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaOpt">JuliaOpt</a> : JuMP, Convex, NLopt …, see <a class="reference external" href="http://juliaopt.org/">juliaopt</a></p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaNLSolvers">JuliaNLSolvers</a> : Optim(Optimization), LsqFit(Curve Fitting), NLsolve(nonlinear equations), LineSearches</p></li>
+<li><p><a class="reference external" href="https://github.com/FluxML/Flux.jl">Flux</a> : <code class="docutils literal notranslate"><span class="pre">Pkg.add(&quot;Flux&quot;)</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/cstjean/ScikitLearn.jl">ScikitLearn</a> : <code class="docutils literal notranslate"><span class="pre">Pkg.add(&quot;ScikitLearn&quot;)</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/malmaud/TensorFlow.jl">TensorFlow</a> : <code class="docutils literal notranslate"><span class="pre">Pkg.add(&quot;TensorFlow&quot;)</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">7.1.2. </span>开发环境配置<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>安装Julia实现<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id6">
+<h4>安装包安装<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>Julia 的安装十分简单, 从 <a class="reference external" href="https://julialang.org/">主页</a> 或者镜像站点下载对应操作系统版本的安装包. 对于Windows系统, 双击安装包根据提示安装即可; 对于Linux系统, 下载解压后将 <code class="docutils literal notranslate"><span class="pre">bin</span></code> 目录添加至系统环境变量 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> 中即可. 添加好环境变量, 打开终端, 输入 <code class="docutils literal notranslate"><span class="pre">julia</span></code> 进入Julia交互式界面, 如 <a class="reference internal" href="#fig-welcomjuliawindowsubuntu"><span class="std std-numref">图 7.3</span></a> 所示.</p>
+<div class="figure align-center" id="id20">
+<span id="fig-welcomjuliawindowsubuntu"></span><a class="reference internal image-reference" href="../../../_images/WelcomJuliaWindowsUbuntu.png"><img alt="Welcome interface of Julia on Windows and Ubuntu" src="../../../_images/WelcomJuliaWindowsUbuntu.png" style="width: 715.2px; height: 822.4000000000001px;" /></a>
+<p class="caption"><span class="caption-number">图 7.3 </span><span class="caption-text">Welcome interface of Julia on Windows and Ubuntu</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>源码安装<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>从 <a class="reference external" href="https://github.com/JuliaLang/julia">github julia</a> 或者镜像站点下载源码, 解压进入目录, 输入 <code class="docutils literal notranslate"><span class="pre">make</span></code> 构建生成可执行文件.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>卸载Julia实现<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>直接删除安装目录和包目录 <code class="docutils literal notranslate"><span class="pre">~/.julia</span></code> 即可.</p>
+</div>
+<div class="section" id="id10">
+<h3>开发环境配置<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="section" id="sublime">
+<h4>Sublime 环境<a class="headerlink" href="#sublime" title="永久链接至标题">¶</a></h4>
+<p>如果想直接在Sublime中运行Julia程序, 可以添加Julia编译选项, 然后通过 <kbd class="kbd docutils literal notranslate">Ctrl+b</kbd> 或 <kbd class="kbd docutils literal notranslate">Ctrl+Shift+b</kbd> 选择编译. 具体方法为: 新建 <code class="file docutils literal notranslate"><span class="pre">sublime_rootdir/Packages/Users/Julia.sublime-build</span></code> 文件, 输入如下代码, 保存即可:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;julia&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;file_regex&quot;</span><span class="p">:</span><span class="s2">&quot;^(?:julia:)?[</span><span class="se">\t</span><span class="s2">](...*?):([0-9]*):?([0-9]*)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;selector&quot;</span><span class="p">:</span><span class="s2">&quot;source.jl,source.julia&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><span class="section-number">7.1.3. </span>Julia编程入门<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id12">
+<h3>交互式界面使用<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id13">
+<h3>第一个Julia程序<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><span class="section-number">7.1.4. </span>第三方包管理<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p>Julia第三方库的安装很简单, 在Julia交互窗口执行 <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">Pkg;</span> <span class="pre">Pkg.add(&quot;PkgName&quot;)</span></code> 即可安装; 或者按 <kbd class="kbd docutils literal notranslate">]</kbd> 进入包管理器交互界面, 输入 <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">PkgName</span></code> 安装. 以安装线性代数库为例, 安装记录见 <a href="#id15"><span class="problematic" id="id16">:numref:code-block:`code-UsingPkgOfJulia`</span></a></p>
+<div class="literal-block-wrapper docutils container" id="code-usingpkgofjulia">
+<div class="code-block-caption"><span class="caption-number">代码 7.2 </span><span class="caption-text">Use julia’s Pkg manager to install library</span><a class="headerlink" href="#code-usingpkgofjulia" title="永久链接至代码">¶</a></div>
+<div class="highlight-julia notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">Pkg</span><span class="p">;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;LinearAlgebra&quot;</span><span class="p">)</span>
+</span>   <span class="n">Updating</span> <span class="n">registry</span> <span class="n">at</span> <span class="sb">`~/.julia/registries/General`</span>
+<span class="n">┌</span> <span class="n">Warning</span><span class="p">:</span> <span class="n">Some</span> <span class="n">registries</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">update</span><span class="p">:</span>
+<span class="n">│</span>     <span class="n">—</span> <span class="sb">`~/.julia/registries/General`</span> <span class="n">—</span> <span class="n">registry</span> <span class="n">dirty</span>
+<span class="n">└</span> <span class="p">@</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">Types</span> <span class="o">/</span><span class="n">buildworker</span><span class="o">/</span><span class="n">worker</span><span class="o">/</span><span class="n">package_linux64</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">julia</span><span class="o">/</span><span class="n">stdlib</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">Pkg</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">Types</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">1108</span>
+  <span class="n">Resolving</span> <span class="n">package</span> <span class="n">versions</span><span class="o">...</span>
+   <span class="n">Updating</span> <span class="sb">`~/.julia/environments/v1.4/Project.toml`</span>
+  <span class="p">[</span><span class="mf">37e2</span><span class="n">e46d</span><span class="p">]</span> <span class="o">+</span> <span class="n">LinearAlgebra</span>
+   <span class="n">Updating</span> <span class="sb">`~/.julia/environments/v1.4/Manifest.toml`</span>
+ <span class="p">[</span><span class="n">no</span> <span class="n">changes</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span>
+
+<span class="hll"><span class="p">(@</span><span class="n">v1</span><span class="o">.</span><span class="mi">4</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">LinearAlgebra</span>
+</span>  <span class="n">Resolving</span> <span class="n">package</span> <span class="n">versions</span><span class="o">...</span>
+   <span class="n">Updating</span> <span class="sb">`~/.julia/environments/v1.4/Project.toml`</span>
+  <span class="p">[</span><span class="mf">37e2</span><span class="n">e46d</span><span class="p">]</span> <span class="o">+</span> <span class="n">LinearAlgebra</span>
+   <span class="n">Updating</span> <span class="sb">`~/.julia/environments/v1.4/Manifest.toml`</span>
+ <span class="p">[</span><span class="n">no</span> <span class="n">changes</span><span class="p">]</span>
+
+<span class="p">(@</span><span class="n">v1</span><span class="o">.</span><span class="mi">4</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="pkg">
+<h3>包库管理器Pkg<a class="headerlink" href="#pkg" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Pkg.add(&quot;PkgName&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pkg.rm(&quot;PkgName&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pkg.up(&quot;PkgName&quot;)</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>设置包下载镜像<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>中国国内镜像站点有:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mirrors.ustc.edu.cn/">USTC</a></p></li>
+<li><p><a class="reference external" href="https://mirrors.zju.edu.cn/">ZJU</a></p></li>
+</ul>
+<p>这里介绍使用 <code class="docutils literal notranslate"><span class="pre">PkgMirrors</span></code> 包来选择安装源镜像. 如果你已经使用了GitHub源, 可以进入 <code class="docutils literal notranslate"><span class="pre">.julia</span></code> 目录, 删除 <code class="docutils literal notranslate"><span class="pre">General</span></code> 目录, 然后按如下提示注册国内源</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="c1"># Type &quot;]&quot; to enter Pkg REPL-mode.</span>
+
+<span class="c1"># If you have a clean Julia environment, you can initialize the General registry (where you the packages are registered) by using:</span>
+<span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span> <span class="n">registry</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="o">.</span><span class="n">zju</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span><span class="o">/</span><span class="n">julia</span><span class="o">/</span><span class="n">registries</span><span class="o">/</span><span class="n">General</span><span class="o">.</span><span class="n">git</span>
+
+<span class="c1"># Install this package from the mirror:</span>
+<span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="o">.</span><span class="n">zju</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">cn</span><span class="o">/</span><span class="n">julia</span><span class="o">/</span><span class="n">PkgMirrors</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span><span class="c1">#v1.3.0</span>
+</pre></div>
+</div>
+<p>终端输入 <code class="docutils literal notranslate"><span class="pre">julia</span></code> 进入交互界面, 输入 <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">Pkg;</span> <span class="pre">Pkg.add(&quot;PkgMirrors&quot;)</span></code> 安装, 输入 <code class="docutils literal notranslate"><span class="pre">PkgMirrors.setmirror(&quot;MIRRORNAME&quot;)</span></code> 选择源, 其中, <code class="docutils literal notranslate"><span class="pre">MIRRORNAME</span></code> 为镜像源名称, 中国境内可用的有 <code class="docutils literal notranslate"><span class="pre">ZJU</span></code>, <code class="docutils literal notranslate"><span class="pre">USTC</span></code>. 重新导入 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">PkgMirrors</span></code> 以激活, 继续输入 <code class="docutils literal notranslate"><span class="pre">update</span></code> 可以更新, 还可以输入 <code class="docutils literal notranslate"><span class="pre">PkgMirrors.deactivate()</span></code> 取消激活, 输入 <code class="docutils literal notranslate"><span class="pre">PkgMirrors.clear()</span></code>   清空缓存.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">PkgMirrors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h2><span class="section-number">7.1.5. </span>生成可独立执行文件<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id19">
+<h2><span class="section-number">7.1.6. </span>问题与解决<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<p>curl: (51) SSL: certificate subject name (ubuntu) does not match target host namERROR: Unable to automatically install</p>
+<p>add <a class="reference external" href="https://github.com/JuliaLang/PackageCompiler.jl">https://github.com/JuliaLang/PackageCompiler.jl</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CommonUsedLibrary.html" class="btn btn-neutral float-right" title="7.2. 常用依赖库" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="7. Julia程序设计" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

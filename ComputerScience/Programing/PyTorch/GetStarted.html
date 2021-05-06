@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8.1. 从这里开始 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="8. PyTorch简明教程" href="index.html"/>
+        <link rel="next" title="8.2. 数据集制作与加载" href="DataSetDataLoader.html"/>
+        <link rel="prev" title="8. PyTorch简明教程" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第四卷 计算机学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../OperatingSystem/index.html">操作系统</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">程序设计</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../C/index.html">1. C程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lua/index.html">2. Lua程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../IDL/index.html">3. IDL程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lisp/index.html">4. Lisp程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Python/index.html">5. Python程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Matlab/index.html">6. Matlab程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Julia/index.html">7. Julia程序设计</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">8. PyTorch简明教程</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">8.1. 从这里开始</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataSetDataLoader.html">8.2. 数据集制作与加载</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Shell/index.html">9. Shell程序设计</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../AlgorithmDesign/index.html">算法设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Internet/index.html">互联部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ArtificialIntelligenceProcessor/index.html">人工智能处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmbeddedDevelopment/index.html">嵌入式系统开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第四卷 计算机学</a> &raquo;</li>
+        
+          <li><a href="../index.html">程序设计</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">8. </span>PyTorch简明教程</a> &raquo;</li>
+        
+      <li><span class="section-number">8.1. </span>从这里开始</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-getstartedpytorchprogramingcomputerscience">
+<span id="id1"></span><h1><span class="section-number">8.1. </span>从这里开始<a class="headerlink" href="#section-getstartedpytorchprogramingcomputerscience" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">8.1.1. </span>安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>在线安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>参考 <a class="reference external" href="https://pytorch.org/get-started/locally/">START LOCALLY</a> , 选择环境, 执行安装命令即可.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">pytorch</span> <span class="pre">torchvision</span> <span class="pre">cudatoolkit=9.0</span> <span class="pre">-c</span> <span class="pre">pytorch</span></code></p>
+</div>
+<div class="section" id="id4">
+<h3>本地安装包安装<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="anaconda">
+<h4>Anaconda<a class="headerlink" href="#anaconda" title="永久链接至标题">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--use-local</span> <span class="pre">./pytorch-1.1.0-py3.7_cuda9.0.176_cudnn7.5.1_0.tar.bz2</span> <span class="pre">-c</span> <span class="pre">pytorch</span></code>
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">torchvision</span> <span class="pre">cudatoolkit=9.0</span> <span class="pre">-c</span> <span class="pre">pytorch</span></code></p>
+</div>
+<div class="section" id="python">
+<h4>Python<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h4>
+<p>从 <a class="reference external" href="https://pypi.org/">pypi</a> 下载对应版本的安装包, 执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> 命令安装即可, 如</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">torch</span><span class="o">-</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">cp35</span><span class="o">-</span><span class="n">cp35m</span><span class="o">-</span><span class="n">manylinux1_x86_64</span><span class="o">.</span><span class="n">whl</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">torchvision</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>本地源码安装<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="section" id="pytorch">
+<h4>Pytorch<a class="headerlink" href="#pytorch" title="永久链接至标题">¶</a></h4>
+<p>Pytorch的源码安装并不复杂, 与其它深度学习平台的源码安装过程相比, 极为简单, 具体可参考 <a class="reference external" href="https://github.com/pytorch/pytorch#from-source">pytorch from source</a>.</p>
+<div class="literal-block-wrapper docutils container" id="bind-id">
+<div class="code-block-caption"><span class="caption-number">代码 8.1 </span><span class="caption-text">Pytorch 源码安装</span><a class="headerlink" href="#bind-id" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll">conda install numpy pyyaml mkl mkl-include setuptools cmake cffi typing
+</span>
+<span class="c1"># Add LAPACK support for the GPU if needed</span>
+<span class="hll">conda install -c pytorch magma-cuda90 <span class="c1"># or [magma-cuda80 | magma-cuda91] depending on your cuda version</span>
+</span>
+git clone --recursive https://github.com/pytorch/pytorch
+<span class="nb">cd</span> pytorch
+
+<span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CONDA_PREFIX</span><span class="k">:-</span><span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="k">$(</span>which conda<span class="k">))</span><span class="s2">/../&quot;</span><span class="si">}</span>
+python setup.py install
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="torchvision">
+<h4>Torchvision<a class="headerlink" href="#torchvision" title="永久链接至标题">¶</a></h4>
+<p>torchvision的源码安装也非常简单, 进入torchvision根目录, 执行 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> 即可, 具体可参考 <a class="reference external" href="https://github.com/pytorch/vision">torchvision from source</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">8.1.2. </span>构建本地文档<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="api">
+<h3>API手册<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>Pytorch<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>Sphinx格式文档, 执行如下命令即可生成 html 与 epub 格式的文档</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-number">代码 8.2 </span><span class="caption-text">构建Pytorch文档</span><a class="headerlink" href="#id8" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="nb">cd</span> docs/
+</span>pip install -r requirements.txt
+
+<span class="hll">make html
+</span>make epub
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h4>Torchvision<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>Sphinx格式文档, 执行如下命令即可生成 html 与 epub 格式的文档</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-number">代码 8.3 </span><span class="caption-text">构建Torchvision文档</span><a class="headerlink" href="#id10" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="nb">cd</span> docs/
+</span>pip install -r requirements.txt
+
+<span class="hll">make html
+</span>make epub
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><span class="section-number">8.1.3. </span>问题与解决<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id12">
+<h3>安装<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="section" id="pyqt">
+<h4>PyQt<a class="headerlink" href="#pyqt" title="永久链接至标题">¶</a></h4>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-number">代码 8.4 </span><span class="caption-text">构建Torchvision文档</span><a class="headerlink" href="#id13" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll">ImportError: anaconda3/lib/python3.6/site-packages/PyQt5/../../../libQt5Core.so.5: version `Qt_5.9&#39; not found (required by /home/liu/anaconda3/lib/python3.6/site-packages/PyQt5/QtCore.so)
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<p>matplotlib 绘图使用 PyQt, 需要安装该库, 通过 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">PyQt</span></code> 安装即可.</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>使用<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<div class="section" id="torch1">
+<h4>Torch导入错误1<a class="headerlink" href="#torch1" title="永久链接至标题">¶</a></h4>
+<p>无论是通过Anaconda还是pip安装完毕PyTorch后, 在Python解释器中导入torch( <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">torch</span></code> )均会报出如下错误:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">torch._C</span> <span class="k">import</span> <span class="o">*</span> <span class="ne">ImportError</span><span class="p">:</span> <span class="n">libcurand</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mf">8.0</span><span class="p">:</span> <span class="n">cannot</span> <span class="nb">open</span> <span class="n">shared</span> <span class="nb">object</span> <span class="n">file</span>
+</pre></div>
+</div>
+<p>系统为 Ubuntu16.04LTS, Python3.5, Python3.7(Anaconda), CUDA9.0 和 CUDA8.0 共存. 安装前环境已经切换为 CUDA9.0, 上述错误提示找不到 CUDA8.0 相关文件, 因而怀疑一些编译的库使用的是CUDA8.0. 最终发现是之前安装的 <code class="docutils literal notranslate"><span class="pre">caffe2</span></code> 的影响, 导致 PyTorch 中的cafe2不能正确安装, 卸载之前安装的 caffe2, 问题解决.</p>
+</div>
+<div class="section" id="torch2">
+<h4>Torch导入错误2<a class="headerlink" href="#torch2" title="永久链接至标题">¶</a></h4>
+<p>安装没有问题, 导入时提示如下错误信息</p>
+<p>在另一个不含torch的目录使用即可解决该问题.</p>
+</div>
+<div class="section" id="id15">
+<h4>Torchvision导入失败<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>可能没安装或者安装失败，请注意环境，如果是 conda环境，要在相应环境下执行，如果不是，要退出conda环境。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DataSetDataLoader.html" class="btn btn-neutral float-right" title="8.2. 数据集制作与加载" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="8. PyTorch简明教程" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1. 回波信号模型 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="3. SAR仿真技术" href="index.html"/>
+        <link rel="next" title="3.2. SAR回波频谱分析" href="SpectrumAnalysis.html"/>
+        <link rel="prev" title="3. SAR仿真技术" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">合成孔径雷达</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SystemOverview/index.html">2. SAR系统概述</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3. SAR仿真技术</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.1. 回波信号模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpectrumAnalysis.html">3.2. SAR回波频谱分析</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Imaging/index.html">4. SAR成像理论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experiments/index.html">9. 实验集锦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成孔径雷达</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">3. </span>SAR仿真技术</a> &raquo;</li>
+        
+      <li><span class="section-number">3.1. </span>回波信号模型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-echosignalmodelbasedsimulationsarradar">
+<span id="id1"></span><h1><span class="section-number">3.1. </span>回波信号模型<a class="headerlink" href="#section-echosignalmodelbasedsimulationsarradar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="sar">
+<h2><span class="section-number">3.1.1. </span>SAR回波信号<a class="headerlink" href="#sar" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h3>目标回波分析<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/pointtarget.png"><img alt="点目标成像" src="../../../_images/pointtarget.png" style="width: 500.0px; height: 516.0px;" /></a>
+</div>
+<p>由图中几何关系知: <span class="math">\(R(\eta)^2 = R_0^2 + (V\eta)^2\)</span> , 在低斜视角下, <span class="math">\(R(\eta)\)</span> 可由菲涅尔近似为: <span class="math">\(R(\eta) = R_0 + \frac{(V\eta)^2}{2R_0}\)</span></p>
+<p>接收的回波信号为二维的线性调频信号, 点目标回波表达式为:</p>
+<div class="math">
+\[\begin{array}{l}
+{s_r}(\tau ,\eta ) = {A_0}{w_r}(\tau  - 2R(\eta )/C){w_a}(\eta  - {\eta}_c)\\
+\exp \left( {2\pi {f_0}(\tau  - 2R(\eta )/C) + \pi {K_r}{{(\tau  - 2R(\eta )/C)}^2}} \right)
+\end{array}
+
+\]</div>
+<p>去除载频后的基带信号为:</p>
+<div class="math">
+\[\begin{array}{l}
+{s_r}(\tau ,\eta ) = {A_0}{w_r}(\tau  - 2R(\eta )/C){w_a}(\eta  - {\eta}_c)\\
+\exp \left( {-j4\pi {f_0}R(\eta )/C + j\pi {K_r}{{(\tau  - 2R(\eta )/C)}^2}} \right)
+\end{array}
+
+\]</div>
+<p>其中:</p>
+<ul class="simple">
+<li><p><span class="math">\(A_0\)</span> 为复数, 代表点目标的后向散射引起的一个相位和幅度变化, <span class="math">\(A_0={A^\prime}_0 \exp \left(j\phi\right)\)</span> , <span class="math">\({A^\prime}_0\)</span> 为后向散射系数, <span class="math">\(\phi\)</span> 为地表散射引起的雷达信号相位的改变</p></li>
+<li><p><span class="math">\(\tau\)</span> 为距离向时间</p></li>
+<li><p><span class="math">\(\eta\)</span> 为方位向时间, <span class="math">\(\eta_c\)</span> 为零多普勒时间</p></li>
+<li><p><span class="math">\(w_a(\cdot)\)</span>  为方位向天线增益, <span class="math">\(w_r(\cdot)\)</span> 为距离向天线增益</p></li>
+<li><p><span class="math">\(f_0\)</span> 为载频</p></li>
+</ul>
+<p>通常取全向天线增益为1, 则回波变为:</p>
+<div class="math">
+\[\begin{array}{l}
+{s_r}(\tau ,\eta ) = {A_0} \exp \left( {-j4\pi {f_0}R(\eta )/C + j\pi {K_r}{{(\tau  - 2R(\eta )/C)}^2}} \right)
+\end{array}
+
+\]</div>
+<p>二维场景离散化：</p>
+<div class="math" id="labelequ-discreterecievesignal">
+\[\begin{array}{lll}
+s({t_{a,{n_a}}},{t_{r,{n_r}}}) = \sum\limits_{i = 1}^H {\sum\limits_{j = 1}^W {g(i,j) \cdot p\left( {{t_{r,{n_r}}} - 2R({t_{a,{n_a}}},i,j)/c} \right)} }\exp \left( { - j4\pi {f_c}R({t_{a,{n_a}}},i,j)/c} \right),
+\end{array}
+
+\]</div>
+</div>
+<div class="section" id="id3">
+<h3>目标回波基础理论<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>SAR的回波数据可以看作是地面反射率 <span class="math">\(\gamma(\tau, \eta)\)</span> 与雷达系统冲激响应 <span class="math">\(h(\tau, \eta)\)</span> 进行二维卷积, 即:</p>
+<div class="math">
+\[S(\tau, \eta)=\gamma(\tau, \eta) \otimes h(\tau, \eta) + n(\tau, \eta)
+
+\]</div>
+<p>其中, <span class="math">\(n(\tau, \eta)\)</span> 为系统噪声. 因此不管是点目标还是面目标都可以通过SAR的接收信号的一般模型求得回 波表达式, SAR 的成像处理过程, 其实际上也是一个通过解卷积从回波信号中最 大程度地、无失真地提取地表的后向散射系数的二维分布</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">3.1.2. </span>时域回波仿真<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在得到点目标回波信号后, 传统的时域回波模拟方法也叫距离时域脉冲相干 算法是将一个目标场景图像细化成一个点阵, 直接模拟雷达的工作过程,在雷达平台方位向的每一个位置,先计算出天线波束照射范围内即距离向每个点目标的回波信号,然后将这些信号叠加得到最终的回波信号.</p>
+<div class="section" id="id5">
+<h3>点目标<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>单个点目标回波的表达式即为上述点目标回波表达式, 多个点目标可以看成每个点目标回波的叠加:</p>
+<div class="math">
+\[s(\tau, \eta) = \sum_{i=1}^{n}{s_i(\tau,\eta)}
+
+\]</div>
+<p>其中, <span class="math">\(n\)</span> 为点目标的个数, <span class="math">\(s_i(\tau,\eta)\)</span> 为点目标回波.</p>
+</div>
+<div class="section" id="id6">
+<h3>面目标<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>对于面目标就是把目标场景分割成一个均匀分布的点阵. 这个是相对精确地面目标时域回波仿真方法, 但是在面目标相对较大时, 那么它被分割成的点 阵数量就多, 相应的数据量就大, 计算量也高.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SpectrumAnalysis.html" class="btn btn-neutral float-right" title="3.2. SAR回波频谱分析" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="3. SAR仿真技术" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

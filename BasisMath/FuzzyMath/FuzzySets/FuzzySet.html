@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1. 模糊集合 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 模糊集合" href="index.html"/>
+        <link rel="next" title="2.2. 隶属函数" href="MembershipFunction.html"/>
+        <link rel="prev" title="2. 模糊集合" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">模糊数学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 模糊集合</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.1. 模糊集合</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MembershipFunction.html">2.2. 隶属函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FuzzyLogic.html">2.3. 模糊逻辑</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FuzzySubalgebra.html">2.4. 模糊子代数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExtensionsFuzzySet.html">2.5. 模糊集合理论拓展</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyArithmetic/index.html">3. 模糊算术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyRelation/index.html">4. 模糊关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyInference/index.html">5. 模糊推理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzySystem/index.html">6. 模糊系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyTransform/index.html">7. 模糊变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">8. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">9. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">模糊数学</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>模糊集合</a> &raquo;</li>
+        
+      <li><span class="section-number">2.1. </span>模糊集合</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-fuzzyset">
+<span id="id1"></span><h1><span class="section-number">2.1. </span>模糊集合<a class="headerlink" href="#section-fuzzyset" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1.1. </span>引言(不确定集合)<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在经典集合论中(参见 <a class="reference internal" href="../../AdvancedMath/SetTheory/SetBasis.html#section-setconcept"><span class="std std-ref">集合的概念与性质</span></a>), 元素 <span class="math">\(x\)</span> 是否属于集合 <span class="math">\(\mathbb S\)</span> 是确定的, 且只有两种情况, 即属于或不属于. 如果元素 <span class="math">\(x\)</span> 以一定的可能性属于或不属于集合 <span class="math">\(\mathbb S\)</span> 呢? 这就是 <strong>模糊集合</strong> (<a class="reference internal" href="../glossary.html#term-fuzzy-set"><span class="xref std std-term">Fuzzy Set</span></a>).</p>
+<p>Zadeh于1965年提出模糊集合 <a class="bibtex reference internal" href="../zreference.html#l-a-zadeh-1965" id="id3">[4]</a> , 作为对经典集合的扩展, 在模糊集理论中, 经典集合通常被称为 <strong>明确集合</strong> (<a class="reference internal" href="../glossary.html#term-crisp-set"><span class="xref std std-term">Crisp Set</span></a>), 通过引入隶属函数(<a class="reference internal" href="../glossary.html#term-membership-function"><span class="xref std std-term">Membership Function</span></a>)与隶属度(<a class="reference internal" href="../glossary.html#term-membership-degree"><span class="xref std std-term">Membership Degree</span></a>), 来衡量元素的模糊性, 从而明确集为模糊集的特例, 即隶属函数仅有两个值( <span class="math">\(0, 1\)</span> ), 隶属度为 <span class="math">\(0\)</span> 或 <span class="math">\(1\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>比如, 对于 “58岁是不是老年人” 这个问题, 很难说 “是” 还是 “不是” , 很容易想到的方法是用 <span class="math">\([0, 1]\)</span> 之间的一个数来表示, 如 <span class="math">\(0.8\)</span> 表示: 58岁的人有 <span class="math">\(80\%\)</span> 的可能性是老年人. 如果用 <span class="math">\([0, 100]\)</span> 来表示岁数, 那么一个岁数为 <span class="math">\(x \in [0, 100]\)</span> 的人, 是否是老年人可以用隶属函数 <span class="math">\(f(x) = x/100\)</span> 表示, 隶属度为 <span class="math">\(f(x)\)</span> 的值. 然而, 对于超过 <span class="math">\(100\)</span> 岁的人呢, 此时 <span class="math">\(f(x) &gt; 1\)</span> .</p>
+</div>
+<p>容易发现, 实际应用中, 我们很难确认隶属函数的具体形式. 因而, Pawlak 于1982年提出基于等价关系的近似表示方法，即用两个隶属函数的上下近似来表示, 从而引入 <strong>粗糙集</strong> (<a class="reference internal" href="../glossary.html#term-rough-set"><span class="xref std std-term">Rough Set</span></a>) 的概念 <a class="bibtex reference internal" href="../zreference.html#pawlak-1982" id="id4">[5]</a> .</p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.1.2. </span>模糊集的定义<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="proof proof-type-definition" id="id14">
+<span id="defcrispset"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 2.10</span>
+        
+            <span class="proof-title-name">(明确集合)</span>
+        
+    </div><div class="proof-content">
+<p><strong>明确集合</strong> 的定义可以扩展为集合(或论域) <span class="math">\(\mathbb X\)</span> 和映射 <span class="math">\(f : {\mathbb X} \rightarrow \{0, 1\}\)</span> 的二元组 <span class="math">\({\mathbb A} = ({\mathbb X}, f)\)</span> , 其中, <span class="math">\(f\)</span> 为集合 <span class="math">\(\mathbb A\)</span> 的特征函数(也称示性函数, 参见 <a class="reference internal" href="../../AdvancedMath/SetTheory/SetBasis.html#subsubsection-setcharacteristicfunction"><span class="std std-ref">集合的特征函数</span></a>)</p>
+<div class="math">
+\[f(x) = \left\{ {\begin{array}{lll}
+{1\;\;if\;x \in \mathbb A}\\
+{0\;\;if\;x ∉ \mathbb A}
+\end{array}} \right. .
+
+\]</div>
+</div></div><p>扩展上述定义, 可以得到模糊集合的定义</p>
+<div class="proof proof-type-definition" id="id15">
+<span id="deffuzzyset"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 2.11</span>
+        
+            <span class="proof-title-name">(模糊集合)</span>
+        
+    </div><div class="proof-content">
+<p>设有集合(或论域) <span class="math">\(\mathbb X\)</span> 和映射 <span class="math">\(f : {\mathbb X} \rightarrow [0, 1]\)</span> 的组合, 二元组 <span class="math">\({\mathbb A} = ({\mathbb X}, f)\)</span> 确定了一个集合, 称为 <strong>模糊集合</strong> (<a class="reference internal" href="../glossary.html#term-fuzzy-set"><span class="xref std std-term">Fuzzy Set</span></a>). 函数 <span class="math">\(f(x) = \mu_{\mathbb A}\)</span> 称为模糊集 <span class="math">\(\mathbb A\)</span> 的 <strong>隶属函数</strong> (<a class="reference internal" href="../glossary.html#term-membership-function"><span class="xref std std-term">Membership Function</span></a>). 对于 <span class="math">\(\forall x \in {\mathbb X}\)</span>, 称 <span class="math">\(f(x)\)</span> 为元素 <span class="math">\(x\)</span> 在模糊集 <span class="math">\(\mathbb A\)</span> 中的 <strong>隶属度</strong> (<a class="reference internal" href="../glossary.html#term-membership-degree"><span class="xref std std-term">Membership Degree</span></a>, <a class="reference internal" href="../glossary.html#term-membership-grade"><span class="xref std std-term">Membership Grade</span></a>). 记 <span class="math">\(F({\mathbb X})\)</span> 为集合 <span class="math">\(\mathbb X\)</span> 的全体模糊子集.</p>
+</div></div><p>举例说明如何使用模糊集对语言表达进行建模, 如要表示 “年轻” 的概念, 可以用模糊集 <span class="math">\({\mathbb A} = ({\mathbb X}, f)\)</span> 表示, 其中岁数集合为 <span class="math">\(\mathbb \in [0, 100]\)</span> , 隶属函数可以表示为</p>
+<div class="math">
+\[\mu_{\mathbb A} = \left\{ {\begin{array}{lll}
+{1\;\;\;\;\;\;\;{\rm if}\;0 \le x \le 20}\\
+{\frac{{40 - x}}{{20}}\;\;{\rm if}\;20 \le x \le 40}\\
+{0\;\;\;\;\;\;\;{\rm otherwise}\;\;}
+\end{array}} \right.
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>明确集相当于模糊集的特例, 即当模糊集的隶属函数取明确集的特征函数时 (即: <span class="math">\(f : {\mathbb X} \rightarrow \{0, 1\}\)</span> ), 模糊集退化为明确集.</p>
+</div>
+<p>geq</p>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">2.1.3. </span>模糊集与明确集<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>给定模糊集 <span class="math">\({\mathbb A} = ({\mathbb X}, f)\)</span> , <span class="math">\(\alpha \in [0, 1]\)</span> , 有如下明确集:</p>
+<ul class="simple">
+<li><p><strong>α-割集</strong> (α-cut set, α-level set): <span class="math">\({\mathbb A}^{\ge\alpha} = {\mathbb A}_{\alpha} = \{x\in {\mathbb X} | f(x)\geq \alpha\}\)</span></p></li>
+<li><p><strong>强α-割集</strong> (strong α-cut set, strong α-level set): <span class="math">\({\mathbb A}^{ &gt;\alpha} = {\mathbb A}^{'}_{\alpha} = \{x\in {\mathbb X} | f(x) &gt; \alpha\}\)</span></p></li>
+<li><p><strong>紧集</strong> (support set): <span class="math">\(S({\mathbb A}) = Supp({\mathbb A}) = {\mathbb A}^{ &gt; 0} = \{x\in {\mathbb X} | f(x) &gt; 0\}\)</span></p></li>
+<li><p><strong>核集</strong> (core set, kernel set): <span class="math">\(C({\mathbb A}) = Core({\mathbb A}) = {\mathbb A}^{=1} = \{x\in {\mathbb X} | f(x)= 1\}\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">2.1.4. </span>模糊集的表示<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>记模糊集 <span class="math">\(\mathbb A\)</span> , 隶属函数为 <span class="math">\(\mu_{\mathbb A}\)</span> , 元素 <span class="math">\(x\)</span> 属于模糊集 <span class="math">\(\mathbb A\)</span> 的隶属度为 <span class="math">\(\mu_{\mathbb A}(x)\)</span> , 简记为 <span class="math">\(\mu(x)\)</span> . 则有以下表示方法.</p>
+<div class="section" id="zadeh">
+<h3>Zadeh表示法<a class="headerlink" href="#zadeh" title="永久链接至标题">¶</a></h3>
+<p>Zadeh表示法如下:</p>
+<div class="math">
+\[{\mathbb A} = \frac{\mu(x_1)}{x_1} + \frac{\mu(x_2)}{x_2} + \cdots + \frac{\mu(x_n)}{x_n},
+
+\]</div>
+<p>或</p>
+<div class="math">
+\[{\mathbb A} = \mu(x_1)/{x_1} + \mu(x_2)/{x_2} + \cdots + {\mu(x_n)}/{x_n},
+
+\]</div>
+<p>其中, 符号 <span class="math">\(+, /\)</span> 不表示四则运算中的加法和除法, <span class="math">\(\frac{\mu(x_i)}{x_i}\)</span> 表示元素 <span class="math">\(x_i\)</span> 隶属于模糊集 <span class="math">\(\mathbb A\)</span> 的隶属度是 <span class="math">\(\mu(x_i)\)</span> .</p>
+<p>若集合 <span class="math">\(\mathbb A\)</span> 为无限集合, 则有以下表示方法</p>
+<div class="math">
+\[{\mathbb A} = \int\frac{\mu(x)}{x}
+
+\]</div>
+</div>
+<div class="section" id="id8">
+<h3>序偶表示法<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="math">
+\[{\mathbb A} = \left\{({x_1}, \mu(x_1)), ({x_2}, \mu(x_2)), \cdots, ({x_n}, \mu(x_n))\right\},
+
+\]</div>
+</div>
+<div class="section" id="id9">
+<h3>向量表示法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="math">
+\[{\mathbb A} = (\mu(x_1), \mu(x_2), \cdots, \mu(x_n))
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><span class="section-number">2.1.5. </span>特殊模糊集<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>由于模糊集合用隶属度表征, 因而对于两个模糊集合 <span class="math">\({\mathbb A}, {\mathbb B}\)</span> , 其隶属函数分别为 <span class="math">\(\mu_{\mathbb A}\)</span> , <span class="math">\(\mu_{\mathbb B}\)</span> , 则</p>
+<ul class="simple">
+<li><p><strong>空集</strong> (Empty Set): <span class="math">\({\mathbb A} = \emptyset\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mu_{\mathbb A}(x) = 0\)</span></p></li>
+<li><p><strong>全集</strong> (Full Set): <span class="math">\({\mathbb A} = {\mathbb E}\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mu_{\mathbb A}(x) = 1\)</span></p></li>
+<li><p><strong>子集</strong> (Subset): <span class="math">\({\mathbb B}\subset {\mathbb A}\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mu_{\mathbb B}(x) \le \mu_{\mathbb A}(x)\)</span></p></li>
+<li><p><strong>相等</strong> (equal): <span class="math">\({\mathbb A} = {\mathbb B}\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mu_{\mathbb A}(x) = \mu_{\mathbb B}(x)\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2><span class="section-number">2.1.6. </span>模糊集的运算<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<div class="section" id="subsubsectionffuzzyoperator">
+<span id="id12"></span><h3>模糊算子<a class="headerlink" href="#subsubsectionffuzzyoperator" title="永久链接至标题">¶</a></h3>
+<p>由于模糊集合用隶属度表征, 因而对于两个模糊集合 <span class="math">\({\mathbb A}, {\mathbb B}\)</span> , 其隶属函数分别为 <span class="math">\(\mu_{\mathbb A}\)</span> , <span class="math">\(\mu_{\mathbb B}\)</span> , 一般地, 定义</p>
+<ul class="simple">
+<li><p><strong>交</strong> (Intersection): <span class="math">\({\mathbb A} \cap {\mathbb B}\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mu_{{\mathbb A} \cap {\mathbb B}}(x) = {\rm min}(\mu_{\mathbb A}(x), \mu_{\mathbb B}(x)) = \mu_{\mathbb A}(x) \wedge \mu_{\mathbb B}(x)\)</span></p></li>
+<li><p><strong>并</strong> (Union): <span class="math">\({\mathbb A} \cup {\mathbb B}\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mu_{{\mathbb A} \cup {\mathbb B}}(x) = {\rm max}(\mu_{\mathbb A}(x), \mu_{\mathbb B}(x)) = \mu_{\mathbb A}(x) \vee \mu_{\mathbb B}(x)\)</span></p></li>
+<li><p><strong>补</strong> (Complement): <span class="math">\(\bar{\mathbb A} = {\mathbb B}\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(\mu_{\bar{\mathbb A}}(x) = 1- \mu_{\mathbb A}(x)\)</span></p></li>
+</ul>
+<p>两个模糊集合的运算的实质是隶属度函数的运算, 上述定义中采用 <span class="math">\({\rm max}, {\rm min}\)</span> 常用模糊算子, 也可以采用其它算子.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>交</strong> (Intersection): <span class="math">\({\mathbb C} = {\mathbb A} \cap {\mathbb B}\)</span></dt><dd><ul>
+<li><p>模糊交算子: <span class="math">\(\mu_{\mathbb C}(x) = {\rm min}(\mu_{\mathbb A}(x), \mu_{\mathbb B}(x))\)</span></p></li>
+<li><p>代数积算子: <span class="math">\(\mu_{\mathbb C}(x) = \mu_{\mathbb A}(x) \cdot \mu_{\mathbb B}(x)\)</span></p></li>
+<li><p>有界积算子: <span class="math">\(\mu_{\mathbb C}(x) = {\rm max}(0, \mu_{\mathbb A}(x) + \mu_{\mathbb B}(x)-1)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>并</strong> (Union): <span class="math">\({\mathbb C} = {\mathbb A} \cup {\mathbb B}\)</span></dt><dd><ul>
+<li><p>模糊并算子: <span class="math">\(\mu_{\mathbb C}(x) = {\rm max}(\mu_{\mathbb A}(x), \mu_{\mathbb B}(x))\)</span></p></li>
+<li><p>代数和算子: <span class="math">\(\mu_{\mathbb C}(x) = \mu_{\mathbb A}(x) + \mu_{\mathbb B}(x) - \mu_{\mathbb A}(x) \cdot \mu_{\mathbb B}(x)\)</span></p></li>
+<li><p>有界和算子: <span class="math">\(\mu_{\mathbb C}(x) = {\rm min}(1, \mu_{\mathbb A}(x) + \mu_{\mathbb B}(x)-1)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>平衡算子: <span class="math">\(\mu_{{\mathbb C}}(x) = [\mu_{\mathbb A}(x) \cdot \mu_{\mathbb B}(x)]^{1-\gamma} \cdot [1 - (1-\mu_{\mathbb A}(x))(1-\mu_{\mathbb B}(x))]\)</span> , <span class="math">\(\gamma \in [0, 1]\)</span></p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>取最大最小不可避免地会丢失信息, 平衡算子可以起到信息补偿作用.</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>模糊集间的运算定律<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p>交换律: <span class="math">\(\mathbb{A} \cap \mathbb{B}\)</span>, <span class="math">\(\mathbb{A} \cup \mathbb{B}\)</span></p></li>
+<li><p>结合律: <span class="math">\(\mathbb{A} \cap (\mathbb{B} \cap \mathbb{C}) = (\mathbb{A} \cap \mathbb{B}) \cap \mathbb{C}\)</span>, <span class="math">\(\mathbb{A} \cup (\mathbb{B} \cup \mathbb{C}) = (\mathbb{A} \cup \mathbb{B}) \cup \mathbb{C}\)</span></p></li>
+<li><p>分配律: <span class="math">\(\mathbb{A} \cap (\mathbb{B} \cup \mathbb{C}) = (\mathbb{A} \cap \mathbb{B}) \cup (\mathbb{A} \cap \mathbb{C})\)</span>, <span class="math">\(\mathbb{A} \cup (\mathbb{B} \cap \mathbb{C}) = (\mathbb{A} \cup \mathbb{B}) \cap (\mathbb{A} \cup \mathbb{C})\)</span></p></li>
+<li><p>对偶律: <span class="math">\(\overline{\mathbb{A} \cup \mathbb{B}} = \bar{\mathbb A} \cap \bar{\mathbb B}\)</span> , <span class="math">\(\overline{\mathbb{A} \cap \mathbb{B}} = \bar{\mathbb A} \cup \bar{\mathbb B}\)</span></p></li>
+<li><p>两极律: <span class="math">\(\mathbb{A} \cap \mathbb{E} = \mathbb{A}, \mathbb{A} \cup \mathbb{E} = \mathbb{E}\)</span></p></li>
+<li><p>零一律: <span class="math">\(\mathbb{A} \cap \mathbb{\emptyset} = \mathbb{\emptyset}, \mathbb{A} \cup \mathbb{\emptyset} = \mathbb{A}\)</span></p></li>
+<li><p>吸收律: <span class="math">\(\mathbb{A}\cap (\mathbb{A}\cup \mathbb{B}) = \mathbb{A}, \mathbb{A} \cup (\mathbb{A}\cap \mathbb{B}) = \mathbb{A}\)</span></p></li>
+<li><p>等幂律: <span class="math">\(\mathbb{A} \cap \mathbb{A} = \mathbb{A}, \mathbb{A} \cup \mathbb{A} = \mathbb{A}\)</span></p></li>
+<li><p>复原率: <span class="math">\(\bar{\bar{\mathbb A}} = {\mathbb A}\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MembershipFunction.html" class="btn btn-neutral float-right" title="2.2. 隶属函数" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2. 模糊集合" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 引言 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../index.html"/>
+        <link rel="up" title="路径规划" href="index.html"/>
+        <link rel="next" title="2. 覆盖规划" href="CoveragePlanning/index.html"/>
+        <link rel="prev" title="路径规划" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">第十卷 应用实践</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ChangeDetection/index.html">变化检测</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">路径规划</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. 引言</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1.1. 什么是路径规划</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.2. 常用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">1.3. 有用的资源</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CoveragePlanning/index.html">2. 覆盖规划</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DynamicPlanning/index.html">3. 动态规划</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zreference.html">4. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary.html">5. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../EvaluationMethod/index.html">评价方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Supplement/index.html">补充内容</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">第十卷 应用实践</a> &raquo;</li>
+        
+          <li><a href="index.html">路径规划</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>引言</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-introductionpathplanningalgorithm">
+<span id="id1"></span><h1><span class="section-number">1. </span>引言<a class="headerlink" href="#section-introductionpathplanningalgorithm" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>什么是路径规划<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>路径规划 (<a class="reference internal" href="glossary.html#term-path-planning"><span class="xref std std-term">Path Planning</span></a>)</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.2. </span>常用方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>常见的路径规划算法有基于 <strong>几何分析</strong> (Geometric Analysis), <strong>回报</strong> (Reward-based Algorithms) 的方法, 基于搜索的 <strong>网格搜索</strong> (Grid-based Search), <strong>间隔搜索</strong> (Interval-based Search)方法, 基于 <strong>多目标优化</strong> (Multi-Objective Optimization) 的方法, 基于 <strong>遗传算法</strong> (genetic algorithm), <strong>神经网络</strong> (Neural Network) 等人工智能算法.</p>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">1.3. </span>有用的资源<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="book">
+<h3><span class="section-number">1.3.1. </span>book<a class="headerlink" href="#book" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://planning.cs.uiuc.edu/">Planning Algorithms</a></p></li>
+<li><p><a class="reference external" href="http://homepages.laas.fr/jpl/book.html">Robot Motion Planning and Control</a></p></li>
+</ul>
+</div>
+<div class="section" id="software">
+<h3><span class="section-number">1.3.2. </span>software<a class="headerlink" href="#software" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://ompl.kavrakilab.org/">OMPL</a> : The Open Motion Planning Library</p></li>
+<li><p><a class="reference external" href="http://openrave.org/">OpenRAVE</a> : OpenRAVE provides an environment for testing, developing, and deploying motion planning algorithms in real-world robotics applications.</p></li>
+<li><p><a class="reference external" href="http://msl.cs.uiuc.edu/msl/">MSL</a> : Motion Strategy Library. The Motion Strategy Library (MSL) allows easy development and testing of motion planning algorithms for a wide variety of applications.</p></li>
+<li><p><a class="reference external" href="https://ai.stanford.edu/~mitul/mpk/">MPK</a> : A C++ library and toolkit for developing single- and multi-robot motion planners.</p></li>
+</ul>
+</div>
+<div class="section" id="library">
+<h3><span class="section-number">1.3.3. </span>library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/sahibdhanjal/Path-Planning-Simulator">Path-Planning-Simulator</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CoveragePlanning/index.html" class="btn btn-neutral float-right" title="2. 覆盖规划" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="路径规划" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

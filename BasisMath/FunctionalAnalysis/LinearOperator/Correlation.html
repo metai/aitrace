@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.2. 相关算子 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 线性算子" href="index.html"/>
+        <link rel="next" title="1.3. 卷积与相关" href="ConvolutionCorrelation.html"/>
+        <link rel="prev" title="1.1. 卷积算子" href="Convolution.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">泛函分析</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 线性算子</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Convolution.html">1.1. 卷积算子</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.2. 相关算子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvolutionCorrelation.html">1.3. 卷积与相关</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">2. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">泛函分析</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>线性算子</a> &raquo;</li>
+        
+      <li><span class="section-number">1.2. </span>相关算子</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-correlationlinearoperatorfunctionalanalysisbasicmath">
+<span id="id1"></span><h1><span class="section-number">1.2. </span>相关算子<a class="headerlink" href="#section-correlationlinearoperatorfunctionalanalysisbasicmath" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.2.1. </span>互相关<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><strong>互相关</strong> ( <a class="reference internal" href="../../ProbabilityStatistics/glossary.html#term-cross-correlation"><span class="xref std std-term">Cross Correlation</span></a> ) 在不同领域有稍微不同的定义.</p>
+<p>在数字信号处理中, 互相关两个序列相似性的度量, 是一个序列相对于另一序列的位移函数. 通常被称为滑动点积或滑动内积, 且用于搜索较长信号的较短的已知特征, 在模式识别, 单粒子分析, 电子断层扫描, 密码分析和神经生理学中有广泛应用. 互相关与卷积本质上相似, 自相关是信号自己的互相关.</p>
+<div class="section" id="id3">
+<h3>确定信号的互相关<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>对于连续函数 <span class="math">\(f, g\)</span> , 互相关定义为</p>
+<div class="math" id="equation-equ-crosscorrelationcontinues">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-equ-crosscorrelationcontinues" title="公式的永久链接">¶</a></span>\[(f\star g)(\tau) = \int_{-\infty}^{+\infty}\overline{f(t)}g(t+\tau){\rm d}t = \int_{-\infty}^{+\infty}\overline{f(t-\tau)}g(t){\rm d}t
+
+\]</div>
+<p>其中, <span class="math">\(\overline{f}\)</span> 表示 <span class="math">\(f\)</span> 的共轭转置, <span class="math">\(\tau\)</span> 表示移位.</p>
+<p>类似的, 对于离散函数 <span class="math">\(f, g\)</span> , 互相关定义为</p>
+<div class="math" id="equation-equ-1dcrosscorrelationdiscrete">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-equ-1dcrosscorrelationdiscrete" title="公式的永久链接">¶</a></span>\[(f\star g)[n] = \sum_{m=-\infty}^{+\infty}{\overline{f[m]}g[m+n]} = \sum_{m=-\infty}^{+\infty}\overline{f[m-n]}g[m]
+
+\]</div>
+</div>
+<div class="section" id="id4">
+<h3>不确定信号的互相关<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>参见章节 <a class="reference internal" href="../../ProbabilityStatistics/CorrelationAnalysis/index.html#chapter-correlationanalysis"><span class="std std-ref">相关分析</span></a> 的 <a class="reference internal" href="../../ProbabilityStatistics/CorrelationAnalysis/Correlation.html#section-correlationcorrelationanalysisprobabilitystatistics"><span class="std std-ref">相关的概念</span></a> 小节.</p>
+</div>
+<div class="section" id="id5">
+<h3>周期信号的互相关<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">1.2.2. </span>自相关<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ConvolutionCorrelation.html" class="btn btn-neutral float-right" title="1.3. 卷积与相关" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Convolution.html" class="btn btn-neutral" title="1.1. 卷积算子" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

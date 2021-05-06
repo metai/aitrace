@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.2. 线性压缩感知 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="5. 线性压缩感知" href="index.html"/>
+        <link rel="next" title="5.3. 线性压缩感知信号模型" href="SignalModel.html"/>
+        <link rel="prev" title="5.1. 简介" href="Introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Digital/index.html">数字信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">稀疏信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SparsitySamplingRecon/index.html">2. 稀疏采样与重构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RepresentationDictionary/index.html">3. 表示字典</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SignalSparseDecomposition/index.html">4. 信号稀疏分解</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">5. 线性压缩感知</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">5.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.2. 线性压缩感知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SignalModel.html">5.3. 线性压缩感知信号模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Measurement.html">5.4. 线性压缩感知观测</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Reconstruction.html">5.5. 线性压缩感知重构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html">5.6. 线性压缩感知实践</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../BayesianCompressiveSensing/index.html">6. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LearnedCompressiveSensing/index.html">7. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningCompressiveSensing/index.html">8. 深度学习与压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">9. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">10. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">稀疏信号处理</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">5. </span>线性压缩感知</a> &raquo;</li>
+        
+      <li><span class="section-number">5.2. </span>线性压缩感知</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-linearcslinearcompressivesensingsparsesignalprocessing">
+<span id="id1"></span><h1><span class="section-number">5.2. </span>线性压缩感知<a class="headerlink" href="#section-linearcslinearcompressivesensingsparsesignalprocessing" title="永久链接至标题">¶</a></h1>
+<p>压缩感知 (<a class="reference internal" href="../glossary.html#term-compressive-sensing"><span class="xref std std-term">Compressive Sensing</span></a>, CS) 由 <span class="bibtex" id="id2">[Donoho]</span> 等人于2004年提出, 压缩感知线性模型, 即线性压缩感知 (<a class="reference internal" href="../glossary.html#term-linear-compressive-sensing"><span class="xref std std-term">Linear Compressive Sensing</span></a>, LCS)</p>
+<p><a class="reference external" href="https://www.cnblogs.com/AndyJee/category/579870.html">压缩感知笔记</a></p>
+<div class="section" id="id4">
+<h2><span class="section-number">5.2.1. </span>线性压缩感知概述<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>为便于描述, 将一个压缩感知系统记为 <span class="math">\({\rm CS}({\mathfrak G}; {\mathfrak F})\)</span>, 其中, <span class="math">\({\mathfrak G}\)</span> 为观测系统, <span class="math">\({\mathfrak F}\)</span> 为重构系统. 例如, 观测系统为 <span class="math">\({\bm \Phi},\cdot\)</span>, 重构系统为 <span class="math">\({\bm A}, {\rm omp}\)</span>.</p>
+<p>压缩感知旨在设计一个观测系统 <span class="math">\({\mathfrak G}\)</span> 和一个恢复系统 <span class="math">\({\mathfrak F}\)</span>, 使得信号 <span class="math">\({\bm x}\)</span> 可以以欠奈奎斯特采样频率采样并得到较好的恢复.</p>
+<p>其观测过程可以表示为</p>
+<div class="math" id="equation-equ-cs-mesurement">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-equ-cs-mesurement" title="公式的永久链接">¶</a></span>\[{\bm y} = {\mathfrak G}({\bm x})
+
+\]</div>
+<p>恢复过程可以表示为</p>
+<div class="math" id="equation-equ-cs-reconstruction">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-equ-cs-reconstruction" title="公式的永久链接">¶</a></span>\[{\bm x} = {\mathfrak F}({\bm y}).
+
+\]</div>
+<p>对于线性压缩感知, 有 <span class="math">\({\mathfrak G}({\bm x}) = {\bm \Phi}{\bm x}\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math">\({\bm \Phi}\)</span>: 测量矩阵/观测矩阵</p></li>
+<li><p><span class="math">\({\bm \Psi}\)</span>: 稀疏基矩阵/稀疏表示字典矩阵</p></li>
+<li><p><span class="math">\({\bm A} = {\bm \Phi}{\bm \Psi}\)</span>: 传感矩阵/感知矩阵</p></li>
+</ul>
+<p>压缩感知理论指出, 当测量矩阵 <span class="math">\({\bm \Phi}\)</span> 满足 <a class="reference internal" href="../SparsitySamplingRecon/Reconstruction.html#subsection-restrictedisometryproperty"><span class="std std-ref">有限等距性</span></a> 性质时, 信号能够以较大概率被恢复.</p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">5.2.2. </span>一维线性压缩感知<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>稀疏信号的压缩采样与恢复<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>设有原始稀疏信号 <span class="math">\({\bm x}\in {\mathbb R}^{N \times 1}\)</span>, 测量矩阵 <span class="math">\({\bm \Phi} \in {\mathbb R}^{M \times N}\)</span>, 则测量过程可以表示为</p>
+<div class="math" id="equation-equ-cs1d-mesurement">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-equ-cs1d-mesurement" title="公式的永久链接">¶</a></span>\[{\bm y} = {\bm \Phi}{\bm x} + {\bm n}
+
+\]</div>
+<p>其中, <span class="math">\({\bm y}\in {\mathbb R}^{M\times 1}\)</span> 为测量向量, <span class="math">\({\bm n}\in {\mathbb R}^{M \times 1}\)</span> , <span class="math">\(M&lt;N\)</span> 为观测系统噪声. 在已知 <span class="math">\({\bm y}\)</span> 和 <span class="math">\(\bm \Phi\)</span> 时, 原始信号 <span class="math">\(\bm x\)</span> 的恢复可以通过优化</p>
+<blockquote>
+<div><div class="math" id="equation-equ-cs1d-optimizationst">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-equ-cs1d-optimizationst" title="公式的永久链接">¶</a></span>\[\mathop {\rm min}\limits_{\bm x}\|{\bm x}\|_p, \ \  s.t. \  {\bm y} = {\bm \Phi}{\bm x} + {\bm n},
+
+\]</div>
+</div></blockquote>
+<p>其中, <span class="math">\(|\cdot|_p, (0\le p \le 1)\)</span> 表示 <span class="math">\(\ell_p\)</span> 范数. <a class="reference internal" href="#equation-equ-cs1d-optimizationst">式.5.4</a> 可以通过 <a class="reference internal" href="../SignalSparseDecomposition/OrthogonalMatchingPursuit.html#section-orthogonalmatchingpursuitsignalsparsedecompositionsparsesignalprocessing"><span class="std std-ref">正交匹配追踪</span></a> 的方法求解. 与 <a class="reference internal" href="#equation-equ-cs1d-optimizationst">式.5.4</a> 等效的优化问题为</p>
+<div class="math" id="equation-equ-cs1d-optimizationnost">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-equ-cs1d-optimizationnost" title="公式的永久链接">¶</a></span>\[\mathop {\rm min}\limits_{\bm{x}} = \|{\bm x}\|_p + \lambda\|{\bm y} - {\bm \Phi}{\bm x}\|_2,
+
+\]</div>
+<p>其中, <span class="math">\(\lambda\)</span> 是平衡因子, <span class="math">\(|\cdot|_p, (0\le p \le 1)\)</span> 表示 <span class="math">\(\ell_p\)</span> 范数.</p>
+</div>
+<div class="section" id="id7">
+<h3>非稀疏信号的压缩采样与恢复<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>设有原始非稀疏信号 <span class="math">\(\bm x\)</span>, 设其可通过可逆线性变换 <span class="math">\({\bm \Psi}^{-1}\)</span> 变换到稀疏信号 <span class="math">\(\bm z\)</span> (<span class="math">\({\bm z} = {\bm \Psi}^{-1}{\bm x}\)</span>), 即可在字典 <span class="math">\({\bm \Psi}\)</span> 下进行稀疏表示 (<span class="math">\({\bm x} = {\bm \Psi}{\bm z}\)</span>), 则对于非稀疏信号的压缩采样与恢复有两种方式, 下面进行介绍.</p>
+<div class="section" id="id8">
+<h4>第一种方式<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>变换: <span class="math">\({\bm z} = {\bm \Psi}^{-1}{\bm x}\)</span></p></li>
+<li><p>观测: <span class="math">\({\bm y} = {\bm \Phi}{\bm z}\)</span>,</p></li>
+<li><p>求解: <span class="math">\({\rm min}_{\bm z} \|{\bm z}\|_p  \ \  s.t. \  {\bm y} = {\bm \Phi}{\bm z}\)</span></p></li>
+<li><p>重构: <span class="math">\({\bm x} = {\bm \Psi}{\bm z}\)</span></p></li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h4>第二种方式<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>观测: <span class="math">\({\bm y} = {\bm \Phi}{\bm x}\)</span></p></li>
+<li><p>求解: <span class="math">\({\rm min}_{\bm z} \|{\bm z}\|_p \ \  s.t. \  {\bm y} = {\bm \Phi}{\bm \Psi}{\bm z}\)</span></p></li>
+<li><p>重构: <span class="math">\({\bm x} = {\bm \Psi}{\bm z}\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>二维压缩感知<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><span class="section-number">5.2.3. </span>复压缩感知<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>对于复数域压缩感知问题可以转换成实数域压缩感知处理. 若 <span class="math">\({\bm y}\in{\mathbb C}^{M\times 1}, {\bm \Phi}\in {\mathbb C}^{M\times N}, {\bm x} \in {\mathbb C}^{N\times 1}\)</span>, 问题可以转化为</p>
+<div class="math" id="equation-equ-ccs-equation">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-equ-ccs-equation" title="公式的永久链接">¶</a></span>\[{\mathop{\rm Re}\nolimits} ({\bm{y}}) + j{\rm Im}({\bm{y}}) = {\rm Re}({\bm \Phi}{\bm x}) + j{\mathop{\rm Im}\nolimits} ({\bm \Phi}{\bm x})
+
+\]</div>
+<p>写成矩阵形式为</p>
+<div class="math">
+\[\left[ {\begin{array}{c}
+{{\mathop{\rm Re}\nolimits} ({\bm{y}})}\\
+{{\mathop{\rm Im}\nolimits} ({\bm{y}})}
+\end{array}} \right] = \left[ {\begin{array}{cr}
+{{\mathop{\rm Re}\nolimits} ({\bm{\Phi }})}&{ - {\mathop{\rm Im}\nolimits} ({\bm{\Phi }})}\\
+{{\rm Im}({\bm{\Phi }})}&{{\mathop{\rm Re}\nolimits} ({\bm{\Phi }})}
+\end{array}} \right]\left[ {\begin{array}{c}
+{{\mathop{\rm Re}\nolimits} ({\bm{x}})}\\
+{{\mathop{\rm Im}\nolimits} ({\bm{x}})}
+\end{array}} \right]
+
+\]</div>
+</div>
+<div class="section" id="id12">
+<h2><span class="section-number">5.2.4. </span>压缩感知与流形<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>流形与压缩感知中的一些重要结果有着密切的关系, 如一组满足 <span class="math">\(\|{\bm x}\|_0 = k\)</span> 的信号构成了一个 <span class="math">\(k\)</span> 维黎曼流形. 又如压缩感知中的许多随机感知矩阵可看作是低维流形中的保留结构 <a class="bibtex reference internal" href="../zreference.html#baraniuk-2009" id="id13">[3]</a><a class="bibtex reference internal" href="../zreference.html#duarte-jan-2007" id="id14">[4]</a> .</p>
+<p>参见 <a class="bibtex reference internal" href="../zreference.html#eldar-2012" id="id15">[5]</a> Chapter 1</p>
+</div>
+<div class="section" id="id16">
+<h2><span class="section-number">5.2.5. </span>压缩感知分析实验<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<p>设计Gaussian观测矩阵 <span class="math">\(\bm \Phi\)</span>, DCT稀疏表示字典 <span class="math">\(\bm \Psi\)</span>, 记感知矩阵 <span class="math">\({\bm A} = {\bm \Phi}{\bm \Psi}\)</span>. 为便于描述, 记一个压缩感知系统为 <span class="math">\({\rm CS}({\mathfrak G}; {\mathfrak F})\)</span>, 其中, <span class="math">\({\mathfrak G}\)</span> 为观测系统, <span class="math">\({\mathfrak F}\)</span> 为重构系统. 以完成对二维图像的高度维压缩采样与恢复为例, 实验中分析: a) <span class="math">\({\rm CS}({\bm \Phi}; {\bm \Phi})\)</span>, b) <span class="math">\({\rm CS}({\bm \Phi}; {\bm A})\)</span>, c) <span class="math">\({\rm CS}({\bm A}; {\bm \Phi})\)</span>, d) <span class="math">\({\rm CS}({\bm A}; {\bm A})\)</span> 四种压缩感知系统的性能.</p>
+<p>Python 实现参见文件 <a class="reference external" href="https://github.com/antsfamily/pysparse/tree/master/examples/cs/demo_csAnalysis.py">demo_csAnalysis.py</a></p>
+<p>以cameraman图像为例, 可视化该图像, 观测矩阵, DCT字典和稀疏表示系数</p>
+<div class="figure align-center" id="id17">
+<a class="reference internal image-reference" href="../../../_images/cameramanCSanalysisData.svg"><img alt="Orignal image signal, dictionary matrix, observation matrix, sparse coefficient matrix." height="5520.0" src="../../../_images/cameramanCSanalysisData.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.3 </span><span class="caption-text">Orignal image signal, dictionary matrix, observation matrix, sparse coefficient matrix.</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比设置为4, 采用OMP算法重构图像信号, 稀疏度设置为 <span class="math">\(k=32\)</span> 时的结果为</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/cameramanCSanalysisResultsk32.svg"><img alt="a) :math:`{\rm CS}({\bm \Phi}; {\bm \Phi})`, b) :math:`{\rm CS}({\bm \Phi}; {\bm A})`, c) :math:`{\rm CS}({\bm A}; {\bm \Phi})`, d) :math:`{\rm CS}({\bm A}; {\bm A})`" src="../../../_images/cameramanCSanalysisResultsk32.svg" /></a>
+</div>
+<p>压缩比设置为4, 采用OMP算法重构图像信号, 稀疏度设置为 <span class="math">\(k=64\)</span> 时的结果为</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/cameramanCSanalysisResultsk64.svg"><img alt="a) :math:`{\rm CS}({\bm \Phi}; {\bm \Phi})`, b) :math:`{\rm CS}({\bm \Phi}; {\bm A})`, c) :math:`{\rm CS}({\bm A}; {\bm \Phi})`, d) :math:`{\rm CS}({\bm A}; {\bm A})`" src="../../../_images/cameramanCSanalysisResultsk64.svg" /></a>
+</div>
+<p>压缩比设置为4, 采用OMP算法重构图像信号, 稀疏度设置为 <span class="math">\(k=128\)</span> 时的结果为</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/cameramanCSanalysisResultsk128.svg"><img alt="a) :math:`{\rm CS}({\bm \Phi}; {\bm \Phi})`, b) :math:`{\rm CS}({\bm \Phi}; {\bm A})`, c) :math:`{\rm CS}({\bm A}; {\bm \Phi})`, d) :math:`{\rm CS}({\bm A}; {\bm A})`" src="../../../_images/cameramanCSanalysisResultsk128.svg" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>可见, 针对非稀疏信号, 正确的感知系统有两种</p>
+<ol class="arabic simple">
+<li><p>在观测时先将信号变换成稀疏信号, 再对稀疏信号进行压缩观测, 通过测量矩阵和观测值求解稀疏信号, 再进行逆变换重构原始信号.</p></li>
+<li><p>采用测量矩阵直接测量非稀疏信号, 在求解时, 假设信号在某一字典下可以进行稀疏表示, 通过字典和测量矩阵以及观测值求解稀疏信号, 再进行逆变换重构原始信号</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SignalModel.html" class="btn btn-neutral float-right" title="5.3. 线性压缩感知信号模型" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral" title="5.1. 简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

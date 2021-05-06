@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1. 监督学习实践1 - 回归与优化 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 监督学习" href="index.html"/>
+        <link rel="next" title="3. 无监督学习" href="../UnsupervisedLearning/index.html"/>
+        <link rel="prev" title="2. 监督学习" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">机器学习</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 监督学习</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.1. 监督学习实践1 - 回归与优化</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../UnsupervisedLearning/index.html">3. 无监督学习</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">4. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../NeuralNetwork/index.html">神经网络</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">机器学习</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>监督学习</a> &raquo;</li>
+        
+      <li><span class="section-number">2.1. </span>监督学习实践1 - 回归与优化</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">2.1. </span>监督学习实践1 - 回归与优化<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>源自 <a class="reference external" href="http://ufldl.stanford.edu/tutorial/">UFLDL Tutorial</a> , 原始代码可以从这里( <a class="reference external" href="https://github.com/amaas/stanford_dl_ex">GitHub repository</a> ）一次性下载. 需要注意的是有些数据需要自己去下载, 比如, 在做PCA的练习时, 需要下载MNIST数据集, 可以到 <a class="reference external" href="http://yann.lecun.com/exdb/mnist/">THE MNIST DATABASE</a>  下载.</p>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1.1. </span>线性回归<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>线性回归预测房价<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p><strong>Exercise 1A</strong>：线性回归预测房价, 只需补充目标函数及其梯度, 计算公式见原网页 ：</p>
+<p><strong>补充代码</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">linear_regression.m</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">%%% YOUR CODE HERE %%%</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="n">theta</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="c">%Compute the linear regression objective</span>
+<span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="n">f</span> <span class="o">+</span> <span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">X</span><span class="p">(:,</span><span class="nb">j</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="nb">j</span><span class="p">))</span>^<span class="mi">2</span><span class="p">;</span>
+<span class="k">end</span>
+<span class="n">f</span> <span class="p">=</span> <span class="n">f</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="c">%Compute the gradient of the objective</span>
+<span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span>
+    <span class="n">g</span> <span class="p">=</span> <span class="n">g</span> <span class="o">+</span> <span class="n">X</span><span class="p">(:,</span><span class="nb">j</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">X</span><span class="p">(:,</span><span class="nb">j</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="nb">j</span><span class="p">));</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p><strong>实验结果</strong></p>
+<p>如原文所述, 训练和测试误差一般在<span class="math">\(4.5\)</span>和<span class="math">\(5\)</span>之间, 本人实验结果如 <a class="reference internal" href="#fig-machinelearningsupervisedhousedata"><span class="std std-numref">图 2.17</span></a> 所示：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">Optimization</span> <span class="n">took</span> <span class="mf">1.780584</span> <span class="n">seconds</span><span class="p">.</span>
+<span class="n">RMS</span> <span class="n">training</span> <span class="n">error</span><span class="p">:</span> <span class="mf">4.731236</span>
+<span class="n">RMS</span> <span class="n">testing</span> <span class="n">error</span><span class="p">:</span> <span class="mf">4.584099</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id10">
+<span id="fig-machinelearningsupervisedhousedata"></span><a class="reference internal image-reference" href="../../../_images/housedata.png"><img alt="线性回归——房价" src="../../../_images/housedata.png" style="width: 560.0px; height: 420.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.17 </span><span class="caption-text">线性回归——房价</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>线性回归——房价</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="logistic-regression">
+<h2><span class="section-number">2.1.2. </span>Logistic Regression<a class="headerlink" href="#logistic-regression" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://ufldl.stanford.edu/tutorial/supervised/LogisticRegression/">Logistic Regression</a></p>
+<p>上面的线性回归有两个特点：</p>
+<ul class="simple">
+<li><p>预测连续值(房价);</p></li>
+<li><p>输出是输入的 线性函数( <span class="math">\(y=h_{\theta}(x)=\theta^Tx\)</span> );</p></li>
+<li><p>代价函数为均方误差函数.</p></li>
+</ul>
+<p>Logistic Regression：</p>
+<ul class="simple">
+<li><p>预测离散值, 通常用于分类;</p></li>
+<li><p>输出是输入的非线性函数(sigmoid或Logistic)：<span class="math">\(y=h_{\theta}(x)=\sigma(\theta^Tx)\)</span>, <span class="math">\(\sigma(z)={1\over 1+exp(-z)}\)</span> ；</p></li>
+<li><p>代价函数取交叉熵(概率模型推), 最大似然, 见<a class="reference external" href="http://cs229.stanford.edu/notes/cs229-notes1.pdf">CS229 Notes</a>）.</p></li>
+</ul>
+<div class="section" id="id5">
+<h3>Logistic Regression手写体分类<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>Logistic分类, 用于手写体. 只需补充目标函数及其梯度, 计算公式见原网页, 推导见 <a class="reference external" href="http://cs229.stanford.edu/notes/cs229-notes1.pdf">CS229 Notes</a> ：</p>
+<p><strong>补充代码</strong>
+与线性回归基本相同, 只是假设<span class="math">\(y=h_{\theta}(x)=\sigma(\theta^Tx)\)</span>, <span class="math">\(\sigma(z)={1\over 1+exp(-z)}\)</span>为sigmoid函数, 不再是线性函数.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">%%% YOUR CODE HERE %%%</span>
+
+<span class="c">%Compute the linear regression objective and it&#39;s gradient</span>
+<span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span>
+    <span class="n">coItem</span> <span class="p">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">theta</span><span class="o">&#39;*</span><span class="n">X</span><span class="p">(:,</span><span class="nb">j</span><span class="p">));</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="n">f</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="nb">j</span><span class="p">)</span><span class="o">*</span><span class="nb">log</span><span class="p">(</span><span class="n">coItem</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">(</span><span class="nb">j</span><span class="p">))</span><span class="o">*</span><span class="nb">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">coItem</span><span class="p">);</span>
+    <span class="n">g</span> <span class="p">=</span> <span class="n">g</span> <span class="o">+</span> <span class="n">X</span><span class="p">(:,</span><span class="nb">j</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">coItem</span><span class="o">-</span><span class="n">y</span><span class="p">(</span><span class="nb">j</span><span class="p">));</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p><strong>实验结果</strong></p>
+<p>如原网页所述, 最终训练和测试精度都为100%, 本人实验结果：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">Optimization</span> <span class="n">took</span> <span class="mf">15.115248</span> <span class="n">seconds</span><span class="p">.</span>
+<span class="n">Training</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">100.0</span><span class="c">%</span>
+<span class="n">Test</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">100.0</span><span class="c">%</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="vectorization">
+<h2><span class="section-number">2.1.3. </span>Vectorization<a class="headerlink" href="#vectorization" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://ufldl.stanford.edu/tutorial/supervised/Vectorization/">Vectorization</a></p>
+<p><strong>补充代码</strong></p>
+<p>需要取消<code class="docutils literal notranslate"><span class="pre">ex1a_linreg.m</span></code>和<code class="docutils literal notranslate"><span class="pre">ex1b_logreg.m</span></code>文件中下面的注释：</p>
+<p><code class="docutils literal notranslate"><span class="pre">ex1a_linreg.m</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">% theta = rand(n,1);</span>
+<span class="c">% tic;</span>
+<span class="c">% theta = minFunc(@linear_regression_vec, theta, options, train.X, train.y);</span>
+<span class="c">% fprintf(&#39;Optimization took %f seconds.\n&#39;, toc);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ex1b_logreg.m</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">% theta = rand(n,1)*0.001;</span>
+<span class="c">% tic;</span>
+<span class="c">% theta=minFunc(@logistic_regression_vec, theta, options, train.X, train.y);</span>
+<span class="c">% fprintf(&#39;Optimization took %f seconds.\n&#39;, toc);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">linear_regression_vec.m</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">%%% YOUR CODE HERE %%%</span>
+<span class="n">f</span> <span class="p">=</span> <span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="o">&#39;*</span><span class="n">X</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span>^<span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">g</span> <span class="p">=</span> <span class="n">X</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span><span class="o">&#39;*</span><span class="n">X</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">logistic_regression_vec.m</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">%%% YOUR CODE HERE %%%</span>
+<span class="n">coItem</span> <span class="p">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">theta</span><span class="o">&#39;*</span><span class="n">X</span><span class="p">);</span>
+<span class="n">f</span> <span class="p">=</span> <span class="o">-</span><span class="nb">log</span><span class="p">(</span><span class="n">coItem</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="o">&#39;</span> <span class="o">-</span><span class="nb">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">coItem</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">g</span> <span class="p">=</span> <span class="n">X</span><span class="o">*</span><span class="p">(</span><span class="n">coItem</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>实验结果</strong></p>
+<p>速度快了好些, 如下：</p>
+<p>线性回归：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">Optimization</span> <span class="n">took</span> <span class="mf">0.032485</span> <span class="n">seconds</span><span class="p">.(</span>矢量化前约<span class="mf">0.3</span><span class="n">s</span><span class="p">)</span>
+<span class="n">RMS</span> <span class="n">training</span> <span class="n">error</span><span class="p">:</span> <span class="mf">4.023758</span>
+<span class="n">RMS</span> <span class="n">testing</span> <span class="n">error</span><span class="p">:</span> <span class="mf">6.783703</span>
+</pre></div>
+</div>
+<p>Logistic分类：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="n">Optimization</span> <span class="n">took</span> <span class="mf">3.419164</span> <span class="n">seconds</span><span class="p">.(</span>矢量化前约<span class="mi">12</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Training</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">100.0</span><span class="c">%</span>
+<span class="n">Test</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">100.0</span><span class="c">%</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="debugging-gradient-checking">
+<h2><span class="section-number">2.1.4. </span>Debugging: Gradient Checking<a class="headerlink" href="#debugging-gradient-checking" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://ufldl.stanford.edu/tutorial/supervised/DebuggingGradientChecking/">Debugging: Gradient Checking</a></p>
+<p><strong>补充代码</strong> 下面是一次进行上述线性回归Logistic分类练习的梯度检验代码
+<code class="docutils literal notranslate"><span class="pre">grad_check_demo.m</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="c">%% for linear regression</span>
+
+<span class="c">% Load housing data from file.</span>
+<span class="n">data</span> <span class="p">=</span> <span class="n">load</span><span class="p">(</span><span class="s">&#39;housing.data&#39;</span><span class="p">);</span>
+<span class="n">data</span><span class="p">=</span><span class="n">data</span><span class="o">&#39;</span><span class="p">;</span> <span class="c">% put examples in columns</span>
+
+<span class="c">% Include a row of 1s as an additional intercept feature.</span>
+<span class="n">data</span> <span class="p">=</span> <span class="p">[</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="n">data</span> <span class="p">];</span>
+
+<span class="c">% Shuffle examples.</span>
+<span class="n">data</span> <span class="p">=</span> <span class="n">data</span><span class="p">(:,</span> <span class="n">randperm</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mi">2</span><span class="p">)));</span>
+
+<span class="c">% Split into train and test sets</span>
+<span class="c">% The last row of &#39;data&#39; is the median home price.</span>
+<span class="n">train</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="n">data</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">400</span><span class="p">);</span>
+<span class="n">train</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">data</span><span class="p">(</span><span class="k">end</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">400</span><span class="p">);</span>
+
+<span class="n">test</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="n">data</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">401</span><span class="p">:</span><span class="k">end</span><span class="p">);</span>
+<span class="n">test</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">data</span><span class="p">(</span><span class="k">end</span><span class="p">,</span><span class="mi">401</span><span class="p">:</span><span class="k">end</span><span class="p">);</span>
+
+<span class="n">m</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c">% Initialize the coefficient vector theta to random values.</span>
+<span class="n">theta0</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">num_checks</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="c">% without vectorize</span>
+<span class="n">average_error</span> <span class="p">=</span> <span class="n">grad_check</span><span class="p">(@</span><span class="n">linear_regression</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">num_checks</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+<span class="c">% vectorize</span>
+<span class="n">average_error</span> <span class="p">=</span> <span class="n">grad_check</span><span class="p">(@</span><span class="n">linear_regression_vec</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">num_checks</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c">%% for Logistic Classification</span>
+<span class="n">binary_digits</span> <span class="p">=</span> <span class="n">true</span><span class="p">;</span>
+<span class="p">[</span><span class="n">train</span><span class="p">,</span><span class="n">test</span><span class="p">]</span> <span class="p">=</span> <span class="n">ex1_load_mnist</span><span class="p">(</span><span class="n">binary_digits</span><span class="p">);</span>
+
+<span class="c">% Add row of 1s to the dataset to act as an intercept term.</span>
+<span class="n">train</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="p">[</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">size</span><span class="p">(</span><span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">];</span>
+<span class="n">test</span><span class="p">.</span><span class="n">X</span> <span class="p">=</span> <span class="p">[</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">size</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="n">test</span><span class="p">.</span><span class="n">X</span><span class="p">];</span>
+
+<span class="c">% Training set dimensions</span>
+<span class="n">m</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c">% Train logistic regression classifier using minFunc</span>
+<span class="n">options</span> <span class="p">=</span> <span class="n">struct</span><span class="p">(</span><span class="s">&#39;MaxIter&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="c">% First, we initialize theta to some small random values.</span>
+<span class="n">theta0</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.001</span><span class="p">;</span>
+
+<span class="n">num_checks</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="c">% without vectorize</span>
+<span class="n">average_error</span> <span class="p">=</span> <span class="n">grad_check</span><span class="p">(@</span><span class="n">logistic_regression</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">num_checks</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+<span class="c">% vectorize</span>
+<span class="n">average_error</span> <span class="p">=</span> <span class="n">grad_check</span><span class="p">(@</span><span class="n">logistic_regression_vec</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">num_checks</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">train</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>实验结果</strong></p>
+<p>验证20次的平均误差分别为：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span class="mf">1.7030e-05</span><span class="p">(</span><span class="n">linear</span><span class="p">)</span>
+<span class="mf">1.2627e-05</span><span class="p">(</span><span class="n">linear_vec</span><span class="p">)</span>
+<span class="mf">6.0687e-06</span><span class="p">(</span><span class="n">Logistic</span><span class="p">)</span>
+<span class="mf">8.1527e-06</span><span class="p">(</span><span class="n">Logistic_vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="softmax-regression">
+<h2><span class="section-number">2.1.5. </span>Softmax Regression<a class="headerlink" href="#softmax-regression" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression/">Softmax Regression</a></p>
+<p>多分类, Logistic回归的推广.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../UnsupervisedLearning/index.html" class="btn btn-neutral float-right" title="3. 无监督学习" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2. 监督学习" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

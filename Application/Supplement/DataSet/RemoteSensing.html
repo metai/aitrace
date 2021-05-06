@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.5. 遥感影像 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 数据集" href="index.html"/>
+        <link rel="next" title="2. 软件库" href="../Software/index.html"/>
+        <link rel="prev" title="1.4. 雷达数据获取" href="Radar.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第十卷 应用实践</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../ChangeDetection/index.html">变化检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PathPlanning/index.html">路径规划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EvaluationMethod/index.html">评价方法</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">补充内容</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 数据集</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="OverView.html">1.1. 数据集概览</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChangeDetection.html">1.2. 变化检测数据集</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ImageSegmentation.html">1.3. 图像分割数据集</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Radar.html">1.4. 雷达数据获取</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.5. 遥感影像</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/index.html">2. 软件库</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第十卷 应用实践</a> &raquo;</li>
+        
+          <li><a href="../index.html">补充内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>数据集</a> &raquo;</li>
+        
+      <li><span class="section-number">1.5. </span>遥感影像</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-overviewdatasetsupplementapplication">
+<span id="id1"></span><h1><span class="section-number">1.5. </span>遥感影像<a class="headerlink" href="#section-overviewdatasetsupplementapplication" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.5.1. </span>综合<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>武汉大学遥感图像标注数据库: 含分类, 检测, 变化检测</dt><dd><ul>
+<li><p><a class="reference external" href="http://captain.whu.edu.cn/WUDA-RSImg/index.html">homepage</a></p></li>
+<li><p>DOTA: 目标检测, 2806幅图像, 180k物体, 15类</p></li>
+<li><p>AID: 场景分类, 10k幅图像, 30类</p></li>
+<li><p>AID++: 场景分类, 1000k幅图像, 46类</p></li>
+<li><p>GID: 陆地使用分类, 150幅图像, 5类</p></li>
+<li><p>SGID: 语义变化检测, 555幅图像对, 3类</p></li>
+<li><p>SAR-building: 建筑检测, 2000幅图像</p></li>
+<li><p>SAR-ship: 舰船检测, 2000幅图像</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Awesome Satellite Imagery Datasets: 各种卫星影像数据集, 分割, 分类, 检测, 融合</dt><dd><ul>
+<li><p><a class="reference external" href="https://github.com/chrieke/awesome-satellite-imagery-datasets">homepage</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Satellite Image and Deep Learning: Resources for performing deep learning on satellite imagery</dt><dd><ul>
+<li><p><a class="reference external" href="https://github.com/robmarkcole/satellite-image-deep-learning">homepage</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference external" href="https://zhangbin0917.github.io/2018/06/12/%E9%81%A5%E6%84%9F%E6%95%B0%E6%8D%AE%E9%9B%86/">遥感数据集</a>: 图像分类, 目标检测, 语义分割, 建筑道路检测, 变化检测, 超分辨; 光学, 多光谱, SAR, 光学雷达, 无人机数据等</p></li>
+<li><p><a class="reference external" href="https://github.com/robmarkcole/satellite-image-deep-learning">用于深度学习的遥感数据集</a></p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">1.5.2. </span>应用分类<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h3>融合<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mediatum.ub.tum.de/1436631">SEN1-2</a> Sentinel SAR 与 Optical <a class="bibtex reference internal" href="../zreference.html#schmitt-2018sen12" id="id9">[9]</a></p></li>
+<li><p><a class="reference external" href="https://mediatum.ub.tum.de/1436631">SEN12MS</a> Sentinel SAR 与 Multispectral optical <a class="bibtex reference internal" href="../zreference.html#schmitt-2019sen12ms" id="id10">[10]</a></p></li>
+<li><p><a class="reference external" href="https://mediatum.ub.tum.de/1454690">So2Sat LCZ42</a> Sentinel-1 Synthetic aperture radar and Sentinel-2 multispectral optical <a class="bibtex reference internal" href="../zreference.html#zhu-2019so2satlcz42" id="id11">[11]</a></p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>超分辨<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mhaut/aerial-image-superresolution">aerial image superresolution</a> : used in “A New Deep Generative Network for Unsupervised Remote Sensing Single-Image Super-Resolution”</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><span class="section-number">1.5.3. </span>按源分类<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id14">
+<h3>高光谱<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mhaut/HSI-datasets">HSI-datasets</a> : classification and unmixing, used in “Deep Learning Classifiers for Hyperspectral Imaging: A Review”, <a class="reference external" href="https://github.com/mhaut/hyperspectral_deeplearning_review">code</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Software/index.html" class="btn btn-neutral float-right" title="2. 软件库" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Radar.html" class="btn btn-neutral" title="1.4. 雷达数据获取" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

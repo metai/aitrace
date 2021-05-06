@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1. 相关概念汇总 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. SAR系统概述" href="index.html"/>
+        <link rel="next" title="2.2. SAR系统组成" href="System.html"/>
+        <link rel="prev" title="2. SAR系统概述" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">合成孔径雷达</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. SAR系统概述</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.1. 相关概念汇总</a></li>
+<li class="toctree-l4"><a class="reference internal" href="System.html">2.2. SAR系统组成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SAREmittedSignal.html">2.3. SAR发射信号及其性质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SAREchoSignal.html">2.4. SAR回波信号及其性质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PulseCompression.html">2.5. 脉冲压缩</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Simulation/index.html">3. SAR仿真技术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Imaging/index.html">4. SAR成像理论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experiments/index.html">9. 实验集锦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成孔径雷达</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>SAR系统概述</a> &raquo;</li>
+        
+      <li><span class="section-number">2.1. </span>相关概念汇总</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-conceptsystemoverviewsarradar">
+<span id="id1"></span><h1><span class="section-number">2.1. </span>相关概念汇总<a class="headerlink" href="#section-conceptsystemoverviewsarradar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="sar">
+<h2><span class="section-number">2.1.1. </span>SAR分类<a class="headerlink" href="#sar" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/KindsOfSAR.svg"><img alt="SAR 分类" height="160.0" src="../../../_images/KindsOfSAR.svg" width="376.5" /></a>
+</div>
+<p><a class="reference external" href="http://en.volupedia.org/wiki/Synthetic-aperture_radar">Synthetic-aperture radar</a></p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1.2. </span>SAR成像几何关系<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/SAR_geometry.png"><img alt="SAR成像几何关系" src="../../../_images/SAR_geometry.png" style="width: 670.5px; height: 622.0px;" /></a>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>注意上图中的斜视角定义为波束中心线方向与 <span class="math">\(x-O-z\)</span> 平面间的夹角. 如下图所示几何关系知 <span class="math">\(\theta_h\)</span> 与 <span class="math">\(\theta_0\)</span> 满足如下关系</p>
+<div class="math">
+\[{\rm tan}{\theta_h} = \frac{1}{\sqrt{\left(\frac{OP}{AB}\right)^2 + \frac{1}{{\rm tan}^2{\theta_0}}}}.
+
+\]</div>
+<img alt="../../../_images/SquintAngle.png" src="../../../_images/SquintAngle.png" />
+</div>
+<p><strong>如果雷达在距离向上不作扫描, 那么雷达成像区域范围与波束宽度有关, 所以超出波束覆盖范围的地方是没法成像的？</strong></p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ul class="simple">
+<li><p>俯角 ( <a class="reference internal" href="../glossary.html#term-depression-angle"><span class="xref std std-term">Depression Angle</span></a> ) : 如图中 <span class="math">\(\theta_d\)</span> ;</p></li>
+<li><p>斜视角 ( <a class="reference internal" href="../glossary.html#term-squint-angle"><span class="xref std std-term">Squint Angle</span></a> ) : 如图中 <span class="math">\(\theta_s\)</span>, 即波束中心线与零多普勒线之间的夹角</p></li>
+<li><p>入射角 ( <a class="reference internal" href="../glossary.html#term-incidence-angle"><span class="xref std std-term">Incidence Angle</span></a> ) : 也叫视角 (look angle), 即波束照射方向与地平面的法线间的夹角, 如图中 <span class="math">\(\theta_i\)</span> ;</p></li>
+<li><p>掠地角 ( <a class="reference internal" href="../glossary.html#term-grazing-angle"><span class="xref std std-term">Grazing Angle</span></a> ) : 即波束照射方向与地平面间的夹角, 如图中 <span class="math">\(\theta_g\)</span> .</p></li>
+<li><p>轨道倾角 ( <a class="reference internal" href="../glossary.html#term-orbital-inclination"><span class="xref std std-term">Orbital Inclination</span></a> ) : 某一轨道相对于另一参考平面的倾斜角度, 图中未标出.</p></li>
+<li><p>目标被波束中心照射一般是指波束中心线经过目标的时刻.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.1.3. </span>符号列表<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><span class="math">\(C\)</span> : 光速 ( <a class="reference external" href="http://en.volupedia.org/wiki/Speed_of_light">Light speed</a> );</p></li>
+<li><p><span class="math">\(f_0\)</span> : 中心频率 ( <a class="reference external" href="http://en.volupedia.org/wiki/Center_frequency">Center frequency</a> );</p></li>
+<li><p><span class="math">\(f_c\)</span> : 载波频率 ( <a class="reference external" href="http://en.volupedia.org/wiki/Carrier_frequency">Carrier frequency</a> ), 指载波的中心频率/频率;</p></li>
+<li><p><span class="math">\(\lambda = \frac{C}{f_c}\)</span> : 波长 ( <a class="reference external" href="http://en.volupedia.org/wiki/Wavelength">Wavelength</a> );</p></li>
+<li><p><span class="math">\(D\)</span> 或者 <span class="math">\(La\)</span> : 天线真实孔径长度;</p></li>
+<li><p><span class="math">\(L_s\)</span> : 合成孔径长度 (Synthetic aperture length);</p></li>
+<li><p><span class="math">\(T_s\)</span> : 合成孔径时间 (Synthetic aperture time);</p></li>
+<li><p><span class="math">\(R\)</span> : 雷达与目标间的垂直距离/瞬时斜距;</p></li>
+<li><p><span class="math">\(\alpha = \lambda / D\)</span> : 天线波束宽度(Antenna beam width);</p></li>
+<li><p><span class="math">\(H\)</span> : 平台高度;</p></li>
+<li><p><span class="math">\(V\)</span> : 平台运动速度;</p></li>
+<li><p><span class="math">\(T_p\)</span> : 脉冲宽度 (pulse width);</p></li>
+<li><p><span class="math">\(B\)</span> : 带宽 (band width);</p></li>
+<li><p><span class="math">\(K_r\)</span> : 线性调频率 (<a class="reference external" href="http://en.volupedia.org/wiki/Chirp#Rate">Linear chirp rate</a>) , <span class="math">\(K_r = B/T_p\)</span> ;</p></li>
+</ul>
+<p>合成孔径与真实孔径: <span class="math">\(L_s = {\lambda \over D} \cdot R\)</span></p>
+<p>合成孔径时间与合成孔径长度: <span class="math">\(L_s = V T_s\)</span></p>
+<p>实孔径距离向分辨率: <span class="math">\({\rho}_r = \frac{C}{2K_rT_p} = \frac{C}{2B}\)</span></p>
+<p>实孔径方位向分辨率: <span class="math">\({\rho}_a = {\alpha} \cdot R = \frac{\lambda \cdot R }{D}\)</span></p>
+<p>合成孔径方位向分辨率: <span class="math">\({\rho}_a = {\alpha_h} \cdot R= {\frac{\lambda}{2L_s}} \cdot R = \frac{D}{2}\)</span></p>
+<p>因为合成孔径雷达发射和接收共用一副天线且信号的距离差是双程差, 进一步锐化了波束, 所以合成孔径雷达的有效半功率波束宽度近似为相同长度实孔径的一半, 它的半功率波束宽度为: <span class="math">\(\alpha_h = \frac{\lambda}{2L_s}\)</span></p>
+<p>SAR利用脉冲压缩技术获得高的距离向分辨率, 利用合成孔径原理获得高的方位向分辨率, 从而获得高分辨率雷达图像.</p>
+<p>SAR回波信号经距离向脉冲压缩后, 雷达的距离分辨率由雷达发射信号带宽决定: <span class="math">\(\rho_{r}=\frac{C}{2B_{r}}\)</span> , 式中 <span class="math">\(\rho_{r}\)</span> 表示雷达的距离分辨率, <span class="math">\(B_{r}\)</span> 表示雷达发射信号带宽, <span class="math">\(C\)</span> 表示光速.</p>
+<p>同样, SAR回波信号经方位向合成孔径后, 雷达的方位分辨率由雷达方位向的多谱勒带宽决定: <span class="math">\(\rho_{a}=\frac{v_{a}}{B_{a}}\)</span> , 式中 <span class="math">\(\rho_{a}\)</span> 表示雷达的方位分辨率, <span class="math">\(B_{a}\)</span> 表示雷达方位向多谱勒带宽, <span class="math">\(v_{a}\)</span> 表示方位向SAR平台速度. 在小斜视角的情况下, 方位分辨率近似表示为 <span class="math">\(\rho_{a}=\frac{D}{2}\)</span> , 其中 <span class="math">\(D\)</span> 是方位向合成孔径的长度.</p>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.1.4. </span>SAR数据获取<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>设 <span class="math">\(t=0\)</span> 时刻, 天线发射一脉宽为 <span class="math">\(T_p\)</span> 的脉冲, 于 <span class="math">\(t_1\)</span> 时刻脉冲起始边缘最先到达近距地面点, 于 <span class="math">\(t_2\)</span> 时间脉冲结束边缘到达远距地面点, <span class="math">\(t_1\)</span> 时刻到达地面的波束, 于 <span class="math">\(2t_1\)</span> 时刻返回到天线, <span class="math">\(t_2\)</span> 到达地面的波束于 <span class="math">\(2t_2\)</span> 时刻返回到天线. 接收机在稍早于 <span class="math">\(2t_1\)</span> 的时刻开始采样, 于稍晚于 <span class="math">\(2t_2\)</span> 时刻的时候停止采样. 由此, 雷达距离向的采样时间为 <span class="math">\(T_{sr} = 2t_2 - 2t_1\)</span></p>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/imaging.png"><img alt="成像与原始数据存储" src="../../../_images/imaging.png" style="width: 1398.4px; height: 948.8000000000001px;" /></a>
+<p class="caption"><span class="caption-number">图 2.65 </span><span class="caption-text">成像与原始数据存储</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>成像与原始数据存储</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>采样参数的选取<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>记方位向采样频率即脉冲重复频率(PRF)为 <span class="math">\(F_{sa}\)</span>, 方位向采样时间为 <span class="math">\(T_{sa}\)</span>, 距离向采样频率为 <span class="math">\(F_{sr}\)</span>, 距离向采样时间为 <span class="math">\(T_{sr}\)</span>, 近地点脉冲起始到达时刻为 <span class="math">\(t_1\)</span>, 远地点脉冲起始远离时刻为 <span class="math">\(t_2\)</span>, 则需要满足以下准则 (参见文献 <a class="bibtex reference internal" href="../../Supplement/zreference.html#lang-cummingfrankh-wong-2012" id="id6">[1]</a> pp.90):</p>
+<ol class="arabic simple">
+<li><p>奈奎斯特采样率: 即 <span class="math">\(F_{sa} &gt; α_a B_a\)</span>, 过采样率因子一般需满足 <span class="math">\(\alpha_a \in [1.1, 1.4]\)</span>, 太低会引起方位模糊, 且 <span class="math">\(\alpha_a &gt; \alpha_r\)</span>.</p></li>
+<li><p>距离测绘带宽度: 即 <span class="math">\(1/F_{sa} - T_p &gt; T_{sr} = 2t_2-2t_1\)</span>, PRF需足够低, 以使得测绘带内的脉冲回波都可以被采集到, 若过大, 不同脉冲回波出现在同一接收窗内, 会产生距离模糊, 若距离模糊过大且PRF不能降低, 需要减小俯仰方向的波束宽度(减小了测绘带宽).</p></li>
+<li><p>接收窗起始时间: 在星载情况下, 某时刻发射的脉冲需要经过好几个脉冲间隔才能被接收, 这一被接收的时刻受PRF的影响.</p></li>
+<li><p>星下点回波: 来自星下点处的地面反射能量往往会比较大, 导致图像上出现亮条纹(镜像反射且每个距离单元覆盖较大的面积)距离模糊, 通过选择合适的PRF可以使得星下点回波不在接收窗内.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>在星载情况下需要考虑这些准则, 机载情况下一般可以忽略.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">2.1.5. </span>SAR成像模式<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/SAR_mode.png"><img alt="SAR成像模式" src="../../../_images/SAR_mode.png" style="width: 734.4000000000001px; height: 503.20000000000005px;" /></a>
+<p class="caption"><span class="caption-number">图 2.66 </span><span class="caption-text">SAR成像模式</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>SAR成像模式</p>
+</div>
+</div>
+</div>
+<div class="section" id="speckle">
+<h2><span class="section-number">2.1.6. </span>斑点噪声(Speckle)<a class="headerlink" href="#speckle" title="永久链接至标题">¶</a></h2>
+<p>诸如SAR、声纳这样的相干成像系统经常遭受一种称为散斑的乘性噪声。当相干辐射照射的物体具有与成像波长相比粗糙的表面时，会出现散斑。它是由在每个分辨单元内的小反射器散射的相干回波的建设性和破坏性干涉引起的。斑点噪声严重影响后续目标辨识等性能, 通过在成像模型中引入正则可以减轻斑点噪声, 即对恢复图像施加正则, 常用的正则有, <span class="math">\(\ell_1\)</span>, <span class="math">\(\ell_{1/2}\)</span>, TV正则等等 <a class="bibtex reference internal" href="../zreference.html#patel2010compressed" id="id8">[4]</a> .</p>
+<p>有关正则化技术参见 :ref:``</p>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">2.1.7. </span>公式总结<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center" id="id13">
+<a class="reference internal image-reference" href="../../../_images/equationSAR.png"><img alt="合成孔径相关公式" src="../../../_images/equationSAR.png" style="width: 715.2px; height: 942.4000000000001px;" /></a>
+<p class="caption"><span class="caption-number">图 2.67 </span><span class="caption-text">合成孔径相关公式</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id14">
+<a class="reference internal image-reference" href="../../../_images/equationSAR1.png"><img alt="相关参数说明" src="../../../_images/equationSAR1.png" style="width: 719.2px; height: 905.6px;" /></a>
+<p class="caption"><span class="caption-number">图 2.68 </span><span class="caption-text">相关参数说明</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><span class="section-number">2.1.8. </span>术语解释<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="foot-print">
+<h3>Foot Print<a class="headerlink" href="#foot-print" title="永久链接至标题">¶</a></h3>
+<p>雷达波束在地面上的脚印(footprint), 即指真实孔径照射的区域. 分距离向与方位向的两种脚印.</p>
+<p>距离向的脚印(Along range footprint size)大小可由下式近似计算</p>
+<div class="math">
+\[R_{AR} \approx \frac{\lambda}{L_r}\frac{H}{{\rm cos}^2\theta_d}
+
+\]</div>
+<p>方位向的脚印(Cross range footprint size)大小可由下式近似计算</p>
+<div class="math">
+\[R_{CR} \approx \frac{\lambda}{L_a}\frac{H}{{\rm cos}\theta_d}
+
+\]</div>
+<p>其中, <span class="math">\(\lambda\)</span> 为雷达发射波长, <span class="math">\(L_r, L_a\)</span> 分别为天线距离向与方位向的天线孔径, <span class="math">\(H\)</span> 为平台高度, <span class="math">\(\theta_d\)</span> 为雷达下视角.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="System.html" class="btn btn-neutral float-right" title="2.2. SAR系统组成" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2. SAR系统概述" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

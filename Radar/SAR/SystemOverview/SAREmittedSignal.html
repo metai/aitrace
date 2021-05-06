@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3. SAR发射信号及其性质 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. SAR系统概述" href="index.html"/>
+        <link rel="next" title="2.4. SAR回波信号及其性质" href="SAREchoSignal.html"/>
+        <link rel="prev" title="2.2. SAR系统组成" href="System.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">合成孔径雷达</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. SAR系统概述</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Concept.html">2.1. 相关概念汇总</a></li>
+<li class="toctree-l4"><a class="reference internal" href="System.html">2.2. SAR系统组成</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.3. SAR发射信号及其性质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SAREchoSignal.html">2.4. SAR回波信号及其性质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PulseCompression.html">2.5. 脉冲压缩</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Simulation/index.html">3. SAR仿真技术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Imaging/index.html">4. SAR成像理论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experiments/index.html">9. 实验集锦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成孔径雷达</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>SAR系统概述</a> &raquo;</li>
+        
+      <li><span class="section-number">2.3. </span>SAR发射信号及其性质</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sar">
+<span id="section-saremittedsignalsystemoverviewsarradar"></span><h1><span class="section-number">2.3. </span>SAR发射信号及其性质<a class="headerlink" href="#sar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">2.3.1. </span>SAR发射信号<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>如文献 <a class="bibtex reference internal" href="../zreference.html#cumming2005digital" id="id2">[6]</a> 中所述, 在距离向, 雷达发射的调频脉冲通常为:</p>
+<div class="math" id="equation-equ-radaremittedsignalrange">
+<span class="eqno">(2.31)<a class="headerlink" href="#equation-equ-radaremittedsignalrange" title="公式的永久链接">¶</a></span>\[s_t(\tau) = w_r(\tau){\rm cos}\left(2\pi \sum_{n=0}^{N}P_n{\tau^n}\right)
+
+\]</div>
+<p>其中, <span class="math">\(\tau\)</span> 距离向脉冲时间, <span class="math">\(P_n\)</span> 为幂级数形式下的相位的系数, <span class="math">\(w_r(\tau)\)</span> 为脉冲包络, 通常为矩形脉冲包络 <span class="math">\(w_r(\tau)={\rm rect}(\tau/T_p)\)</span>, <span class="math">\(T_p\)</span> 为脉冲宽度. 在雷达中, 最长用的脉冲为线性调频脉冲</p>
+<div class="math" id="equation-equ-radaremittedsignalrangereallfm">
+<span class="eqno">(2.32)<a class="headerlink" href="#equation-equ-radaremittedsignalrangereallfm" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+s_t(\tau) &= w_r(\tau){\rm cos}\left(2\pi F_c \tau + \pi K_r \tau^2 \right) \\
+          &= w_r(\tau){\rm cos}\left[2\pi \left(F_c \tau + \frac{K_r}{2} \tau^2 \right)\right]
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(f_c\)</span> 为载频, <span class="math">\(K_r\)</span> 为距离向调频率, <span class="math">\(\tau\)</span> 为距离向脉冲时间, 通常取脉冲中心为参考原点. 对比 <a class="reference internal" href="#equation-equ-radaremittedsignalrange">式.2.31</a> 可知, 此种形式下的系数 <span class="math">\(P_0=0\)</span>, <span class="math">\(P_1=F_c\)</span>, <span class="math">\(P_2=K_r/2\)</span>, <span class="math">\(P_n=0, n&gt;2\)</span>.</p>
+<p>通常雷达系统发射两路信号, 一路是与 <a class="reference internal" href="#equation-equ-radaremittedsignalrange">式.2.31</a> 所表示信号相位同相的 I (in-phase) 路信号, 另一路是与 <a class="reference internal" href="#equation-equ-radaremittedsignalrange">式.2.31</a> 所表示信号相位正交的 Q (quadrature) 路信号, 这两路信号构成一个复指数信号, 通常取 I为实部, Q为虚部．因而,　实际雷达系统发射的具有 <a class="reference internal" href="#equation-equ-radaremittedsignalrangereallfm">式.2.32</a> 所示线性调频特性的复指数信号可以表示为</p>
+<div class="math" id="equation-equ-radaremittedsignalrangecomplexexponentiallfm">
+<span class="eqno">(2.33)<a class="headerlink" href="#equation-equ-radaremittedsignalrangecomplexexponentiallfm" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+s_t(\tau) &= w_r(\tau){\rm exp}\left(j2\pi F_c \tau + j\pi K_r \tau^2 \right) \\
+          &= w_r(\tau){\rm exp}\left[j2\pi \left(F_c \tau + \frac{K_r}{2} \tau^2 \right)\right]
+\end{aligned}
+
+\]</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.3.2. </span>为什么采用复指数信号<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SAREchoSignal.html" class="btn btn-neutral float-right" title="2.4. SAR回波信号及其性质" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="System.html" class="btn btn-neutral" title="2.2. SAR系统组成" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

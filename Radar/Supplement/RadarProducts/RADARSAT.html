@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.4. RADARSAT 产品介绍 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 雷达产品" href="index.html"/>
+        <link rel="next" title="1.5. ERS系列产品介绍" href="ERS.html"/>
+        <link rel="prev" title="1.3. 雷达产品数据格式简介" href="ProductDataFormations.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SAR/index.html">合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">补充内容</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 雷达产品</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">1.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GetDataOverview.html">1.2. 雷达数据获取</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProductDataFormations.html">1.3. 雷达产品数据格式简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.4. RADARSAT 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ERS.html">1.5. ERS系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnvisatASAR.html">1.6. Envisat ASAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ALOSPALSAR.html">1.7. ALOS PALSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SentinelX.html">1.8. Sentinel系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIRSAR.html">1.9. AIRSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UAVSAR.html">1.10. UAVSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LVIS.html">1.11. LVIS产品介绍</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Dataset/index.html">2. 雷达数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LibrariesSoftwares/index.html">3. 雷达库与软件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">4. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">补充内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>雷达产品</a> &raquo;</li>
+        
+      <li><span class="section-number">1.4. </span>RADARSAT 产品介绍</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="radarsat">
+<span id="section-radarsatradarproductsupplementradar"></span><h1><span class="section-number">1.4. </span>RADARSAT 产品介绍<a class="headerlink" href="#radarsat" title="永久链接至标题">¶</a></h1>
+<p>RADARSAT 产品包含 RADARSAT1 和 RADASAT2 两中产品</p>
+<div class="section" id="radarsat1">
+<h2><span class="section-number">1.4.1. </span>RADARSAT1 产品<a class="headerlink" href="#radarsat1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h3>RADARSAT1 雷达参数与工作模式<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p><strong>RADARSAT SAR 平台工作参数信息</strong> 可以从 <a class="reference external" href="http://www.asc-csa.gc.ca/eng/satellites/radarsat/radarsat-tableau.asp">这里</a> 查到.</p>
+<p>RADARSAT1的详细参数在 <a class="reference external" href="http://www.asc-csa.gc.ca/eng/satellites/radarsat1/components.asp">这里</a> . 可知 RADARSAT1 成像模式为右视 (right looking) 条带式(stripmap mode) 成像, 属于 <span class="math">\(C\)</span> 波段雷达, 极化方式为 <code class="docutils literal notranslate"><span class="pre">HH</span></code> 极化. 轨道倾角 ( <a class="reference internal" href="../../SAR/glossary.html#term-orbital-inclination"><span class="xref std std-term">Orbital Inclination</span></a> ) 为 <span class="math">\(98.6^°\)</span> 与雷达的斜视角 ( <a class="reference internal" href="../../SAR/glossary.html#term-squint-angle"><span class="xref std std-term">Squint Angle</span></a> ) 不同, 由于轨道倾角 (相对于地球赤道的倾角) 为 <span class="math">\(98.6^°\)</span>, 所以卫星处于太阳同步轨道 (参见 <a class="reference internal" href="../../../Astronomy/Astrophysics/Geophysics/ArtificialEarthSatellite.html#subsubsection-sunsynchronousorbit"><span class="std std-ref">太阳同步轨道</span></a> 小节), 经过南北两极. 成像时用到的RADARSAT雷达参数如 <a class="reference internal" href="#table-parametersradarsat1platform"><span class="std std-numref">表 1.2</span></a> 所示.</p>
+<table class="docutils align-default" id="table-parametersradarsat1platform">
+<caption><span class="caption-number">表 1.2 </span><span class="caption-text">RADARSAT1平台参数</span><a class="headerlink" href="#table-parametersradarsat1platform" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 38%" />
+<col style="width: 20%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>符号</p></th>
+<th class="head"><p>值</p></th>
+<th class="head"><p>单位</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>航天器航向</p></td>
+<td></td>
+<td><p>344.49</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>平台纬度</p></td>
+<td></td>
+<td><p>48.36</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>平台经度</p></td>
+<td></td>
+<td><p>229.29</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>平台高度</p></td>
+<td><p><span class="math">\(H\)</span></p></td>
+<td><p>793-821</p></td>
+<td><p>km</p></td>
+</tr>
+<tr class="row-even"><td><p>平台速度(等效速度)</p></td>
+<td><p><span class="math">\(V_r\)</span></p></td>
+<td><p>7062</p></td>
+<td><p>m/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>距离向天线长度</p></td>
+<td><p><span class="math">\(L_r\)</span></p></td>
+<td><p>1.5</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-even"><td><p>方位向天线长度</p></td>
+<td><p><span class="math">\(L_a\)</span></p></td>
+<td><p>15</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-odd"><td><p>雷达波长</p></td>
+<td><p><span class="math">\(\lambda\)</span></p></td>
+<td><p>0.05657</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-even"><td><p>雷达载频</p></td>
+<td><p><span class="math">\(f_c\)</span></p></td>
+<td><p>5.3</p></td>
+<td><p>GHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>脉冲宽度</p></td>
+<td><p><span class="math">\(T_p\)</span></p></td>
+<td><p>41.75</p></td>
+<td><p><span class="math">\(μs\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>距离向调频率</p></td>
+<td><p><span class="math">\(K_r\)</span></p></td>
+<td><p>-7.2135e+11</p></td>
+<td><p>Hz/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>距离向带宽</p></td>
+<td><p><span class="math">\(B_r\)</span></p></td>
+<td><p>30.12</p></td>
+<td><p>MHz</p></td>
+</tr>
+<tr class="row-even"><td><p>距离向采样率</p></td>
+<td><p><span class="math">\(F_{rs}\)</span></p></td>
+<td><p>32.317e+6</p></td>
+<td><p>Hz</p></td>
+</tr>
+<tr class="row-odd"><td><p>距离向采样数</p></td>
+<td><p><span class="math">\(N_{r}\)</span></p></td>
+<td><p>9288</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>方位向调频率</p></td>
+<td><p><span class="math">\(K_a\)</span></p></td>
+<td><p>1733</p></td>
+<td><p>Hz/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>方位向采样率</p></td>
+<td><p><span class="math">\(F_{as}=PRF\)</span></p></td>
+<td><p>1256.98</p></td>
+<td><p>Hz</p></td>
+</tr>
+<tr class="row-even"><td><p>方位向采样数</p></td>
+<td><p><span class="math">\(N_{a}\)</span></p></td>
+<td><p>不定, 19438</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>多普勒中心频率</p></td>
+<td><p><span class="math">\(f_{\eta_c}\)</span></p></td>
+<td><p>-6900</p></td>
+<td><p>Hz</p></td>
+</tr>
+<tr class="row-even"><td><p>成像分辨率</p></td>
+<td><p><span class="math">\(\Delta_a × \Delta_r\)</span></p></td>
+<td><p><span class="math">\(8 × 8\)</span></p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-odd"><td><p>轨道运行周期</p></td>
+<td><p><span class="math">\(T_o\)</span></p></td>
+<td><p>100.7</p></td>
+<td><p>min</p></td>
+</tr>
+<tr class="row-even"><td><p>卫星轨道半径</p></td>
+<td><p><span class="math">\(r\)</span></p></td>
+<td><p>7149752</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-odd"><td><p>地球极地半径</p></td>
+<td><p><span class="math">\(R_e\)</span></p></td>
+<td><p>6356752</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-even"><td><p>地球平均半径</p></td>
+<td><p><span class="math">\(R_e\)</span></p></td>
+<td><p>6367856</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-odd"><td><p>轨道倾角</p></td>
+<td></td>
+<td><p>98.6</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>近距入射角</p></td>
+<td></td>
+<td><p>38.64</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>中距入射角</p></td>
+<td></td>
+<td><p>40.15</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>远距入射角</p></td>
+<td></td>
+<td><p>41.61</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>不同成像模式下分辨率, 幅宽, 入射角不一致. 如入射角 (Incidence Angles) 在精细 (Fine) 成像模式下为 <span class="math">\(34-47^°\)</span>, 在标准 (Standard) 成像模式下为 <span class="math">\(20-49^°\)</span>, 扩展先进模式下为 <span class="math">\(52-58^°\)</span>. RADARSAT支持的波束模式以及不同模式下的幅宽与分辨率如 <a class="reference internal" href="#table-beammodeswathresolutionradarsat1platform1"><span class="std std-numref">表 1.3</span></a>, <a class="reference internal" href="#table-beammodeswathresolutionradarsat1platform2"><span class="std std-numref">表 1.4</span></a> 所示.</p>
+<table class="docutils align-default" id="table-beammodeswathresolutionradarsat1platform1">
+<caption><span class="caption-number">表 1.3 </span><span class="caption-text">RADARSAT1的波束模式及对应幅宽分辨率1</span><a class="headerlink" href="#table-beammodeswathresolutionradarsat1platform1" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 27%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>波束模式</p></th>
+<th class="head"><p>幅宽(km)</p></th>
+<th class="head"><p>近似分辨率(m)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>低分辨100m</p></td>
+<td><p>500</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>中分辨50m</p></td>
+<td><p>350</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>中分辨30m</p></td>
+<td><p>125</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>中分辨16m</p></td>
+<td><p>30</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>高分辨5m</p></td>
+<td><p>30</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="table-beammodeswathresolutionradarsat1platform2">
+<caption><span class="caption-number">表 1.4 </span><span class="caption-text">RADARSAT1的波束模式及对应幅宽分辨率2</span><a class="headerlink" href="#table-beammodeswathresolutionradarsat1platform2" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 24%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>波束模式</p></th>
+<th class="head"><p>幅宽(km)</p></th>
+<th class="head"><p>近似分辨率(m)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fine</p></td>
+<td><p>45</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Standard</p></td>
+<td><p>100</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>Wide</p></td>
+<td><p>125</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>ScanSAR Narrow</p></td>
+<td><p>300</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>ScanSAR Wide</p></td>
+<td><p>500</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>Extended High</p></td>
+<td><p>75</p></td>
+<td><p>18-27</p></td>
+</tr>
+<tr class="row-even"><td><p>Extended Low</p></td>
+<td><p>170</p></td>
+<td><p>30</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>幅宽是波束一次扫描照射的宽度, 即波束距离向上在地面的投影宽度.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>RADARSAT1 参数分析<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>该小节通过查询的RADARSAT1工作参数, 计算部分成像需要的参数.</p>
+<p>下面进行一些参数的计算, 其中地球半径取极地半径 <span class="math">\(R_e=6356752\)</span> m, 引力常量 <span class="math">\(G_e=3.98603e14 {\rm m^3/s^2}\)</span>.</p>
+<ul class="simple">
+<li><p>卫星轨道半径 <span class="math">\(R_s = R_e+H ∈ [6356752+793000, 6356752+821000]=[7149752{\rm m}, 7177752{\rm m}]\)</span></p></li>
+<li><p>轨道运行周期 <span class="math">\(T_o = 2π \sqrt{\frac{R_s^3}{Ge}} ∈ [100.3{\rm min}, 100.9{\rm min}]\)</span></p></li>
+<li><p>卫星运行角速度 <span class="math">\(\omega_s = 2\pi/T_o \in [0.00103785{\rm rad/s}, 0.00104406{\rm rad/s}]\)</span></p></li>
+<li><p>卫星飞行速度 <span class="math">\(V_s = R_s \omega_s \in [7420.419{\rm m/s}, 7494.042{\rm m/s}]\)</span></p></li>
+</ul>
+<p>距离向调频带宽 <span class="math">\(B_r = |K_r|T_p = 30.12e6 Hz\)</span>, 距离向分辨率 <span class="math">\(\Delta_r = c/2B_r = 4.98m\)</span> 但是查到的是 <span class="math">\(8m\)</span>, 这是怎么回事呢, 这是因为上述计算的是斜距分辨率, 其地距分辨率为 <span class="math">\(\Delta_x = \Delta_r/{\rm sin}\theta_i ≈ \Delta_r/{\rm sin}38.64^° ≈ 8.08m\)</span>. 其中, <span class="math">\(\theta_i\)</span> 表示入射角.</p>
+<p>由多普勒中心频率 <span class="math">\(f_{\eta_c} = 2V{\rm sin}\theta_s/ \lambda\)</span> 可以计算出斜视角约为 <span class="math">\(\theta_s ≈ -1.58^°\)</span>, 即后侧视.</p>
+<p>由方位向采样率及方位向采样点数可知方位向采样时间 <span class="math">\(T_{a} = N_{a}/F_{as} = 15.464s\)</span>, 这些时间内, 雷达方位向飞行的距离为 <span class="math">\(VT_{a} = 108987.85m\)</span>.</p>
+<p>由距离向采样率及距离向采样点数知距离向采样时间为 <span class="math">\(T_{r} = N_r/F_{rs} = 28.74e-3s\)</span></p>
+</div>
+<div class="section" id="id5">
+<h3>RADARSAT1 数据读取<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id6">
+<h4>数据简介<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>数据源于书籍 <a class="bibtex reference internal" href="../zreference.html#cumming-2005" id="id7">[2]</a><a class="bibtex reference internal" href="../zreference.html#lang-cummingfrankh-wong-2012" id="id8">[1]</a> 中提供的温哥华(Vancouver)地区的RADARSAT1数据, 其场景图如 <a class="reference internal" href="#fig-vancouverscence"><span class="std std-numref">图 1.18</span></a> 所示. 部分典型的地标已经在图上标出, 含史丹利公园(Stanley Park), 哥伦比亚大学(University of British Columbia), 温哥华机场 (Vancouver Airport)等等.</p>
+<div class="figure align-center" id="id18">
+<span id="fig-vancouverscence"></span><img alt="Image of Vancouver scence" src="../../../_images/VancouverImage.jpeg" />
+<p class="caption"><span class="caption-number">图 1.18 </span><span class="caption-text">Image of Vancouver scence</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id9">
+<h4>数据格式与读取<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>RADARSAT1 数据采用CEOS(参见 <a class="reference internal" href="ProductDataFormations.html#subsection-ceosproductdataformationradarproductsupplementradar"><span class="std std-ref">CEOS</span></a> 小节)格式记录存储数据, 文件后缀是 <code class="docutils literal notranslate"><span class="pre">.001</span></code>, 数据及读取源码可在作者 <a class="reference external" href="http://sar.ece.ubc.ca/SAR_Book/">主页</a> 下载, 也可以使用本书作者开发的雷达处理库 <span class="guilabel">iprs</span> 读取. <a class="reference internal" href="#code-fileheaderinfoinradarsat1rawdatafile"><span class="std std-numref">代码 1.8</span></a> 给出了读取到的书籍 <a class="bibtex reference internal" href="../zreference.html#cumming-2005" id="id11">[2]</a> 中提供的RADARSAT1数据中的文件头记录信息:</p>
+<div class="literal-block-wrapper docutils container" id="code-fileheaderinfoinradarsat1rawdatafile">
+<div class="code-block-caption"><span class="caption-number">代码 1.8 </span><span class="caption-text">File header information in Radarsat1 raw data file</span><a class="headerlink" href="#code-fileheaderinfoinradarsat1rawdatafile" title="永久链接至代码">¶</a></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">Record</span> <span class="n">sequence</span> <span class="n">number</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="s1">&#39;1B4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">l</span><span class="o">-</span><span class="n">st</span> <span class="n">record</span> <span class="n">sub</span><span class="o">-</span><span class="nb">type</span> <span class="n">code</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;1B1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">63</span><span class="p">]]</span>
+<span class="n">Record</span> <span class="nb">type</span> <span class="n">code</span> <span class="p">[(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="s1">&#39;1B1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">192</span><span class="p">]]</span>
+<span class="mi">2</span><span class="o">-</span><span class="n">nd</span> <span class="n">record</span> <span class="n">sub</span><span class="o">-</span><span class="nb">type</span> <span class="n">code</span> <span class="p">[(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="s1">&#39;1B1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">]]</span>
+<span class="mi">3</span><span class="o">-</span><span class="n">rd</span> <span class="n">record</span> <span class="n">sub</span><span class="o">-</span><span class="nb">type</span> <span class="n">code</span> <span class="p">[(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="s1">&#39;1B1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">]]</span>
+<span class="hll"><span class="n">Length</span> <span class="n">of</span> <span class="n">this</span> <span class="n">record</span> <span class="p">[(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="s1">&#39;1B4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">16252</span><span class="p">]]</span>
+</span><span class="n">ASCII</span><span class="o">/</span><span class="n">EBCDIC</span> <span class="n">flag</span> <span class="p">[(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="s1">&#39;1A2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;A &#39;</span><span class="p">]]</span>
+<span class="mi">1</span><span class="n">Blanks</span> <span class="p">[(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="s1">&#39;1A2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;  &#39;</span><span class="p">]]</span>
+<span class="hll"><span class="n">Format</span> <span class="n">control</span> <span class="n">document</span> <span class="n">ID</span> <span class="p">[(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="s1">&#39;1A12&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;CEOS-SAR-CCT&#39;</span><span class="p">]]</span>
+</span><span class="n">Format</span> <span class="n">control</span> <span class="n">document</span> <span class="n">revision</span> <span class="n">level</span> <span class="p">[(</span><span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="s1">&#39;1A2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39; B&#39;</span><span class="p">]]</span>
+<span class="n">File</span> <span class="n">design</span> <span class="n">descriptor</span> <span class="n">revision</span> <span class="n">letter</span> <span class="p">[(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="s1">&#39;1A2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39; B&#39;</span><span class="p">]]</span>
+<span class="n">Generating</span> <span class="n">software</span> <span class="n">release</span> <span class="ow">and</span> <span class="n">revision</span> <span class="n">level</span> <span class="p">[(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">),</span> <span class="s1">&#39;1A12&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;MSSAR 7.7.1 &#39;</span><span class="p">]]</span>
+<span class="n">File</span> <span class="n">number</span> <span class="p">[(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">48</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="hll"><span class="n">File</span> <span class="n">name</span> <span class="p">[(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="s1">&#39;1A16&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;RSAT-1-SAR-RAW  &#39;</span><span class="p">]]</span>
+</span><span class="n">Record</span> <span class="n">sequence</span> <span class="ow">and</span> <span class="n">location</span> <span class="nb">type</span> <span class="n">flag</span> <span class="p">[(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">68</span><span class="p">),</span> <span class="s1">&#39;1A4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;FSEQ&#39;</span><span class="p">]]</span>
+<span class="n">Sequence</span> <span class="n">number</span> <span class="n">location</span> <span class="p">[(</span><span class="mi">69</span><span class="p">,</span> <span class="mi">76</span><span class="p">),</span> <span class="s1">&#39;1I8&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">Sequence</span> <span class="n">number</span> <span class="n">field</span> <span class="n">length</span> <span class="p">[(</span><span class="mi">77</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+<span class="n">Record</span> <span class="n">code</span> <span class="ow">and</span> <span class="n">location</span> <span class="nb">type</span> <span class="n">flag</span> <span class="p">[(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">84</span><span class="p">),</span> <span class="s1">&#39;1A4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;FTYP&#39;</span><span class="p">]]</span>
+<span class="n">Record</span> <span class="n">code</span> <span class="n">location</span> <span class="p">[(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">),</span> <span class="s1">&#39;1I8&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+<span class="n">Record</span> <span class="n">code</span> <span class="n">field</span> <span class="n">length</span> <span class="p">[(</span><span class="mi">93</span><span class="p">,</span> <span class="mi">96</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+<span class="n">Record</span> <span class="n">length</span> <span class="ow">and</span> <span class="n">location</span> <span class="nb">type</span> <span class="n">flag</span> <span class="p">[(</span><span class="mi">97</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="s1">&#39;1A4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;FLGT&#39;</span><span class="p">]]</span>
+<span class="n">Record</span> <span class="n">length</span> <span class="n">location</span> <span class="p">[(</span><span class="mi">101</span><span class="p">,</span> <span class="mi">108</span><span class="p">),</span> <span class="s1">&#39;1I8&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">]]</span>
+<span class="n">Record</span> <span class="n">length</span> <span class="n">field</span> <span class="n">length</span> <span class="p">[(</span><span class="mi">109</span><span class="p">,</span> <span class="mi">112</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+<span class="n">Reserved1</span> <span class="p">[(</span><span class="mi">113</span><span class="p">,</span> <span class="mi">113</span><span class="p">),</span> <span class="s1">&#39;1I1&#39;</span><span class="p">,</span> <span class="p">[[]]]</span>
+<span class="n">Reserved4</span> <span class="p">[(</span><span class="mi">116</span><span class="p">,</span> <span class="mi">116</span><span class="p">),</span> <span class="s1">&#39;1I1&#39;</span><span class="p">,</span> <span class="p">[[]]]</span>
+<span class="n">Reserved</span> <span class="n">segment</span> <span class="p">[(</span><span class="mi">117</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span> <span class="s1">&#39;1A64&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;                                                                &#39;</span><span class="p">]]</span>
+<span class="hll"><span class="n">Number</span> <span class="n">of</span> <span class="n">SAR</span> <span class="n">DATA</span> <span class="n">records</span> <span class="p">(</span><span class="n">nominal</span><span class="p">)</span> <span class="p">[(</span><span class="mi">181</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span> <span class="s1">&#39;1I6&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">19438</span><span class="p">]]</span>
+</span><span class="hll"><span class="n">SAR</span> <span class="n">DATA</span> <span class="n">record</span> <span class="n">length</span> <span class="p">(</span><span class="nb">bytes</span><span class="p">)</span> <span class="p">[(</span><span class="mi">187</span><span class="p">,</span> <span class="mi">192</span><span class="p">),</span> <span class="s1">&#39;1I6&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">18768</span><span class="p">]]</span>
+</span><span class="n">Reserved1</span> <span class="p">(</span><span class="n">blanks</span><span class="p">)</span> <span class="p">[(</span><span class="mi">193</span><span class="p">,</span> <span class="mi">216</span><span class="p">),</span> <span class="s1">&#39;1A4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;    &#39;</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">bits</span> <span class="n">per</span> <span class="n">sample</span> <span class="p">[(</span><span class="mi">217</span><span class="p">,</span> <span class="mi">220</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">samples</span> <span class="n">per</span> <span class="n">data</span> <span class="n">group</span> <span class="p">(</span><span class="ow">or</span> <span class="n">pixels</span><span class="p">)</span> <span class="p">[(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="nb">bytes</span> <span class="n">per</span> <span class="n">data</span> <span class="n">group</span> <span class="p">(</span><span class="ow">or</span> <span class="n">pixel</span><span class="p">)</span> <span class="p">[(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">228</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">Justification</span> <span class="ow">and</span> <span class="n">order</span> <span class="n">of</span> <span class="n">samples</span> <span class="n">within</span> <span class="n">data</span> <span class="n">group</span> <span class="p">[(</span><span class="mi">229</span><span class="p">,</span> <span class="mi">232</span><span class="p">),</span> <span class="s1">&#39;1A4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;    &#39;</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">SAR</span> <span class="n">channels</span> <span class="ow">in</span> <span class="n">this</span> <span class="nb">file</span> <span class="p">[(</span><span class="mi">233</span><span class="p">,</span> <span class="mi">236</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">lines</span> <span class="n">per</span> <span class="n">data</span> <span class="nb">set</span> <span class="p">(</span><span class="n">nominal</span><span class="p">)</span> <span class="p">[(</span><span class="mi">237</span><span class="p">,</span> <span class="mi">244</span><span class="p">),</span> <span class="s1">&#39;1I8&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">19438</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">left</span> <span class="n">border</span> <span class="n">pixels</span> <span class="n">per</span> <span class="n">line</span> <span class="p">[(</span><span class="mi">245</span><span class="p">,</span> <span class="mi">248</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">data</span> <span class="n">groups</span> <span class="n">per</span> <span class="n">line</span> <span class="n">per</span> <span class="n">SAR</span> <span class="n">channel</span> <span class="p">[(</span><span class="mi">249</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="s1">&#39;1I8&#39;</span><span class="p">,</span> <span class="p">[[]]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">right</span> <span class="n">border</span> <span class="n">pixels</span> <span class="n">per</span> <span class="n">line</span> <span class="p">[(</span><span class="mi">257</span><span class="p">,</span> <span class="mi">260</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">top</span> <span class="n">border</span> <span class="n">lines</span> <span class="p">[(</span><span class="mi">261</span><span class="p">,</span> <span class="mi">264</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">bottom</span> <span class="n">border</span> <span class="n">lines</span> <span class="p">[(</span><span class="mi">265</span><span class="p">,</span> <span class="mi">268</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">Interleaving</span> <span class="n">indicator</span> <span class="p">[(</span><span class="mi">269</span><span class="p">,</span> <span class="mi">272</span><span class="p">),</span> <span class="s1">&#39;1A4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;BSQ &#39;</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">physical</span> <span class="n">records</span> <span class="n">per</span> <span class="n">line</span> <span class="p">[(</span><span class="mi">273</span><span class="p">,</span> <span class="mi">274</span><span class="p">),</span> <span class="s1">&#39;1I2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">physical</span> <span class="n">records</span> <span class="n">per</span> <span class="n">multi</span><span class="o">-</span><span class="n">channel</span> <span class="n">line</span> <span class="p">[(</span><span class="mi">275</span><span class="p">,</span> <span class="mi">276</span><span class="p">),</span> <span class="s1">&#39;1I2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">prefix</span> <span class="n">data</span> <span class="n">per</span> <span class="n">record</span> <span class="p">[(</span><span class="mi">277</span><span class="p">,</span> <span class="mi">280</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">180</span><span class="p">]]</span>
+<span class="hll"><span class="n">Number</span> <span class="n">of</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">SAR</span> <span class="n">data</span> <span class="p">(</span><span class="ow">or</span> <span class="n">pixel</span> <span class="n">data</span><span class="p">)</span> <span class="n">per</span> <span class="n">record</span> <span class="p">(</span><span class="n">nominal</span><span class="p">)</span> <span class="p">[(</span><span class="mi">281</span><span class="p">,</span> <span class="mi">288</span><span class="p">),</span> <span class="s1">&#39;1I8&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">18576</span><span class="p">]]</span>
+</span><span class="n">Number</span> <span class="n">of</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">suffix</span> <span class="n">data</span> <span class="n">per</span> <span class="n">record</span> <span class="p">[(</span><span class="mi">289</span><span class="p">,</span> <span class="mi">292</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">Reserved2</span> <span class="p">[(</span><span class="mi">293</span><span class="p">,</span> <span class="mi">340</span><span class="p">),</span> <span class="s1">&#39;1A48&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;      13 4PB  49 2PB  45 4PB  21 4PB  29 4PB    &#39;</span><span class="p">]]</span>
+<span class="n">Blanks</span> <span class="p">[(</span><span class="mi">341</span><span class="p">,</span> <span class="mi">368</span><span class="p">),</span> <span class="s1">&#39;1A28&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;                            &#39;</span><span class="p">]]</span>
+<span class="n">Reserved3</span> <span class="p">[(</span><span class="mi">369</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="s1">&#39;1A32&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;                                &#39;</span><span class="p">]]</span>
+<span class="hll"><span class="n">SAR</span> <span class="n">Data</span> <span class="n">format</span> <span class="nb">type</span> <span class="n">identifier</span> <span class="p">[(</span><span class="mi">401</span><span class="p">,</span> <span class="mi">428</span><span class="p">),</span> <span class="s1">&#39;1A28&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;COMPLEX INTEGER*2           &#39;</span><span class="p">]]</span>
+</span><span class="n">SAR</span> <span class="n">Data</span> <span class="n">format</span> <span class="nb">type</span> <span class="n">code</span> <span class="p">[(</span><span class="mi">429</span><span class="p">,</span> <span class="mi">432</span><span class="p">),</span> <span class="s1">&#39;1A4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;CI*2&#39;</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">left</span> <span class="n">fill</span> <span class="n">bits</span> <span class="n">within</span> <span class="n">pixel</span> <span class="p">[(</span><span class="mi">433</span><span class="p">,</span> <span class="mi">436</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">right</span> <span class="n">fill</span> <span class="n">bits</span> <span class="n">within</span> <span class="n">pixel</span> <span class="p">[(</span><span class="mi">437</span><span class="p">,</span> <span class="mi">440</span><span class="p">),</span> <span class="s1">&#39;1I4&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">Maximum</span> <span class="n">data</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">pixel</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="nb">min</span> <span class="n">value</span> <span class="k">for</span> <span class="n">I</span> <span class="ow">and</span> <span class="n">Q</span><span class="p">)</span> <span class="p">[(</span><span class="mi">441</span><span class="p">,</span> <span class="mi">448</span><span class="p">),</span> <span class="s1">&#39;1I8&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">15</span><span class="p">]]</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>可见, 数据格式为 <code class="docutils literal notranslate"><span class="pre">CEOS-SAR-CCT</span></code>, 该数据共 <span class="math">\(19384\)</span> 行脉冲数据, 每行为一次脉冲回波, 一个脉冲含 <span class="math">\(9288\)</span> 个距离单元, 每个像素含实部(I)虚部(Q)共2个字节, 故每行脉冲含18576个字节, 文件头记录长度为16252字节.</p>
+<div class="admonition danger">
+<p class="admonition-title">危险</p>
+<p>RADARSAT1 原始信号数据记录不是固定长度, 每8帧会多出一段长度为2880字节(1440个复数)的数据, 这些数据是发射脉冲复制品 (transmitted replica), 其中心频率是 <span class="math">\(0Hz\)</span>, 线性调频率为 <span class="math">\(0.72135e+12 Hz/s\)</span>, 该信号为数字生成信号, 且4-bit量化存储, 不够精确, 因而本书中不使用.</p>
+</div>
+</div>
+<div class="section" id="agc">
+<h4>AGC补偿<a class="headerlink" href="#agc" title="永久链接至标题">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>RADARSAT1 数据成像<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id13">
+<h4>全部区域成像<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p><a class="reference internal" href="#fig-vancouvercsaimagingslc-a20b50"><span class="std std-numref">图 1.19</span></a> 和 <a class="reference internal" href="#fig-vancouvercsaimagingslc-a30b50"><span class="std std-numref">图 1.20</span></a> 给出了温哥华地区的单视成像结果(进行了降采样, 距离向与方位向尺度均缩小为原来的四分之一, 插值采用cubic插值), <a class="reference internal" href="#fig-vancouvercsaimagingmlc4-a10b50"><span class="std std-numref">图 1.22</span></a> 和 <a class="reference internal" href="#fig-vancouvercsaimagingmlc4-a20b50"><span class="std std-numref">图 1.21</span></a> 给出了温哥华地区的多视成像结果(视数为4, 多视处理后未进行降采样). 在CSA成像处理完成后, 还需要进行一些增强后处理操作(本节结果未进行RCS换算, 仅进行对数增强, 数值截断图像增强操作, 参见 <a class="reference internal" href="../../../SignalProcessing/DigitalImage/Enhancement/Contrast.html#subsection-logcontrastenhancementdigitalimagesignalprocessing"><span class="std std-ref">对数增强</span></a> 小节), 才能得到图示结果, 若不进行, 图像会比较暗, 对比度低. 可见与书籍 <a class="bibtex reference internal" href="../zreference.html#cumming-2005" id="id14">[2]</a><a class="bibtex reference internal" href="../zreference.html#lang-cummingfrankh-wong-2012" id="id15">[1]</a> 中图3.6的结果基本一致.</p>
+<p><a class="reference internal" href="#fig-vancouvercsaimagingslc-a20b50"><span class="std std-numref">图 1.19</span></a> 所示为对数增强后, 对区间 <span class="math">\([20, 50]\)</span> 之外的数据进行截断处理的结果, <a class="reference internal" href="#fig-vancouvercsaimagingslc-a30b50"><span class="std std-numref">图 1.20</span></a> 所示为对数增强后, 对区间 <span class="math">\([30, 50]\)</span> 之外的数据进行截断处理的结果, <a class="reference internal" href="#fig-vancouvercsaimagingmlc4-a10b50"><span class="std std-numref">图 1.22</span></a> 所示为对数增强后, 对区间 <span class="math">\([10, 50]\)</span> 之外的数据进行截断处理的结果, <a class="reference internal" href="#fig-vancouvercsaimagingmlc4-a20b50"><span class="std std-numref">图 1.21</span></a> 所示为对数增强后, 对区间 <span class="math">\([20, 50]\)</span> 之外的数据进行截断处理的结果.</p>
+<div class="figure align-center" id="id19">
+<span id="fig-vancouvercsaimagingslc-a20b50"></span><img alt="Single look imaging result (with truncation parameters :math:`a=20, b=50`) of Chirp Scaling Algorithm." src="../../../_images/RADARSAT1_Vancouver_CSA(SRC+RCMC+DPC)_SLC_a20b50.png" />
+<p class="caption"><span class="caption-number">图 1.19 </span><span class="caption-text">Single look imaging result (with truncation parameters <span class="math">\(a=20, b=50\)</span>) of Chirp Scaling Algorithm.</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id20">
+<span id="fig-vancouvercsaimagingslc-a30b50"></span><img alt="Single look imaging result (with truncation parameters :math:`a=30, b=50`) of Chirp Scaling Algorithm." src="../../../_images/RADARSAT1_Vancouver_CSA(SRC+RCMC+DPC)_SLC_a30b50.png" />
+<p class="caption"><span class="caption-number">图 1.20 </span><span class="caption-text">Single look imaging result (with truncation parameters <span class="math">\(a=30, b=50\)</span>) of Chirp Scaling Algorithm.</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id21">
+<span id="fig-vancouvercsaimagingmlc4-a20b50"></span><img alt="Multiple looks (4, 4) imaging result (with truncation parameters :math:`a=10, b=50`) of Chirp Scaling Algorithm." src="../../../_images/RADARSAT1_Vancouver_CSA(SRC+RCMC+DPC)_MLC4_a10b50.png" />
+<p class="caption"><span class="caption-number">图 1.21 </span><span class="caption-text">Multiple looks (4, 4) imaging result (with truncation parameters <span class="math">\(a=10, b=50\)</span>) of Chirp Scaling Algorithm.</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id22">
+<span id="fig-vancouvercsaimagingmlc4-a10b50"></span><img alt="Multiple looks (4, 4) imaging result (with truncation parameters :math:`a=20, b=50`) of Chirp Scaling Algorithm." src="../../../_images/RADARSAT1_Vancouver_CSA(SRC+RCMC+DPC)_MLC4_a20b50.png" />
+<p class="caption"><span class="caption-number">图 1.22 </span><span class="caption-text">Multiple looks (4, 4) imaging result (with truncation parameters <span class="math">\(a=20, b=50\)</span>) of Chirp Scaling Algorithm.</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>首先, 本节结果未进行RCS转换, 其次, 使用Python中的Matplotlib, PIL, Opencv或MATLAB显示出来的图看起来像是有很多噪声点, 将矩阵保存成 <code class="docutils literal notranslate"><span class="pre">.tiff</span></code> 图像后, 用其它显示软件打开则相对平滑, 如 <a class="reference internal" href="#fig-radarsat1-viewbydiffsoftwares"><span class="std std-numref">图 1.23</span></a> 所示.</p>
+</div>
+<div class="figure align-center" id="id23">
+<span id="fig-radarsat1-viewbydiffsoftwares"></span><img alt="View by ASFVIEW, Document Viewer, Matlab, Python" src="../../../_images/RADARSAT1_ViewByDiffSoftwares.png" />
+<p class="caption"><span class="caption-number">图 1.23 </span><span class="caption-text">View imaging image with different programs. (a) Ubuntu Document Viewer, (b) ASF view program, (c) Matlab’s <code class="xref py py-func docutils literal notranslate"><span class="pre">imshow()</span></code>, (d) Python’s <code class="xref py py-func docutils literal notranslate"><span class="pre">plt.imshow()</span></code>.</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id16">
+<h4>部分区域成像<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>如前所述, RADARSAT1 幅宽为 <span class="math">\(45km\)</span>, 距离向采样点数为 <span class="math">\(Nr = 9280\)</span>, 每个像素点的距离分辨率为 <span class="math">\(\delta_x=45000/9280 = 4.85\)</span> (注意这只说明距离向过采样, 距离向的地距分辨率仍然为先前计算的 <span class="math">\(8m\)</span> ). 取数据中的 <span class="math">\(1536\times 2048\)</span> 个像素作为待成像区域, 则地理区域为 <span class="math">\((1536\times \delta_y) \times (2048\times \delta_x) = 8896m\times 15886m)\)</span>.</p>
+<p>以史丹利公园区域数据为例, 如 <a class="reference internal" href="#fig-stanleyparkeathmap"><span class="std std-numref">图 1.24</span></a> 所示为该区域的地图, 其地理区域区域范围测量结果已经在图中标出, 与上面计算的区域基本一致. <a class="reference internal" href="#fig-stanleypark-csa-matplot"><span class="std std-numref">图 1.25</span></a> 为matplotlib工具显示的该区域数据CSA成像结果, 其中, 坐标轴已经对应到实际距离, 可见与计算和地图测量结果基本一致. <a class="reference internal" href="#fig-stanleypark-csa-matplot"><span class="std std-numref">图 1.25</span></a> 显示的结果已经进行了下采样, <a class="reference internal" href="#fig-stanleyparkeathmap"><span class="std std-numref">图 1.24</span></a> 给出了该区域未进行下采样的成像结果.</p>
+<div class="figure align-center" id="id24">
+<span id="fig-stanleyparkeathmap"></span><img alt="Eath Map of Stanley Park" src="../../../_images/StanleyParkEathMap.png" />
+<p class="caption"><span class="caption-number">图 1.24 </span><span class="caption-text">Eath Map of Stanley Park</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id25">
+<span id="fig-stanleypark-csa-matplot"></span><img alt="Imaging result of Chirp Scaling Algorithm (Stanley Park)." src="../../../_images/StanleyPark_CSA_Matplot.png" />
+<p class="caption"><span class="caption-number">图 1.25 </span><span class="caption-text">Imaging result of Chirp Scaling Algorithm (Stanley Park) shown by matplotlib.</span><a class="headerlink" href="#id25" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id26">
+<span id="fig-stanleypark-csa"></span><img alt="Imaging result image of Chirp Scaling Algorithm (Stanley Park)." src="../../../_images/StanleyPark_CSA.png" />
+<p class="caption"><span class="caption-number">图 1.26 </span><span class="caption-text">Imaging result image of Chirp Scaling Algorithm (Stanley Park).</span><a class="headerlink" href="#id26" title="永久链接至图片">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-ubc-csa"><span class="std std-numref">图 1.27</span></a>, <a class="reference internal" href="#fig-vancouverairport-csa"><span class="std std-numref">图 1.28</span></a>, <a class="reference internal" href="#fig-squamishgaribaldi"><span class="std std-numref">图 1.29</span></a> 分别给出了哥伦比亚大学(UBC), 温哥华机场(Vancouver Airport), 斯阔米什(Squamish Garibaldi) 地区数据的CSA算法成像结果.</p>
+<div class="figure align-center" id="id27">
+<span id="fig-ubc-csa"></span><img alt="Imaging result of Chirp Scaling Algorithm (UBC)." src="../../../_images/UBC_CSA.png" />
+<p class="caption"><span class="caption-number">图 1.27 </span><span class="caption-text">Imaging result of Chirp Scaling Algorithm (UBC).</span><a class="headerlink" href="#id27" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id28">
+<span id="fig-vancouverairport-csa"></span><img alt="Imaging result of Chirp Scaling Algorithm (Vancouver Airport)." src="../../../_images/VancouverAirport_CSA.png" />
+<p class="caption"><span class="caption-number">图 1.28 </span><span class="caption-text">Imaging result of Chirp Scaling Algorithm (Vancouver Airport).</span><a class="headerlink" href="#id28" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id29">
+<span id="fig-squamishgaribaldi"></span><img alt="Imaging result of Chirp Scaling Algorithm (Squamish and Garibaldi)." src="../../../_images/SquamishGaribaldi_CSA.png" />
+<p class="caption"><span class="caption-number">图 1.29 </span><span class="caption-text">Imaging result of Chirp Scaling Algorithm (Squamish Garibaldi).</span><a class="headerlink" href="#id29" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="radarsat2">
+<h2><span class="section-number">1.4.2. </span>RADARSAT2 产品介绍<a class="headerlink" href="#radarsat2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id17">
+<h3>RADARSAT2 雷达参数<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="rda-inclination"><span class="brackets">1</span></dt>
+<dd><p>这里是指轨道倾角 ( <a class="reference internal" href="../../SAR/glossary.html#term-orbital-inclination"><span class="xref std std-term">Orbital Inclination</span></a> ), 与雷达的斜视角( <a class="reference internal" href="../../SAR/glossary.html#term-squint-angle"><span class="xref std std-term">Squint Angle</span></a> ) 不同.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ERS.html" class="btn btn-neutral float-right" title="1.5. ERS系列产品介绍" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ProductDataFormations.html" class="btn btn-neutral" title="1.3. 雷达产品数据格式简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

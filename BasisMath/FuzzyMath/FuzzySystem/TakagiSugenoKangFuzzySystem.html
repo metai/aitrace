@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.3. Takagi-Sugeno-Kang模糊系统 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="6. 模糊系统" href="index.html"/>
+        <link rel="next" title="7. 模糊变换" href="../FuzzyTransform/index.html"/>
+        <link rel="prev" title="6.2. Takagi-Sugeno模糊系统" href="TakagiSugenoFuzzySystem.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">模糊数学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzySets/index.html">2. 模糊集合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyArithmetic/index.html">3. 模糊算术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyRelation/index.html">4. 模糊关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyInference/index.html">5. 模糊推理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">6. 模糊系统</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="SingleInputSingleOutput.html">6.1. 单入单出模糊系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TakagiSugenoFuzzySystem.html">6.2. Takagi-Sugeno模糊系统</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">6.3. Takagi-Sugeno-Kang模糊系统</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyTransform/index.html">7. 模糊变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">8. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">9. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">模糊数学</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">6. </span>模糊系统</a> &raquo;</li>
+        
+      <li><span class="section-number">6.3. </span>Takagi-Sugeno-Kang模糊系统</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="takagi-sugeno-kang">
+<span id="section-takagisugenokangfuzzysystem"></span><h1><span class="section-number">6.3. </span>Takagi-Sugeno-Kang模糊系统<a class="headerlink" href="#takagi-sugeno-kang" title="永久链接至标题">¶</a></h1>
+<p>如今比较常用的是 Takagi-Sugeno-Kang (TSK) 型模糊推理系统 (Fuzzy Inference System, FIS) <a class="bibtex reference internal" href="../zreference.html#takagi-1985" id="id1">[5]</a><a class="bibtex reference internal" href="../zreference.html#sugeno-1988" id="id2">[6]</a>. Petr 等人于2005年提出 在线学习式TSK模型 <span class="bibtex" id="id3">[1C.Petr.2005]</span> , Gu等人于2018年提出基于贝叶斯的TSK-FIS <a class="bibtex reference internal" href="../zreference.html#x-gu-2018" id="id4">[8]</a> .</p>
+<div class="section" id="tskfis">
+<h2><span class="section-number">6.3.1. </span>TSKFIS原理<a class="headerlink" href="#tskfis" title="永久链接至标题">¶</a></h2>
+<p>一个TSK模糊系统主要由 “IF-THEN” 模糊规则构成. 给定 <span class="math">\(d-\)</span> 维输入向量 <span class="math">\({\bm x} = [x_1, x_2, \cdots, x_d]^T\)</span> , 记第 <span class="math">\(k\)</span> 个规则为 <span class="math">\(R^k\)</span> , 在则TSK模糊系统中, <span class="math">\(R^k\)</span> 可以表示为</p>
+<div class="math">
+\[{\rm IF}\; x_1(k)\; {\rm is}\; A_{k1}, x_2(k)\; {\rm is}\; A_{k2}, \cdots, x_d(k)\; {\rm is}\; A_{kd} \\
+{\rm THEN} \; f_k({\bm x}) = q_{k0} + \sum_{j=1}^d q_{kj}x_j = {\bm q}_k^T \tilde{\bm x}_n
+
+\]</div>
+<p>其中, <span class="math">\(A_{ki} (i=1,2,\cdots, d)\)</span> 是一个模糊集, <span class="math">\(k=1,2,\cdots, K\)</span> , <span class="math">\(\tilde{{\bm x}} = [1, {\bm x}_n^T]^T\)</span> . 且 <span class="math">\({\bm q}_k = [q_{k0}, q_{k1}, \cdots, q_{kd}]^T\)</span> 是第 <span class="math">\(k\)</span> 个规则对应结论的参数向量, 为指定或可学习(如自适应神经模糊推理系统中的权重).</p>
+<p>若使用高斯核表示模糊集 <span class="math">\(A_{ki}\)</span> 对应的隶属函数 <span class="math">\(A_{ki}(x_i)\)</span> , 则</p>
+<div class="math">
+\[\mu_{A_{ki}}(x_i) = {\rm exp}\left(\frac{-\|x_i - c_{ki}\|^2}{\sigma_{ki}^2}\right)
+
+\]</div>
+<p>其中, <span class="math">\(c_{ki}, \sigma_{ki}\)</span> 分别对应高斯隶属函数中心(均值)和宽度(标准差).</p>
+<p>TSK模糊系统的输出可以表示为</p>
+<div class="math">
+\[\hat{y} = \sum_{k=1}^K \frac{\mu_k({\bm x})}{\sum_{k=1}^K\mu_{k}({\bm x})} f_k({\bm x}) = \sum_{k=1}^K \hat{\mu}_K({\bm x})f_k({\bm x})
+
+\]</div>
+<p>其中, <span class="math">\(\mu_k({\bm x})\)</span> 和 <span class="math">\(\hat{\mu}({\bm x})\)</span> 分别为第 <span class="math">\(k\)</span> 个规则对应的模糊隶属函数和归一化模糊隶属函数:</p>
+<div class="math">
+\[\mu_k({\bm x}) = \prod_{i=1}^d \mu_{A_{ki}}(x_i), \; \hat{\mu}_k({\bm x}) = \frac{\mu_k({\bm x})}{\sum_{k=1}^K \mu_k({\bm x})}
+
+\]</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../FuzzyTransform/index.html" class="btn btn-neutral float-right" title="7. 模糊变换" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TakagiSugenoFuzzySystem.html" class="btn btn-neutral" title="6.2. Takagi-Sugeno模糊系统" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

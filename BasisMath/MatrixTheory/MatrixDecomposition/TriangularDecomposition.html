@@ -1,0 +1,1125 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2. 三角分解 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="4. 矩阵分解" href="index.html"/>
+        <link rel="next" title="4.3. 满秩分解" href="FullRankDecomposition.html"/>
+        <link rel="prev" title="4.1. 简介" href="intro.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../LinearSpace/index.html">1. 线性空间与线性变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4. 矩阵分解</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="intro.html">4.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.2. 三角分解</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FullRankDecomposition.html">4.3. 满秩分解</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OrthogonalTriangularDecomposition.html">4.4. 正交三角分解</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingularValueDecomposition.html">4.5. 奇异值分解</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4. </span>矩阵分解</a> &raquo;</li>
+        
+      <li><span class="section-number">4.2. </span>三角分解</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-triangulardecomposition">
+<span id="id1"></span><h1><span class="section-number">4.2. </span>三角分解<a class="headerlink" href="#section-triangulardecomposition" title="永久链接至标题">¶</a></h1>
+<p>三角分解 ( <a class="reference internal" href="../../glossary/glossary.html#term-triangular-decomposition"><span class="xref std std-term">Triangular Decomposition</span></a> ) 是把一个矩阵 <span class="math">\({\bm A}_{n\times n}\)</span>    分解为一个下三角矩阵 ( <a class="reference internal" href="../../glossary/glossary.html#term-lower-triangular-matrix"><span class="xref std std-term">Lower Triangular Matrix</span></a> ) <span class="math">\({\bm L}\)</span> 与一个上三角矩阵 ( <a class="reference internal" href="../../glossary/glossary.html#term-upper-triangular-matrix"><span class="xref std std-term">Upper Triangular Matrix</span></a> ) <span class="math">\({\bm U}\)</span> 乘积的分解, 也可分解为一个单位下三角矩阵 ( <a class="reference internal" href="../../glossary/glossary.html#term-unit-lower-triangular-matrix"><span class="xref std std-term">Unit Lower Triangular Matrix</span></a> ) <span class="math">\({\bm L}\)</span> 与一个对角阵 ( <a class="reference internal" href="../../glossary/glossary.html#term-diagonal-matrix"><span class="xref std std-term">Diagonal Matrix</span></a> ) <span class="math">\({\bm D}\)</span> 及一个单位上三角矩阵 ( <a class="reference internal" href="../../glossary/glossary.html#term-unit-upper-triangular-matrix"><span class="xref std std-term">Unit Upper Triangular Matrix</span></a> ) <span class="math">\({\bm U}\)</span> 乘积.</p>
+<div class="proof proof-type-definition" id="id17">
+<span id="def-triangulardecomposition"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 4.1</span>
+        
+            <span class="proof-title-name">(三角分解)</span>
+        
+    </div><div class="proof-content">
+<p>称满足如下形式的矩阵分解为 <strong>三角分解</strong> :</p>
+<div class="math">
+\[{\bm A}_{n\times n} = {\bm L}_{n\times n} {\bm U}_{n\times n}
+
+\]</div>
+<div class="math">
+\[{\bm A}_{n\times n} = {\bm L}_{n\times n} {\bm D}_{n\times n} {\bm U}_{n\times n}
+
+\]</div>
+</div></div><div class="section" id="id2">
+<h2><span class="section-number">4.2.1. </span>引言<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>考虑方程组 <span class="math">\({\bm A}{\bm x} = {\bm b}\)</span> , 即</p>
+<div class="math">
+\[\left[ {\begin{array}{llll}
+{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\
+{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
+ \vdots & \vdots & \ddots & \vdots \\
+{{a_{n1}}}&{{a_{n2}}}& \cdots &{{a_{nn}}}
+\end{array}} \right]\left[ {\begin{array}{l}
+{{x_1}}\\
+{{x_2}}\\
+ \vdots \\
+{{x_n}}
+\end{array}} \right] = \left[ {\begin{array}{l}
+{{a_{11}}{x_1} + {a_{12}}{x_2} +  \cdots  + {a_{1n}}{x_n}}\\
+{{a_{21}}{x_1} + {a_{22}}{x_2} +  \cdots  + {a_{2n}}{x_n}}\\
+ \vdots \\
+{{a_{n1}}{x_1} + {a_{n2}}{x_2} +  \cdots  + {a_{nn}}{x_n}}
+\end{array}} \right] = \left[ {\begin{array}{l}
+{{b_1}}\\
+{{b_2}}\\
+ \vdots \\
+{{b_n}}
+\end{array}} \right]
+
+\]</div>
+<p>若 <span class="math">\({\bm A}\)</span> 为下三角矩阵, 则有</p>
+<div class="math">
+\[\left[ {\begin{array}{llll}
+{{a_{11}}}&0& \cdots &0\\
+{{a_{21}}}&{{a_{22}}}& \cdots &0\\
+ \vdots & \vdots & \ddots & \vdots \\
+{{a_{n1}}}&{{a_{n2}}}& \cdots &{{a_{nn}}}
+\end{array}} \right]\left[ {\begin{array}{l}
+{{x_1}}\\
+{{x_2}}\\
+ \vdots \\
+{{x_n}}
+\end{array}} \right] = \left[ {\begin{array}{l}
+{{a_{11}}{x_1}}\\
+{{a_{21}}{x_1} + {a_{22}}{x_2}}\\
+{\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \vdots }\\
+{{a_{n1}}{x_1} + {a_{n2}}{x_2} +  \cdots  + {a_{nn}}{x_n}}
+\end{array}} \right] = \left[ {\begin{array}{l}
+{{b_1}}\\
+{{b_2}}\\
+ \vdots \\
+{{b_n}}
+\end{array}} \right]
+
+\]</div>
+<p>若 <span class="math">\({\bm A}\)</span> 为上三角矩阵, 则有</p>
+<div class="math">
+\[\left[ {\begin{array}{llll}
+{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\
+0&{{a_{22}}}& \cdots &{{a_{2n}}}\\
+ \vdots & \vdots & \ddots & \vdots \\
+0&0& \cdots &{{a_{nn}}}
+\end{array}} \right]\left[ {\begin{array}{c}
+{{x_1}}\\
+{{x_2}}\\
+ \vdots \\
+{{x_n}}
+\end{array}} \right] = \left[ {\begin{array}{r}
+{{a_{11}}{x_1} + {a_{12}}{x_2} +  \cdots  + {a_{1n}}{x_n}}\\
+{{a_{22}}{x_2} +  \cdots  + {a_{2n}}{x_n}}\\
+{ \vdots \;\;\;\;\;\;\;\;\;\;\;\;\;\;}\\
+{{a_{nn}}{x_n}}
+\end{array}} \right] = \left[ {\begin{array}{c}
+{{b_1}}\\
+{{b_2}}\\
+ \vdots \\
+{{b_n}}
+\end{array}} \right]
+
+\]</div>
+<p>可见当 <span class="math">\({\bm A}\)</span> 为下三角矩阵或上三角矩阵时, 方程组可以很容易求解. 下面设法将 <span class="math">\({\bm A}\)</span> 化为上/下三角矩阵.</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">4.2.2. </span>高斯消元过程<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>一般消元过程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>以上三角矩阵为例, 记 <span class="math">\({\bm A}^{(1)} = A\)</span> , 且 <span class="math">\({\bm A}^{(k)}_{ij} = a^{(k)}_{ij}\)</span> 采用初等行变换:</p>
+<ol class="arabic simple">
+<li><p>将 <span class="math">\({\bm A}^{(1)}\)</span> 的第1列元素除第一个元素 <span class="math">\(a^{(1)}_{11}\)</span> 外, 其余元素都化为 <span class="math">\(0\)</span> ,
+显然若 <span class="math">\(a^{(1)}_{11} \neq 0\)</span> , 可以分别以 <span class="math">\(-\frac{a^{(1)}_{21}}{a^{(1)}_{11}}, -\frac{a^{(1)}_{31}}{a^{(1)}_{11}}, \cdots, -\frac{a^{(1)}_{n1}}{a^{(1)}_{11}}\)</span> 乘以第 <span class="math">\(1\)</span> 行元素, 分别加到第 <span class="math">\(2, 3, \cdots, n\)</span>  行得</p></li>
+</ol>
+<div class="math">
+\[{\bm A}^{(1)} = \left[ {\begin{array}{ccccc}
+{{a^{(1)}_{11}}}&{{a^{(1)}_{12}}}&{{a^{(1)}_{13}}}& \cdots &{{a^{(1)}_{1n}}}\\
+{{a^{(1)}_{21}}}&{{a^{(1)}_{22}}}&{{a^{(1)}_{23}}}& \cdots &{{a^{(1)}_{2n}}}\\
+{{a^{(1)}_{31}}}&{{a^{(1)}_{32}}}&{{a^{(1)}_{33}}}& \cdots &{{a^{(1)}_{3n}}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+{{a^{(1)}_{n1}}}&{{a^{(1)}_{n2}}}&{{a^{(1)}_{n3}}}& \cdots &{{a^{(1)}_{nn}}}
+\end{array}} \right] \mathop {\mathop  \to \limits_{i = 2, \cdots ,n} }\limits^{{r_i} - \frac{{{a^{(1)}_{i1}}}}{{{a^{(1)}_{11}}}}{r_1}}
+
+\]</div>
+<div class="math">
+\[{\bm A}^{(2)} = \left[ {\begin{array}{lllll}
+{{a^{(1)}_{11}}}&{{a^{(1)}_{12}}}&{{a^{(1)}_{13}}}& \cdots &{{a^{(1)}_{1n}}}\\
+0&{{a^{(1)}_{22}} - \frac{{{a^{(1)}_{21}}{a^{(1)}_{12}}}}{{{a^{(1)}_{11}}}}}&{{a^{(1)}_{23}} - \frac{{{a^{(1)}_{21}}{a^{(1)}_{13}}}}{{{a^{(1)}_{11}}}}}& \cdots &{{a^{(1)}_{2n}} - \frac{{{a^{(1)}_{21}}{a^{(1)}_{1n}}}}{{{a^{(1)}_{11}}}}}\\
+0&{{a^{(1)}_{32}} - \frac{{{a^{(1)}_{31}}{a^{(1)}_{12}}}}{{{a^{(1)}_{11}}}}}&{{a^{(1)}_{33}} - \frac{{{a^{(1)}_{31}}{a^{(1)}_{13}}}}{{{a^{(1)}_{11}}}}}& \cdots &{{a^{(1)}_{3n}} - \frac{{{a^{(1)}_{31}}{a^{(1)}_{1n}}}}{{{a^{(1)}_{11}}}}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&{{a^{(1)}_{n2}} - \frac{{{a^{(1)}_{n1}}{a^{(1)}_{12}}}}{{{a^{(1)}_{11}}}}}&{{a^{(1)}_{n3}} - \frac{{{a^{(1)}_{n1}}{a^{(1)}_{13}}}}{{{a^{(1)}_{11}}}}}& \cdots &{{a^{(1)}_{nn}} - \frac{{{a^{(1)}_{n1}}{a^{(1)}_{1n}}}}{{{a^{(1)}_{11}}}}}
+\end{array}} \right]
+
+\]</div>
+<p>若记 <span class="math">\(\left({\bm L}^{(1)}_{i1}\right)^{(-1)} = l^{(1)}_{i1} = -\frac{a^{(1)}_{i1}}{a^{(1)}_{11}}\)</span> , <span class="math">\({\bm L}^{(1)}_{i1} = l^{(1)}_{i1} = \frac{a^{(1)}_{i1}}{a^{(1)}_{11}}\)</span> , 即</p>
+<div class="math">
+\[{\left( {{\bm{L}}^{(1)}} \right)^{ - 1}} = \left[ {\begin{array}{ccccc}
+1&0&0& \cdots &0\\
+{ - \frac{{{a^{(1)}_{21}}}}{{{a^{(1)}_{11}}}}}&1&0& \cdots &0\\
+{ - \frac{{{a^{(1)}_{31}}}}{{{a^{(1)}_{11}}}}}&0&1& \cdots &0\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+{ - \frac{{{a^{(1)}_{n1}}}}{{{a^{(1)}_{11}}}}}&0&0& \cdots &1
+\end{array}} \right],\;\;{\bm{L}}^{(1)} = \left[ {\begin{array}{ccccc}
+1&0&0& \cdots &0\\
+{\frac{{{a^{(1)}_{21}}}}{{{a^{(1)}_{11}}}}}&1&0& \cdots &0\\
+{\frac{{{a^{(1)}_{31}}}}{{{a^{(1)}_{11}}}}}&0&1& \cdots &0\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+{\frac{{{a^{(1)}_{n1}}}}{{{a^{(1)}_{11}}}}}&0&0& \cdots &1
+\end{array}} \right]
+
+\]</div>
+<p>则有</p>
+<div class="math">
+\[{{\bm{A}}^{(2)}} = {\left( {{\bm{L}}^{(1)}} \right)^{ - 1}}{{\bm{A}}^{(1)}} = \left[ {\begin{array}{ccccc}
+{a_{11}^{(2)}}&{a_{12}^{(2)}}&{a_{13}^{(2)}}& \cdots &{a_{1n}^{(2)}}\\
+0&{a_{22}^{(2)}}&{a_{23}^{(2)}}& \cdots &{a_{2n}^{(2)}}\\
+0&{a_{32}^{(2)}}&{a_{33}^{(2)}}& \cdots &{a_{3n}^{(2)}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&{a_{n2}^{(2)}}&{a_{n3}^{(2)}}& \cdots &{a_{nn}^{(2)}}
+\end{array}} \right] = \left[ {\begin{array}{ccccc}
+{a_{11}^{(1)}}&{a_{12}^{(1)}}&{a_{13}^{(1)}}& \cdots &{a_{1n}^{(1)}}\\
+0&{a_{22}^{(2)}}&{a_{23}^{(2)}}& \cdots &{a_{2n}^{(2)}}\\
+0&{a_{32}^{(2)}}&{a_{33}^{(2)}}& \cdots &{a_{3n}^{(2)}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&{a_{n2}^{(2)}}&{a_{n3}^{(2)}}& \cdots &{a_{nn}^{(2)}}
+\end{array}} \right]
+
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>将 <span class="math">\({\bm A}^{(2)}\)</span> 的第2列元素除前2个元素 <span class="math">\(a^{(2)}_{12}, a^{(2)}_{22}\)</span> 外, 其余元素都化为 <span class="math">\(0\)</span> ,
+显然若 <span class="math">\(a^{(2)}_{22} \neq 0\)</span>   , 可以分别以 <span class="math">\(-\frac{a^{(2)}_{32}}{a^{(2)}_{22}}, -\frac{a^{(2)}_{42}}{a^{(2)}_{22}}, \cdots, -\frac{a^{(2)}_{n2}}{a^{(2)}_{22}}\)</span> 乘以第 <span class="math">\(2\)</span> 行元素, 分别加到第 <span class="math">\(3, \cdots, n\)</span>  行得</p></li>
+</ol>
+<div class="math">
+\[{\bm A}^{(2)} = \left[ {\begin{array}{ccccc}
+{a_{11}^{(2)}}&{a_{12}^{(2)}}&{a_{13}^{(2)}}& \cdots &{a_{1n}^{(2)}}\\
+0&{a_{22}^{(2)}}&{a_{23}^{(2)}}& \cdots &{a_{2n}^{(2)}}\\
+0&{a_{32}^{(2)}}&{a_{33}^{(2)}}& \cdots &{a_{3n}^{(2)}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&{a_{n2}^{(2)}}&{a_{n3}^{(2)}}& \cdots &{a_{nn}^{(2)}}
+\end{array}} \right]\mathop {\mathop  \to \limits_{i = 3, \cdots ,n} }\limits^{{r_i} - \frac{{a_{i2}^{(2)}}}{{a_{22}^{(2)}}}{r_2}}
+
+\]</div>
+<div class="math">
+\[{{\bm{A}}^{(3)}} = \left[ {\begin{array}{lllll}
+{a_{11}^{(2)}}&{a_{12}^{(2)}}&{a_{13}^{(2)}}& \cdots &{a_{1n}^{(2)}}\\
+0&{a_{22}^{(2)}}&{a_{23}^{(2)}}& \cdots &{a_{2n}^{(2)}}\\
+0&0&{a_{33}^{(2)} - \frac{{a_{32}^{(2)}a_{23}^{(2)}}}{{a_{22}^{(2)}}}}& \cdots &{a_{3n}^{(2)} - \frac{{a_{32}^{(2)}a_{2n}^{(2)}}}{{a_{22}^{(2)}}}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&0&{a_{n3}^{(2)} - \frac{{a_{n2}^{(2)}a_{23}^{(2)}}}{{a_{22}^{(2)}}}}& \cdots &{a_{nn}^{(2)} - \frac{{a_{n2}^{(2)}a_{2n}^{(2)}}}{{a_{22}^{(2)}}}}
+\end{array}} \right]
+
+\]</div>
+<p>若记 <span class="math">\(\left({\bm L}^{(2)}_{i2}\right)^{(-1)} = l^{(2)}_{i2} = -\frac{a^{(2)}_{i2}}{a^{(2)}_{22}}\)</span> , <span class="math">\({\bm L}^{(2)}_{i2} = l^{(2)}_{i2} = \frac{a^{(2)}_{i2}}{a^{(2)}_{22}}\)</span> , 即</p>
+<div class="math">
+\[{\left( {{{\bm{L}}^{(2)}}} \right)^{ - 1}} = \left[ {\begin{array}{ccccc}
+1&0&0& \cdots &0\\
+0&1&0& \cdots &0\\
+0&{ - \frac{{a_{32}^{(2)}}}{{a_{22}^{(2)}}}}&1& \cdots &0\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&{ - \frac{{a_{n2}^{(2)}}}{{a_{22}^{(2)}}}}&0& \cdots &1
+\end{array}} \right],\;\;{{\bm{L}}^{(2)}} = \left[ {\begin{array}{ccccc}
+1&0&0& \cdots &0\\
+0&1&0& \cdots &0\\
+0&{\frac{{a_{32}^{(2)}}}{{a_{22}^{(2)}}}}&1& \cdots &0\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&{\frac{{a_{n2}^{(2)}}}{{a_{22}^{(2)}}}}&0& \cdots &1
+\end{array}} \right]
+
+\]</div>
+<p>则有</p>
+<div class="math">
+\[{{\bm{A}}^{(3)}} = {\left( {{{\bm{L}}^{(2)}}} \right)^{ - 1}}{{\bm{A}}^{(2)}} = \left[ {\begin{array}{ccccc}
+{a_{11}^{(3)}}&{a_{12}^{(3)}}&{a_{13}^{(3)}}& \cdots &{a_{1n}^{(3)}}\\
+0&{a_{22}^{(3)}}&{a_{23}^{(3)}}& \cdots &{a_{2n}^{(3)}}\\
+0&0&{a_{33}^{(3)}}& \cdots &{a_{3n}^{(3)}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&0&{a_{n3}^{(3)}}& \cdots &{a_{nn}^{(3)}}
+\end{array}} \right] = \left[ {\begin{array}{ccccc}
+{a_{11}^{(1)}}&{a_{12}^{(1)}}&{a_{13}^{(1)}}& \cdots &{a_{1n}^{(1)}}\\
+0&{a_{22}^{(2)}}&{a_{23}^{(2)}}& \cdots &{a_{2n}^{(2)}}\\
+0&0&{a_{33}^{(3)}}& \cdots &{a_{3n}^{(3)}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&0&{a_{n3}^{(3)}}& \cdots &{a_{nn}^{(3)}}
+\end{array}} \right]
+
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>重复如上步骤, 最终可将矩阵 <span class="math">\({\bm A}\)</span> 化为上三角矩阵.</p></li>
+</ol>
+<div class="math">
+\[{{\bm{A}}^{(n)}} = {\left( {{{\bm{L}}^{(n - 1)}}} \right)^{ - 1}}{{\bm{A}}^{(n - 1)}} = \left[ {\begin{array}{ccccc}
+{a_{11}^{(n)}}&{a_{12}^{(n)}}&{a_{13}^{(n)}}& \cdots &{a_{1n}^{(n)}}\\
+0&{a_{22}^{(n)}}&{a_{23}^{(n)}}& \cdots &{a_{2n}^{(n)}}\\
+0&0&{a_{33}^{(n)}}& \cdots &{a_{3n}^{(n)}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&0&0& \cdots &{a_{nn}^{(n)}}
+\end{array}} \right] = \left[ {\begin{array}{ccccc}
+{a_{11}^{(1)}}&{a_{12}^{(1)}}&{a_{13}^{(1)}}& \cdots &{a_{1n}^{(1)}}\\
+0&{a_{22}^{(2)}}&{a_{23}^{(2)}}& \cdots &{a_{2n}^{(2)}}\\
+0&0&{a_{33}^{(3)}}& \cdots &{a_{3n}^{(3)}}\\
+ \vdots & \vdots & \vdots & \ddots & \vdots \\
+0&0&0& \cdots &{a_{nn}^{(n)}}
+\end{array}} \right]
+
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>上述消元过程可以执行的充要条件是矩阵 <span class="math">\({\bm A}\)</span> 的各阶顺序主子式不为零, 即</p>
+<div class="math">
+\[\Delta_k = a_{11}^{(1)} a_{22}^{(2)} \cdots a_{kk}^{(k)} \neq 0, (k = 1, 2, \cdots, n).
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>主元素选取<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>若矩阵 <span class="math">\({\bm A}\)</span> 的各阶顺序主子式不全为零, 则可以通过选取主元素进行消元, 核心思想是通过初等变换, 使得矩阵的顺序主子式不为零, 主元素选取包含:</p>
+<ul class="simple">
+<li><p>列主元素法: 在矩阵的某列中选取模值最大的作为新的对角元素, 选取范围为对角线元素以下的各元素.</p></li>
+<li><p>行主元素法: 在矩阵的某行中选取模值最大的作为新的对角元素, 选取范围为对角线元素以后的各元素.</p></li>
+<li><p>全主元素法: 若某列元素均较小或某行元素均较小时, 可在各行各列中选取模值最大者作为对角元素.</p></li>
+</ul>
+<p>此时, 可以通过初等变换 <span class="math">\({\bm P}\)</span> 将矩阵 <span class="math">\({\bm A}\)</span> 变为各阶顺序主子式不为零等矩阵 <span class="math">\({\bm{PA}}\)</span> (行) <span class="math">\({\bm{AP}}\)</span> (列).</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如对于矩阵</p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{ccc}
+               0&2&2\\
+               2&1&2\\
+               0&2&1
+               \end{array}} \right]
+
+\]</div>
+<p>易知 <span class="math">\(\Delta_1 = 0\)</span></p>
+<ol class="arabic simple">
+<li><p>采用列主元素法, 选取 <span class="math">\(a_{21} = 2\)</span> 作为主元素, 即交换前两行, 记对应初等变换为 <span class="math">\({\bm P}_1\)</span> , 则</p></li>
+</ol>
+<div class="math">
+\[{{\bm{P}}_1}{\bm{A}} = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+2&1&2\\
+0&2&2\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+<ol class="arabic simple">
+<li><p>采用行主元素法, 选取 <span class="math">\(a_{12} = 2\)</span> 作为主元素, 即交换前两列, 记对应初等变换为 <span class="math">\({\bm P}_2\)</span> , 则</p></li>
+</ol>
+<div class="math">
+\[{\bm{A}}{{\bm{P}}_2} = \left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+2&0&2\\
+1&2&2\\
+2&0&1
+\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">4.2.3. </span>变元求解<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>假设矩阵 <span class="math">\({\bm A}\)</span> 可以分解为下三角矩阵 <span class="math">\({\bm L}\)</span> 与上三角矩阵 <span class="math">\({\bm U}\)</span> 的乘积, 即</p>
+<div class="math">
+\[\left[ {\begin{array}{cccc}
+{{a_{11}}}&{{a_{12}}}& \ldots &{{a_{1n}}}\\
+{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
+ \vdots & \vdots & \vdots & \vdots \\
+{{a_{n1}}}&{{a_{n2}}}& \cdots &{{a_{nn}}}
+\end{array}} \right] = \left[ {\begin{array}{cccc}
+{{l_{11}}}&{}&{}&{}\\
+{{l_{21}}}&{{l_{22}}}&{}&{}\\
+ \vdots & \vdots & \ddots &{}\\
+{{l_{n1}}}&{{l_{n2}}}& \cdots &{{l_{nn}}}
+\end{array}} \right]\left[ {\begin{array}{cccc}
+{{u_{11}}}&{{u_{12}}}& \cdots &{{u_{1n}}}\\
+{}&{{u_{22}}}& \cdots &{{u_{2n}}}\\
+{}&{}& \ddots & \vdots \\
+{}&{}&{}&{{u_{nn}}}
+\end{array}} \right]
+
+\]</div>
+<p>则可得以下方程组</p>
+<div class="math">
+\[\left\{ {\begin{array}{l}
+{{a_{11}} = {l_{11}}{u_{11}}}\\
+{{a_{12}} = {l_{11}}{u_{12}}}\\
+ \vdots \\
+{{a_{1n}} = {l_{11}}{u_{1n}}}
+\end{array}} \right.,\;\;\left\{ {\begin{array}{l}
+{{a_{21}} = {l_{21}}{u_{11}}}\\
+{{a_{22}} = {l_{21}}{u_{12}} + {l_{22}}{u_{22}}}\\
+{\;\;\;\;\;\; \vdots }\\
+{{a_{2n}} = {l_{21}}{u_{1n}} + {l_{22}}{u_{2n}}}
+\end{array}} \right.,\; \cdots ,\;\left\{ {\begin{array}{l}
+{{a_{n1}} = {l_{n1}}{u_{11}}}\\
+{{a_{n2}} = {l_{n1}}{u_{12}} + {l_{n2}}{u_{22}}}\\
+{\;\;\;\;\;\; \vdots }\\
+{{a_{nn}} = {l_{n1}}{u_{1n}} + {l_{n2}}{u_{2n}} +  \cdots  + {l_{nn}}{u_{nn}}}
+\end{array}} \right.
+
+\]</div>
+<p>观察易知上述方程组没有唯一解, 而当 <span class="math">\({\bm L}\)</span> 为单位下三角矩阵时( <span class="math">\(l_{11} = l_{22} = \cdots l_{nn} = 1\)</span> )  或 当 <span class="math">\({\bm U}\)</span> 为单位上三角矩阵时( <span class="math">\(u_{11} = u_{22} = \cdots u_{nn} = 1\)</span> ) , 方程组有唯一解.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>如对于二阶矩阵, 显然有</p>
+<div class="math">
+\[\left[ {\begin{array}{cc}
+{{a_{11}}}&{{a_{12}}}\\
+{{a_{21}}}&{{a_{22}}}
+\end{array}} \right] = \left[ {\begin{array}{cc}
+{{l_{11}}}&{}\\
+{{l_{21}}}&{{l_{22}}}
+\end{array}} \right]\left[ {\begin{array}{cc}
+{{u_{11}}}&{{u_{12}}}\\
+{}&{{u_{22}}}
+\end{array}} \right] = \left[ {\begin{array}{cc}
+{{l_{11}}{u_{11}}}&{{l_{11}}{u_{12}}}\\
+{{l_{21}}{u_{11}}}&{{l_{22}}{u_{22}}}
+\end{array}} \right]
+
+\]</div>
+<p>得方程组</p>
+<div class="math">
+\[\left\{ {\begin{array}{ll}
+{{a_{11}} = {l_{11}}{u_{11}}}\\
+{{a_{12}} = {l_{11}}{u_{12}}}\\
+{{a_{21}} = {l_{21}}{u_{11}}}\\
+{{a_{22}} = {l_{21}}{u_{12}} + {l_{22}}{u_{22}}}
+\end{array}} \right.
+
+\]</div>
+<p>上述方程组显然没有唯一解, 故分解不唯一, 而当 <span class="math">\({\bm L}\)</span> 为单位下三角矩阵时( <span class="math">\(l_{11} = l_{22} = 1\)</span> )  或 当 <span class="math">\({\bm U}\)</span> 为单位上三角矩阵时( <span class="math">\(u_{11} = u_{22} = 1\)</span> ) , 方程组有唯一解. 即</p>
+<div class="math">
+\[{\bm{L}} = \left[ {\begin{array}{cc}
+1&{}\\
+{\frac{{{a_{21}}}}{{{a_{11}}}}}&1
+\end{array}} \right],\;{\bm{U}} = \left[ {\begin{array}{cc}
+{{a_{11}}}&{{a_{12}}}\\
+{}&{{a_{22}} - \frac{{{a_{21}}{a_{12}}}}{{{a_{11}}}}}
+\end{array}} \right]
+
+\]</div>
+<p>或者</p>
+<div class="math">
+\[{\bm{L}} = \left[ {\begin{array}{cc}
+{{a_{11}}}&{}\\
+{{a_{21}}}&{{a_{22}} - \frac{{{a_{21}}{a_{12}}}}{{{a_{11}}}}}
+\end{array}} \right],\;{\bm{U}} = \left[ {\begin{array}{cc}
+1&{\frac{{{a_{12}}}}{{{a_{11}}}}}\\
+{}&1
+\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="luldu">
+<h2><span class="section-number">4.2.4. </span>LU分解与LDU分解<a class="headerlink" href="#luldu" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3>概念与性质<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>如上所述, 易知</p>
+<div class="math">
+\[{\bm{A}} = {{\bm{A}}^{(1)}} = {{\bm{L}}^{(1)}}{{\bm{A}}^{(2)}} = {{\bm{L}}^{(1)}}{{\bm{L}}^{(2)}}{{\bm{A}}^{(3)}} =  \cdots  = {{\bm{L}}^{(1)}}{{\bm{L}}^{(2)}} \cdots {{\bm{L}}^{(n - 1)}}{{\bm{A}}^{(n)}}
+
+\]</div>
+<p>容易求得</p>
+<div class="math">
+\[{\bm{L}} = {{\bm{L}}^{(1)}}{{\bm{L}}^{(2)}} \cdots {{\bm{L}}^{(n - 1)}} = \left[ {\begin{array}{ccccc}
+1&{}&{}&{}&{}\\
+{{l_{21}}}&1&{}&{}&{}\\
+{{l_{31}}}&{{l_{32}}}&1&{}&{}\\
+ \vdots & \vdots & \cdots & \ddots &{}\\
+{{l_{n1}}}&{{l_{n2}}}&{{l_{n3}}}& \cdots &1
+\end{array}} \right]
+
+\]</div>
+<p>令 <span class="math">\({\bm U} = {\bm A}^{(n)}\)</span> , 则有 <strong>LU分解</strong></p>
+<div class="math">
+\[{\bm{A}} = {\bm{LU}}
+
+\]</div>
+<p>其中:</p>
+<ul class="simple">
+<li><p><span class="math">\({\bm L}^{(1)}, {\bm L}^{(2)}, \cdots, {\bm L}^{(n-1)}\)</span> 称为 <strong>Frobenius 矩阵</strong></p></li>
+<li><p><span class="math">\({l_{ij}} = \frac{{a_{ij}^{(j)}}}{{a_{jj}^{(j)}}}, j &lt; i\)</span></p></li>
+<li><p><span class="math">\({\bm L}\)</span> 为下三角矩阵</p></li>
+<li><p><span class="math">\({\bm U}\)</span> 为上三角矩阵</p></li>
+<li><p><span class="math">\({\bm L}{\bm U}\)</span> 分解一般不唯一, 当 <span class="math">\({\bm L}\)</span> 为单位下三角矩阵, 或者 <span class="math">\({\bm U}\)</span> 为单位上三角矩阵时, <span class="math">\({\bm L}{\bm U}\)</span> 分解唯一</p></li>
+</ul>
+<p>若矩阵 <span class="math">\({\bm A}\)</span> 可以分解为单位下三角矩阵 <span class="math">\({\bm L}\)</span> 和单位上三角矩阵 <span class="math">\({\bm U}\)</span> 和对角矩阵 <span class="math">\({\bm D}\)</span> 的乘积, 即</p>
+<div class="math">
+\[{\bm A}_{n\times n} = {\bm L}_{n\times n} {\bm D}_{n\times n} {\bm U}_{n\times n}
+
+\]</div>
+<p>则称上述分解为矩阵 <span class="math">\({\bm A}\)</span> 的 <span class="math">\({\bm L}{\bm D}{\bm U}\)</span> <strong>分解</strong>.</p>
+<p>其中 <span class="math">\({\bm D} = {\rm diag}(d_1, d_2, \cdots, d_n)\)</span> 为对角元素不为零的 <span class="math">\(n\)</span>  阶对角阵, 且 <span class="math">\(d_k=\frac{\Delta_k}{\Delta_{k-1}}\)</span> , <span class="math">\(k=1,2,\cdots, n\)</span> , <span class="math">\(\Delta_k\)</span> 为 <span class="math">\({\bm A}\)</span> 的 <span class="math">\(k\)</span> 阶顺序主子式, 且规定 <span class="math">\(\Delta_0=1\)</span> .</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ol class="arabic simple">
+<li><p><span class="math">\(n\)</span> 阶非奇异矩阵 <span class="math">\({\bm A}\)</span> 有三角分解 <strong>LU</strong> 或 <strong>LDU</strong> 的充要条件是 <span class="math">\({\bm A}\)</span> 的顺序主子式 <span class="math">\(\Delta_k \neq 0, (k=1,2,\cdots, n)\)</span> ;</p></li>
+<li><p>对于任意可逆矩阵 <span class="math">\({\bm A}\)</span> , 存在置换矩阵 <span class="math">\({\bm P}\)</span> 使得 <span class="math">\({\bm P}{\bm A}\)</span> 的所有顺序主子式全不为零.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>计算方法<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>方法1: 高斯消元法</p></li>
+<li><p>方法2: 变元求解法</p></li>
+</ul>
+<div class="section" id="id9">
+<h4>高斯消元法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>高斯消元法: 采用上述消元过程求解即可, 若矩阵 <span class="math">\({\bm A}\)</span> 的各阶顺序主子式不全为零, 则可以通过选取主元素进行消元.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子: 求如下矩阵的 <span class="math">\({\bm L}{\bm U}\)</span> 和 <span class="math">\({\bm L}{\bm D}{\bm U}\)</span> 分解</p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{ccc}
+               0&2&2\\
+               2&1&2\\
+               0&2&1
+               \end{array}} \right]
+
+\]</div>
+<p>解: 采用列主元素法, 选取 <span class="math">\(a_{21} = 2\)</span> 作为主元素, 即交换前两行, 记对应初等变换为 <span class="math">\({\bm P}_1\)</span> , 则</p>
+<div class="math">
+\[{\bm A}^{(2)} = {{\bm{P}}_1}{\bm{A}} = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+2&1&2\\
+0&2&2\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+<p>对上述矩阵进行消元, 可见 <span class="math">\({\bm A}^{(2)}\)</span> 的第一列除对角元素外, 其它均为零, 无需进行消元, 下面对 <span class="math">\({\bm A}^{(2)}\)</span> 的第2列进行消元, 有</p>
+<div class="math">
+\[{\left( {{{\bm{L}}^{{\rm{(2)}}}}} \right)^{{\rm{ - }}1}}{\rm{ = }}\left[ {\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&{{\rm{ - }}1}&1
+\end{array}} \right]{\rm{,}}\;{{\bm{L}}^{{\rm{(2)}}}}{\rm{ = }}\left[ {\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&1&1
+\end{array}} \right]{\rm{,}}\;{\bm{L}}_{32}^{(2)} = l_{32}^{(2)} =  - \frac{{a_{32}^{(2)}}}{{a_{22}^{(2)}}} =  - 1
+
+\]</div>
+<div class="math">
+\[{\left( {{{\bm{L}}^{({\rm{2}})}}} \right)^{{\rm{ - }}1}}{{\bm{A}}^{(2)}}{\rm{ = }}\left[ {\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&{{\rm{ - }}1}&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+2&1&2\\
+0&2&2\\
+0&2&1
+\end{array}} \right]{\rm{ = }}\left[ {\begin{array}{ccc}
+2&1&2\\
+0&2&2\\
+0&0&{{\rm{ - }}1}
+\end{array}} \right] = {{\bm{A}}^{(3)}}
+
+\]</div>
+<p>至此已将矩阵 <span class="math">\({\bm A}\)</span> 转为上三角矩阵, 且 <span class="math">\({\bm{A}} = {\bm{P}}_1^{ - 1}{{\bm{A}}^{(2)}} = {\bm{P}}_1^{ - 1}{{\bm{L}}^{({\rm{2}})}}{{\bm{A}}^{(3)}}\)</span></p>
+<p>对于 <span class="math">\({\bm A}={\bm{LU}}\)</span> 分解, 有</p>
+<div class="math">
+\[{\bm{L}} = {\bm{P}}_1^{ - 1}{{\bm{L}}^{({\rm{2}})}} = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&1&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&1&1
+\end{array}} \right],
+
+\]</div>
+<div class="math">
+\[{\bm{U}} = {{\bm{A}}^{(3)}} = \left[ {\begin{array}{ccc}
+2&1&2\\
+0&2&2\\
+0&0&{{\rm{ - }}1}
+\end{array}} \right]
+
+\]</div>
+<p>对于 <span class="math">\({\bm A}={\bm{LDU}}\)</span> 分解, 有</p>
+<div class="math">
+\[{\bm{L}} = {\bm{P}}_1^{ - 1}{{\bm{L}}^{({\rm{2}})}} = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&1&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&1&1
+\end{array}} \right],
+
+\]</div>
+<div class="math">
+\[{\bm{D}} = \left[ {\begin{array}{ccc}
+2&{}&{}\\
+{}&2&{}\\
+{}&{}&{ - 1}
+\end{array}} \right],\;{\bm{U}} = \left[ {\begin{array}{ccc}
+1&{1/2}&1\\
+0&1&1\\
+0&0&1
+\end{array}} \right]
+
+\]</div>
+<p>则</p>
+<div class="math">
+\[{\bm{A}} = {\bm{LDU}} = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+2&{}&{}\\
+{}&2&{}\\
+{}&{}&{ - 1}
+\end{array}} \right]\left[ {\begin{array}{ccc}
+1&{1/2}&1\\
+0&1&1\\
+0&0&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>上述求解过程可通过如下方法简化:</p>
+<ol class="arabic simple">
+<li><p>将矩阵 <span class="math">\({\bm A}\)</span> 与单位矩阵 <span class="math">\({\bm I}\)</span> 组成新矩阵 <span class="math">\([{\bm A}|{\bm I}]\)</span></p></li>
+<li><p>采用高斯消元法, 每次仅对待消元的子矩阵进行初等行变换, 如第二次消元时, 不再对第一列的元素进行初等变换</p></li>
+<li><p>如此循环往复, 将矩阵 <span class="math">\({\bm A}\)</span> 的主对角元素下的元素全部化为0, 矩阵 <span class="math">\({\bm A}\)</span> 化为上三角矩阵 <span class="math">\({\bm U}\)</span> , 矩阵 <span class="math">\({\bm I}\)</span> 变为单位下三角矩阵的逆 <span class="math">\(({\bm L}^{(n-1)}\cdots {\bm L}^{(2)}{\bm L}^{(1)})^{-1} = {\bm L}^{-1}\)</span> .</p></li>
+</ol>
+<div class="figure align-center" id="id18">
+<a class="reference internal image-reference" href="../../../_images/exp_Method2.png"><img alt="example LU" src="../../../_images/exp_Method2.png" style="width: 569.0px; height: 541.5px;" /></a>
+<p class="caption"><span class="caption-number">图 4.1 </span><span class="caption-text">LU分解高斯消元简化</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>LU分解高斯消元简化, 三阶矩阵为例.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>变元求解法<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>根据所求矩阵阶数, 设 <span class="math">\({\bm L}\)</span> 为单位下三角矩阵, <span class="math">\({\bm U}\)</span> 为上三角矩阵, 求解方程组 <span class="math">\({\bm A} = {\bm{LU}}\)</span> 即可. 对于四阶矩阵, 求解方法如 <a class="reference internal" href="#fig-lu-variablesolving"><span class="std std-numref">图 4.2</span></a> 所示.</p>
+<div class="figure align-center" id="id19">
+<span id="fig-lu-variablesolving"></span><a class="reference internal image-reference" href="../../../_images/LU_VariableSolving.png"><img alt="example transformation" src="../../../_images/LU_VariableSolving.png" style="width: 708.5px; height: 375.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.2 </span><span class="caption-text">LU分解变元求解法</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>LU分解变元求解法, 四阶矩阵为例.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>代码实现<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>在 Matlab 中可以通过函数 <code class="docutils literal notranslate"><span class="pre">lu</span></code> 求解.</p>
+<p>上述例子的 matlab 代码求解如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">;</span><span class="mi">2</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">]</span> <span class="o">=</span> <span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">L</span> <span class="o">=</span>
+
+     <span class="mi">0</span>     <span class="mi">1</span>     <span class="mi">0</span>
+     <span class="mi">1</span>     <span class="mi">0</span>     <span class="mi">0</span>
+     <span class="mi">0</span>     <span class="mi">1</span>     <span class="mi">1</span>
+
+
+<span class="n">U</span> <span class="o">=</span>
+
+     <span class="mi">2</span>     <span class="mi">1</span>     <span class="mi">2</span>
+     <span class="mi">0</span>     <span class="mi">2</span>     <span class="mi">2</span>
+     <span class="mi">0</span>     <span class="mi">0</span>    <span class="o">-</span><span class="mi">1</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">,</span> <span class="n">P</span><span class="p">]</span> <span class="o">=</span> <span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+   <span class="n">L</span> <span class="o">=</span>
+
+        <span class="mi">1</span>     <span class="mi">0</span>     <span class="mi">0</span>
+        <span class="mi">0</span>     <span class="mi">1</span>     <span class="mi">0</span>
+        <span class="mi">0</span>     <span class="mi">1</span>     <span class="mi">1</span>
+
+
+   <span class="n">U</span> <span class="o">=</span>
+
+        <span class="mi">2</span>     <span class="mi">1</span>     <span class="mi">2</span>
+        <span class="mi">0</span>     <span class="mi">2</span>     <span class="mi">2</span>
+        <span class="mi">0</span>     <span class="mi">0</span>    <span class="o">-</span><span class="mi">1</span>
+
+
+   <span class="n">P</span> <span class="o">=</span>
+
+        <span class="mi">0</span>     <span class="mi">1</span>     <span class="mi">0</span>
+        <span class="mi">1</span>     <span class="mi">0</span>     <span class="mi">0</span>
+        <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2><span class="section-number">4.2.5. </span>其它三角分解<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>根据上述介绍, 对 <span class="math">\({\bm {LDU}}\)</span> 分解的形式进行一下组合和限定, 可以得到 Doolittle 分解, Crout 分解, 和 Cholesky 分解.</p>
+<div class="section" id="crout">
+<h3>Crout 分解<a class="headerlink" href="#crout" title="永久链接至标题">¶</a></h3>
+<p>设矩阵 <span class="math">\({\bm A}\)</span> 有唯一的 <span class="math">\({\bm {LDU}}\)</span> 分解, 将 <span class="math">\({\bm{LD}}\)</span> 结合起来, 并用 <span class="math">\(\hat{{\bm L}}\)</span> 表示, 则称</p>
+<div class="math">
+\[{\bm A} = {(\bm {LD}){\bm U}} = \hat{{\bm L}}{\bm U}
+
+\]</div>
+<p>为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>Crout 分解</strong> . 可知 Crout 分解中, <span class="math">\({\bm U}\)</span> 为单位上三角矩阵.</p>
+<div class="section" id="id13">
+<h4>求解方法<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>上述变元求解法与高斯消元法即可求解.</p>
+</div>
+</div>
+<div class="section" id="doolittle">
+<h3>Doolittle 分解<a class="headerlink" href="#doolittle" title="永久链接至标题">¶</a></h3>
+<p>设矩阵 <span class="math">\({\bm A}\)</span> 有唯一的 <span class="math">\({\bm {LDU}}\)</span> 分解, 将 <span class="math">\({\bm{LD}}\)</span> 结合起来, 并用 <span class="math">\(\hat{{\bm L}}\)</span> 表示, 则称</p>
+<div class="math">
+\[{\bm A} = {{\bm L}(\bm {DU})} = {\bm L} \hat{{\bm U}}
+
+\]</div>
+<p>为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>Doolittle 分解</strong> . 可知 Doolittle 分解中, <span class="math">\({\bm L}\)</span> 为单位下三角矩阵.</p>
+<div class="section" id="id14">
+<h4>求解方法<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>上述变元求解法与高斯消元法即可求解.</p>
+</div>
+</div>
+<div class="section" id="cholesky">
+<h3>Cholesky 分解<a class="headerlink" href="#cholesky" title="永久链接至标题">¶</a></h3>
+<p>设矩阵 <span class="math">\({\bm A}\)</span> 为实对称正定矩阵, 有唯一的 <span class="math">\({\bm {LDU}}\)</span> 分解, 将 <span class="math">\({\bm L}\)</span> 与 <span class="math">\({\bm D}\)</span> 的平方根结合起来, 记为 <span class="math">\({\bm G}\)</span> 为下三角矩阵, 则称</p>
+<div class="math">
+\[{\bm A} = {{\bm G}{\bm G}^T}
+
+\]</div>
+<p>为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>Cholesky 分解</strong> ( 或 <strong>平方根分解</strong> , <strong>对称三角分解</strong> ).</p>
+<p>易知, <span class="math">\({\bm G} = {\bm{L}\bar{\bm D}}\)</span> 为下三角矩阵, 其中 <span class="math">\({\bm D} = {\rm diag}(d_1, d_2, \cdots, d_n)\)</span> , <span class="math">\(\bar{{\bm D}} = {\rm diag}(\sqrt{d_1}, \sqrt{d_2}, \cdots, \sqrt{d_n})\)</span>  <span class="math">\(d_i&gt;0\)</span>    .</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>设矩阵 <span class="math">\({\bm A}\)</span> 为实对称正定矩阵, 则有 <span class="math">\(\Delta_k &gt; 0\)</span> , 于是 <span class="math">\({\bm A}\)</span> 有唯一的 <span class="math">\({\bm {LDU}}\)</span> 分解, 其中, <span class="math">\({\bm D} = {\rm diag}(d_1, d_2, \cdots, d_n)\)</span> , 记 <span class="math">\(\bar{{\bm D}} = {\rm diag}(\sqrt{d_1}, \sqrt{d_2}, \cdots, \sqrt{d_n})\)</span> ,则有</p>
+<div class="math">
+\[{\bm A} = {\bm{L} {\bm D} {\bm U}} = {\bm{L} \bar{{\bm D}}^2 {\bm U}}
+
+\]</div>
+<p>由 <span class="math">\({\bm A}^T = {\bm A}\)</span> 知</p>
+<div class="math">
+\[{\bm U}^T {\bm D} {\bm L}^T = {\bm{L} {\bm D} {\bm U}}
+
+\]</div>
+<p>由分解的唯一性知 <span class="math">\({\bm L} = {\bm U}^T\)</span> , <span class="math">\({\bm U} = {\bm L}^T\)</span></p>
+<p>所以有</p>
+<div class="math">
+\[{\bm A} = {\bm{L} {\bm D} {\bm U}} = {\bm{L} {\bm D} {\bm L}^T}
+
+\]</div>
+<p>进一步地, 有</p>
+<div class="math">
+\[{\bm A} = {\bm{L} {\bm D} {\bm L}^T}  = {\bm{L} \bar{{\bm D}} \bar{{\bm D}} {\bm L}^T} = {{\bm G}{\bm G}^T}
+
+\]</div>
+<p>其中, <span class="math">\({\bm G} = {\bm{L}\bar{\bm D}}\)</span> .</p>
+</div>
+<div class="section" id="id15">
+<h4>求解方法<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>上述变元求解法与高斯消元法即可求解,</p>
+<ul class="simple">
+<li><p>可以先求 Doolittle 分解;</p></li>
+<li><p>Doolittle 分解中的 <span class="math">\({\bm L}\)</span> 即为 Cholesky 分解中的 <span class="math">\({\bm L}\)</span> ;</p></li>
+<li><p>Doolittle 分解中的 <span class="math">\(\hat{\bm U}\)</span> 对角线元素构成 <span class="math">\({\bm D}\)</span> ;</p></li>
+<li><p>取 <span class="math">\({\bm L}\)</span> 与 <span class="math">\({\bm D}\)</span> 的平方根的乘积 <span class="math">\({\bm G} = {\bm L}\bar{\bm D}\)</span> 即为所求.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子, 求以下矩阵的 Cholesky 分解</p>
+<div class="math">
+\[\left[ {\begin{array}{ccc}
+5&2&{ - 4}\\
+2&1&2\\
+{ - 4}&{ - 2}&5
+\end{array}} \right].
+
+\]</div>
+<p>解: 先求矩阵的 Doolittle 分解, 设 <span class="math">\({\bm L}\)</span> 和 <span class="math">\(\hat{{\bm U}}\)</span> 如下</p>
+<div class="math">
+\[\left[ {\begin{array}{ccc}
+5&2&{ - 4}\\
+2&1&2\\
+{ - 4}&{ - 2}&5
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+1&{}&{}\\
+{{l_{21}}}&1&{}\\
+{{l_{31}}}&{{l_{32}}}&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{{u_{11}}}&{{u_{12}}}&{{u_{13}}}\\
+{}&{{u_{22}}}&{{u_{23}}}\\
+{}&{}&{{u_{33}}}
+\end{array}} \right]
+
+\]</div>
+<p>求解得到 <span class="math">\(l_{21}=\frac{2}{5}, l_{31}=-\frac{4}{5}, l_{32}=-2\)</span> , <span class="math">\(u_{11}=5, u_{12}=2, u_{13}=-4\)</span> , <span class="math">\(u_{22}=\frac{1}{5}, u_{23}=-\frac{2}{5}, u_{33}=1\)</span> , 则有</p>
+<div class="math">
+\[{\bm{L}} = \left[ {\begin{array}{ccc}
+1&{}&{}\\
+{\frac{2}{5}}&1&{}\\
+{\frac{{ - 4}}{5}}&{ - 2}&1
+\end{array}} \right],\;{\bm{\hat U}} = \left[ {\begin{array}{ccc}
+5&2&{ - 4}\\
+{}&{\frac{1}{5}}&{\frac{{ - 2}}{5}}\\
+{}&{}&1
+\end{array}} \right]
+
+\]</div>
+<p>易知 <span class="math">\({\bm D} = {\rm diag}(5, 1/5, 1)\)</span>  , <span class="math">\(\bar{\bm D} = {\rm diag}(\sqrt 5, 1/{\sqrt 5}, 1)\)</span> , 从而有</p>
+<div class="math">
+\[{\bm G} = {\bm L}\bar{\bm D} = \left[ {\begin{array}{ccc}
+1&{}&{}\\
+{\frac{2}{5}}&1&{}\\
+{\frac{{ - 4}}{5}}&{ - 2}&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{\sqrt 5 }&{}&{}\\
+{}&{\frac{1}{{\sqrt 5 }}}&{}\\
+{}&{}&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+{\sqrt 5 }&0&0\\
+{\frac{{2\sqrt 5 }}{5}}&{\frac{1}{{\sqrt 5 }}}&{}\\
+{\frac{{ - 4\sqrt 5 }}{5}}&{\frac{{ - 2\sqrt 5 }}{5}}&1
+\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h4>代码实现<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>在 Matlab 中可以通过函数 <code class="docutils literal notranslate"><span class="pre">chol</span></code> 求解.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">2</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span> <span class="mi">2</span> <span class="mi">1</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="o">-</span><span class="mi">4</span> <span class="o">-</span><span class="mi">2</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">A</span> <span class="o">=</span>
+
+  <span class="mi">5</span>     <span class="mi">2</span>    <span class="o">-</span><span class="mi">4</span>
+  <span class="mi">2</span>     <span class="mi">1</span>    <span class="o">-</span><span class="mi">2</span>
+ <span class="o">-</span><span class="mi">4</span>    <span class="o">-</span><span class="mi">2</span>     <span class="mi">5</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">G</span> <span class="o">=</span> <span class="n">chol</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+
+<span class="n">G</span> <span class="o">=</span>
+
+    <span class="mf">2.2361</span>         <span class="mi">0</span>         <span class="mi">0</span>
+    <span class="mf">0.8944</span>    <span class="mf">0.4472</span>         <span class="mi">0</span>
+   <span class="o">-</span><span class="mf">1.7889</span>   <span class="o">-</span><span class="mf">0.8944</span>    <span class="mf">1.0000</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">G</span><span class="o">*</span><span class="n">G</span><span class="s1">&#39;</span>
+
+<span class="n">ans</span> <span class="o">=</span>
+
+    <span class="mf">5.0000</span>    <span class="mf">2.0000</span>   <span class="o">-</span><span class="mf">4.0000</span>
+    <span class="mf">2.0000</span>    <span class="mf">1.0000</span>   <span class="o">-</span><span class="mf">2.0000</span>
+   <span class="o">-</span><span class="mf">4.0000</span>   <span class="o">-</span><span class="mf">2.0000</span>    <span class="mf">5.0000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FullRankDecomposition.html" class="btn btn-neutral float-right" title="4.3. 满秩分解" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="4.1. 简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

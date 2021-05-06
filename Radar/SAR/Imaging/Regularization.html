@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.4. 正则化成像方法 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="4. SAR成像理论" href="index.html"/>
+        <link rel="next" title="4.5. 压缩感知成像" href="CompressiveSensing.html"/>
+        <link rel="prev" title="4.3. 调频变标成像" href="ChirpScalingAlgorithm.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">合成孔径雷达</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SystemOverview/index.html">2. SAR系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Simulation/index.html">3. SAR仿真技术</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4. SAR成像理论</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="intro.html">4.1. SAR成像简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RangeDopplerAlgorithm.html">4.2. 距离多普勒成像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChirpScalingAlgorithm.html">4.3. 调频变标成像</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.4. 正则化成像方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CompressiveSensing.html">4.5. 压缩感知成像</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experiments/index.html">9. 实验集锦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成孔径雷达</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4. </span>SAR成像理论</a> &raquo;</li>
+        
+      <li><span class="section-number">4.4. </span>正则化成像方法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-regularizationimagingsarradar">
+<span id="id1"></span><h1><span class="section-number">4.4. </span>正则化成像方法<a class="headerlink" href="#section-regularizationimagingsarradar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">4.4.1. </span>正则化成像<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>SAR imaging process can be formulated as</p>
+<div class="math">
+\[{\bm s} = {\bm A}{\bm g},
+
+\]</div>
+<p>where, <span class="math">\({\bm s}\)</span> is the <span class="math">\(MN\times 1\)</span> recieved SAR raw data vector in phase history domain,
+<span class="math">\(\bm g\)</span> is the <span class="math">\(HW \times 1\)</span> reflection vector of scene, and <span class="math">\(\bm A\)</span> represents the
+the mapping from scene to SAR raw data.</p>
+<p>Given <span class="math">\(\bm s, \bm A\)</span> , regularization methods try to reconstruct <span class="math">\(\bm g\)</span> by minmizing</p>
+<div class="math">
+\[\mathop {\rm min}\limits_{\bm{g}} {\left\| {{\bm{Ag}} - {\bm{s}}} \right\|_2} + \lambda |{\bm{g}}{|_p},
+
+\]</div>
+<p>where, <span class="math">\(\lambda\)</span> is the balance factor, and <span class="math">\(|\cdot|_p\)</span> is the <span class="math">\(\ell_p\)</span> norm.</p>
+<p>Note that, if <span class="math">\({\bm s, A, g} \in {\mathbb C}\)</span> , the problem changes to</p>
+<div class="math">
+\[{\mathop{\rm Re}\nolimits} ({\bm{s}}) + j{\rm Im}({\bm{s}}) = {\rm Re}({\bm{Ag}}) + j{\mathop{\rm Im}\nolimits} ({\bm{Ag}})
+
+\]</div>
+<p>so we have:</p>
+<div class="math">
+\[\left[ {\begin{array}{ccc}
+{{\mathop{\rm Re}\nolimits} ({\bm{s}})}\\
+{{\mathop{\rm Im}\nolimits} ({\bm{s}})}
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+{{\mathop{\rm Re}\nolimits} ({\bm{A}})}&{ - {\mathop{\rm Im}\nolimits} ({\bm{A}})}\\
+{{\rm Im}({\bm{A}})}&{{\mathop{\rm Re}\nolimits} ({\bm{A}})}
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{{\mathop{\rm Re}\nolimits} ({\bm{g}})}\\
+{{\mathop{\rm Im}\nolimits} ({\bm{g}})}
+\end{array}} \right]
+
+\]</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">4.4.2. </span>实验与分析<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>实验说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>仿真场景大小: <span class="math">\(32 \times 32\)</span></p></li>
+<li><p>回波矩阵大小: <span class="math">\(32 \times 32\)</span></p></li>
+<li><p>稀疏表示字典: 无, <code class="docutils literal notranslate"><span class="pre">DCT</span></code> ,  <code class="docutils literal notranslate"><span class="pre">DWT</span></code></p></li>
+<li><p>优化方法: <code class="docutils literal notranslate"><span class="pre">Lasso</span></code> , <code class="docutils literal notranslate"><span class="pre">OMP</span></code></p></li>
+</ul>
+<p>仿真点目标场景图及仿真生成点SAR原始数据幅度与相位图如下:</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../../../_images/pointsAmpPhase.png"><img alt="仿真点目标场景图, 仿真SAR原始数据幅度相位图" src="../../../_images/pointsAmpPhase.png" style="width: 780.8000000000001px; height: 290.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 4.55 </span><span class="caption-text">仿真点目标场景图, 仿真SAR原始数据幅度相位图</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+<p>仿真船只场景图及仿真生成点SAR原始数据幅度与相位图如下:</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../../../_images/shipAmpPhase.png"><img alt="仿真船只场景图及仿真生成点SAR原始数据幅度与相位图如下" src="../../../_images/shipAmpPhase.png" style="width: 774.4000000000001px; height: 288.8px;" /></a>
+<p class="caption"><span class="caption-number">图 4.56 </span><span class="caption-text">仿真船只场景图及仿真生成点SAR原始数据幅度与相位图如下</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<p>仿真荷花场景图及仿真生成点SAR原始数据幅度与相位图如下:</p>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../../../_images/lotusAmpPhase.png"><img alt="仿真荷花场景图及仿真生成点SAR原始数据幅度与相位图如下" src="../../../_images/lotusAmpPhase.png" style="width: 777.6px; height: 284.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.57 </span><span class="caption-text">仿真荷花场景图及仿真生成点SAR原始数据幅度与相位图如下</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>实验代码<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://github.com/antsfamily/iprs2.0">iprs2.0</a>  <code class="docutils literal notranslate"><span class="pre">demo_regular_sar.py</span></code></p>
+</div>
+<div class="section" id="id6">
+<h3>实验结果<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>点目标结果</p>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../../../_images/Regularizationl1l2_RDA_Points.png"><img alt="Imaging result of :math:`\ell_1, \ell_2` regularization and RDA." src="../../../_images/Regularizationl1l2_RDA_Points.png" style="width: 601.0px; height: 942.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.58 </span><span class="caption-text">Imaging result of <span class="math">\(\ell_1, \ell_2\)</span> regularization and RDA. <span class="math">\(\lambda=0.001\)</span> , max iter 1000</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/Regularizationl1l2_RDA_Lotus.png"><img alt="Imaging result of :math:`\ell_1, \ell_2` regularization and RDA." src="../../../_images/Regularizationl1l2_RDA_Lotus.png" style="width: 637.0px; height: 941.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.59 </span><span class="caption-text">Imaging result of <span class="math">\(\ell_1, \ell_2\)</span> regularization and RDA. <span class="math">\(\lambda=0.001\)</span> , max iter 1000</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/Regularizationl1l2_RDA_Ship.png"><img alt="Imaging result of :math:`\ell_1, \ell_2` regularization and RDA." src="../../../_images/Regularizationl1l2_RDA_Ship.png" style="width: 605.0px; height: 940.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.60 </span><span class="caption-text">Imaging result of <span class="math">\(\ell_1, \ell_2\)</span> regularization and RDA. <span class="math">\(\lambda=0.001\)</span> , max iter 1000</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>运行时间:</p></li>
+<li><p>重构误差:</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CompressiveSensing.html" class="btn btn-neutral float-right" title="4.5. 压缩感知成像" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ChirpScalingAlgorithm.html" class="btn btn-neutral" title="4.3. 调频变标成像" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

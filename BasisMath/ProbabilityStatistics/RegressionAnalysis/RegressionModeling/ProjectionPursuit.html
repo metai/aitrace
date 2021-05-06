@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2.4. 投影追踪回归 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../../index.html"/>
+        <link rel="up" title="2.2. 回归建模" href="index.html"/>
+        <link rel="next" title="2.2.5. 贝叶斯回归" href="Bayesian.html"/>
+        <link rel="prev" title="2.2.3. 非线性回归" href="Nonlinear.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">概率与统计</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../CorrelationAnalysis/index.html">1. 相关分析</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">2. 回归分析</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../intro.html">2.1. 回归分析简介</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">2.2. 回归建模</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../EstimationMethods/index.html">2.3. 估计方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../zreference.html">3. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">4. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../../index.html">概率与统计</a> &raquo;</li>
+        
+          <li><a href="../index.html"><span class="section-number">2. </span>回归分析</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2.2. </span>回归建模</a> &raquo;</li>
+        
+      <li><span class="section-number">2.2.4. </span>投影追踪回归</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subsection-projectionpursuitregressionmodelingregressionanalysisprobabilitystatisticsbasicmath">
+<span id="id1"></span><h1><span class="section-number">2.2.4. </span>投影追踪回归<a class="headerlink" href="#subsection-projectionpursuitregressionmodelingregressionanalysisprobabilitystatisticsbasicmath" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>什么是投影追踪回归<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>Friedman等人于1974年提出投影追踪 (<a class="reference internal" href="../../glossary.html#term-projection-pursuit"><span class="xref std std-term">Projection Pursuit</span></a> , PP) <a class="bibtex reference internal" href="../../zreference.html#friedman1974a" id="id3">[1]</a> , 并于1981年提出投影追踪回归 (<a class="reference internal" href="../../glossary.html#term-projection-pursuit-regression"><span class="xref std std-term">Projection Pursuit Regression</span></a> , PPR) <a class="bibtex reference internal" href="../../zreference.html#friedman1981projectionpursuit" id="id4">[2]</a> , 这是一种单输出回归模型, 1985年提出, 多输出回归分类模型 <a class="bibtex reference internal" href="../../zreference.html#friedman1985classification" id="id5">[3]</a> . 有关投影追踪参见 <a class="reference internal" href="../EstimationMethods/ProjectionPursuit.html#subsection-projectionpursuitestimationmethodsregressionanalysisprobabilitystatisticsbasicmath"><span class="std std-ref">投影追踪</span></a> .</p>
+<div class="proof proof-type-definition" id="id17">
+<span id="definition-projectionpursuitregression"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 2.9</span>
+        
+            <span class="proof-title-name">(投影追踪回归)</span>
+        
+    </div><div class="proof-content">
+<p>投影追踪回归模型将随机向量 <span class="math">\(\bf y\)</span> 建模为随机向量 <span class="math">\(\bf x\)</span> 的随机变量的加权和的不同非线性映射的和, 即:</p>
+<div class="math">
+\[{\rm y} = {\rm w}_0 + \sum_{j=1}^r f_j({\bf w}_j^T {\bf x}) + {\rm \epsilon},
+
+\]</div>
+</div></div><p>其中, <span class="math">\({\bf x}=({\rm x}_1, {\rm x}_2, \cdots, {\rm x}_n)^T\)</span> 为自变量, <span class="math">\({\bf w}_j=({\rm w}_{j1}, {\rm w}_{j2}, \cdots, {\rm w}_{jn})^T\)</span> 为模型参数, <span class="math">\(f_j, j=1,2,\cdots, r\)</span> 为 <span class="math">\(r\)</span> 个非线性映射函数(可以相同或不同), <span class="math">\({\rm \epsilon}\)</span> 为模型估计误差.</p>
+<p>给定 <span class="math">\(K\)</span> 个观测样本对 <span class="math">\({\mathbb S} = \{{\bm x}_i, y_i\}_{i=0}^K\)</span> , 定义误差函数:</p>
+<div class="math" id="equation-equ-labelname">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-equ-labelname" title="公式的永久链接">¶</a></span>\[\mathop {\min }\limits_{{f_j},{w_j}} L = \sum_{i=1}^K \left(y_i - \sum_{j=1}^r f_j({\bm w}_j^T {\bm x}_i)\right)^2
+
+\]</div>
+<p><a class="reference internal" href="../../../../SignalProcessing/Sparse/LinearCompressiveSensing/Measurement.html#equation-equ-labelname">式.5.15</a> 可以通过交替优化 (<a class="reference internal" href="../../glossary.html#term-alternating-optimization"><span class="xref std std-term">Alternating Optimization</span></a>) 的方法进行优化求解, 投影追踪回归采用投影追踪交替优化算法进行求解, 具体过程参见 <a class="reference internal" href="../EstimationMethods/ProjectionPursuit.html#subsection-projectionpursuitestimationmethodsregressionanalysisprobabilitystatisticsbasicmath"><span class="std std-ref">投影追踪</span></a> .</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>投影追踪回归与神经网络的区别:</p>
+<ul class="simple">
+<li><p>理论上都可以逼近任意连续函数;</p></li>
+<li><p>投影追踪回归的非线性映射可以不同, 神经网络的每层的非线性映射一般相同;</p></li>
+<li><p>投影追踪回归的非线性映射每次估计一次, 接着更新权重, 而神经网络的非线性映射一般是预先指定并同时估计的.</p></li>
+<li><p>有关反向传播 (Back-Propagation Learning, BPL) 和投影追踪学习 (Projection Pursuit Learning, PPL), 可参见文献 <a class="bibtex reference internal" href="../../zreference.html#hwang1994regression" id="id6">[6]</a><a class="bibtex reference internal" href="../../zreference.html#hectorcorradabravo2017neural" id="id7">[9]</a><a class="bibtex reference internal" href="../../zreference.html#zhao1996implementing" id="id8">[7]</a> .</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>实验与分析<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id10">
+<h3>回归实验<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id11">
+<h4>实验代码<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>从这里 <a class="reference external" href="https://github.com/pavelkomarov/projection-pursuit/tree/master/benchmarks">projection-pursuit benchmarks</a> 获得 <code class="docutils literal notranslate"><span class="pre">compare_to_neural_network.py</span></code></p>
+</div>
+<div class="section" id="id12">
+<h4>实验结果<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p><span class="math">\(r\)</span> 的影响.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">20</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">33.561744644172634</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">0.7212472748844135</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">22.095682612129952</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">23.26310438760661</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">0.6172130107879639</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">93.76978826522827</span>
+
+<span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">10</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">25.894054755430098</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">2.0112607496432418</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">46.90504990729163</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">23.705301000070467</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">0.6327333450317383</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">26.458088159561157</span>
+
+<span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">5</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">25.394874641020802</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">3.9056643659649666</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">36.865379854954945</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">20.50523972734486</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">0.6016314029693604</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">12.463459730148315</span>
+</pre></div>
+</div>
+<p>隐层神经元数的影响:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">5</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">25.394874641020802</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">3.9056643659649666</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">36.865379854954945</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">20.50523972734486</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">0.6016314029693604</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">12.463459730148315</span>
+
+<span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">512</span> <span class="mi">200</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">5</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">19.539311275178886</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">4.754953589272597</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">39.934009948538275</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">20.004689504319465</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">1.225292682647705</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">14.15251898765564</span>
+
+<span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">1024</span> <span class="mi">200</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">5</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">21.09513135671064</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">4.805062370738948</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">16.876270527353554</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">18.131646272884936</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">3.123934745788574</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">10.765942096710205</span>
+</pre></div>
+</div>
+<p>迭代次数的影响::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">200</span> <span class="mi">1000</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">5</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">17.596837460636106</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">4.219905575343612</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">27.622677425433874</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">14.879565144602562</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">1.9046266078948975</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">14.236632347106934</span>
+
+<span class="n">hidden_layer_sizes</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">:</span>  <span class="mi">200</span> <span class="mi">2000</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">stage_maxiter</span><span class="p">,</span> <span class="n">backfit_maxiter</span><span class="p">:</span>  <span class="mi">5</span> <span class="mi">200</span> <span class="mi">200</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">17.660446224053825</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">training</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">9.443822651593512</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">27.116718449437933</span>
+<span class="n">Average</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">per</span> <span class="n">testing</span> <span class="n">example</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">112.54856398900877</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">MLPRegressor</span><span class="p">:</span> <span class="mf">1.456831932067871</span>
+<span class="n">Training</span> <span class="n">time</span> <span class="k">for</span> <span class="n">ProjectionPursuitRegressor</span><span class="p">:</span> <span class="mf">19.396251440048218</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>分类实验<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id14">
+<h4>实验代码<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>从这里 <a class="reference external" href="https://github.com/pavelkomarov/projection-pursuit/tree/master/benchmarks">projection-pursuit benchmarks</a> 获得 <code class="docutils literal notranslate"><span class="pre">compare_classifier.py</span></code></p>
+</div>
+<div class="section" id="id16">
+<h4>实验结果<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Bayesian.html" class="btn btn-neutral float-right" title="2.2.5. 贝叶斯回归" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Nonlinear.html" class="btn btn-neutral" title="2.2.3. 非线性回归" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

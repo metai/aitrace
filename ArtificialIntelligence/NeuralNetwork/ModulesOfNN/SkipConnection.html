@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.5. 跳跃连接 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 神经网络组件" href="index.html"/>
+        <link rel="next" title="2.6. 递归单元" href="RecursiveUnit.html"/>
+        <link rel="prev" title="2.4. 正则化单元" href="RegularizationUnit.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MachineLearning/index.html">机器学习</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">神经网络</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 神经网络组件</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ActivationsUnit.html">2.1. 激活函数单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvolutionUnit.html">2.2. 卷积单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PoolingUnit.html">2.3. 池化单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RegularizationUnit.html">2.4. 正则化单元</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.5. 跳跃连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RecursiveUnit.html">2.6. 递归单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResidualUnit.html">2.7. 残差单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zreference.html">2.8. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LossFunctions/index.html">3. 神经网络常用损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SimpleNeuralNetwork/index.html">4. 简单神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SupportVectorMachine/index.html">5. 支撑矢量机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExtremeLearningMachine/index.html">6. 极速学习机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RecursiveNeuralNetwork/index.html">9. 递归神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResidualNeuralNetwork/index.html">11. 残差神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FractalNeuralNetwork/index.html">12. 分形神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticNeuralNetwork/index.html">13. 随机神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ComplexityAnalysis/index.html">14. 复杂度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">15. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">16. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">神经网络</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>神经网络组件</a> &raquo;</li>
+        
+      <li><span class="section-number">2.5. </span>跳跃连接</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-skipconnectionmodulesneuralnetworkartificialintelligence">
+<span id="id1"></span><h1><span class="section-number">2.5. </span>跳跃连接<a class="headerlink" href="#section-skipconnectionmodulesneuralnetworkartificialintelligence" title="永久链接至标题">¶</a></h1>
+<p><strong>跳跃连接</strong> (<span class="xref std std-term">Skip Connection</span>)</p>
+<div class="section" id="id2">
+<h2><span class="section-number">2.5.1. </span>前向跳跃连接<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>经典前向跳跃连接<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id4">
+<h4>结构分析<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<p>如 <a class="reference internal" href="#fig-forwardskipaddconnection"><span class="std std-numref">图 2.35</span></a> 所示, <span class="math">\({\bm w}_n, a_n\)</span> 分别表示第 <span class="math">\(n\)</span> 层的权重与激活函数, <span class="math">\({\bm x}\)</span> 为输入, <span class="math">\({\bm y}\)</span> 为神经网络输出. <a class="reference internal" href="#fig-forwardskipaddconnection"><span class="std std-numref">图 2.35</span></a> (a) 所示为无跳跃连接的网络结构, <a class="reference internal" href="#fig-forwardskipaddconnection"><span class="std std-numref">图 2.35</span></a> (b) 所示为前向跳跃连接结构示意图, 其中, 第 <span class="math">\(p\)</span> 层的输出跳跃连接至第 <span class="math">\(q\)</span> 层的输出, 加和后送入下一层. 网络的前向传播过程可以表示为 <a class="reference internal" href="#equation-equ-netforwardpropagation-nhiddenlayers1skipconnnection">式.2.20</a>.</p>
+<div class="math" id="equation-equ-netforwardpropagation-nhiddenlayers1skipconnnection">
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-equ-netforwardpropagation-nhiddenlayers1skipconnnection" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+{\bm y} &= a_N({\bm w}_N{\bm h}_N) \\
+&\ \ \vdots \\
+{\bm h}_{q+1} &= a_q({\bm w}_q{\bm s}_q) \\
+{\bm s}_q &= {\bm h}_p + {\bm h}_q \\
+&\ \ \vdots \\
+{\bm h}_{p+1} &= a_p({\bm w}_p{\bm h}_p) \\
+&\ \ \vdots \\
+{\bm h}_2 &= a_1({\bm w}_1{\bm h}_1) \\
+&\ \ \vdots \\
+{\bm h}_1 &= a_0({\bm w}_0{\bm x})
+\end{aligned}
+
+\]</div>
+<div class="figure align-center" id="id8">
+<span id="fig-forwardskipaddconnection"></span><img alt="前向跳跃连接示意图" src="../../../_images/ForwardSkipAddConnection.png" />
+<p class="caption"><span class="caption-number">图 2.35 </span><span class="caption-text">前向跳跃连接示意图. 第 <span class="math">\(p\)</span> 层的输出与第 <span class="math">\(q\)</span> 层的输出加和后送入下一层.</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>梯度传播分析<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>利用链式求导法则, <a class="reference internal" href="#fig-forwardskipaddconnection"><span class="std std-numref">图 2.35</span></a> (a) 所示传统神经网络的梯度传播过程可以表示为 <a class="reference internal" href="#equation-equ-classicalnetgradientpropagation-nhiddenlayers">式.2.21</a></p>
+<div class="math" id="equation-equ-classicalnetgradientpropagation-nhiddenlayers">
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-equ-classicalnetgradientpropagation-nhiddenlayers" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+\frac{\partial L}{\partial {\bm w}_N} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm w}_N}\\
+\frac{\partial L}{\partial {\bm w}_{N-1}} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm w}_{N-1}}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_q} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm w}_q}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_p} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm h}_q}\times \cdots \times \frac{\partial {\bm h}_{p+1}}{\partial {\bm w}_p}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_1} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_2}{\partial {\bm w}_1}\\
+\frac{\partial L}{\partial {\bm w}_0} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_2}{\partial {\bm h}_1}\times \frac{\partial {\bm h}_1}{\partial {\bm w}_0}\\
+\end{aligned}
+
+\]</div>
+<p>同样地, 根据链式求导法则, <a class="reference internal" href="#fig-forwardskipaddconnection"><span class="std std-numref">图 2.35</span></a> (b) 所示含跳跃连接的神经网络的梯度传播过程可以表示为 <a class="reference internal" href="#equation-equ-netgradientpropagation-nhiddenlayers1skipconnnection">式.2.22</a></p>
+<div class="math" id="equation-equ-netgradientpropagation-nhiddenlayers1skipconnnection">
+<span class="eqno">(2.22)<a class="headerlink" href="#equation-equ-netgradientpropagation-nhiddenlayers1skipconnnection" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+\frac{\partial L}{\partial {\bm w}_N} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm w}_N}\\
+\frac{\partial L}{\partial {\bm w}_{N-1}} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm w}_{N-1}}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_q} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm w}_q}\\
+\frac{\partial L}{\partial {\bm w}_{q-1}} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm s}_{q}}\times \frac{\partial {\bm s}_{q}}{\partial {\bm h}_{q}}\times \frac{\partial {\bm h}_{q}}{\partial {\bm w}_{q-1}}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_p} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm s}_{q}}\times \frac{\partial {\bm s}_{q}}{\partial {\bm h}_{p+1}} \times \frac{\partial {\bm h}_{p+1}}{\partial {\bm w}_p}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_{p-1}} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm s}_{q}}\times \frac{\partial {\bm s}_{q}}{\partial {\bm h}_p} \times \frac{\partial {\bm h}_{p}}{\partial {\bm w}_{p-1}}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_1} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm s}_{q}}\times \frac{\partial {\bm s}_{q}}{\partial {\bm h}_2} \times \frac{\partial {\bm h}_2}{\partial {\bm w}_1}\\
+&\ \ \vdots \\
+\frac{\partial L}{\partial {\bm w}_0} &= \frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm s}_{q}}\times \frac{\partial {\bm s}_{q}}{\partial {\bm h}_1} \times \frac{\partial {\bm h}_1}{\partial {\bm w}_0}\\
+\end{aligned}
+
+\]</div>
+<p>当 <span class="math">\(k=p+1, p+2, \cdots, q\)</span> 时, <span class="math">\(\frac{\partial {\bm s}_q}{\partial {\bm h}_k}=\frac{\partial {\bm s}_q}{\partial {\bm h}_q}\times \frac{\partial {\bm h}_q}{\partial {\bm h}_{q-1}} \times \cdots \times \frac{\partial {\bm h}_{k+1}}{\partial {\bm h}_k}\)</span>.</p>
+<p>当 <span class="math">\(k=1, 2, \cdots, p\)</span> 时, <span class="math">\(\frac{\partial {\bm s}_q}{\partial {\bm h}_k}=\frac{\partial {\bm s}_q}{\partial {\bm h}_p}\times \frac{\partial {\bm h}_p}{\partial {\bm h}_k} = \left(\frac{\partial {\bm h}_q}{\partial {\bm h}_p} + 1\right)\times \frac{\partial {\bm h}_p}{\partial {\bm h}_k} = \left(\frac{\partial {\bm h}_q}{\partial {\bm h}_{q-1}}\times \cdots \times \frac{\partial {\bm h}_{p+1}}{\partial {\bm h}_p} + 1\right)\times \frac{\partial {\bm h}_p}{\partial {\bm h}_{p-1}}\times \cdots \times \frac{\partial {\bm h}_{k+1}}{\partial {\bm h}_k}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>由 <a class="reference internal" href="#equation-equ-classicalnetgradientpropagation-nhiddenlayers">式.2.21</a> 和 <a class="reference internal" href="#equation-equ-netgradientpropagation-nhiddenlayers1skipconnnection">式.2.22</a> 可知, 与传统不含跳跃连接的神经网络相比, 从第 <span class="math">\(p\)</span> 层输出跳跃连接至第 <span class="math">\(q\)</span> 层输出的跳跃神经网络的梯度在第 <span class="math">\(p+1\)</span> 层到第 <span class="math">\(N\)</span> 层保持不变, 在第 <span class="math">\(1\)</span> 层到第 <span class="math">\(p\)</span> 层的变大, 且增量为 <span class="math">\(\frac{\partial L}{\partial {\bm y}}\times \frac{\partial {\bm y}}{\partial {\bm h}_N}\times \frac{\partial {\bm h}_N}{\partial {\bm h}_{N-1}}\times \cdots \times \frac{\partial {\bm h}_{q+1}}{\partial {\bm s}_{q}}\times \frac{\partial {\bm h}_p}{\partial {\bm h}_{p-1}}\times \cdots \times \frac{\partial {\bm h}_{k+1}}{\partial {\bm h}_k}\)</span>, (<span class="math">\(k=1,2, \cdots, p\)</span>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">2.5.2. </span>后向跳跃连接<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3>梯度传播<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RecursiveUnit.html" class="btn btn-neutral float-right" title="2.6. 递归单元" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="RegularizationUnit.html" class="btn btn-neutral" title="2.4. 正则化单元" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.4. STEP与SNAP &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="3. 雷达库与软件" href="index.html"/>
+        <link rel="next" title="3.5. PolSARpro" href="PolSARpro.html"/>
+        <link rel="prev" title="3.3. SAR Training Processor" href="SARTrainingProcessor.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SAR/index.html">合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">补充内容</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../RadarProducts/index.html">1. 雷达产品</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dataset/index.html">2. 雷达数据集</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3. 雷达库与软件</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">3.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ASFMapReady.html">3.2. ASF MapReady</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SARTrainingProcessor.html">3.3. SAR Training Processor</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.4. STEP与SNAP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PolSARpro.html">3.5. PolSARpro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Other.html">3.6. Other</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">4. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">补充内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">3. </span>雷达库与软件</a> &raquo;</li>
+        
+      <li><span class="section-number">3.4. </span>STEP与SNAP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stepsnap">
+<span id="section-snaplibrariessoftwaressupplementradar"></span><h1><span class="section-number">3.4. </span>STEP与SNAP<a class="headerlink" href="#stepsnap" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">3.4.1. </span>简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://step.esa.int/main/">STEP</a> (Scientific Toolbox Exploitation Platform, STEP) 是欧洲航空局(ESA) 研发的开源科学工具箱开发平台, <a class="reference external" href="http://step.esa.int/main/toolboxes/snap/">SNAP</a> (SentiNel Application Platform, SNAP) 是其中用于处理哨兵系列数据的开源应用软件平台, 含Windows, Mac OS X和Linux三种操作系统下的软件版本, 支持 RADARSAT1-2, Sentinel1-3等卫星产品.</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">3.4.2. </span>环境配置<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id4">
+<h4>源码构建安装<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<p>SNAP开源源码目录为 <a class="reference external" href="https://github.com/senbox-org/">senbox.org</a>, 其中有一些 <a class="reference external" href="https://github.com/senbox-org/snap-examples">例子</a> 可供参考.</p>
+</div>
+<div class="section" id="id6">
+<h4>安装包安装<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>各版本软件及Sentinel1-3, SMOS, Radarsat2, PROBA-V工具箱可以在 <a class="reference external" href="http://step.esa.int/main/download/snap-download/">snap download</a> 下载. 本节以Linux版本为例, 介绍SNAP的安装过程.</p>
+<p>终端执行 <code class="docutils literal notranslate"><span class="pre">./esa-snap_all_unix_7_0.sh</span></code> 命令打开安装设置界面, 选择安装路径后, 继续选择需要安装的组件(Sentinel2-3, SMOS, Radarsat2, PROBA-V工具箱).</p>
+<div class="figure align-center" id="id12">
+<img alt="ESA SNAP 安装之工具箱选择" src="../../../_images/Setup_SelectToolBox_ESA_SNAP_7_0_004.png" />
+<p class="caption"><span class="caption-number">图 3.39 </span><span class="caption-text">在ESA SNAP安装界面可以选择是否安装Sentinel2-3, SMOS, Radarsat2, PROBA-V工具箱.</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+<p>接着按提示完成安装即可.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>为了后期可以在Python中使用SNAP, 在SNAP的安装设置过程中, 需要配置Python, 参见 <a class="reference internal" href="#subsubsection-configurepythontousesnappy"><span class="std std-ref">配置 Python 以使用snappy</span></a> 小节.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="level1">
+<h2><span class="section-number">3.4.3. </span>Level1数据处理示例<a class="headerlink" href="#level1" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="pythonsnap">
+<h2><span class="section-number">3.4.4. </span>Python与SNAP<a class="headerlink" href="#pythonsnap" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3>简介<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>通过SNAP提供的snappy接口, 可以在Python中使用SNAP API, 本节主要介绍, 如何进行Python与SNAP的交互式开发. 可以通过以下两种方式, 既可以在Python中调用SNAP函数(Java API), 又可以扩展基于Python的SNAP插件:</p>
+<ul class="simple">
+<li><p>使用标准Python（CPython）安装</p></li>
+<li><p>使用与SNAP捆绑在一起的Python的Jython纯Java实现</p></li>
+</ul>
+<p>如果你不准备开发桌面GUI环境并且想使用Python的科学计算库, 那么推荐使用第一种方式, 反之推荐第二种方式.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>可参考 <a class="reference external" href="https://senbox.atlassian.net/wiki/spaces/SNAP">SNAP Wiki</a> 中的教程 <a class="reference external" href="https://senbox.atlassian.net/wiki/spaces/SNAP/pages/24051781/Using+SNAP+in+your+Python+programs">Using SNAP in your Python programs</a> . 此功能目前仅支持Python2.7, 3.3, 3.4.</p>
+</div>
+</div>
+<div class="section" id="python-snappy">
+<span id="subsubsection-configurepythontousesnappy"></span><h3>配置 Python 以使用snappy<a class="headerlink" href="#python-snappy" title="永久链接至标题">¶</a></h3>
+<p>最简单的方法是在安装SNAP的过程中配置, 需要配置Python可执行文件路径, 可以通过 <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python2</span></code>, <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python3</span></code> 分别查看Python2和Python3的路径, 配置好路径后, 点击 <code class="xref py py-attr docutils literal notranslate"><span class="pre">Next</span></code> 安装即可.</p>
+<div class="figure align-center" id="id13">
+<img alt="ESA SNAP 安装之Python设置" src="../../../_images/Setup_Python_ESA_SNAP_7_0_004.png" />
+<p class="caption"><span class="caption-number">图 3.40 </span><span class="caption-text">在ESA SNAP安装过程中配置Python可执行文件路径.</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+<p>如果安装时没有配置Python, 也可以手动通过命令配置. 打开终端, 使用如下命令进入SNAP安装目录并配置Python环境. 其中 <code class="docutils literal notranslate"><span class="pre">&lt;python-exe-fullpath&gt;</span></code> 为Python可执行文件的完整路径, <code class="docutils literal notranslate"><span class="pre">&lt;snappy-installdir&gt;</span></code> 为snappy的安装路径, 默认为 <code class="docutils literal notranslate"><span class="pre">~/.snap/snap-python</span></code>.</p>
+<p>为了在Python中方便导入snappy包, 可以通过 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">gedit</span> <span class="pre">~/.bashrc</span></code> 打开 <cite>.bashrc</cite> 文件并添加如下环境变量:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>export PYTHONPATH=$PYTHONPATH:~/.snap/snap-python/
+</pre></div>
+</div>
+<p>接着, 在Python中, 执行 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">snappy</span> <span class="pre">import</span> <span class="pre">ProductIO</span></code> 来测试配置是否成功. 配置不成功将会提示错误, 如 <cite>No module named snappy</cite>.</p>
+</div>
+<div class="section" id="id8">
+<h3>在Python中调用SNAP函数<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="snappython">
+<h3>开发SNAP的Python处理器插件<a class="headerlink" href="#snappython" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="pythonsar">
+<h3>使用Python接口导出原始SAR数据<a class="headerlink" href="#pythonsar" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">3.4.5. </span>总结<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id10">
+<h3>链接<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.esa.int/">Homepage of ESA</a></p></li>
+<li><p><a class="reference external" href="http://step.esa.int/main/">Homepage of STEP</a></p></li>
+<li><p><a class="reference external" href="http://step.esa.int/main/toolboxes/snap/">Homepage of SNAP</a></p></li>
+<li><p><a class="reference external" href="https://github.com/senbox-org/">Source code of SNAP</a></p></li>
+<li><p><a class="reference external" href="http://step.esa.int/main/download/snap-download/">Download SNAP</a></p></li>
+<li><p><a class="reference external" href="https://senbox.atlassian.net/wiki/spaces/SNAP">SNAP Wiki</a></p></li>
+<li><p><a class="reference external" href="http://step.esa.int/main/doc/">Documentation of SNAP</a></p></li>
+<li><p><a class="reference external" href="http://step.esa.int/docs/v2.0/apidoc/engine/">SNAP Engine API</a></p></li>
+<li><p><a class="reference external" href="https://forum.step.esa.int/">forum of SNAP</a> 论坛</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PolSARpro.html" class="btn btn-neutral float-right" title="3.5. PolSARpro" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SARTrainingProcessor.html" class="btn btn-neutral" title="3.3. SAR Training Processor" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

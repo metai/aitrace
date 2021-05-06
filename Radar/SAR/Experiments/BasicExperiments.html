@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9.1. 基础分析实验 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="9. 实验集锦" href="index.html"/>
+        <link rel="next" title="9.2. 子区域成像实验" href="SubRegionImaging.html"/>
+        <link rel="prev" title="9. 实验集锦" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">合成孔径雷达</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SystemOverview/index.html">2. SAR系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Simulation/index.html">3. SAR仿真技术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Imaging/index.html">4. SAR成像理论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">9. 实验集锦</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">9.1. 基础分析实验</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SubRegionImaging.html">9.2. 子区域成像实验</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成孔径雷达</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">9. </span>实验集锦</a> &raquo;</li>
+        
+      <li><span class="section-number">9.1. </span>基础分析实验</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-basicexperimentsexperimentssarradar">
+<span id="id1"></span><h1><span class="section-number">9.1. </span>基础分析实验<a class="headerlink" href="#section-basicexperimentsexperimentssarradar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">9.1.1. </span>实验说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>通过点目标仿真, 分析理解调频率, 分辨率等概念.</p>
+<p>Python实现代码, 参见文件 <a class="reference external" href="https://github.com/antsfamily/iprs3.0/tree/master/examples/Air/demo_AirboneSAR_Points.py">demo_AirboneSAR_Points.py</a>  .</p>
+<div class="section" id="id3">
+<h3>实验参数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>实验参数如 <a class="reference internal" href="#table-parameterssimulatedairsarplatform"><span class="std std-numref">表 9.1</span></a> 所示, 类似文献 <a class="bibtex reference internal" href="../../Supplement/zreference.html#lang-cummingfrankh-wong-2012" id="id4">[1]</a> 中138页的点目标仿真实验中的参数, 部分参数不一致.</p>
+<table class="docutils align-default" id="table-parameterssimulatedairsarplatform">
+<caption><span class="caption-number">表 9.1 </span><span class="caption-text">仿真的机载SAR平台参数</span><a class="headerlink" href="#table-parameterssimulatedairsarplatform" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>符号</p></th>
+<th class="head"><p>数值</p></th>
+<th class="head"><p>单位</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>平台高度</p></td>
+<td><p><span class="math">\(H\)</span></p></td>
+<td><p>10</p></td>
+<td><p><span class="math">\(km\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>雷达有效速度</p></td>
+<td><p><span class="math">\(V\)</span></p></td>
+<td><p>150</p></td>
+<td><p><span class="math">\(m/s\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>场景中心斜距</p></td>
+<td><p><span class="math">\(R_c\)</span></p></td>
+<td><p>20</p></td>
+<td><p><span class="math">\(km\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>雷达载频</p></td>
+<td><p><span class="math">\(f_0\)</span></p></td>
+<td><p>5.3</p></td>
+<td><p><span class="math">\(GHz\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>发射脉冲时宽</p></td>
+<td><p><span class="math">\(T_p\)</span></p></td>
+<td><p>2.5</p></td>
+<td><p><span class="math">\(μs\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>距离向调频率</p></td>
+<td><p><span class="math">\(K_r\)</span></p></td>
+<td><p>-20.0e12, +20.0e12</p></td>
+<td><p><span class="math">\(Hz/s\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>距离向采样率</p></td>
+<td><p><span class="math">\(F_{r}\)</span></p></td>
+<td><p>60.0</p></td>
+<td><p><span class="math">\(MHz\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>距离向采样点数</p></td>
+<td><p><span class="math">\(N_{r}\)</span></p></td>
+<td><p>320</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>方位向采样率</p></td>
+<td><p><span class="math">\(F_{a}\)</span></p></td>
+<td><p>100</p></td>
+<td><p><span class="math">\(Hz\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>方位向采样点数</p></td>
+<td><p><span class="math">\(N_{a}\)</span></p></td>
+<td><p>256</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>距离向天线孔径</p></td>
+<td><p><span class="math">\(L_{r}\)</span></p></td>
+<td><p>12.0</p></td>
+<td><p><span class="math">\(m\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>方位向天线孔径</p></td>
+<td><p><span class="math">\(L_{a}\)</span></p></td>
+<td><p>3.0</p></td>
+<td><p><span class="math">\(m\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>下视角</p></td>
+<td><p><span class="math">\(\theta_{d}\)</span></p></td>
+<td><p>30</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>波束距离向宽度</p></td>
+<td><p><span class="math">\(\theta_{b}\)</span></p></td>
+<td><p>1.32, 1.32, 1.32</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>波束斜视角</p></td>
+<td><p><span class="math">\(\theta_{s}\)</span></p></td>
+<td><p>0.0, 3.5, 21.9</p></td>
+<td><p><span class="math">\(°\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>波束中心偏移时间</p></td>
+<td><p><span class="math">\(\eta_{c}\)</span></p></td>
+<td><p>0.0, -8.1, -49.7</p></td>
+<td><p><span class="math">\(s\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>多普勒中心频率</p></td>
+<td><p><span class="math">\(f_{\eta_c}\)</span></p></td>
+<td><p>0.0, 320, 1975</p></td>
+<td><p><span class="math">\(Hz\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>根据上表参数, 可以计算出如下参数</p>
+<ul class="simple">
+<li><p>场景中心斜距: <span class="math">\(R_c = H / {\rm sin}\theta_d ≈ 20000.0m\)</span></p></li>
+<li><p>最短斜距: <span class="math">\(R_0 = R_c {\rm cos} \theta_s ≈ 18556.7m\)</span></p></li>
+<li><p>斜距分辨率: <span class="math">\(\Delta_r = \frac{c}{2B_r} = \frac{c}{2|K_r|T_p} ≈ 2.99m\)</span></p></li>
+<li><p>地距分辨率: <span class="math">\(\Delta_x = \Delta_r /{\rm cos}\theta_i ≈ 3.46m\)</span></p></li>
+<li><p>方位向距离分辨率: <span class="math">\(\Delta_a=\Delta_y = L_a/2 = 1.5m\)</span></p></li>
+<li><dl class="simple">
+<dt>场景中心坐标: <span class="math">\((x_c, y_c)\)</span>, <span class="math">\(x_c = {\sqrt{R_0^2 - H^2}}\)</span>, <span class="math">\(y_c = R_c{\rm sin}\theta_s\)</span></dt><dd><ul>
+<li><p><span class="math">\(\theta_s = 0, x_c=17320.50m, y_c=0m\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 3.5, x_c=17286.62m, y_c=1221.45m\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 21.9, x_c=15640.55m, y_c=7462.73m\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>近地点斜距: <span class="math">\(R_{near} = H/{\rm sin}(\theta_d+\theta_b/2)\)</span></dt><dd><ul>
+<li><p><span class="math">\(\theta_s = 0, R_{near}=19609.59m\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 3.5, R_{near}=19610.05m\)</span></p></li>
+<li><p><span class="math">\(\theta_s=21.9, R_{near}=19609.59m\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>远地点斜距: <span class="math">\(R_{far} = H/{\rm sin}(\theta_d-\theta_b/2)\)</span></dt><dd><ul>
+<li><p><span class="math">\(\theta_s = 0, R_{far}=20409.03m\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 3.5, R_{far}=20409.03m\)</span></p></li>
+<li><p><span class="math">\(\theta_s=21.9, R_{far}=20409.03m\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>刈幅宽度 (swath size): <span class="math">\(S_x = (H/{\rm tan}(\theta_d-\theta_b/2) - H/{\rm tan}(\theta_d+\theta_b/2)){\rm cos}\theta_s = 921.9{\rm cos}\theta_s\)</span></dt><dd><ul>
+<li><p><span class="math">\(\theta_s = 0, S_x=923.05m\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 3.5, S_x=921.91m\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 21.9, S_x=880.48m\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>方位向成像宽度: <span class="math">\(S_y = VT_{sa} = 384.0m\)</span></p></li>
+<li><dl class="simple">
+<dt>成像区域: <span class="math">\((x_{min}, x_{max}, y_{min}, y_{max})\)</span></dt><dd><ul>
+<li><p><span class="math">\(\theta_s = 0, SA=(-461.53, 461.53, -192.0, 192.0)\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 3.5, SA=(-460.96, 460.95, -192.0, 192.0)\)</span></p></li>
+<li><p><span class="math">\(\theta_s = 21.9, SA=(-440.58, 439.91, -192.0, 192.0)\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">9.1.2. </span>调频方向分析<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>设置目标位于场景中心处, 即相对坐标 <span class="math">\((0, 0)\)</span>, 目标强度为 1, 观察不同调频方向, 不同斜视角下的时域(原始信号), 距离多普勒域(原始信号在方位维做FFT), 频域(原始信号在距离和方位上均做FFT)的幅度相位.</p>
+<p>零斜视角, <span class="math">\(\theta_s=0.0^°\)</span>, 正调频</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../../../_images/OnePointKr20e12As0Ad30.svg"><img alt="The property of point target in Range Doppler domain (positive frequency modulation)." height="7776.0" src="../../../_images/OnePointKr20e12As0Ad30.svg" width="6220.8" /></a>
+<p class="caption"><span class="caption-number">图 9.1 </span><span class="caption-text">The property of point target in different domain (positive frequency modulation).</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<p>零斜视角, <span class="math">\(\theta_s=0.0^°\)</span>, 负调频</p>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../../../_images/OnePointKr-20e12As0Ad30.svg"><img alt="The property of point target in Range Doppler domain (negative frequency modulation)." height="7776.0" src="../../../_images/OnePointKr-20e12As0Ad30.svg" width="6220.8" /></a>
+<p class="caption"><span class="caption-number">图 9.2 </span><span class="caption-text">The property of point target in different domain (negative frequency modulation).</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<p>斜视角 <span class="math">\(\theta_s=3.5^°\)</span> , 正调频</p>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../../../_images/OnePointKr20e12As3d5Ad30.svg"><img alt="The property of point target in Range Doppler domain (positive frequency modulation)." height="7776.0" src="../../../_images/OnePointKr20e12As3d5Ad30.svg" width="6220.8" /></a>
+<p class="caption"><span class="caption-number">图 9.3 </span><span class="caption-text">The property of point target in different domain (positive frequency modulation).</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+<p>斜视角 <span class="math">\(\theta_s=3.5^°\)</span> , 负调频</p>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/OnePointKr-20e12As3d5Ad30.svg"><img alt="The property of point target in Range Doppler domain (negative frequency modulation)." height="7776.0" src="../../../_images/OnePointKr-20e12As3d5Ad30.svg" width="6220.8" /></a>
+<p class="caption"><span class="caption-number">图 9.4 </span><span class="caption-text">The property of point target in different domain (negative frequency modulation).</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+<p>斜视角 <span class="math">\(\theta_s=21.9^°\)</span> , 正调频</p>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/OnePointKr20e12As21d9Ad30.svg"><img alt="The property of point target in Range Doppler domain (positive frequency modulation)." height="7776.0" src="../../../_images/OnePointKr20e12As21d9Ad30.svg" width="6220.8" /></a>
+<p class="caption"><span class="caption-number">图 9.5 </span><span class="caption-text">The property of point target in different domain (positive frequency modulation).</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+<p>斜视角 <span class="math">\(\theta_s=21.9^°\)</span> , 负调频</p>
+<div class="figure align-center" id="id13">
+<a class="reference internal image-reference" href="../../../_images/OnePointKr-20e12As21d9Ad30.svg"><img alt="The property of point target in Range Doppler domain (negative frequency modulation)." height="7776.0" src="../../../_images/OnePointKr-20e12As21d9Ad30.svg" width="6220.8" /></a>
+<p class="caption"><span class="caption-number">图 9.6 </span><span class="caption-text">The property of point target in different domain (negative frequency modulation).</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">9.1.3. </span>分辨率分析<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>设置目标为 <span class="math">\((0.0, 0.0), (-6, -6), (-6, 6), (6, -6), (6, 6), (9, 9)\)</span>, 目标强度均为1, 进行如下设置.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>方位向设置</dt><dd><ul>
+<li><p>采样率: <span class="math">\(F_{sa} = 100Hz\)</span> 和 <span class="math">\(F_{sa} = 200Hz\)</span></p></li>
+<li><p>采样点: <span class="math">\(N_{sa} = 256\)</span> 和 <span class="math">\(N_{sa} = 1024\)</span></p></li>
+<li><p>天线孔径: <span class="math">\(L_{a} = 6.0m\)</span>, <span class="math">\(L_{a} = 3.0m\)</span> 和 <span class="math">\(L_{a} = 1.5m\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>距离向设置</dt><dd><ul>
+<li><p>采样率: <span class="math">\(F_{sr} = 60.0e6Hz\)</span></p></li>
+<li><p>采样点: <span class="math">\(N_{sr} = 320\)</span> 和 <span class="math">\(N_{sr} = 1280\)</span></p></li>
+<li><p>调频率: <span class="math">\(K_{r} = -20.0e12Hz/s\)</span></p></li>
+<li><p>脉宽: <span class="math">\(Tp = 2.5e-6s\)</span> 和 <span class="math">\(Tp = 5.0e-6s\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>方位向的分辨率由方位向天线孔径长度与方位向采样率决定, 其中, <span class="math">\(L_a\)</span> 直接决定方位向分辨率上限 <span class="math">\(ΔR_a\)</span>, <span class="math">\(F_{sa}\)</span> 决定了能多大程度地恢复方位向分辨率为 <span class="math">\(ΔR_a\)</span> 场景数据. 即使是过采样, 恢复后的最大分辨率仍然为 <span class="math">\(ΔR_a\)</span>, 但若是欠采样, 恢复后的分辨率将小于 <span class="math">\(ΔR_a\)</span>.</p>
+<p>距离向的分辨率由距离向带宽和采样率决定, 其中, <span class="math">\(Br = |K_r|T_P\)</span> 决定了距离向分辨率上限 <span class="math">\(ΔR_r\)</span>, <span class="math">\(F_{sr}\)</span> 决定了能多大程度地恢复方位向分辨率为 <span class="math">\(ΔR_a\)</span> 场景数据. 即使是过采样, 恢复后的最大分辨率仍然为 <span class="math">\(ΔR_r\)</span>, 但若是欠采样, 恢复后的分辨率将小于 <span class="math">\(ΔR_r\)</span>.</p>
+<div class="figure align-center" id="id14">
+<a class="reference internal image-reference" href="../../../_images/Fsr60e6Nsr320Kr10e12Tp25e-7Fsa100Nsa256La6.png"><img alt="Imaging result of RDA." src="../../../_images/Fsr60e6Nsr320Kr10e12Tp25e-7Fsa100Nsa256La6.png" style="width: 408.6px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-number">图 9.7 </span><span class="caption-text">Imaging result of RDA.</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA. <span class="math">\(F_{sa}=100Hz\)</span>, <span class="math">\(N_{sa}=256\)</span>, <span class="math">\(L_a=6m\)</span>, <span class="math">\(F_{sr}=60e6Hz\)</span>, <span class="math">\(N_{sr}=320\)</span>, <span class="math">\(K_r=10e12Hz/s\)</span>, <span class="math">\(T_p=2.5e-6s\)</span></p>
+</div>
+</div>
+<div class="figure align-center" id="id15">
+<a class="reference internal image-reference" href="../../../_images/Fsr60e6Nsr320Kr20e12Tp25e-7Fsa100Nsa256La3.png"><img alt="Imaging result of RDA." src="../../../_images/Fsr60e6Nsr320Kr20e12Tp25e-7Fsa100Nsa256La3.png" style="width: 420.3px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-number">图 9.8 </span><span class="caption-text">Imaging result of RDA.</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA. <span class="math">\(F_{sa}=100Hz\)</span>, <span class="math">\(N_{sa}=256\)</span>, <span class="math">\(L_a=3m\)</span>, <span class="math">\(F_{sr}=60e6Hz\)</span>, <span class="math">\(N_{sr}=320\)</span>, <span class="math">\(K_r=20e12Hz/s\)</span>, <span class="math">\(T_p=2.5e-6s\)</span></p>
+</div>
+</div>
+<div class="figure align-center" id="id16">
+<a class="reference internal image-reference" href="../../../_images/Fsr240e6Nsr1280Kr40e12Tp25e-6Fsa200Nsa1024La1p5.png"><img alt="Imaging result of RDA." src="../../../_images/Fsr240e6Nsr1280Kr40e12Tp25e-6Fsa200Nsa1024La1p5.png" style="width: 416.7px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-number">图 9.9 </span><span class="caption-text">Imaging result of RDA.</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA. <span class="math">\(F_{sa}=200Hz\)</span>, <span class="math">\(N_{sa}=1024\)</span>, <span class="math">\(L_a=1.5m\)</span>, <span class="math">\(F_{sr}=240e6Hz\)</span>, <span class="math">\(N_{sr}=1280\)</span>, <span class="math">\(K_r=40e12Hz/s\)</span>, <span class="math">\(T_p=25e-6s\)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="subsection-rcmcbasicexperimentsexperimentssarradar">
+<span id="id7"></span><h2><span class="section-number">9.1.4. </span>距离徙动校正<a class="headerlink" href="#subsection-rcmcbasicexperimentsexperimentssarradar" title="永久链接至标题">¶</a></h2>
+<p>设置斜视角 <span class="math">\(\theta_s = 8.5^°\)</span>, 调频率 <span class="math">\(K_r=20e12, L_a=3.0, L_r=12\)</span>, 方位向采样率 <span class="math">\(F_{sa}=100Hz\)</span>, 距离向采样率 <span class="math">\(F_{sr}=60MHz\)</span>,  目标位置 <span class="math">\((0, 0)\)</span>, 目标强度均为1. 分析距离徙动校正的效果, 分析不同大小的 <span class="math">\(\rm{sinc}\)</span> 插值核 <span class="math">\(r=4, 8, 32\)</span> 的影响.</p>
+<p><a class="reference internal" href="#fig-rcmc-before-rcmcsinc"><span class="std std-numref">图 9.10</span></a> 显示的是二次距离压缩及多普勒相位补偿后的结果, 即为进行距离徙动校正, <a class="reference internal" href="#fig-rcmc-after-rcmcsinc4"><span class="std std-numref">图 9.11</span></a>, <a class="reference internal" href="#fig-rcmc-after-rcmcsinc8"><span class="std std-numref">图 9.12</span></a>, <a class="reference internal" href="#fig-rcmc-after-rcmcsinc32"><span class="std std-numref">图 9.13</span></a> 为 <span class="math">\(\rm{sinc}\)</span> 插值核大小分别为 <span class="math">\(r=4, 8, 32\)</span> 的时的距离徙动校正后的结果. 可见, 经过插值核越大, 距离徙动校正越精确.</p>
+<div class="figure align-center" id="id17">
+<span id="fig-rcmc-before-rcmcsinc"></span><a class="reference internal image-reference" href="../../../_images/RCMC_before_rcmcsinc.png"><img alt="After RC SRC, DPC" src="../../../_images/RCMC_before_rcmcsinc.png" style="width: 576.0px; height: 288.90000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 9.10 </span><span class="caption-text">After RC SRC, DPC</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>After RC SRC, DPC</p>
+</div>
+</div>
+<div class="figure align-center" id="id18">
+<span id="fig-rcmc-after-rcmcsinc4"></span><a class="reference internal image-reference" href="../../../_images/RCMC_after_rcmcsinc4.png"><img alt="After RC SRC, DPC, RCMC" src="../../../_images/RCMC_after_rcmcsinc4.png" style="width: 576.0px; height: 282.6px;" /></a>
+<p class="caption"><span class="caption-number">图 9.11 </span><span class="caption-text">After RC SRC, DPC, RCMC. <span class="math">\(\rm sinc\)</span> interpolation, <span class="math">\(r=4\)</span>.</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>After RC SRC, DPC, RCMC. <span class="math">\(\rm sinc\)</span> interpolation, <span class="math">\(r=4\)</span>.</p>
+</div>
+</div>
+<div class="figure align-center" id="id19">
+<span id="fig-rcmc-after-rcmcsinc8"></span><a class="reference internal image-reference" href="../../../_images/RCMC_after_rcmcsinc8.png"><img alt="After RC SRC, DPC, RCMC." src="../../../_images/RCMC_after_rcmcsinc8.png" style="width: 576.0px; height: 280.8px;" /></a>
+<p class="caption"><span class="caption-number">图 9.12 </span><span class="caption-text">After RC SRC, DPC, RCMC. <span class="math">\(\rm sinc\)</span> interpolation, <span class="math">\(r=8\)</span>.</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>After RC SRC, DPC, RCMC. <span class="math">\(\rm sinc\)</span> interpolation, <span class="math">\(r=8\)</span>.</p>
+</div>
+</div>
+<div class="figure align-center" id="id20">
+<span id="fig-rcmc-after-rcmcsinc32"></span><a class="reference internal image-reference" href="../../../_images/RCMC_after_rcmcsinc32.png"><img alt="After RC SRC, DPC, RCMC." src="../../../_images/RCMC_after_rcmcsinc32.png" style="width: 576.0px; height: 279.90000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 9.13 </span><span class="caption-text">After RC SRC, DPC, RCMC. <span class="math">\(\rm sinc\)</span> interpolation, <span class="math">\(r=32\)</span>.</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>After RC SRC, DPC, RCMC. <span class="math">\(\rm sinc\)</span> interpolation, <span class="math">\(r=32\)</span>.</p>
+</div>
+</div>
+<p><a class="reference internal" href="#fig-rcmc-rda-norcmc"><span class="std std-numref">图 9.14</span></a> 给出了无距离徙动校正条件下, 距离多普勒成像算法的成像结果, 由图可见, 距离徙动现象很明显, 同一目标分布在不同距离与方位单元. <a class="reference internal" href="#fig-rcmc-rda-rcmcsinc4"><span class="std std-numref">图 9.15</span></a>, <a class="reference internal" href="#fig-rcmc-rda-rcmcsinc8"><span class="std std-numref">图 9.16</span></a>, <a class="reference internal" href="#fig-rcmc-rda-rcmcsinc32"><span class="std std-numref">图 9.17</span></a> 为 <span class="math">\({\rm sinc}\)</span> 插值核分别为 <span class="math">\(4,8,32\)</span> 的条件下, 距离多普勒算法的成像结果, 对比 <a class="reference internal" href="#fig-rcmc-rda-norcmc"><span class="std std-numref">图 9.14</span></a> - <a class="reference internal" href="#fig-rcmc-rda-rcmcsinc32"><span class="std std-numref">图 9.17</span></a>, 可以发现, 基于 <span class="math">\(\rm sinc\)</span> 插值的距离徙动算法校正效果明显, 且插值核越大, 距离徙动校正越精确.</p>
+<div class="figure align-center" id="id21">
+<span id="fig-rcmc-rda-norcmc"></span><a class="reference internal image-reference" href="../../../_images/RCMC_RDA_noRCMC.png"><img alt="Imaging results of RDA (Without RCMC)" src="../../../_images/RCMC_RDA_noRCMC.png" style="width: 576.0px; height: 294.3px;" /></a>
+<p class="caption"><span class="caption-number">图 9.14 </span><span class="caption-text">Imaging result of RDA.</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA. Without RCMC.</p>
+</div>
+</div>
+<div class="figure align-center" id="id22">
+<span id="fig-rcmc-rda-rcmcsinc4"></span><a class="reference internal image-reference" href="../../../_images/RCMC_RDA_rcmcsinc4.png"><img alt="Imaging results of RDA" src="../../../_images/RCMC_RDA_rcmcsinc4.png" style="width: 576.0px; height: 288.0px;" /></a>
+<p class="caption"><span class="caption-number">图 9.15 </span><span class="caption-text">Imaging result of RDA. <span class="math">\(\rm sinc\)</span> interpolation (<span class="math">\(r=4\)</span>).</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA. <span class="math">\(\rm sinc\)</span> interpolation (<span class="math">\(r=4\)</span>).</p>
+</div>
+</div>
+<div class="figure align-center" id="id23">
+<span id="fig-rcmc-rda-rcmcsinc8"></span><a class="reference internal image-reference" href="../../../_images/RCMC_RDA_rcmcsinc8.png"><img alt="Imaging results of RDA" src="../../../_images/RCMC_RDA_rcmcsinc8.png" style="width: 576.0px; height: 284.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 9.16 </span><span class="caption-text">Imaging result of RDA. <span class="math">\(\rm sinc\)</span> interpolation (<span class="math">\(r=8\)</span>).</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA. <span class="math">\(\rm sinc\)</span> interpolation (<span class="math">\(r=8\)</span>).</p>
+</div>
+</div>
+<div class="figure align-center" id="id24">
+<span id="fig-rcmc-rda-rcmcsinc32"></span><a class="reference internal image-reference" href="../../../_images/RCMC_RDA_rcmcsinc32.png"><img alt="Imaging results of RDA" src="../../../_images/RCMC_RDA_rcmcsinc32.png" style="width: 576.0px; height: 285.3px;" /></a>
+<p class="caption"><span class="caption-number">图 9.17 </span><span class="caption-text">Imaging result of RDA. <span class="math">\(\rm sinc\)</span> interpolation (<span class="math">\(r=32\)</span>).</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA. <span class="math">\(\rm sinc\)</span> interpolation (<span class="math">\(r=32\)</span>).</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SubRegionImaging.html" class="btn btn-neutral float-right" title="9.2. 子区域成像实验" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="9. 实验集锦" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

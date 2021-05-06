@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 线性空间与线性变换 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="矩阵论" href="../index.html"/>
+        <link rel="next" title="1.1. 线性空间" href="LinearSpace.html"/>
+        <link rel="prev" title="矩阵论" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. 线性空间与线性变换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearSpace.html">1.1. 线性空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSubspace.html">1.2. 线性子空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html">1.3. 线性变换及其表示</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EigenValuesEigenVectors.html">1.4. 特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixDiagonalization.html">1.5. 矩阵对角化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html">1.6. 广义特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html">1.7. 特殊线性空间</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>线性空间与线性变换</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chapter-linearspacetransformation">
+<span id="id1"></span><h1><span class="section-number">1. </span>线性空间与线性变换<a class="headerlink" href="#chapter-linearspacetransformation" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="LinearSpace.html">1.1. 线性空间</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearSpace.html#id2">1.1.1. 基础概念</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id3">域</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id4">映射</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSpace.html#id5">1.1.2. 线性空间概念及性质</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id6">定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id7">性质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id8">线性组合与线性表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id9">线性相关与线性无关</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSpace.html#id10">1.1.3. 线性空间的基、坐标与维数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id11">定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSpace.html#id13">1.1.4. 基变换与坐标变换</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id14">两个基之间的转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id15">多个基之间的转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSpace.html#id16">坐标变换</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearSubspace.html">1.2. 线性子空间</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearSubspace.html#id2">1.2.1. 线性子空间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#id3">什么是线性子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#id4">子空间的运算及其性质</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSubspace.html#id5">1.2.2. 直和</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#id6">什么是直和</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#id7">性质</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearSubspace.html#id8">1.2.3. 生成的子空间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#id9">什么是生成子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#id10">矩阵的列空间、核空间、秩与零度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#spark">矩阵的Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearSubspace.html#id11">总结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearTransformation.html">1.3. 线性变换及其表示</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearTransformation.html#id2">1.3.1. 线性变换</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id3">什么是线性变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id4">线性变换的特性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearTransformation.html#id5">1.3.2. 线性变换的运算</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id6">基本线性变换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id7">单位变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id8">零变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id9">负变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id10">逆变换</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id11">加法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id12">定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id13">性质</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id14">数乘</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id15">定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id16">性质</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id17">乘法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id18">定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id19">性质</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id20">幂</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id21">定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id22">性质</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id23">线性变换的多项式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id24">定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id25">性质</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearTransformation.html#id26">1.3.3. 线性变换与矩阵</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id27">线性变换的矩阵表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id28">性质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id29">像与原像的坐标转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id30">线性变换在不同基下的矩阵转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id31">相似矩阵</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id32">什么是相似矩阵</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html#id33">性质</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id34">线性变换多项式的矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearTransformation.html#id35">常见线性变换</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearTransformation.html#id36">1.3.4. 总结</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EigenValuesEigenVectors.html">1.4. 特征值与特征向量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EigenValuesEigenVectors.html#id2">1.4.1. 特征值与特征向量</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id3">线性变换的特征值与特征向量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id4">矩阵的特征值与特征向量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id5">特征值与特征向量的关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id6">实例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="EigenValuesEigenVectors.html#id7">1.4.2. 广义特征向量</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id8">概念与内涵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id9">计算步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="EigenValuesEigenVectors.html#example-eigenvalues">1.4.3. 例子(广义特征向量)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EigenValuesEigenVectors.html#id11">1.4.4. 特征多项式与最小多项式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id12">特征多项式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id13">最小多项式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="EigenValuesEigenVectors.html#id14">1.4.5. 特征子空间与不变子空间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id15">什么是特征子空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EigenValuesEigenVectors.html#id16">什么是不变子空间</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="EigenValuesEigenVectors.html#id17">1.4.6. 信号子空间与噪声子空间</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MatrixDiagonalization.html">1.5. 矩阵对角化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MatrixDiagonalization.html#id2">1.5.1. 多项式矩阵及其标准形</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id3">多项式矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id4">首一多项式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id5">多项式矩阵的标准形</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MatrixDiagonalization.html#id6">1.5.2. 不变因子与初等因子</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id7">不变因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id8">初等因子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id9">举例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MatrixDiagonalization.html#jordan">1.5.3. Jordan标准型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id10">概念与内涵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id11">求解方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id12">举例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#p">非奇异矩阵P的求法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MatrixDiagonalization.html#id13">1.5.4. Jordan标准型求解微分线性方程组</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id14">计算步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id15">举例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MatrixDiagonalization.html#id16">1.5.5. 总结</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MatrixDiagonalization.html#id17">可对角化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html">1.6. 广义特征值与特征向量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html#id2">1.6.1. 广义特征值与特征向量</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html#id3">矩阵的广义特征值与特征向量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html#id4">特征值与特征向量的关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html#id5">广义特征值问题的等价形式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html#id6">第一种形式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html#id7">第二种形式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html#id8">实例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SpecialLinearSpace.html">1.7. 特殊线性空间</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SpecialLinearSpace.html#id2">1.7.1. 内积空间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SpecialLinearSpace.html#id3">什么是内积空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpecialLinearSpace.html#id4">欧式空间(实内积空间)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpecialLinearSpace.html#id5">酉空间(复内积空间)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpecialLinearSpace.html#id6">常见内积及其性质</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id7">定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id8">性质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id9">度量矩阵</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#schmidt">Schmidt正交化</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SpecialLinearSpace.html#id10">内积空间中线性变换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id11">实对称变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id12">实反对称变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id13">正交变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id14">酉对称变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id15">反酉对称变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#id16">酉变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#givens">Givens 旋转变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html#householder">Householder 反射变换</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SpecialLinearSpace.html#id17">谱分解</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SpecialLinearSpace.html#id18">1.7.2. 总结</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="LinearSpace.html" class="btn btn-neutral float-right" title="1.1. 线性空间" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="矩阵论" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

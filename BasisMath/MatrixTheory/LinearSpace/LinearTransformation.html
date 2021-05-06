@@ -1,0 +1,942 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.3. 线性变换及其表示 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 线性空间与线性变换" href="index.html"/>
+        <link rel="next" title="1.4. 特征值与特征向量" href="EigenValuesEigenVectors.html"/>
+        <link rel="prev" title="1.2. 线性子空间" href="LinearSubspace.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 线性空间与线性变换</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="LinearSpace.html">1.1. 线性空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSubspace.html">1.2. 线性子空间</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.3. 线性变换及其表示</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EigenValuesEigenVectors.html">1.4. 特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixDiagonalization.html">1.5. 矩阵对角化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html">1.6. 广义特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html">1.7. 特殊线性空间</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>线性空间与线性变换</a> &raquo;</li>
+        
+      <li><span class="section-number">1.3. </span>线性变换及其表示</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-lineartransformation">
+<span id="id1"></span><h1><span class="section-number">1.3. </span>线性变换及其表示<a class="headerlink" href="#section-lineartransformation" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.3.1. </span>线性变换<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>什么是线性变换<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id37">
+<span id="def-transformation"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.8</span>
+        
+            <span class="proof-title-name">(变换)</span>
+        
+    </div><div class="proof-content">
+<p>设<span class="math">\({\mathbb V}\)</span>是数域<span class="math">\(\mathbb K\)</span>上的线性空间,
+<span class="math">\(T\)</span>是<span class="math">\({\mathbb V}\)</span>到自身的一个映射, 使得对于
+<span class="math">\(\forall {\bm x} \in {\mathbb V}\)</span>,
+<span class="math">\({\mathbb V}\)</span>中都有唯一的向量<span class="math">\(\bm y\)</span>与之对应, 则称 <span class="math">\(T\)</span>
+是<span class="math">\({\mathbb V}\)</span>的一个 <strong>变换</strong> 或 <strong>算子</strong> , 记为</p>
+<div class="math">
+\[T {\bm x} = {\bm y}
+
+\]</div>
+<p>称<span class="math">\({\bm y}\)</span>为<span class="math">\({\bm x}\)</span>在<span class="math">\(T\)</span>下的象,
+<span class="math">\({\bm x}\)</span> 为 <span class="math">\({\bm y}\)</span> 的原象.</p>
+</div></div><div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul class="simple">
+<li><p><span class="math">\(T\)</span>是<span class="math">\({\mathbb V}\)</span>到自身的一个映射:
+即变换前后都在线性空间<span class="math">\({\mathbb V}\)</span>中,
+<strong>如果变换前后不在同一线性空间中?</strong>.</p></li>
+<li><p>定义中说明了<span class="math">\({\mathbb V}\)</span>中的元素为向量,
+实际上<span class="math">\({\mathbb V}\)</span>中元素不一定是向量.</p></li>
+</ul>
+</div>
+<div class="proof proof-type-definition" id="id38">
+<span id="def-lineartransformation"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.9</span>
+        
+            <span class="proof-title-name">(线性变换)</span>
+        
+    </div><div class="proof-content">
+<p>设<span class="math">\(T\)</span>是数域<span class="math">\(K\)</span>上线性空间<span class="math">\({\mathbb V}\)</span>中的一个变换,
+对于<span class="math">\(\forall k, l\in K\)</span>, 若满足</p>
+<div class="math">
+\[T(k{\bm x} \oplus l{\bm y}) = kT({\bm x}) \oplus lT(\bm y)
+
+\]</div>
+<p>则称<span class="math">\(T\)</span>是<span class="math">\({\mathbb V}\)</span>的线性变换.</p>
+</div></div></div>
+<div class="section" id="id4">
+<h3>线性变换的特性<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>若线性空间 <span class="math">\({\mathbb V}\)</span> 中的 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> 线性相关, 则线性变换 <span class="math">\(T\)</span> 对其变换后仍线性相关.</p>
+<p>即若存在不全为零的数 <span class="math">\(c_1, c_2, \cdots, c_m \in K\)</span> , 使得</p>
+<div class="math">
+\[c_1 \odot {\bm x}_1 \oplus c_2 \odot {\bm x}_2 \oplus \cdots \oplus c_m \odot {\bm x}_m = {\bm 0}
+
+\]</div>
+<p>成立, 则亦有下式成立</p>
+<div class="math">
+\[c_1 \odot (T{\bm x}_1) \oplus c_2 \odot (T{\bm x}_2) \oplus \cdots \oplus c_m \odot (T{\bm x}_m) = T{\bm 0} = {\bm 0}
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.3.2. </span>线性变换的运算<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>涉线性变换的加法, 数乘, 乘法, 逆与幂, 以及单位变换, 零变换, 负变换, 逆变换, 多项式. 有关对称变换, 正交变换, 酉变换参见 <a class="reference internal" href="SpecialLinearSpace.html#section-speciallinearspace"><span class="std std-ref">特殊线性空间</span></a> 小节</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>可以证明上述变换均为线性变换!</p>
+</div>
+<div class="section" id="id6">
+<h3>基本线性变换<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>单位变换<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>将线性空间 <span class="math">\({\mathbb V}\)</span> 中的任一元素 <span class="math">\({\bm x}\)</span> 变为自身的变换称为 <strong>单位变换</strong> , 即</p>
+<div class="math">
+\[(T_e){\bm x} = {\bm x} , \   (\forall {\bm x} \in {\mathbb V})
+
+\]</div>
+</div>
+<div class="section" id="id8">
+<h4>零变换<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>将线性空间 <span class="math">\({\mathbb V}\)</span> 中的任一元素 <span class="math">\({\bm x}\)</span> 变为零元素 <span class="math">\({\bm 0}\)</span>  的变换称为 <strong>零变换</strong> , 即</p>
+<div class="math">
+\[(T_0){\bm x} = {\bm 0} , \   (\forall {\bm x} \in {\mathbb V})
+
+\]</div>
+</div>
+<div class="section" id="id9">
+<h4>负变换<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 的线性变换, 线性变换 <span class="math">\(T\)</span> 的 <strong>负变换</strong> 定义为</p>
+<div class="math">
+\[(-T){\bm x} = -(T{\bm x}) , \   (\forall {\bm x} \in {\mathbb V})
+
+\]</div>
+</div>
+<div class="section" id="id10">
+<h4>逆变换<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T, T^{-1}\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 的线性变换, 若满足下述条件, 则称线性变换 <span class="math">\(T\)</span> 与 <span class="math">\(T^{-1}\)</span> 互为 <strong>逆变换</strong> (Inverse transformation) , 即</p>
+<div class="math">
+\[(T T^{-1}){\bm x} = (T^{-1} T){\bm x} = {\bm x} , \   (\forall {\bm x} \in {\mathbb V})
+
+\]</div>
+<p>亦即:</p>
+<div class="math">
+\[(T T^{-1}) = (T^{-1} T) = T_e
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>加法<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id12">
+<h4>定义<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T_1, T_2\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 的两个线性变换, 线性变换的 <strong>加法</strong> 定义为</p>
+<div class="math">
+\[(T_1 + T_2){\bm x} = T_1{\bm x} \oplus T_2{\bm x}, \    (\forall {\bm x} \in {\mathbb V})
+
+\]</div>
+</div>
+<div class="section" id="id13">
+<h4>性质<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>交换律: <span class="math">\(T_1 + T_2 = T_2 + T_1\)</span></p></li>
+<li><p>结合律: <span class="math">\((T_1 + T_2) + T_3 = T_1 + (T_2 + T_3)\)</span></p></li>
+<li><p>有零元: <span class="math">\(T + T_0 = T\)</span></p></li>
+<li><p>有负元: <span class="math">\(T + (-T) = T_0\)</span></p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>对照线性空间定义中的加法的性质.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>数乘<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id15">
+<h4>定义<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(k \in K\)</span> , <span class="math">\(T\)</span> 为线性空间 <span class="math">\({\mathbb V}\)</span> 的线性变换, 定义数 <span class="math">\(k\)</span> 与变换 <span class="math">\(T\)</span> 的乘积( <strong>数乘</strong> ) <span class="math">\(kT\)</span>  为</p>
+<div class="math">
+\[(kT){\bm x} = k\odot(T{\bm x}) , \  (\forall {\bm x} \in {\mathbb V})
+
+\]</div>
+</div>
+<div class="section" id="id16">
+<h4>性质<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>乘1律: <span class="math">\(1T = T\)</span></p></li>
+<li><p>数因子分配律: <span class="math">\(k(T_1 + T_2) = kT_1 + kT_2\)</span></p></li>
+<li><p>数乘分配率: <span class="math">\((k + l)T = kT + lT\)</span></p></li>
+<li><p>数乘结合率: <span class="math">\((kl)T = k(lT)\)</span></p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>对照线性空间定义中的数乘的性质.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>乘法<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id18">
+<h4>定义<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T_1, T_2\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 的两个线性变换, 定义 <span class="math">\(T_1\)</span> 与 <span class="math">\(T_2\)</span> 的 <strong>乘积</strong> <span class="math">\(T_1T_2\)</span> 为</p>
+<div class="math">
+\[(T_1T_2){\bm x} = T_1(T_2 {\bm x}) , \  (\forall {\bm x} \in {\mathbb V})
+
+\]</div>
+</div>
+<div class="section" id="id19">
+<h4>性质<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>结合律: <span class="math">\((T_1T_2)T_3 = T_1(T_2T_3)\)</span></p></li>
+<li><p>分配律1: <span class="math">\(T_1(T_2 + T_3) = T_1T_2 + T_1T_3\)</span></p></li>
+<li><p>分配率2: <span class="math">\((T_1 + T_2)T_3 = T_1T_3 + T_2T_3\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>幂<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id21">
+<h4>定义<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(n\)</span> 是正整数, <span class="math">\(T\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 中的线性变换, 定义其 <span class="math">\(n\)</span> <strong>次幂</strong> 为</p>
+<div class="math">
+\[T^n = T^{n-1}T  , \   (n=2,3,\cdots)
+
+\]</div>
+<p>定义 <span class="math">\(T\)</span> 的 <strong>零次幂</strong> 为:</p>
+<div class="math">
+\[T^0 = T_e
+
+\]</div>
+</div>
+<div class="section" id="id22">
+<h4>性质<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>性质1: <span class="math">\(T^{m+n} = T^m T^n\)</span></p></li>
+<li><p>性质2: <span class="math">\((T^m)^n = T^{mn}\)</span></p></li>
+<li><p>性质3: <span class="math">\(T^{(-n)} = (T^{-1})^n\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id23">
+<h3>线性变换的多项式<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id24">
+<h4>定义<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h4>
+<p>数量 <span class="math">\(t\)</span> 的 <span class="math">\(m\)</span> 次多项式可以定义为</p>
+<div class="math">
+\[f(t) = a_m t^m + a_{m-1} t^{m-1} + \cdots + a_1t + a_0
+
+\]</div>
+<p>类似地, 线性变换 <span class="math">\(T\)</span> 的 <span class="math">\(m\)</span> 次多项式可以定义为</p>
+<div class="math">
+\[f(T) = a_m T^m + a_{m-1} T^{m-1} + \cdots + a_1T + a_0
+
+\]</div>
+</div>
+<div class="section" id="id25">
+<h4>性质<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>性质1: 若 <span class="math">\(h(t) = f(t)g(t)\)</span> , 则 <span class="math">\(h(T) = f(T)g(T)\)</span></p></li>
+<li><p>性质2: 若 <span class="math">\(p(t) = f(t) + g(t)\)</span> , 则 <span class="math">\(p(T) = f(T) + g(T)\)</span></p></li>
+<li><p>性质3: <span class="math">\(f(T)g(T) = g(T)f(T)\)</span> (同一线性变换的多项式相乘可交换)</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="id26">
+<h2><span class="section-number">1.3.3. </span>线性变换与矩阵<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id27">
+<h3>线性变换的矩阵表示<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<p>设 <span class="math">\(T\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 中的线性变换, <span class="math">\({\bm x} \in {\mathbb V}^n\)</span> , 且 <span class="math">\({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n\)</span> 是 <span class="math">\({\mathbb V}^n\)</span> 的一个基 (原象基组), 则</p>
+<div class="math">
+\[{\bm x} = a_1\odot{\bm x}_1 \oplus a_2\odot{\bm x}_2 \oplus \cdots \oplus a_n\odot{\bm x}_n
+
+\]</div>
+<div class="math">
+\[T{\bm x} = a_1\odot(T{\bm x}_1) \oplus a_2\odot(T{\bm x}_2) \oplus \cdots \oplus a_n\odot(T{\bm x}_n)
+
+\]</div>
+<p>故 <span class="math">\({\bm x}\)</span> 在变换 <span class="math">\(T\)</span> 下得到的象 <span class="math">\(T{\bm X}\)</span> 可以由基象组线性表示, 而基像组仍在线性空间 <span class="math">\({\mathbb V}\)</span> 中, 故可用原象组线性表示为</p>
+<div class="math">
+\[\left\{ {\begin{array}{ccc}
+{T{{\bm{x}}_1} = {a_{11}}\odot{{\bm{x}}_1} \oplus {a_{21}}\odot{{\bm{x}}_2} \oplus  \cdots  \oplus {a_{n1}}\odot{{\bm{x}}_n}}\\
+{T{{\bm{x}}_2} = {a_{12}}\odot{{\bm{x}}_1} \oplus {a_{22}}\odot{{\bm{x}}_2} \oplus  \cdots  \oplus {a_{n2}}\odot{{\bm{x}}_n}}\\
+ \vdots \\
+{T{{\bm{x}}_n} = {a_{1n}}\odot{{\bm{x}}_1} \oplus {a_{2n}}\odot{{\bm{x}}_2} \oplus  \cdots  \oplus {a_{nn}}\odot{{\bm{x}}_n}}
+\end{array}} \right.
+
+\]</div>
+<p>将上述方程组矩阵化可得, 线性变换 <span class="math">\(T\)</span> 在基 <span class="math">\({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n\)</span> 下的矩阵表示为</p>
+<div class="math">
+\[T({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n)
+= (T{\bm x}_1 , T{\bm x}_2 , \cdots, T{\bm x}_n)
+= ({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n){\bm A}
+
+\]</div>
+<p>其中</p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{cccc}{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\ \vdots & \vdots &{}& \vdots \\{{a_{n1}}}&{{a_{n2}}}& \cdots &{{a_{nn}}}\end{array}} \right]
+
+\]</div>
+<p>矩阵 <span class="math">\({\bm A}\)</span> 的第 <span class="math">\(i\)</span> 列为 <span class="math">\(T{\bm x}_i\)</span> 的坐标. 当 <span class="math">\(\oplus\)</span> 表示普通向量加法, <span class="math">\(\odot\)</span> 表示普通数与向量乘法时, 上式退化为普通矩阵乘.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子, 定义线性空间 <span class="math">\({\mathbb R}^{2\times 2}\)</span> 中的线性变换</p>
+<div class="math">
+\[T{\bm X} = \left[ {\begin{array}{cc} a&b\\ c&d \end{array}} \right] {\bm X}
+
+\]</div>
+<p>求线性变换 <span class="math">\(T\)</span> 在基 <span class="math">\({\bm E}_{11}, {\bm E}_{12}, {\bm E}_{21}, {\bm E}_{22}\)</span> 下的矩阵.</p>
+<p>解: 由题意有</p>
+<div class="math">
+\[\left\{ {\begin{array}{ccc}
+{T{{\bm{E}}_{11}} = \left[ {\begin{array}{ccc}
+a&b\\
+c&d
+\end{array}} \right]\left[ {\begin{array}{ccc}
+1&0\\
+0&0
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+a&0\\
+c&0
+\end{array}} \right] = a{{\bm{E}}_{11}} + c{{\bm{E}}_{21}}}\\
+{T{{\bm{E}}_{12}} = \left[ {\begin{array}{ccc}
+a&b\\
+c&d
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&1\\
+0&0
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+0&a\\
+0&c
+\end{array}} \right] = a{{\bm{E}}_{12}} + c{{\bm{E}}_{22}}}\\
+{T{{\bm{E}}_{21}} = \left[ {\begin{array}{ccc}
+a&b\\
+c&d
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&0\\
+1&0
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+b&0\\
+d&0
+\end{array}} \right] = b{{\bm{E}}_{11}} + d{{\bm{E}}_{21}}}\\
+{T{{\bm{E}}_{22}} = \left[ {\begin{array}{ccc}
+a&b\\
+c&d
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&0\\
+0&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+0&b\\
+0&d
+\end{array}} \right] = b{{\bm{E}}_{12}} + d{{\bm{E}}_{22}}}
+\end{array}} \right.
+
+\]</div>
+<p>由上式得到 <span class="math">\(T\)</span> 在所给基下的矩阵为</p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{cccc}
+a&0&b&0\\
+0&a&0&b\\
+c&0&d&0\\
+0&c&0&d
+\end{array}} \right]
+
+\]</div>
+<p>满足 <span class="math">\(T({\bm E}_{11}, {\bm E}_{12}, {\bm E}_{21}, {\bm E}_{22}) = ({\bm E}_{11}, {\bm E}_{12}, {\bm E}_{21}, {\bm E}_{22}) {\bm A}\)</span></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ol class="arabic simple">
+<li><p>零变换的矩阵为零矩阵: <span class="math">\({\bm O}\)</span></p></li>
+<li><p>单位变换的矩阵为单位矩阵: <span class="math">\({\bm I}\)</span></p></li>
+<li><p>数乘变换的矩阵为数量矩阵: <span class="math">\(m{\bm I}\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id28">
+<h3>性质<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p><span class="math">\((T_1 + T_2)({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n) = ({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n)({\bm A}+{\bm B})\)</span></p></li>
+<li><p><span class="math">\((kT_1)({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n) = ({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n)(k{\bm A})\)</span></p></li>
+<li><p><span class="math">\((T_1 T_2)({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n) = ({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n){\bm A}{\bm B}\)</span></p></li>
+<li><p><span class="math">\((T_1^{-1})({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n) = ({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n){\bm A}^{-1}\)</span></p></li>
+</ol>
+</div>
+<div class="section" id="id29">
+<h3>像与原像的坐标转换<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h3>
+<p>设有线性空间 <span class="math">\({\mathbb V}^n\)</span> 中的元素 <span class="math">\({\bm x}\)</span> , 线性变换 <span class="math">\(T\)</span> , 一组基 <span class="math">\({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n\)</span> ; <span class="math">\({\bm x}\)</span> 在该基下的坐标为 <span class="math">\((\xi_1, \xi_2, \cdots, \xi_n)^T\)</span> , <span class="math">\(T\)</span> 在该基下的的矩阵为 <span class="math">\({\bm A}\)</span> ; 则 <span class="math">\(T{\bm x}\)</span> 在该基下的坐标为</p>
+<div class="math">
+\[\left[ {\begin{array}{lll}{{\eta _1}}\\{{\eta _2}}\\ \vdots \\{{\eta _n}}\end{array}} \right] = {\bm{A}}\left[ {\begin{array}{lll}{{\xi _1}}\\{{\xi _2}}\\ \vdots \\{{\xi _n}}\end{array}} \right]
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<div class="math">
+\[T{\bm{x}} = T({{\bm{x}}_1},\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n})\left[ {\begin{array}{lll}{{\xi _1}}\\{{\xi _2}}\\ \vdots \\{{\xi _n}}\end{array}} \right] = ({{\bm{x}}_1},\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}){\bm{A}}\left[ {\begin{array}{lll}{{\xi _1}}\\{{\xi _2}}\\ \vdots \\{{\xi _n}}\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id30">
+<h3>线性变换在不同基下的矩阵转换<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h3>
+<p>设有线性空间 <span class="math">\({\mathbb V}^n\)</span> 中的线性变换 <span class="math">\(T\)</span> , 在基 <span class="math">\({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n\)</span> 和基 <span class="math">\({\bm y}_1 , {\bm y}_2 , \cdots, {\bm y}_n\)</span> 下的矩阵分别为 <span class="math">\({\bm A}, {\bm B}\)</span> , 且由基1到基2的过度矩阵为 <span class="math">\({\bm C}\)</span> , 则有</p>
+<div class="math">
+\[{\bm B} = {\bm C}^{-1}{\bm A}{\bm C}
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<div class="math">
+\[\begin{array}{l}T{\bm{x}} = T({{\bm{x}}_1},\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}) = ({{\bm{x}}_1},\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}){\bm{A}}\\T{\bm{y}} = T({{\bm{y}}_1},\;{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n}) = ({{\bm{y}}_1},\;{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n}){\bm{B}}\\T{\bm{y}} = T({{\bm{y}}_1},\;{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n}) = T({{\bm{x}}_1},\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}){\bm{C}}\\\;\;\;\; = ({{\bm{x}}_1},\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}){\bm{AC}}{\rm{ = }}({{\bm{y}}_1},\;{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n}){{\bm{C}}^{{\rm{ - }}1}}{\bm{AC}}\end{array}
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id31">
+<h3>相似矩阵<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id32">
+<h4>什么是相似矩阵<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h4>
+<p>由线性变换在不同基下的矩阵关系引出矩阵相似定义:</p>
+<div class="proof proof-type-definition" id="id39">
+<span id="def-similarmatrix"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.10</span>
+        
+            <span class="proof-title-name">(相似矩阵)</span>
+        
+    </div><div class="proof-content">
+<p>设有矩阵 <span class="math">\({\bm A}, {\bm B}\)</span> , 若存在 <em>非奇异矩阵</em> <span class="math">\({\bm P}\)</span> 使得 <span class="math">\({\bm B} = {\bm P}^{-1}{\bm A}{\bm P}\)</span> , 则称 <span class="math">\({\bm A}\)</span> <strong>相似于</strong> <span class="math">\({\bm B}\)</span> , 记作 <span class="math">\({\bm A} \sim {\bm B}\)</span> .</p>
+</div></div><div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>矩阵合同是指 <span class="math">\({\bm B} = {\bm P}^{T}{\bm A}{\bm P}\)</span></p>
+</div>
+<p>若 <span class="math">\({\bm B} = {\bm P}^{-1}{\bm A}{\bm P}\)</span> , 且 <span class="math">\(f(t)\)</span> 是数域 <span class="math">\(K\)</span> 上的多项式, 则有</p>
+<div class="math">
+\[f({\bm B}) = {\bm P}^{-1} f({\bm A}) {\bm P}
+
+\]</div>
+</div>
+<div class="section" id="id33">
+<h4>性质<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li><p>反身性: <span class="math">\(A \sim A\)</span></p></li>
+<li><p>对称性: 若 <span class="math">\({\bm A} \sim {\bm B}\)</span> , 则 <span class="math">\({\bm B} \sim {\bm A}\)</span></p></li>
+<li><p>传递性: 若 <span class="math">\({\bm A} \sim {\bm B}, {\bm B} \sim {\bm C}\)</span> , 则 <span class="math">\({\bm A} \sim {\bm C}\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id34">
+<h3>线性变换多项式的矩阵<a class="headerlink" href="#id34" title="永久链接至标题">¶</a></h3>
+<p>数量 <span class="math">\(t\)</span> 的 <span class="math">\(m\)</span> 次多项式可以定义为</p>
+<div class="math">
+\[f(t) = a_m t^m + a_{m-1} t^{m-1} + \cdots + a_1t + a_0
+
+\]</div>
+<p>类似地, 线性空间 <span class="math">\({\mathbb V}^n\)</span> 中，线性变换 <span class="math">\(T\)</span> 的 <span class="math">\(m\)</span> 次多项式可以定义为</p>
+<div class="math">
+\[f(T) = a_m T^m + a_{m-1} T^{m-1} + \cdots + a_1T + a_0
+
+\]</div>
+<p>设线性空间 <span class="math">\({\mathbb V}^n\)</span> 中，线性变换 <span class="math">\(T\)</span> 在基 <span class="math">\({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n\)</span> 下的矩阵为 <span class="math">\({\bm A}\)</span> , 即</p>
+<div class="math">
+\[T({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n)
+= ({\bm x}_1 , {\bm x}_2 , \cdots, {\bm x}_n){\bm A}
+
+\]</div>
+<p>则 <span class="math">\(f(T)\)</span> <strong>在该基下的的矩阵</strong> 为</p>
+<div class="math">
+\[f({\bm A}) = a_m{\bm A}^m + a_{m-1}{\bm A}^{m-1} + \cdots + a_{1}{\bm A} + a_0{\bm I}
+
+\]</div>
+<p>上式也称为方阵 <span class="math">\({\bm A}\)</span> 的多项式.</p>
+</div>
+<div class="section" id="id35">
+<h3>常见线性变换<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h3>
+<p>伸缩, 旋转, 对称变换举例</p>
+<ul class="simple">
+<li><p>伸缩: <span class="math">\(\left[ {\begin{array}{rrr}k&amp;0\\0&amp;k\end{array}} \right]\left[ {\begin{array}{ccc}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{ccc}{k{x_1}}\\{k{x_2}}\end{array}} \right],\;\;\left[ {\begin{array}{rrr}{{k_1}}&amp;0\\0&amp;{{k_2}}\end{array}} \right]\left[ {\begin{array}{rrr}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{rrr}{{k_1}{x_1}}\\{{k_2}{x_2}}\end{array}} \right]\)</span></p></li>
+<li><p>逆时针旋转: <span class="math">\(\left[ {\begin{array}{rrr}{\cos \theta }&amp;{ - \sin \theta }\\{\sin \theta }&amp;{\cos \theta }\end{array}} \right]\left[ {\begin{array}{ccc}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{ccc}{{x_1}\cos \theta  - {x_2}\sin \theta }\\{{x_1}\sin \theta  + {x_2}\cos \theta }\end{array}} \right]\)</span></p></li>
+<li><p>顺时针旋转: <span class="math">\(\left[ {\begin{array}{rrr}{\cos \theta }&amp;{\sin \theta }\\{ - \sin \theta }&amp;{\cos \theta }\end{array}} \right]\left[ {\begin{array}{ccc}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{ccc}{{x_1}\cos \theta  + {x_2}\sin \theta }\\{ - {x_1}\sin \theta  + {x_2}\cos \theta }\end{array}} \right]\)</span></p></li>
+<li><p>轴对称: <span class="math">\(\left[ {\begin{array}{rrr}1&amp;0\\0&amp;{ - 1}\end{array}} \right]\left[ {\begin{array}{ccc}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{ccc}{{x_1}}\\{ - {x_2}}\end{array}} \right],\;\;\left[ {\begin{array}{rrr}{ - 1}&amp;0\\0&amp;1\end{array}} \right]\left[ {\begin{array}{ccc}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{ccc}{ - {x_1}}\\{{x_2}}\end{array}} \right]\)</span></p></li>
+</ul>
+<div class="figure align-center" id="id40">
+<a class="reference internal image-reference" href="../../../_images/transformation.png"><img alt="example transformation" src="../../../_images/transformation.png" style="width: 477.5px; height: 391.5px;" /></a>
+<p class="caption"><span class="caption-number">图 1.3 </span><span class="caption-text">变换举例</span><a class="headerlink" href="#id40" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>变换举例, 伸缩, 旋转, 对称变换</p>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>记忆旋转变换</p>
+<ul class="simple">
+<li><p>逆时针旋转: 第一象限一个向量, 逆时针旋转一个小角度, <span class="math">\(x\)</span> 坐标减小, <span class="math">\(y\)</span> 坐标增大</p></li>
+<li><p>顺时针旋转: 第一象限一个向量, 逆时针旋转一个小角度, <span class="math">\(x\)</span> 坐标增大, <span class="math">\(y\)</span> 坐标减小</p></li>
+</ul>
+</div>
+<p>下面借助 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 工具实现旋转变换的验证:</p>
+<ol class="arabic simple">
+<li><p>产生二维平面内椭圆内的随机点构成椭圆面 <span class="math">\(S\)</span> ;</p></li>
+<li><p>将椭圆面 <span class="math">\(S\)</span> 分别进行逆时针与顺时针旋转;</p></li>
+<li><p>绘制旋转前后的图像.</p></li>
+</ol>
+<p>结果如下图</p>
+<div class="figure align-center" id="id41">
+<a class="reference internal image-reference" href="../../../_images/demo_rotation.png"><img alt="demo of rotation" src="../../../_images/demo_rotation.png" style="width: 511.5px; height: 226.5px;" /></a>
+<p class="caption"><span class="caption-number">图 1.4 </span><span class="caption-text">旋转变换举例.</span><a class="headerlink" href="#id41" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>旋转变换举例: 原始图(左), 逆时针旋转 <span class="math">\(30\)</span> 度(中), 顺时针旋转 <span class="math">\(30\)</span> 度(右).</p>
+</div>
+</div>
+<p>实现代码, 参见文件 <a class="reference external" href="../../../_static/src/python/BasisMath/MatrixTheory/LinearSpace/demo_rotation_ellipse.py">demo_rotation_ellipse.py</a>  .</p>
+<div class="literal-block-wrapper docutils container" id="bind-id">
+<div class="code-block-caption"><span class="caption-number">代码 1.1 </span><span class="caption-text">demo_rotation_ellipse.py</span><a class="headerlink" href="#bind-id" title="永久链接至代码">¶</a></div>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pytool</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># =====================generate Ellipse=====================</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># major axis</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># minor axis</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># center x0</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># center y0</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># number of points</span>
+
+<span class="c1"># angle for rotating ellipse data</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">/</span> <span class="mi">180</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pytool</span><span class="o">.</span><span class="n">ellipse_surface</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s1">&#39;rand&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xy</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">xy</span>
+
+<span class="c1"># ========================rotate============================</span>
+<span class="c1"># ------------rotating matrix(Anti-clockwise)------------</span>
+<span class="n">M1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span>
+      <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M1&quot;</span><span class="p">,</span> <span class="n">M1</span><span class="p">)</span>
+
+<span class="c1"># -----------------------rotating--------</span>
+<span class="hll"><span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">A1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">A1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># ------------rotating matrix(clockwise)-----------------</span>
+<span class="n">M2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span>
+      <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;M2&quot;</span><span class="p">,</span> <span class="n">M2</span><span class="p">)</span>
+
+<span class="c1"># -----------------------rotating--------</span>
+<span class="hll"><span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># ========================show data=========================</span>
+<span class="n">xmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">y</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">])</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">y</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="c1"># plt.axis(&#39;equal&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;orignal ellipse&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="c1"># plt.axis(&#39;equal&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;anti-clockwise rotated ellipse&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+<span class="c1"># plt.axis(&#39;equal&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;clockwise rotated ellipse&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="section" id="id36">
+<h2><span class="section-number">1.3.4. </span>总结<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>线性变换对向量组相关性的影响
+-  线性相关向量组 –&gt; 线性变换 –&gt; 线性相关
+-  线性无关向量组 –&gt; 线性变换 –&gt; 线性无关或线性相关（如零变换）</p></li>
+<li><p>线性变换 <span class="math">\(T\)</span> 与其对应矩阵 <span class="math">\(A\)</span>
+-  它们的值域、核、秩、亏相同</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="EigenValuesEigenVectors.html" class="btn btn-neutral float-right" title="1.4. 特征值与特征向量" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="LinearSubspace.html" class="btn btn-neutral" title="1.2. 线性子空间" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

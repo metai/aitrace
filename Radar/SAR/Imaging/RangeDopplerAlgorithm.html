@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2. 距离多普勒成像 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="4. SAR成像理论" href="index.html"/>
+        <link rel="next" title="4.3. 调频变标成像" href="ChirpScalingAlgorithm.html"/>
+        <link rel="prev" title="4.1. SAR成像简介" href="intro.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">合成孔径雷达</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SystemOverview/index.html">2. SAR系统概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Simulation/index.html">3. SAR仿真技术</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4. SAR成像理论</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="intro.html">4.1. SAR成像简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.2. 距离多普勒成像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChirpScalingAlgorithm.html">4.3. 调频变标成像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Regularization.html">4.4. 正则化成像方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CompressiveSensing.html">4.5. 压缩感知成像</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experiments/index.html">9. 实验集锦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成孔径雷达</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4. </span>SAR成像理论</a> &raquo;</li>
+        
+      <li><span class="section-number">4.2. </span>距离多普勒成像</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-rangedoppleralgorithmimagingsarradar">
+<span id="id1"></span><h1><span class="section-number">4.2. </span>距离多普勒成像<a class="headerlink" href="#section-rangedoppleralgorithmimagingsarradar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">4.2.1. </span>距离多普勒方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="figure align-center" id="id25">
+<a class="reference internal image-reference" href="../../../_images/RDA.png"><img alt="Range Doppler Algorithm" src="../../../_images/RDA.png" style="width: 786.4000000000001px; height: 201.60000000000002px;" /></a>
+<p class="caption"><span class="caption-number">图 4.29 </span><span class="caption-text">Framework of Range Doppler Algorithm</span><a class="headerlink" href="#id25" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>对于大斜视SAR, 距离压缩中包含二次距离压缩 (Second Rage Compression, SRC), 距离徙动校正也不一样.</p>
+</div>
+<div class="section" id="rda">
+<h3>小斜视下的RDA<a class="headerlink" href="#rda" title="永久链接至标题">¶</a></h3>
+<div class="section" id="sar">
+<h4>SAR原始数据<a class="headerlink" href="#sar" title="永久链接至标题">¶</a></h4>
+<p>SAR 原始数据是指SAR系统接收到的数据, 数据先被解调至基带, 距离频率中心被置零, 解调后的基带信号为 (参见: <span class="xref std std-ref">Section-SARSignalSystemOverviewSARRadar</span> 小结, <a class="reference internal" href="../SystemOverview/SAREchoSignal.html#equation-equ-sarphasehistory">式.2.35</a> )</p>
+<div class="math">
+\[\begin{aligned}
+s_i(\eta, \tau) &= G_i h(\tau, \eta)\\ &= G_i w_r\left(\tau-2R(\eta)/c\right) w_a(\eta-\eta_c)\\
+&   {\rm exp}\left\{ -j4\pi f_0 R(\eta)/c  +  j\pi K_r\left(\tau-2R(\eta)/c\right)^2 \right\}.
+\end{aligned}
+
+\]</div>
+</div>
+<div class="section" id="id3">
+<h4>距离压缩<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>将SAR基带信号的距离维FFT变换 <span class="math">\(S_r(\eta, f_\tau)\)</span> 与距离向匹配滤波器 <span class="math">\(H_r(f_{\tau})\)</span> 相乘;</p></li>
+<li><p>进行距离维逆FFT完成距离维压缩.</p></li>
+</ul>
+<p>匹配滤波器的生成与实现方式不同, 距离压缩的方式也不同. 如采用复制脉冲尾部补零经FFT后的复共轭作为滤波器.</p>
+<p>SAR回波信号 <span class="math">\(s(\eta, \tau)\)</span> 的距离维傅里叶变换为</p>
+<div class="math">
+\[\begin{aligned}
+S_r(\eta, f_{\tau}) &={\rm FFT}_{\tau}\left\{s(\eta, \tau)\right\}\\ &= G W_r(f_\tau)w_a(\eta-\eta_c) \\
+&
+{\rm exp}\left\{-j\frac{4\pi(f_0+f_\tau)R(\eta)}{c}\right\}{\rm exp}\left\{-j\frac{\pi f_\tau^2}{K_r}\right\},
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(G\)</span> 为常数, <span class="math">\(W_r(f_\tau)=w_r(f_\tau/K_r)\)</span> 是距离频谱的包络.</p>
+<p>匹配滤波的目的在于消除上式中的第二个指数项, 故取距离向匹配滤波器为</p>
+<div class="math" id="equation-equ-matchedfilterrange">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-equ-matchedfilterrange" title="公式的永久链接">¶</a></span>\[H_r(f_\tau) = {\rm exp}\left\{j\frac{\pi f_\tau^2}{K_r}\right\},
+
+\]</div>
+<p>对滤波器输出进行距离向IFFT, 得到距离向压缩输出为</p>
+<div class="math" id="equation-equ-sarsignalrangecompressionout">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-equ-sarsignalrangecompressionout" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+s_{rc}(\eta, \tau) &= {\rm IFFT}_{\tau}\left\{S_r(\eta, f_{\tau})H_r(f_{\tau})\right\} \\
+&= G p_r\left(\tau-\frac{2R(\eta)}{c}\right)w_a(\eta-\eta_c) \\
+&  {\rm exp}\left(-j\frac{4\pi f_0 R(\eta)}{c}\right),
+\end{aligned}
+
+\]</div>
+<p>其中, 压缩脉冲包络 <span class="math">\(p_r(\tau)\)</span> 为窗函数 <span class="math">\(W_r(f_{\tau})\)</span> 的傅里叶逆变换: 对于矩形窗, <span class="math">\(p_r(\tau)\)</span> 为 <span class="math">\(\rm sinc\)</span> 函数, 对于锐化窗(kasier), <span class="math">\(p_r(\tau)\)</span> 为旁瓣较低的 <span class="math">\(\rm sinc\)</span> 函数. <span class="math">\(G\)</span> 为包括散射系数在内的总增益, 常假定为1.</p>
+</div>
+<div class="section" id="id4">
+<h4>方位向傅里叶变换<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<p>小斜视下, 波束指向接近零多普勒方向, 且 <span class="math">\(R_0 \gg V_r\eta\)</span> , 可将距离近似为抛物线</p>
+<div class="math">
+\[R(\eta) = \sqrt{R_0^2 +V_r^2\eta^2} \thickapprox R_0 + \frac{V_r^2\eta^2}{2R_0},
+
+\]</div>
+<p>代入距离向压缩输出表达 <a class="reference internal" href="#equation-equ-sarsignalrangecompressionout">式.4.3</a> 得</p>
+<div class="math">
+\[s_{rc}(\eta,\tau) \thickapprox G p_r(\tau-\frac{2R(\eta)}{c})w_a(\eta-\eta_c) \\
+\qquad {\rm exp}\left(-j\frac{4\pi f_0 R_0}{c}\right) {\rm exp}\left(-j \frac{\pi 2V_r^2 \eta^2}{\lambda R_0}\right).
+
+\]</div>
+<p>方位向的时频关系为 <span class="math">\(f_{\eta} = -K_a\eta\)</span> , 其中记方位向调频率 <span class="math">\(K_a \thickapprox \frac{2V_r^2}{\lambda R_0}\)</span> , 代入上式, 方位向FFT后的信号变为</p>
+<div class="math">
+\[\begin{aligned}
+S_a(f_{\eta}, \tau) &= {\rm FFT}_{\eta}\left\{s_{rc}(\eta, \tau)\right\} \\
+&= G p_r(\tau-\frac{2R_{rd}(f_\eta)}{c})W_a(f_\eta-f_{\eta_c}) \\
+& {\rm exp}\left(-j \frac{4\pi f_0 R_0}{c}\right) {\rm exp}\left(j \frac{\pi {f_\eta}^2}{K_a}\right),
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(W_a(f_{\eta} - f_{\eta_c})\)</span> 为方位向天线方向图 <span class="math">\(w_a(\eta-\eta_c)\)</span> 的频域形式. 第一个指数项含有目标固有的相位信息(干涉极化)与图像强度无关. 第二项指数项为具有线性调频特性的频域方位调制. 距离徙动补偿项为</p>
+<div class="math">
+\[R_{rd}(f_\eta) \thickapprox R_0 + \frac{V_r^2}{2R_0}\left(\frac{f_\eta}{K_a}\right)^2 = R_0 + \frac{\lambda^2R_0 f_{\eta}^2}{8V_r^2}.
+
+\]</div>
+</div>
+<div class="section" id="id5">
+<h4>距离徙动校正<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>距离徙动校正 (RCMC) 有两种实现方式.</p>
+<p>一种是在距离多普勒域进行距离插值, 可以基于 <span class="math">\(\rm sinc\)</span> 函数进行插值处理. 需要校正的 RCM 为方位频率 <span class="math">\(f_\eta\)</span> 的函数, 也是 <span class="math">\(R_0\)</span> 的函数:</p>
+<div class="math">
+\[\Delta R(f_\eta) = \frac{\lambda^2R_0f_\eta^2}{8V_r^2}.
+
+\]</div>
+<p>距离徙动校正因子：</p>
+<div class="math" id="equation-equ-rcmc-factor-rd">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-equ-rcmc-factor-rd" title="公式的永久链接">¶</a></span>\[D(f_{\eta}, V_r) = \sqrt{1-\frac{c^2f_{\eta}^2}{4V_r^2f_0^2}} = \sqrt{1- \frac{\lambda^2f_{\eta}^2 }{4V_r^2}}
+
+\]</div>
+<p>另一种是基于RCM在有限区域内不随距离改变, 从而可以通过 <code class="docutils literal notranslate"><span class="pre">FFT</span> <span class="pre">--&gt;</span> <span class="pre">线性相位相乘</span> <span class="pre">--&gt;</span> <span class="pre">IFFT</span></code> 实现, 相位乘法器为</p>
+<div class="math">
+\[Q_{rcmc}(f_\tau) = {\rm exp}\left(j\frac{4\pi f_\tau \Delta R(f_\eta)}{c}\right),
+
+\]</div>
+<p>但这种需要对数据进行分块, 复杂度高, 一般不采用.</p>
+<p>基于 <span class="math">\(\rm sinc\)</span> 插值进行RCMC后的信号变为</p>
+<div class="math">
+\[\begin{aligned}
+S_{rcmc}(f_{\eta}, \tau) &= {\rm FFT}_{\eta}\left\{s_{rc}(\eta, \tau)\right\} \\
+&= G p_r \left(\tau-\frac{2R_0}{c}\right)W_a(f_\eta-f_{\eta_c}) \\
+& {\rm exp}\left(-j\frac{4\pi f_0 R_0}{c}\right) {\rm exp}\left(j\frac{\pi {f_\eta}^2}{K_a}\right).
+\end{aligned}
+
+\]</div>
+<p>有关实验请参考 <a class="reference internal" href="../Experiments/BasicExperiments.html#subsection-rcmcbasicexperimentsexperimentssarradar"><span class="std std-ref">距离徙动校正</span></a> 小节.</p>
+</div>
+<div class="section" id="id6">
+<h4>方位压缩<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>将方位向FFT后的 <span class="math">\(S_a(f_{\eta}, \tau)\)</span> (或RCMC后的 <span class="math">\(S_{rcmc}(f_{\eta}, \tau)\)</span> ) 与方位向匹配滤波器 <span class="math">\(H_a(f_{\eta})\)</span> 相乘;</p></li>
+<li><p>进行方位维逆FFT完成方位维压缩.</p></li>
+</ul>
+<p>方位向压缩在于消除方位向FFT(或RCMC)后的信号的第二个指数项成分, 因而匹配滤波器为其复共轭:</p>
+<div class="math">
+\[H_{a}(f_\eta) = {\rm exp}\left\{-j\frac{\pi f_\eta^2}{K_a}\right\}.
+
+\]</div>
+<p>实现方式如下</p>
+<p>匹配滤波后的输出变为</p>
+<div class="math" id="equation-equ-matchedfilterazimuth">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-equ-matchedfilterazimuth" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+{S_{af}}({f_\eta },\tau ) &= {S_{rcmc}}({f_\eta },\tau ){H_a}({f_\eta })\\ &= G{p_r}\left( {\tau  - \frac{{2{R_0}}}{c}} \right){W_a}({f_\eta } - {f_\eta }_c)\\
+&{\rm{exp}}\left( { - j\frac{{4\pi {f_0}{R_0}}}{c}} \right)
+\end{aligned}
+
+\]</div>
+<p>经过方位向IFFT后的压缩信号为</p>
+<div class="math">
+\[\begin{aligned}{s_{ac}}(\eta ,\tau ) &= {\rm{IFFT}}_\eta\left\{ {{S_{af}}({f_\eta },\tau )} \right\}\\ &= G{p_r}\left(\tau  - \frac{{2{R_0}}}{c}\right){p_a}(\eta )\\
+& {\rm{exp}}\left( { - j\frac{{4\pi {f_0}{R_0}}}{c}} \right){\rm{exp}}\left( {j2\pi {f_\eta }_c\eta } \right),
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(p_a\)</span> 为方位向冲击响应的幅度, 与 <span class="math">\(p_r\)</span> 一样为 <span class="math">\({\rm sinc}\)</span> 函数. 至此, 目标已经被校正到 <span class="math">\(\eta = 0, \tau=2R_0/c\)</span> 处.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>在非零斜视角下, 使用抛物线近似距离使得相位精度不能被保证, 可以使用双曲相位形式的匹配滤波器, 即不进行近似.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>多视处理<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>多视处理可以减少相干斑点噪声, 其主要思路是在方位向做平均滤波, 当然也可以在距离向上做滤波.</p>
+</div>
+</div>
+<div class="section" id="subsection-largesquintprocessingrangedoppleralgorithmimagingsarradar">
+<span id="id8"></span><h3>大斜视下的RDA<a class="headerlink" href="#subsection-largesquintprocessingrangedoppleralgorithmimagingsarradar" title="永久链接至标题">¶</a></h3>
+<p>在低斜视时, 距离等式近似为时间的抛物线方程式, 抛物线模型相当于时域中的线性调频信号, 变换到频域后的信号也具有线性调频形式 <a class="bibtex reference internal" href="../../Supplement/zreference.html#lang-cummingfrankh-wong-2012" id="id9">[1]</a>. 在大斜视角时, 距离等式应该采用更为精确的双曲线模型, 此时时频间呈非线性关系, 用于距离徙动补偿和方位匹配滤波器的距离应采用新的距离方程, 大斜视引入较强的距离和方位耦合(散焦),  <a class="bibtex reference internal" href="../../Supplement/zreference.html#lang-cummingfrankh-wong-2012" id="id10">[1]</a> 可以通过二次距离压缩来校正.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>下述中, 将徙动因子 <span class="math">\(D(f_\eta, V_r)\)</span> 展开并忽略 <span class="math">\(f_\eta\)</span> 二阶及以上项, 则退化为低斜视角下的表达式.</p>
+</div>
+<div class="section" id="id11">
+<h4>二次距离压缩<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>在含有交叉耦合的信号的距离多普勒域信号中的调频率由 <span class="math">\(K_r\)</span> 变为了 <span class="math">\(K_m\)</span> <a class="bibtex reference internal" href="../../Supplement/zreference.html#lang-cummingfrankh-wong-2012" id="id12">[1]</a> p170. 其中,</p>
+<div class="math">
+\[K_m = \frac{K_r}{1-K_r/K_{src}}
+
+\]</div>
+<p>二次压缩滤波器中的调频率为</p>
+<div class="math" id="equation-equ-ksrc">
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-equ-ksrc" title="公式的永久链接">¶</a></span>\[K_{src}(R_0, f_{\eta}) = \frac{2V_r^2f_0^3D^3(f_\eta, V_r)}{cR_0f_\eta^2}.
+
+\]</div>
+<p>首先使用调频率为 <span class="math">\(K_r\)</span> 的滤波器进行匹配滤波实现初级压缩, 再使用调频率为 <span class="math">\(K_{src}\)</span> 的滤波器进行次级的匹配滤波实现二次压缩, 因而叫二次距离压缩. 二次距离压缩的滤波器为</p>
+<div class="math" id="equation-equ-secondmatchedfilterrange">
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-equ-secondmatchedfilterrange" title="公式的永久链接">¶</a></span>\[H_{src}(f_{\tau}) = {\rm exp}\left\{-j\pi\frac{f_{\tau}^2}{K_{src}(R_0, f_{\eta})} \right\}
+
+\]</div>
+<p>该滤波器与距离 <span class="math">\(R_0\)</span> 和方位向频率 <span class="math">\(f_\eta\)</span> 有关. 在距离频域中, SRC滤波器可以并入距离压缩滤波器中, 合并的滤波器为</p>
+<div class="math">
+\[\begin{aligned}
+H_{m}\left(f_{\tau}\right) &=\exp \left\{j \pi \frac{f_{\tau}^{2}}{K_{r}}\right\} \exp \left\{-j \pi \frac{f_{\tau}^{2}}{K_{src}\left(R_{0}, f_{\eta}\right)}\right\} \\ &=\exp \left\{j \pi f_{\tau}^{2}\left(\frac{1}{K_{r}}-\frac{1}{K_{src}\left(R_{0}, f_{\eta}\right)}\right)\right\} \\ &=\exp \left\{j \pi \frac{f_{\tau}^{2}}{K_{m}\left(R_{0}, f_{\eta}\right)}\right\}
+\end{aligned}
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>二次距离压缩的实现方式</p>
+<p>二次距离压缩的实现方式有三种:</p>
+<ol class="arabic simple">
+<li><p>方式一: 在距离多普勒域中, 随RCMC插值一同进行</p></li>
+<li><p>方式二: 通过二维频域中的相位相乘实现</p></li>
+<li><p>方式三: 在距离频率 - 方位时域中进行</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>多普勒相位补偿<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>对于斜视SAR, 还需要做多普勒相位补偿 (Doppler Phase Compensation, DPC), 补偿滤波器为</p>
+<div class="math">
+\[H(f_{\eta}) = {\rm exp}\left\{1j 2 π f_{\eta} Y_c / V_s\right\}
+
+\]</div>
+<p>其中, <span class="math">\(f_{\eta}\)</span> 为方位向频率, <span class="math">\(Y_c\)</span> 为场景中心在方位向坐标轴上的投影, <span class="math">\(V_s\)</span> 为SAR平台速度.</p>
+</div>
+<div class="section" id="id14">
+<h4>距离徙动的改进<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>RDA算法的距离徙动补偿在距离多普勒域执行, 徙动因子如式 : <a class="reference internal" href="#equation-equ-rcmc-factor-rd">式.4.4</a> 所示. 在大斜视时, 在距离多普勒域的距离徙动量调整为</p>
+<div class="math">
+\[\Delta R(f_\eta) = R_{rd}(f_\eta) -R_0 = R_0\left[\frac{1-D(f_\eta, V_r)}{D(f_\eta, V_r)}\right].
+
+\]</div>
+</div>
+<div class="section" id="id15">
+<h4>方位匹配滤波器的改进<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>对 <a class="reference internal" href="#equation-equ-matchedfilterazimuth">式.4.5</a> 所示方位匹配滤波器调整为</p>
+<div class="math" id="equation-equ-matchedfilterazimuthadv">
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-equ-matchedfilterazimuthadv" title="公式的永久链接">¶</a></span>\[H_a(f_\eta) = {\rm exp}\left\{j\frac{4\pi R_0 D(f_\eta, V_r)f_0}{c}\right\}
+
+\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h2><span class="section-number">4.2.2. </span>实验与分析<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id17">
+<h3>仿真数据实验<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id18">
+<h4>实验说明<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>实验参数及代码参见 <span class="xref std std-ref">SectionBasicExperimentsExperimentsSARRadar</span> 小节, 设置斜视角 <span class="math">\(\theta_s = 8.5^°\)</span>.</p>
+</div>
+<div class="section" id="id19">
+<h4>实验结果<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h4>
+<div class="figure align-center" id="id26">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_RDSRCF2D.png"><img alt="时域, 距离多普勒域及二维频域幅度相位谱" src="../../../_images/RDA_4POINTS_RDSRCF2D.png" style="width: 531.0px; height: 599.4px;" /></a>
+<p class="caption"><span class="caption-number">图 4.30 </span><span class="caption-text">时域, 距离多普勒域及二维频域幅度相位谱</span><a class="headerlink" href="#id26" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>时域, 距离多普勒域及二维频域幅度相位谱.</p>
+</div>
+</div>
+<div class="figure align-center" id="id27">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_RC.png"><img alt="距离压缩后结果" src="../../../_images/RDA_4POINTS_RC.png" style="width: 576.0px; height: 290.7px;" /></a>
+<p class="caption"><span class="caption-number">图 4.31 </span><span class="caption-text">距离压缩后结果</span><a class="headerlink" href="#id27" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>距离压缩后结果</p>
+</div>
+</div>
+<div class="figure align-center" id="id28">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_SRC.png"><img alt="二次距离压缩后结果" src="../../../_images/RDA_4POINTS_SRC.png" style="width: 576.0px; height: 266.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 4.32 </span><span class="caption-text">二次距离压缩后结果</span><a class="headerlink" href="#id28" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>二次距离压缩后结果</p>
+</div>
+</div>
+<div class="figure align-center" id="id29">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_DPC.png"><img alt="多普勒相位补偿结果" src="../../../_images/RDA_4POINTS_DPC.png" style="width: 576.0px; height: 263.7px;" /></a>
+<p class="caption"><span class="caption-number">图 4.33 </span><span class="caption-text">多普勒相位补偿结果</span><a class="headerlink" href="#id29" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>多普勒相位补偿结果</p>
+</div>
+</div>
+<div class="figure align-center" id="id30">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_RCMC32.png"><img alt="距离徙动校正结果" src="../../../_images/RDA_4POINTS_RCMC32.png" style="width: 576.0px; height: 251.1px;" /></a>
+<p class="caption"><span class="caption-number">图 4.34 </span><span class="caption-text">距离徙动校正结果</span><a class="headerlink" href="#id30" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>距离徙动校正结果</p>
+</div>
+</div>
+<div class="figure align-center" id="id31">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_AC.png"><img alt="方位向压缩结果" src="../../../_images/RDA_4POINTS_AC.png" style="width: 576.0px; height: 237.6px;" /></a>
+<p class="caption"><span class="caption-number">图 4.35 </span><span class="caption-text">方位向压缩结果</span><a class="headerlink" href="#id31" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>方位向压缩结果</p>
+</div>
+</div>
+<div class="figure align-center" id="id32">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_noRCMC_RDAo.png"><img alt="RDA算法最终成像结果" src="../../../_images/RDA_4POINTS_noRCMC_RDAo.png" style="width: 576.0px; height: 301.5px;" /></a>
+<p class="caption"><span class="caption-number">图 4.36 </span><span class="caption-text">RDA算法最终成像结果 (不含距离徙动校正)</span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>RDA算法最终成像结果 (不含距离徙动校正)</p>
+</div>
+</div>
+<div class="figure align-center" id="id33">
+<a class="reference internal image-reference" href="../../../_images/RDA_4POINTS_RCMC_RDAo.png"><img alt="RDA算法最终成像结果" src="../../../_images/RDA_4POINTS_RCMC_RDAo.png" style="width: 576.0px; height: 302.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 4.37 </span><span class="caption-text">RDA算法最终成像结果 (含距离徙动校正)</span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>RDA算法最终成像结果 (含距离徙动校正)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>真实数据实验<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id21">
+<h4>实验数据<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<p>实验所采用数据为 RADARSAT1 卫星上的合成孔径雷达获取的温哥华地区的图像. 具体介绍参见 <a class="reference internal" href="../../Supplement/RadarProducts/RADARSAT.html#section-radarsatradarproductsupplementradar"><span class="std std-ref">RADARSAT 产品介绍</span></a> 小节.</p>
+</div>
+<div class="section" id="id22">
+<h4>实验说明<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<p>分析RDA算法中二次距离压缩与距离徙动补偿的影响.</p>
+</div>
+<div class="section" id="id23">
+<h4>实验代码<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h4>
+<p>Python实现代码, 参见文件 <a class="reference external" href="https://github.com/antsfamily/iprs3.0/tree/master/examples/Products/demo_RADARSAT1.py">demo_RADARSAT1.py</a>  .</p>
+</div>
+<div class="section" id="id24">
+<h4>实验结果<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h4>
+<p>RADARSAT1 获取的史丹利公园的SAR数据幅度与相位</p>
+<div class="figure align-center" id="id34">
+<a class="reference internal image-reference" href="../../../_images/SAR_StanleyPark_AmplitudePhase.png"><img alt="SAR raw data amplitude and phase of Stanley Park" src="../../../_images/SAR_StanleyPark_AmplitudePhase.png" style="width: 437.40000000000003px; height: 639.9px;" /></a>
+<p class="caption"><span class="caption-number">图 4.38 </span><span class="caption-text">SAR raw data amplitude and phase of Stanley Park.</span><a class="headerlink" href="#id34" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>SAR raw data amplitude and phase of Stanley Park.</p>
+</div>
+</div>
+<p>RDA 成像结果 (以下结果均含多普勒相位补偿操作)</p>
+<div class="figure align-center" id="id35">
+<a class="reference internal image-reference" href="../../../_images/RDA_StanleyPark_noSRC_noRCMC.png"><img alt="Imaging result of RDA (without SRC, without RCMC)" src="../../../_images/RDA_StanleyPark_noSRC_noRCMC.png" style="width: 691.2px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.39 </span><span class="caption-text">Imaging result of RDA (without SRC, without RCMC)</span><a class="headerlink" href="#id35" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA (without SRC, without RCMC)</p>
+</div>
+</div>
+<div class="figure align-center" id="id36">
+<a class="reference internal image-reference" href="../../../_images/RDA_StanleyPark_SRC_noRCMC.png"><img alt="Imaging result of RDA (with SRC, without RCMC)" src="../../../_images/RDA_StanleyPark_SRC_noRCMC.png" style="width: 690.3000000000001px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.40 </span><span class="caption-text">Imaging result of RDA (with SRC, without RCMC)</span><a class="headerlink" href="#id36" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA (with SRC, without RCMC)</p>
+</div>
+</div>
+<div class="figure align-center" id="id37">
+<a class="reference internal image-reference" href="../../../_images/RDA_StanleyPark_noSRC_RCMC32.png"><img alt="Imaging result of RDA (without SRC, with RCMC(sinc 32))" src="../../../_images/RDA_StanleyPark_noSRC_RCMC32.png" style="width: 693.0px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.41 </span><span class="caption-text">Imaging result of RDA (without SRC, with RCMC(sinc 32))</span><a class="headerlink" href="#id37" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA (without SRC, with RCMC(sinc 32))</p>
+</div>
+</div>
+<div class="figure align-center" id="id38">
+<a class="reference internal image-reference" href="../../../_images/RDA_StanleyPark_SRC_RCMC32.png"><img alt="Imaging result of RDA (with SRC, with RCMC(sinc 32))" src="../../../_images/RDA_StanleyPark_SRC_RCMC32.png" style="width: 696.6px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.42 </span><span class="caption-text">Imaging result of RDA (with SRC, with RCMC(sinc 32))</span><a class="headerlink" href="#id38" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Imaging result of RDA (with SRC, with RCMC(sinc 32))</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ChirpScalingAlgorithm.html" class="btn btn-neutral float-right" title="4.3. 调频变标成像" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="4.1. SAR成像简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

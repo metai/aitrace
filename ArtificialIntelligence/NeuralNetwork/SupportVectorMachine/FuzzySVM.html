@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.2. 模糊支撑矢量机 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="5. 支撑矢量机" href="index.html"/>
+        <link rel="next" title="5.3. 参考文献" href="zreference.html"/>
+        <link rel="prev" title="5.1. 支撑矢量机" href="SVM.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MachineLearning/index.html">机器学习</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">神经网络</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ModulesOfNN/index.html">2. 神经网络组件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LossFunctions/index.html">3. 神经网络常用损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SimpleNeuralNetwork/index.html">4. 简单神经网络</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">5. 支撑矢量机</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="SVM.html">5.1. 支撑矢量机</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.2. 模糊支撑矢量机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zreference.html">5.3. 参考文献</a></li>
+<li class="toctree-l4"><a class="reference internal" href="glossary.html">5.4. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ExtremeLearningMachine/index.html">6. 极速学习机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RecursiveNeuralNetwork/index.html">9. 递归神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResidualNeuralNetwork/index.html">11. 残差神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FractalNeuralNetwork/index.html">12. 分形神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticNeuralNetwork/index.html">13. 随机神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ComplexityAnalysis/index.html">14. 复杂度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">15. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">16. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">神经网络</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">5. </span>支撑矢量机</a> &raquo;</li>
+        
+      <li><span class="section-number">5.2. </span>模糊支撑矢量机</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-fuzzysupportvectormachine">
+<span id="id1"></span><h1><span class="section-number">5.2. </span>模糊支撑矢量机<a class="headerlink" href="#section-fuzzysupportvectormachine" title="永久链接至标题">¶</a></h1>
+<p><strong>模糊支撑矢量机</strong> (<span class="xref std std-term">Fuzzy Support Vector Machine</span>, FSVM) 通过在SVM中引入模糊性质, 使得对不干净输入更加鲁棒. <a class="bibtex reference internal" href="zreference.html#chunfulin-2002" id="id2">[1]</a> , <a class="bibtex reference internal" href="zreference.html#lin-2005" id="id3">[2]</a> , <a class="bibtex reference internal" href="zreference.html#jiang-2006" id="id4">[3]</a> .</p>
+<div class="section" id="fsvm">
+<h2><span class="section-number">5.2.1. </span>FSVM原理<a class="headerlink" href="#fsvm" title="永久链接至标题">¶</a></h2>
+<p>现实世界中, 每个训练样本的重要性不一, 通常一些训练样本比另外一些更重要, 我们希望有意义的样本正确分类, 而不关心噪声样本是否被错分 <a class="bibtex reference internal" href="zreference.html#chunfulin-2002" id="id5">[1]</a> . 假设有训练样本集 <span class="math">\({\mathbb S} = \{({\bm x}_i, {\bm y}_i)\}_{i=1}^N\)</span> , 为每一个训练样本分配一个隶属度 <span class="math">\(\mu_i\)</span>, 则样本集重新表示为 <span class="math">\(\tilde{\mathbb S} = \{({\bm x}_i, {\bm y}_i, \mu_i)\}_{i=1}^N\)</span>, SVM 优化问题 <a class="reference internal" href="SVM.html#equation-equ-svm-problem">式.5.16</a> 变为</p>
+<div class="math" id="equation-equ-fsvm-problem">
+<span class="eqno">(5.17)<a class="headerlink" href="#equation-equ-fsvm-problem" title="公式的永久链接">¶</a></span>\[\begin{array}{c}{\text { minimize } \frac{1}{2} \|\bm{w}\|^2 + C \sum_{i=1}^{N} \mu_i\xi_{i}} \\ {\text { subject to } y_{i}\left(\bm{w} \cdot \bm{z}_{i}+b\right) \geq 1-\xi_{i}, \quad i=1, \ldots, N} \\ {\xi_{i} \geq 0, \quad i=1, \ldots, N}\end{array},
+
+\]</div>
+<p>其中, <span class="math">\({\bm w}\)</span> 为模型参数, <span class="math">\(C\)</span> 为平衡因子, <span class="math">\(\xi_i\)</span> 为第 <span class="math">\(i\)</span> 个样本对应误差, <span class="math">\({\bm z}_i\)</span> 为第 <span class="math">\(i\)</span> 个样本 <span class="math">\({\bm x}_i\)</span> 在特征空间中的象 <span class="math">\({\bm z}_i = f({\bm x}_i)\)</span> , <span class="math">\(f: {\mathbb R}^n \rightarrow {\mathbb R}^m\)</span>.</p>
+</div>
+<div class="section" id="subsubsection-fsvm-membershipfuncselection">
+<span id="id6"></span><h2><span class="section-number">5.2.2. </span>隶属函数选择<a class="headerlink" href="#subsubsection-fsvm-membershipfuncselection" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3>基于时间特性<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>对于序列学习, 样本的重要性与样本到达时间紧密相关, 特别是在实时信号处理中, 最新到达的样本比以往的样本更重要, 因而可以根据时间来确定隶属度 <a class="bibtex reference internal" href="zreference.html#chunfulin-2002" id="id8">[1]</a> , 即</p>
+<div class="math">
+\[{\mu}_{i}=f_{1}\left(t_{i}\right)=\frac{1-\sigma}{t_{N}-t_{1}} t_{i}+\frac{t_{N} \sigma-t_{1}}{t_{N}-t_{1}},
+
+\]</div>
+<p>其中, <span class="math">\(t_{1}&lt;\cdots t_{i}&lt;\cdots t_{N}\)</span> 是训练样本到达时间序列.</p>
+</div>
+<div class="section" id="id9">
+<h3>基于类别中心<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>使用样本到类别中心的距离作为隶属度可以减少异常值的影响, 假设有 <span class="math">\(K\)</span> 个类别, 用 <span class="math">\(\bar{{\bm x}_k}\)</span> 表示第 <span class="math">\(k\)</span> 类的均值中心. 可定义如下隶属函数</p>
+<div class="math">
+\[{\mu}_i={1-\left|\bar{\bm x}_{k}-{\bm x}_{i}\right| / \left(r_{k}+\delta\right)} \;\;{\text { if } y_{i}=k}
+
+\]</div>
+<p>其中, <span class="math">\(k=1,2,\cdots,K\)</span> , <span class="math">\(\delta &gt; 0\)</span> 以避免 <span class="math">\(\mu_i = 0\)</span> , <span class="math">\(r_{k}\)</span> 为类别 <span class="math">\(k\)</span> 的半径:</p>
+<div class="math">
+\[r_{k}=\max _{\left\{\bm{x}_{i} : y_i=k\right\}}\left|\bar{\bm x}_{k}-\bm{x}_{i}\right|.
+
+\]</div>
+</div>
+<div class="section" id="id10">
+<h3>基于训练误差<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>还可以根据训练误差来设置隶属度 <a class="bibtex reference internal" href="zreference.html#zheng-2013" id="id11">[9]</a>, 这种方法需要先使用SVM训练, 将得到的误差 <span class="math">\(e\)</span> 进行如下公式转换为隶属度:</p>
+<div class="math">
+\[{\mu}_i=f_{3}\left(e_{i}\right)=1-\frac{e_{i}}{e_{\rm max}+\delta}
+
+\]</div>
+<p>其中, <span class="math">\(e_{\rm max}=\max \left\{e_{1}, \cdots, e_{i}, \cdots, e_{N}\right\}\)</span> , <span class="math">\(\delta&gt;0\)</span> .</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2><span class="section-number">5.2.3. </span>实验及结果<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zreference.html" class="btn btn-neutral float-right" title="5.3. 参考文献" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SVM.html" class="btn btn-neutral" title="5.1. 支撑矢量机" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

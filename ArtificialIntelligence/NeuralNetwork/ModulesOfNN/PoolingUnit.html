@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3. 池化单元 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 神经网络组件" href="index.html"/>
+        <link rel="next" title="2.4. 正则化单元" href="RegularizationUnit.html"/>
+        <link rel="prev" title="2.2. 卷积单元" href="ConvolutionUnit.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MachineLearning/index.html">机器学习</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">神经网络</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 神经网络组件</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ActivationsUnit.html">2.1. 激活函数单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvolutionUnit.html">2.2. 卷积单元</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.3. 池化单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RegularizationUnit.html">2.4. 正则化单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SkipConnection.html">2.5. 跳跃连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RecursiveUnit.html">2.6. 递归单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResidualUnit.html">2.7. 残差单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zreference.html">2.8. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LossFunctions/index.html">3. 神经网络常用损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SimpleNeuralNetwork/index.html">4. 简单神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SupportVectorMachine/index.html">5. 支撑矢量机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExtremeLearningMachine/index.html">6. 极速学习机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RecursiveNeuralNetwork/index.html">9. 递归神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResidualNeuralNetwork/index.html">11. 残差神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FractalNeuralNetwork/index.html">12. 分形神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticNeuralNetwork/index.html">13. 随机神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ComplexityAnalysis/index.html">14. 复杂度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">15. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">16. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">神经网络</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>神经网络组件</a> &raquo;</li>
+        
+      <li><span class="section-number">2.3. </span>池化单元</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-poolingunit">
+<span id="id1"></span><h1><span class="section-number">2.3. </span>池化单元<a class="headerlink" href="#section-poolingunit" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.3.1. </span>经典二维池化运算<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>与经典二维卷积一样, 池化后的特征图大小为</p>
+<div class="math" id="equation-equ-classicalpooling2dsize">
+<span class="eqno">(2.18)<a class="headerlink" href="#equation-equ-classicalpooling2dsize" title="公式的永久链接">¶</a></span>\[\begin{array}{ll}
+H_{o} &= \left\lfloor\frac{H_{i}  + 2 \times P_h - K_h}{S_h} + 1\right\rfloor \\
+W_{o} &= \left\lfloor\frac{W_{i}  + 2 \times P_w - K_w}{S_w} + 1\right\rfloor
+\end{array}
+
+\]</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.3.2. </span>膨胀二维池化运算<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="math" id="equation-equ-dilationpooling2dsize">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-equ-dilationpooling2dsize" title="公式的永久链接">¶</a></span>\[\begin{array}{ll}
+H_{o} &= \left\lfloor\frac{H_{i}  + 2 \times P_h - D_h \times (K_h - 1) - 1}{S_h} + 1\right\rfloor \\
+W_{o} &= \left\lfloor\frac{W_{i}  + 2 \times P_w - D_w \times (K_w - 1) - 1}{S_w} + 1\right\rfloor
+\end{array}
+
+\]</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.3.3. </span>金字塔池化<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>空间金字塔池化<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>空间金字塔池化(Spatial Pyramid Pooling, SPP)由何凯明等人于2015年提出 <a class="bibtex reference internal" href="zreference.html#spatial-k-he-2015" id="id6">[1]</a>, 如 <a class="reference internal" href="#fig-spp"><span class="std std-numref">图 2.32</span></a> 所示, 对于任意大小的特征图输出, 通过使用不同池化窗口和步长, 对特征图进行池化, 将特征图划分成具有不同尺度的固定大小特征图, 特征图拉成列向量并连接, 得到固定的输出维度, 实现了多尺度网络的训练以及识别，进而提升了图像分类和目标检测的精度.</p>
+<div class="figure align-center" id="id13">
+<span id="fig-spp"></span><a class="reference internal image-reference" href="../../../_images/SPP.png"><img alt="空间金字塔池化" src="../../../_images/SPP.png" style="width: 568.0px; height: 454.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 2.32 </span><span class="caption-text">空间金字塔池化</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>空间金字塔池化</p>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>金字塔场景池化<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>赵等人 <a class="bibtex reference internal" href="zreference.html#pyramid-zhao-2016" id="id8">[2]</a> 于2016年提出一种用于语义分割的金字塔场景分析网络(Pyramid Scene Parsing Network, PSP-Net), 其中采用 <a class="reference internal" href="#fig-pspnetspp"><span class="std std-numref">图 2.33</span></a> 所示池化结构, 与SPP类似, 通过使用不同池化窗口和步长, 对特征图进行池化, 可以得到不同等级池化特征(图中对应全局池化, <span class="math">\(2×2\)</span>, <span class="math">\(3×3\)</span>, <span class="math">\(6×6\)</span>), 与SPP不同的是, 空间金字塔池化后, 采用 <span class="math">\(1×1×N\)</span> 的卷积核来调整通道数, 并使用上采样操作将不同等级的特征图上采样到与原始卷积输出特征图一致大小.</p>
+<div class="figure align-center" id="id14">
+<span id="fig-pspnetspp"></span><a class="reference internal image-reference" href="../../../_images/PSP.png"><img alt="金字塔池化" src="../../../_images/PSP.png" style="width: 1065.6000000000001px; height: 472.8px;" /></a>
+<p class="caption"><span class="caption-number">图 2.33 </span><span class="caption-text">金字塔池化</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>金字塔池化</p>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>扩张空间金字塔池化<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>扩张空间金字塔池化(Atrous Spatial Pyramid Pooling, ASPP)由陈等人 <a class="bibtex reference internal" href="zreference.html#rethinking-chen-2017" id="id10">[3]</a><a class="bibtex reference internal" href="zreference.html#encoder-chen-2018" id="id11">[4]</a><a class="bibtex reference internal" href="zreference.html#deeplab-l-chen-2018" id="id12">[5]</a> 提出, 如 <a class="reference internal" href="#fig-pspnetaspp"><span class="std std-numref">图 2.34</span></a> 所示, 通过不同大小的卷积核, 膨胀因子和填补大小, 输出相同大小的卷积特征图, 将这些不同尺度的特征拼接再经过 <span class="math">\(1×1\)</span> 卷积等到 ASPP 池化输出.</p>
+<div class="figure align-center" id="id15">
+<span id="fig-pspnetaspp"></span><a class="reference internal image-reference" href="../../../_images/ASPP.png"><img alt="扩张空间金字塔池化" src="../../../_images/ASPP.png" style="width: 1128.8px; height: 490.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 2.34 </span><span class="caption-text">扩张空间金字塔池化</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>扩张空间金字塔池化</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RegularizationUnit.html" class="btn btn-neutral float-right" title="2.4. 正则化单元" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ConvolutionUnit.html" class="btn btn-neutral" title="2.2. 卷积单元" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

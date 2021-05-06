@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.7. 特殊线性空间 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 线性空间与线性变换" href="index.html"/>
+        <link rel="next" title="2. 范数理论及应用" href="../NormTheory/index.html"/>
+        <link rel="prev" title="1.6. 广义特征值与特征向量" href="GeneralizedEigenValuesEigenVectors.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 线性空间与线性变换</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="LinearSpace.html">1.1. 线性空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSubspace.html">1.2. 线性子空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html">1.3. 线性变换及其表示</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EigenValuesEigenVectors.html">1.4. 特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixDiagonalization.html">1.5. 矩阵对角化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html">1.6. 广义特征值与特征向量</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.7. 特殊线性空间</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>线性空间与线性变换</a> &raquo;</li>
+        
+      <li><span class="section-number">1.7. </span>特殊线性空间</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-speciallinearspace">
+<span id="id1"></span><h1><span class="section-number">1.7. </span>特殊线性空间<a class="headerlink" href="#section-speciallinearspace" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.7.1. </span>内积空间<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>什么是内积空间<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>内积空间 ( <a class="reference internal" href="../../glossary/glossary.html#term-inner-product-space"><span class="xref std std-term">Inner product space</span></a> ) : 在线性代数中, 内积空间是具有称为内积的附加结构的向量空间. 这个附加结构将空间中的每对向量与称为向量内积的标量量相关联. 内积允许严格引入直观的几何概念, 如向量的长度或两个向量之间的角度. 它们还提供了定义向量之间的正交性 (零内积) 的方法. 内积空间将欧氏空间 (其中内积是点积, 也称为标量积) 推广到任意 (可能是无限) 维的向量空间, 并在泛函分析中加以研究. 带内积的向量空间概念的首次使用是由于Peano在1898年提出的.</p>
+</div></blockquote>
+<div class="proof proof-type-definition" id="id19">
+<span id="def-innerproductspace"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.20</span>
+        
+            <span class="proof-title-name">(内积空间)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\mathbb V}\)</span> 是数域 <span class="math">\(\mathbb K\)</span> 上的线性空间 (<a class="reference internal" href="LinearSpace.html#def-linearspace"><span class="std std-ref">线性空间</span></a>) , 对于 <span class="math">\({\mathbb V}\)</span> 中的任意两个元素, 按某一规则定义一个 <em>实数</em> , 记为 <span class="math">\(\left\langle {{\bm{x}},{\bm{y}}} \right\rangle\)</span> , 若它满足</p>
+<ol class="arabic simple">
+<li><p>交换律: <span class="math">\(\left\langle {{\bm{x}},{\bm{y}}} \right\rangle  = \overline {\left\langle {{\bm{x}},{\bm{y}}} \right\rangle }\)</span></p></li>
+<li><p>分配率: <span class="math">\(\left\langle {{\bm{x}},{\bm{y}} \oplus {\bm{z}}} \right\rangle  = \left\langle {{\bm{x}},{\bm{y}}} \right\rangle  + \left\langle {{\bm{x}},{\bm{z}}} \right\rangle\)</span></p></li>
+<li><p>齐次性: <span class="math">\(\left\langle {k \odot {\bm{x}},{\bm{y}}} \right\rangle  = k\left\langle {{\bm{x}},{\bm{y}}} \right\rangle\)</span> , ( <span class="math">\(\forall k \in {\mathbb K}\)</span>   )</p></li>
+<li><p>非负性: <span class="math">\(\left\langle {{\bm{x}},{\bm{x}}} \right\rangle  \ge 0\)</span> , 当且仅当 <span class="math">\({\bm x} = {\bm 0}\)</span> , <span class="math">\(\left\langle {{\bm{x}},{\bm{x}}} \right\rangle  = 0\)</span></p></li>
+</ol>
+<p>则称 <span class="math">\(\left\langle {\bm x}, {\bm y} \right\rangle\)</span> 为 <span class="math">\({\bm x}\)</span> 与 <span class="math">\({\bm y}\)</span> 的内积, 称 <span class="math">\({\mathbb V}\)</span> 为 <strong>内积空间</strong> (<a class="reference internal" href="../../glossary/glossary.html#term-inner-product-space"><span class="xref std std-term">Inner product space</span></a>).</p>
+</div></div><div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>为什么不定义一个复数?</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>欧式空间(实内积空间)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>当上述内积空间中的数域 <span class="math">\(\mathbb K\)</span> 为实数域 <span class="math">\(\mathbb R\)</span> 时, 称 <span class="math">\({\mathbb V}\)</span> 为 <strong>欧式空间</strong> (Euclid space) 或 <strong>实内积空间</strong> .</p>
+</div>
+<div class="section" id="id5">
+<h3>酉空间(复内积空间)<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>当上述内积空间中的数域 <span class="math">\(\mathbb K\)</span> 为实数域 <span class="math">\(\mathbb C\)</span> 时, 称 <span class="math">\({\mathbb V}\)</span> 为 <strong>酉空间</strong> (Euclid space) 或 <strong>复内积空间</strong> .</p>
+</div>
+<div class="section" id="id6">
+<h3>常见内积及其性质<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>定义<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>在复 <span class="math">\(n\)</span> 维向量空间 <span class="math">\({\mathbb C}^n\)</span> 中, 对于任意两个元素</p>
+<div class="math">
+\[{\bm x} = (\xi_1, \xi_2, \cdots, \xi_n) , {\bm y} = (\eta_1, \eta_2, \cdots, \eta_n)
+
+\]</div>
+<p>定义它们的内积为</p>
+<div class="math">
+\[\left\langle {\bm x}, {\bm y} \right\rangle = \xi_1 \bar{\eta_1} + \xi_2 \bar{\eta_2} + \cdots + \xi_n \bar{\eta_n} = {\bm x}{\bm y}^H
+
+\]</div>
+<p>上述定义对实 <span class="math">\(n\)</span> 维向量空间 <span class="math">\({\mathbb R}^n\)</span> 也成立.</p>
+</div>
+<div class="section" id="id8">
+<h4>性质<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p><span class="math">\(\left\langle {\bm x}, {\bm x} \right\rangle = \sum_{i=1}^n{|\xi_i|^2}\)</span></p></li>
+<li><p><span class="math">\(\left\langle {\bm x}, k{\bm y} \right\rangle = \bar{k} \left\langle {\bm x}, k{\bm y} \right\rangle\)</span></p></li>
+<li><p><span class="math">\(\left\langle {\bm x}, {\bm 0} \right\rangle = \left\langle {\bm 0}, {\bm x} \right\rangle = 0\)</span></p></li>
+<li><p><span class="math">\(\left\langle \sum_{i=1}^n\xi_i{\bm x}_i, \sum_{j=1}^n\eta_j{\bm y}_j \right\rangle = \sum_{i,j=1}^n \xi_i \bar{\eta_j}{\left\langle {\bm x}_i, {\bm y}_j \right\rangle}\)</span></p></li>
+<li><p>长度: <span class="math">\(|{\bm x}| = \sqrt{\left\langle {\bm x}, {\bm x} \right\rangle}\)</span></p></li>
+<li><p>夹角: <span class="math">\({\rm cos} ({\bm x}, {\bm y}) = \frac{\left\langle {\bm x}, {\bm y} \right\rangle}{|{\bm x}| |{\bm y}|}\)</span> , 当 <span class="math">\(\left\langle {\bm x}, {\bm y} \right\rangle = 0\)</span> 时, 称 <span class="math">\({\bm x}, {\bm y}\)</span> <strong>正交</strong> 或 <strong>垂直</strong></p></li>
+<li><p>Cauchy-不等式: <span class="math">\(\left\langle {\bm x}, {\bm y} \right\rangle \left\langle {\bm y}, {\bm x} \right\rangle \leq \left\langle {\bm x}, {\bm x} \right\rangle \left\langle {\bm y}, {\bm y} \right\rangle\)</span></p></li>
+<li><p>任意线性无关的向量组可以用 Schmidt 正交化</p></li>
+<li><p>任一非零酉空间都存在正交基和标准正交基</p></li>
+<li><p>任一 <span class="math">\(n\)</span> 维酉空间 <span class="math">\({\mathbb V}^n\)</span> 均为其子空间 <span class="math">\({\mathbb V}_1\)</span> 与 <span class="math">\({\mathbb V}_1^{\perp}\)</span> 的和</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h4>度量矩阵<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="schmidt">
+<h4>Schmidt正交化<a class="headerlink" href="#schmidt" title="永久链接至标题">¶</a></h4>
+<p>任给线性空间 <span class="math">\(\mathbb V\)</span> 中的一组向量, 可以采用 <strong>Schmidt正交化</strong> (<a class="reference internal" href="../../glossary/glossary.html#term-gramschmidt-process"><span class="xref std std-term">Gram–Schmidt process</span></a>) 方法正交化之, 其原理如 <a class="reference internal" href="#fig-gramschmidt-orthonormalization-process"><span class="std std-numref">图 1.7</span></a> 所示, 动态示意图如 <a class="reference internal" href="#fig-gramschmidt-orthonormalization-process"><span class="std std-numref">图 1.7</span></a> 所示.</p>
+<div class="figure align-center" id="id20">
+<span id="fig-schmitorthogonal"></span><a class="reference internal image-reference" href="../../../_images/SchmitOrthogonal.png"><img alt="Schmidt正交化" src="../../../_images/SchmitOrthogonal.png" style="width: 580.8000000000001px; height: 434.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 1.6 </span><span class="caption-text">Schmidt正交化图解</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Schmidt正交化图解 (二维空间域三维空间)</p>
+</div>
+</div>
+<div class="figure align-center" id="id21">
+<span id="fig-gramschmidt-orthonormalization-process"></span><a class="reference internal image-reference" href="../../../_images/Gram-Schmidt_orthonormalization_process.png"><img alt="Schmidt正交化" src="../../../_images/Gram-Schmidt_orthonormalization_process.png" style="width: 421.6px; height: 501.6px;" /></a>
+<p class="caption"><span class="caption-number">图 1.7 </span><span class="caption-text">Schmidt正交化动图示意</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Schmidt正交化动图示意 (来自维基百科)</p>
+</div>
+</div>
+<p>一般地, 设有内积空间 <span class="math">\({\mathbb V}^n\)</span> 中的 <span class="math">\(m\)</span> 个元素 <span class="math">\({\bm v}_1, {\bm v}_2, \cdots, {\bm v}_m\)</span> <span class="math">\(1 \leq m \leq n, m\in {\mathbb Z}^+\)</span> , 可以使用如下 Schmidt正交化 步骤正交化它们:</p>
+<div class="math">
+\[\begin{array}{l}
+{{\bm{u}}_1} = {{\bm{v}}_1}\\
+{{\bm{u}}_2} = {{\bm{v}}_2} - \frac{{\left\langle {{{\bm{v}}_2},{{\bm{u}}_1}} \right\rangle }}{{\left\langle {{{\bm{u}}_1},{{\bm{u}}_1}} \right\rangle }}{{\bm{u}}_1}\\
+{{\bm{u}}_3} = {{\bm{v}}_3} - \frac{{\left\langle {{{\bm{v}}_3},{{\bm{u}}_1}} \right\rangle }}{{\left\langle {{{\bm{u}}_1},{{\bm{u}}_1}} \right\rangle }}{{\bm{u}}_1} - \frac{{\left\langle {{{\bm{v}}_3},{{\bm{u}}_2}} \right\rangle }}{{\left\langle {{{\bm{u}}_2},{{\bm{u}}_2}} \right\rangle }}{{\bm{u}}_2}\\
+ \vdots \\
+{{\bm{u}}_m} = {{\bm{v}}_m} - \frac{{\left\langle {{{\bm{v}}_m},{{\bm{u}}_1}} \right\rangle }}{{\left\langle {{{\bm{u}}_1},{{\bm{u}}_1}} \right\rangle }}{{\bm{u}}_1} - \frac{{\left\langle {{{\bm{v}}_m},{{\bm{u}}_2}} \right\rangle }}{{\left\langle {{{\bm{u}}_2},{{\bm{u}}_2}} \right\rangle }}{{\bm{u}}_2} \cdots  - \frac{{\left\langle {{{\bm{v}}_m},{{\bm{u}}_{m - 1}}} \right\rangle }}{{\left\langle {{{\bm{u}}_{m - 1}},{{\bm{u}}_{m - 1}}} \right\rangle }}{{\bm{u}}_{m - 1}}
+\end{array}
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>内积空间中线性变换<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>设 <span class="math">\({\bm e}_1, {\bm e}_2\)</span> 为二维欧氏空间 <span class="math">\({\mathbb R}^2\)</span> 的一组基,  <span class="math">\({\mathbb R}^2\)</span> 中的两个元素 <span class="math">\({\bm x}, {\bm y}\)</span> 在该基下的坐标表示为 <span class="math">\({\bm x} = (\xi_1, \xi_2), {\bm y} = (\eta_1, \eta_2)\)</span> , 线性变换 <span class="math">\(T\)</span> 在该基下的矩阵为 <span class="math">\({\bm A} = \left[ {\begin{array}{ccc}a&amp;b\\c&amp;d\end{array}} \right]\)</span> , 则有</p>
+<div class="math">
+\[\begin{array}{lll}
+{T{\bm{x}} = \left[ {\begin{array}{ccc}
+a&b\\
+c&d
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{{\xi _1}}\\
+{{\xi _2}}
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+{a{\xi _1} + b{\xi _2}}\\
+{c{\xi _1} + d{\xi _2}}
+\end{array}} \right]}\\
+{T{\bm{y}} = \left[ {\begin{array}{ccc}
+a&b\\
+c&d
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{{\eta _1}}\\
+{{\eta _2}}
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+{a{\eta _1} + b{\eta _2}}\\
+{c{\eta _1} + d{\eta _2}}
+\end{array}} \right]}
+\end{array}
+
+\]</div>
+<p>从而有</p>
+<div class="math">
+\[\left\langle {{\bm{x}},{\bm{y}}} \right\rangle  = \left\langle {{{({\xi _1},{\xi _2})}^T},\;{{({\eta _1},{\eta _2})}^T}} \right\rangle  = {\xi _1}{\eta _1} + {\xi _2}{\eta _2}
+
+\]</div>
+<div class="math">
+\[\begin{array}{lll}
+{\left\langle {T{\bm{x}},{\bm{y}}} \right\rangle  = \left\langle {{{\left( {a{\xi _1} + b{\xi _2},\;c{\xi _1} + d{\xi _2}} \right)}^T},\;{{\left( {{\eta _1},{\eta _2}} \right)}^T}} \right\rangle }\\
+{\;\;\;\;\;\;\;\;\;\; = (a{\xi _1} + b{\xi _2}){\eta _1} + (c{\xi _1} + d{\xi _2}){\eta _2}}\\
+{\;\;\;\;\;\;\;\;\;\; = a{\xi _1}{\eta _1} + b{\xi _2}{\eta _1} + c{\xi _1}{\eta _2} + d{\xi _2}{\eta _2}}
+\end{array}
+
+\]</div>
+<div class="math">
+\[\begin{array}{lll}
+{\left\langle {{\bm{x}},T{\bm{y}}} \right\rangle  = \left\langle {{{\left( {{\xi _1},{\xi _2}} \right)}^T},\;{{\left( {a{\eta _1} + b{\eta _2},\;c{\eta _1} + d{\eta _2}} \right)}^T}} \right\rangle }\\
+{\;\;\;\;\;\;\;\;\;\; = {\xi _1}(a{\eta _1} + b{\eta _2}) + {\xi _2}(c{\eta _1} + d{\eta _2})}\\
+{\;\;\;\;\;\;\;\;\;\; = a{\xi _1}{\eta _1} + b{\xi _1}{\eta _2} + c{\xi _2}{\eta _1} + d{\xi _2}{\eta _2}}
+\end{array}
+
+\]</div>
+<div class="math">
+\[\begin{array}{lll}
+{\left\langle {T{\bm{x}},T{\bm{y}}} \right\rangle  = \left\langle {{{\left( {a{\xi _1} + b{\xi _2},\;c{\xi _1} + d{\xi _2}} \right)}^T},\;{{\left( {a{\eta _1} + b{\eta _2},\;c{\eta _1} + d{\eta _2}} \right)}^T}} \right\rangle }\\
+{\;\;\;\;\;\;\;\;\;\;\;\; = (a{\xi _1} + b{\xi _2})(a{\eta _1} + b{\eta _2}) + (c{\xi _1} + d{\xi _2})(c{\eta _1} + d{\eta _2})}\\
+{\;\;\;\;\;\;\;\;\;\;\;\; = {a^2}{\xi _1}{\eta _1} + {b^2}{\xi _2}{\eta _2} + ab{\xi _1}{\eta _2} + ab{\xi _2}{\eta _1} + }\\
+{\;\;\;\;\;\;\;\;\;\;\;\;\;\;{c^2}{\xi _1}{\eta _1} + {d^2}{\xi _2}{\eta _2} + cd{\xi _1}{\eta _2} + cd{\xi _2}{\eta _1}}\\
+{\;\;\;\;\;\;\;\;\;\;\;\;{\rm{ = }}({a^2} + {c^2}){\xi _1}{\eta _1} + ({b^2} + {d^2}){\xi _2}{\eta _2} + (ab + cd){\xi _1}{\eta _2} + (ab + cd){\xi _2}{\eta _1}}
+\end{array}
+
+\]</div>
+<ol class="arabic simple">
+<li><p>由 <span class="math">\(\left\langle {T{\bm{x}},{\bm{y}}} \right\rangle = \left\langle {{\bm{x}},T{\bm{y}}} \right\rangle\)</span>  可以推出</p></li>
+</ol>
+<div class="math">
+\[b = c
+
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>由 <span class="math">\(\left\langle {T{\bm{x}},{\bm{y}}} \right\rangle = -\left\langle {{\bm{x}},T{\bm{y}}} \right\rangle\)</span>  可以推出</p></li>
+</ol>
+<div class="math">
+\[b = -c
+
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>由 <span class="math">\(\left\langle{\bm x}, {\bm y}\right\rangle = \left\langle T{\bm x}, T{\bm y}\right\rangle\)</span>  可以推出</p></li>
+</ol>
+<div class="math">
+\[\left\{ {\begin{array}{ccc}{{a^2} + {c^2} = 1}\\{{b^2} + {d^2} = 1}\\{ab + cd = 0}\end{array}} \right.
+
+\]</div>
+<div class="section" id="id11">
+<h4>实对称变换<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T\)</span> 是欧氏空间 <span class="math">\({\mathbb V}\)</span> 的一个线性变换, 且对 <span class="math">\({\mathbb V}\)</span> 中的任意两个元素 <span class="math">\({\bm x}, {\bm y}\)</span>   有</p>
+<div class="math">
+\[\left\langle T{\bm x}, {\bm y}\right\rangle = \left\langle {\bm x}, T{\bm y}\right\rangle  ,
+
+\]</div>
+<p>则称 <span class="math">\(T\)</span> 是 <span class="math">\({\mathbb V}\)</span> 中的 <strong>实对称变换</strong> , 一般简称为 <strong>对称变换</strong> .</p>
+<p>对称变换在标准正交基下的矩阵满足</p>
+<div class="math">
+\[{\bm A}^T = {\bm A}
+
+\]</div>
+<p>称为 <strong>实对称矩阵</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-symmetric-matrix"><span class="xref std std-term">Symmetric matrix</span></a> ) , 其中, <span class="math">\({\bm A}^T\)</span> 为 <span class="math">\({\bm A}\)</span> 的 <strong>转置矩阵</strong> (也可以是共轭转置, 实数的共轭为其自身), 即有 <span class="math">\(a_{ij} = a_{ji}\)</span> .</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ol class="arabic simple">
+<li><p>欧式空间的线性变换 <span class="math">\(T\)</span> 是实对称变换 <span class="math">\(\leftrightarrow\)</span>  <span class="math">\(T\)</span> 在标准正交基下的矩阵为实对称矩阵;</p></li>
+<li><p>实对称矩阵的特征值都是实数;</p></li>
+<li><p>实对称矩阵的不同特征值对应特征向量正交.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>实反对称变换<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T\)</span> 是欧氏空间 <span class="math">\({\mathbb V}\)</span> 的一个线性变换, 且对 <span class="math">\({\mathbb V}\)</span> 中的任意两个元素 <span class="math">\({\bm x}, {\bm y}\)</span>   有</p>
+<div class="math">
+\[\left\langle T{\bm x}, {\bm y}\right\rangle = -\left\langle {\bm x}, T{\bm y}\right\rangle  ,
+
+\]</div>
+<p>则称 <span class="math">\(T\)</span> 是 <span class="math">\({\mathbb V}\)</span> 中的 <strong>实反对称变换</strong> , 一般简称为 <strong>反对称变换</strong> .</p>
+<p>反对称变换在标准正交基下的矩阵满足</p>
+<div class="math">
+\[{\bm A}^T = -{\bm A}
+
+\]</div>
+<p>称为 <strong>实反对称矩阵</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-skew-symmetric-matrix"><span class="xref std std-term">Skew-symmetric matrix</span></a> ) , 其中, <span class="math">\({\bm A}^T\)</span> 为 <span class="math">\({\bm A}\)</span> 的 <strong>转置矩阵</strong> (也可以是共轭转置, 实数的共轭为其自身), 即有 <span class="math">\(a_{ij} = -a_{ji}\)</span> .</p>
+</div>
+<div class="section" id="id13">
+<h4>正交变换<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\({\mathbb V}\)</span> 是欧氏空间, <span class="math">\(T\)</span> 是 <span class="math">\({\mathbb V}\)</span> 的一个线性变换, 若 <span class="math">\(T\)</span> 对 <span class="math">\({\mathbb V}\)</span> 中的任意元素 <span class="math">\({\bm x}， {\bm y}\)</span> 满足</p>
+<div class="math">
+\[\left\langle{\bm x}, {\bm y}\right\rangle = \left\langle T{\bm x}, T{\bm y}\right\rangle ,
+
+\]</div>
+<p>那么称 <span class="math">\(T\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 的一个 <strong>正交变换</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-orthogonal-transformation"><span class="xref std std-term">Orthogonal transformation</span></a> ).</p>
+<p>正交变换在标准正交基下的矩阵满足</p>
+<div class="math">
+\[{\bm Q}^T{\bm Q} = {\bm Q}{\bm Q}^T = {\bm I} 或 {\bm Q}^{-1} = {\bm Q}^T
+
+\]</div>
+<p>称为 <strong>正交矩阵</strong> .</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ol class="arabic simple">
+<li><p>正交变换是保持图形形状和大小不变的几何变换, 包含旋转, 平移, 轴对称及上述变换的复合.</p></li>
+<li><p>正交变换可以保证向量的长度和两个向量之间的夹角不变.</p></li>
+<li><p>正交变换将正交基映射到正交基.</p></li>
+<li><p>二维或三维欧氏空间中的正交变换是刚性旋转、反射或旋转和反射的组合.</p></li>
+</ol>
+</div>
+<p>容易验证, 旋转变换是正交变换</p>
+<ul class="simple">
+<li><p>逆时针旋转: <span class="math">\(\left[ {\begin{array}{lll}{\cos \theta }&amp;{ - \sin \theta }\\{\sin \theta }&amp;{\cos \theta }\end{array}} \right]\left[ {\begin{array}{ccc}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{ccc}{{x_1}\cos \theta  - {x_2}\sin \theta }\\{{x_1}\sin \theta  + {x_2}\cos \theta }\end{array}} \right]\)</span></p></li>
+<li><p>顺时针旋转: <span class="math">\(\left[ {\begin{array}{lll}{\cos \theta }&amp;{\sin \theta }\\{ - \sin \theta }&amp;{\cos \theta }\end{array}} \right]\left[ {\begin{array}{ccc}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{ccc}{{x_1}\cos \theta  + {x_2}\sin \theta }\\{ - {x_1}\sin \theta  + {x_2}\cos \theta }\end{array}} \right]\)</span></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>设 <span class="math">\({\bm x}, {\bm y}\)</span> 是欧氏空间中的元素, 则有</p>
+<div class="math">
+\[\begin{array}{lll}
+{T{\bm{x}} = \left[ {\begin{array}{lll}
+{\cos \theta }&{ - \sin \theta }\\
+{\sin \theta }&{\cos \theta }
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{{x_1}}\\
+{{x_2}}
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+{{x_1}\cos \theta  - {x_2}\sin \theta }\\
+{{x_1}\sin \theta  + {x_2}\cos \theta }
+\end{array}} \right]}\\
+{T{\bm{y}} = \left[ {\begin{array}{lll}
+{\cos \theta }&{ - \sin \theta }\\
+{\sin \theta }&{\cos \theta }
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{{y_1}}\\
+{{y_2}}
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+{{y_1}\cos \theta  - {y_2}\sin \theta }\\
+{{y_1}\sin \theta  + {y_2}\cos \theta }
+\end{array}} \right]}
+\end{array}
+
+\]</div>
+<p>从而有</p>
+<div class="math">
+\[\begin{array}{lll}
+\begin{array}{l}
+\left\langle {T{\bm{x}},T{\bm{y}}} \right\rangle  = ({\xi _1}\cos \theta  - {\xi _2}\sin \theta )({\eta _1}\cos \theta  - {\eta _2}\sin \theta )\\
+\;\;\;\;\;\;\;\;\;\;\;\; + ({\xi _1}\sin \theta  + {\xi _2}\cos \theta )({\eta _1}\sin \theta  + {\eta _2}\cos \theta )\\
+\;\;\;\;\;\;\;\;\;\;\;\; = {\xi _1}{\eta _1}{\cos ^2}\theta  + {\xi _2}{\eta _2}{\sin ^2}\theta  - {\xi _1}{\eta _2}\sin \theta \cos \theta  - {\xi _2}{\eta _1}\sin \theta \cos \theta
+\end{array}\\
+{\;\;\;\;\;\;\;\;\;\;\;\; + {\xi _1}{\eta _1}{{\sin }^2}\theta  + {\xi _2}{\eta _2}{{\cos }^2}\theta  + {\xi _1}{\eta _2}\sin \theta \cos \theta  + {\xi _2}{\eta _1}\sin \theta \cos \theta }\\
+{\;\;\;\;\;\;\;\;\;\;\;\; = {\xi _1}{\eta _1} + {\xi _2}{\eta _2} = \left\langle {{\bm{x}},{\bm{y}}} \right\rangle }
+\end{array}
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h4>酉对称变换<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T\)</span> 是欧氏空间 <span class="math">\({\mathbb V}\)</span> 的一个线性变换, 且对 <span class="math">\({\mathbb V}\)</span> 中的任意两个元素 <span class="math">\({\bm x}, {\bm y}\)</span> 有</p>
+<div class="math">
+\[\left\langle T{\bm x}, {\bm y}\right\rangle = \left\langle {\bm x}, T{\bm y}\right\rangle  ,
+
+\]</div>
+<p>则称 <span class="math">\(T\)</span> 是 <span class="math">\({\mathbb V}\)</span> 中的 <strong>酉对称变换</strong> .</p>
+<p>酉对称变换在标准正交基下的矩阵满足</p>
+<div class="math">
+\[{\bm A}^H = {\bm A}
+
+\]</div>
+<p>称为 <strong>Hermite矩阵</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-hermitian-matrix"><span class="xref std std-term">Hermitian matrix</span></a> ) 或 <strong>酉对称矩阵</strong> , 其中, <span class="math">\({\bm A}^H\)</span> 为 <span class="math">\({\bm A}\)</span> 的 <strong>共轭转置转置</strong> 矩阵, 即有 <span class="math">\(a_{ij} = \bar{a_{ji}}\)</span> .</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ol class="arabic simple">
+<li><p>酉空间的线性变换 <span class="math">\(T\)</span> 是酉对称变换 <span class="math">\(\leftrightarrow\)</span>  <span class="math">\(T\)</span> 在标准正交基下的矩阵为酉对称矩阵, 即hermite矩阵;</p></li>
+<li><p>酉对称矩阵的特征值都是实数;</p></li>
+<li><p>酉对称矩阵的不同特征值对应特征向量正交.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id15">
+<h4>反酉对称变换<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\(T\)</span> 是欧氏空间 <span class="math">\({\mathbb V}\)</span> 的一个线性变换, 且对 <span class="math">\({\mathbb V}\)</span> 中的任意两个元素 <span class="math">\({\bm x}, {\bm y}\)</span> 有</p>
+<div class="math">
+\[\left\langle T{\bm x}, {\bm y}\right\rangle = -\left\langle {\bm x}, T{\bm y}\right\rangle  ,
+
+\]</div>
+<p>则称 <span class="math">\(T\)</span> 是 <span class="math">\({\mathbb V}\)</span> 中的 <strong>反酉对称变换</strong> .</p>
+<p>反酉对称变换在标准正交基下的矩阵满足</p>
+<div class="math">
+\[{\bm A}^H = -{\bm A}
+
+\]</div>
+<p>称为 <strong>反Hermite矩阵</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-skew-hermitian-matrix"><span class="xref std std-term">Skew-Hermitian matrix</span></a> ) 或 <strong>反酉对称矩阵</strong> , 其中, <span class="math">\({\bm A}^H\)</span> 为 <span class="math">\({\bm A}\)</span> 的 <strong>共轭转置转置</strong> 矩阵, 即有 <span class="math">\(a_{ij} = -\bar{a_{ji}}\)</span> .</p>
+</div>
+<div class="section" id="id16">
+<h4>酉变换<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\({\mathbb V}\)</span> 是酉空间, <span class="math">\(T\)</span> 是 <span class="math">\({\mathbb V}\)</span> 的一个线性变换, 若 <span class="math">\(T\)</span> 对 <span class="math">\({\mathbb V}\)</span> 中的任意元素 <span class="math">\({\bm x}， {\bm y}\)</span> 满足</p>
+<div class="math">
+\[\left\langle{\bm x}, {\bm y}\right\rangle = \left\langle T{\bm x}, T{\bm y}\right\rangle ,
+
+\]</div>
+<p>那么称 <span class="math">\(T\)</span> 是线性空间 <span class="math">\({\mathbb V}\)</span> 的一个 <strong>酉变换</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-unitary-transformation"><span class="xref std std-term">Unitary transformation</span></a> ).</p>
+<p>酉变换在标准正交基下的矩阵满足</p>
+<div class="math">
+\[{\bm A}^H{\bm A} = {\bm A}{\bm A}^H = {\bm I}
+
+\]</div>
+<p>称为 <strong>酉矩阵</strong> .</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ol class="arabic simple">
+<li><p>复内积空间的酉变换对于实内积空间的正交变换.</p></li>
+<li><p>酉变换可以保证向量的长度和两个向量之间的夹角不变.</p></li>
+<li><p>酉变换将正交基映射到正交基.</p></li>
+</ol>
+</div>
+<p>设 <span class="math">\({\bm A} \in {\mathbb C}^{n \times n}\)</span> , 且满足</p>
+<div class="math">
+\[{\bm A}^H{\bm A} = {\bm A}{\bm A}^H
+
+\]</div>
+<p>则称 <span class="math">\({\bm A}\)</span> 为 <strong>正规矩阵</strong> .</p>
+</div>
+<div class="section" id="givens">
+<h4>Givens 旋转变换<a class="headerlink" href="#givens" title="永久链接至标题">¶</a></h4>
+<p>Givens 变换 ( <a class="reference internal" href="../../glossary/glossary.html#term-givens-transformation"><span class="xref std std-term">Givens transformation</span></a> ) , 也称 Givens 旋转 (Givens rotation), 是描述将某一平面内的向量进行旋转的线性变换. 如下图所示为二维平面内的旋转变换:</p>
+<p>一般地, 在 <span class="math">\(n\)</span> 维欧式空间 <span class="math">\({\mathbb R}^n\)</span> 中, 设 <span class="math">\({\bm e}_1, {\bm e}_2, \cdots, {\bm e}_n\)</span> 是一组标准正交基, 在平面 <span class="math">\([{\bm e}_i, {\bm e}_j]\)</span> 中可定义旋转变换</p>
+<div class="math">
+\[{\bm{G}}_{i,j,\theta} = \mathop {\left[ {\begin{array}{ccccccccccc}
+1&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}\\
+{}& \ddots &{}&{}&{}&{}&{}&{}&{}&{}&{}\\
+{}&{}&1&{}&{}&{}&{}&{}&{}&{}&{}\\
+{}&{}&{}&c&{}&{}&{}&{ s}&{}&{}&{}\\
+{}&{}&{}&{}&1&{}&{}&{}&{}&{}&{}\\
+{}&{}&{}&{}&{}& \ddots &{}&{}&{}&{}&{}\\
+{}&{}&{}&{}&{}&{}&1&{}&{}&{}&{}\\
+{}&{}&{}&{-s}&{}&{}&{}&c&{}&{}&{}\\
+{}&{}&{}&{}&{}&{}&{}&{}&1&{}&{}\\
+{}&{}&{}&{}&{}&{}&{}&{}&{}& \ddots &{}\\
+{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&1
+\end{array}} \right]}\limits_{\begin{array}{ccccccccccc}
+{}&i&{}&{}&{}&{}&{}&{}&{}&j&{}
+\end{array}}
+
+\]</div>
+<p>其中, <span class="math">\(c^2 + s^2 = 1\)</span> , <span class="math">\(c = {\rm cos}\theta, s = {\rm sin}\theta\)</span> 称其为 <strong>Givens 矩阵</strong> , 也称 <strong>初等旋转矩阵</strong> , 所对应的线性变换称为 <strong>Givens 变换</strong> , 也称 <strong>初等旋转变换</strong> ,</p>
+<p>性质:</p>
+<ul class="simple">
+<li><p>正交: <span class="math">\({\bm G}_{i,j,\theta}^{-1} = {\bm G}_{i,j,\theta}^{T} = {\bm G}_{i,j, -\theta}\)</span></p></li>
+<li><p><span class="math">\({\rm det}({\bm G}_{i,j,\theta}) = 1\)</span></p></li>
+</ul>
+<p>设 <span class="math">\({\bm x} = (\xi_1, \xi_2, \cdots, \xi_n)^T\)</span> , <span class="math">\({\bm y} = {\bm{G}}_{i,j,\theta }{\bm x} = (\eta_1, \eta_2, \cdots, \eta_n)^T\)</span> 则选取如下的 <span class="math">\(c, s\)</span> , 可以使得 <span class="math">\(\eta_i  = \sqrt{\xi_i^2 + \xi_j^2} &gt; 0 , \eta_j = 0\)</span></p>
+<div class="math">
+\[c = {\rm cos}\theta = \frac{\xi_i}{\sqrt{\xi_i^2 + \xi_j^2}}, s = {\rm sin}\theta = \frac{\xi_j}{\sqrt{\xi_i^2 + \xi_j^2}}
+
+\]</div>
+<p><strong>定理:</strong> 设 <span class="math">\({\bm x} = (\xi_1, \xi_2, \cdots, \xi_n)^T \neq = {\bm 0}\)</span> , 则存在有限个Givens矩阵的乘积 <span class="math">\({\bm G} = {\bm G}_{1,n,\theta_{n-1}}{\bm G}_{1,n-1,\theta_{n-2}} \cdots {\bm G}_{1,2,\theta_1}\)</span> , 使得 <span class="math">\({\bm G}{\bm x} = |{\bm x}|{\bm e}_1\)</span> , 其中</p>
+<ul class="simple">
+<li><p><span class="math">\({\bm G}_{1,2,\theta_{1}}\)</span> 满足: <span class="math">\(c = {\rm cos}{\theta_{1}} = \frac{\xi_1}{\sqrt{\xi_1^2 + \xi_2^2}}, s = {\rm sin}\theta_1 = \frac{\xi_2}{\sqrt{\xi_1^2 + \xi_2^2}}\)</span></p></li>
+<li><p><span class="math">\({\bm G}_{1,3,\theta_{2}}\)</span> 满足: <span class="math">\(c = {\rm cos}{\theta_{2}} = \frac{\sqrt{\xi_1^2 + \xi_2^2}}{\sqrt{\xi_1^2 + \xi_2^2 + \xi_3^2}}, s = {\rm sin}\theta_2 = \frac{\xi_3}{\sqrt{\xi_1^2 + \xi_2^2 + \xi_3^2}}\)</span></p></li>
+<li><p><span class="math">\(\vdots\)</span></p></li>
+<li><p><span class="math">\({\bm G}_{1,n-1,\theta_{n-2}}\)</span> 满足: <span class="math">\(c = {\rm cos}{\theta_{n-2}} = \frac{\sqrt{\xi_1^2+\xi_2^2+\cdots+\xi_{n-2}^2}}{\sqrt{\xi_1^2+\xi_2^2+\cdots+\xi_{n-2}^2+\xi_{n-1}^2}}, s = {\rm sin}\theta_{n-2} = \frac{\xi_{n-1}}{\sqrt{\xi_1^2+\xi_2^2+\cdots+\xi_{n-2}^2+\xi_{n-1}^2}}\)</span></p></li>
+<li><p><span class="math">\({\bm G}_{1,n,\theta_{n-1}}\)</span> 满足: <span class="math">\(c = {\rm cos}{\theta_{n-1}} = \frac{\sqrt{\xi_1^2+\xi_2^2+\cdots+\xi_{n-1}^2}}{\sqrt{\xi_1^2+\xi_2^2+\cdots+\xi_{n-1}^2+\xi_n^2}}, s = {\rm sin}\theta_{n-1} = \frac{\xi_n}{\sqrt{\xi_1^2+\xi_2^2+\cdots+\xi_{n-1}^2+\xi_n^2}}\)</span></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子, 设 <span class="math">\({\bm x} = (2, 4, 4)^T\)</span> , 用Givens变换, 将 <span class="math">\({\bm x}\)</span> 化为与 <span class="math">\({\bm e}_1\)</span> 同方向的向量.</p>
+<p>解: 由题意, 构造</p>
+<ul class="simple">
+<li><p><span class="math">\({\bm G}_{1,2,\theta_{1}} = \left[ {\begin{array}{ccc}{\frac{{\rm{1}}}{{\sqrt {\rm{5}} }}}&amp;{\frac{{{\rm{ 2}}}}{{\sqrt {\rm{5}} }}}&amp;{\rm{0}}\\{\frac{{\rm{-2}}}{{\sqrt {\rm{5}} }}}&amp;{\frac{{\rm{1}}}{{\sqrt {\rm{5}} }}}&amp;{\rm{0}}\\{\rm{0}}&amp;{\rm{0}}&amp;{\rm{1}}\end{array}} \right]\)</span> , 使得 <span class="math">\({\bm G}_{1,2,\theta_{1}}{\bm x} = (\frac{10}{\sqrt 5}, 0, 4)^T\)</span> , 其中 <span class="math">\(c = {\rm cos}{\theta_{1}} = \frac{\xi_1}{\sqrt{\xi_1^2 + \xi_2^2}} = \frac{2}{\sqrt{2^2 + 4^2}} = \frac{1}{\sqrt 5}\)</span>, <span class="math">\(s = {\rm sin}\theta_1 = \frac{\xi_2}{\sqrt{\xi_1^2 + \xi_2^2}} = \frac{4}{\sqrt{2^2 + 4^2}} = \frac{2}{\sqrt 5}\)</span></p></li>
+<li><p><span class="math">\({\bm G}_{1,3,\theta_{2}} = \left[ {\begin{array}{ccc}{\frac{{\sqrt {\rm{5}} }}{{\rm{3}}}}&amp;{\rm{0}}&amp;{\frac{{\rm{2}}}{{\rm{3}}}}\\{\rm{0}}&amp;{\rm{1}}&amp;{\rm{0}}\\{\frac{{{\rm{ - 2}}}}{{\rm{3}}}}&amp;{\rm{0}}&amp;{\frac{{\sqrt {\rm{5}} }}{{\rm{3}}}}\end{array}} \right]\)</span> 使得 <span class="math">\({\bm G}_{1,3,\theta_{2}}({\bm G}_{1,2,\theta_{1}}{\bm x}) = (6, 0, 0)^T\)</span> , 其中 <span class="math">\(c = {\rm cos}{\theta_{2}} = \frac{\sqrt{2^2 + 4^2}}{\sqrt{2^2 + 4^2 + 4^2}} = \frac{\sqrt 5}{3}\)</span>, <span class="math">\(s = {\rm sin}\theta_2 = \frac{4 }{\sqrt{2^2 + 4^2 + 4^2}} = \frac{2}{3}\)</span></p></li>
+</ul>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>由于旋转变换不改变向量的长度, 如上述例子, 变换前后长度均为 <span class="math">\(6\)</span> , 所以在计算 <span class="math">\(c, s\)</span> 时可以根据原始坐标 <span class="math">\({\bm x} = (\xi_1, \xi_2, \cdots, \xi_n)^T\)</span> 计算.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>如果 Givens 矩阵定义为逆时针旋转的矩阵, 即将 <span class="math">\({\bm{G}}_{i,j,\theta}\)</span> 中的 <span class="math">\(s\)</span> 变为 <span class="math">\(-s\)</span> , 那么上述相应的结论做对应的改变即可.</p>
+</div>
+</div>
+<div class="section" id="householder">
+<h4>Householder 反射变换<a class="headerlink" href="#householder" title="永久链接至标题">¶</a></h4>
+<p>Householder 变换 ( <a class="reference internal" href="../../glossary/glossary.html#term-householder-transformation"><span class="xref std std-term">Householder transformation</span></a> ) 也称为Householder反射 (Householder reflection), 是描述包含原点的平面或超平面的反射的线性变换. 反射超平面可以通过与其正交的单位向量 <span class="math">\({\bm v}\)</span> 来定义, 点 <span class="math">\({\bm x}\)</span> 关于此超平面的映射是一个线性变换, 定义如下:</p>
+<div class="math">
+\[{\bm y} = {\bm x}-2\left\langle {\bm v}, {\bm x} \right\rangle {\bm v} = {\bm x} - 2{\bm v}({\bm v}^H{\bm x}) = ({\bm I} - 2{\bm v}{\bm v}^H){\bm x} = {\bm H}{\bm x} ,
+
+\]</div>
+<p>其中, <span class="math">\({\bm v}\)</span> 是单位列向量. <span class="math">\({\bm H}\)</span> 称为 <strong>Householder矩阵</strong> , 也称 <strong>初等反射矩阵</strong> , 所对应的线性变换称为  <strong>Householder变换</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-householder-transformation"><span class="xref std std-term">Householder transformation</span></a> ), 如 <a class="reference internal" href="#fig-householdertransformation2d"><span class="std std-numref">图 1.8</span></a> 所示.</p>
+<div class="figure align-center" id="id22">
+<span id="fig-householdertransformation2d"></span><a class="reference internal image-reference" href="../../../_images/HouseholderTransformation.png"><img alt="Householder 变换举例" src="../../../_images/HouseholderTransformation.png" style="width: 513.6px; height: 390.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 1.8 </span><span class="caption-text">二维空间中的 Householder 变换.</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>二维空间中的 Householder 变换. 其中, <span class="math">\({\bm v}\)</span> 为超平面的单位法向量.</p>
+</div>
+</div>
+<p>性质:</p>
+<ul class="simple">
+<li><p>对称: <span class="math">\({\bm H}^H = {\bm H}\)</span></p></li>
+<li><p>自逆: <span class="math">\({\bm H}^{-1} = {\bm H}\)</span></p></li>
+<li><p>对合: <span class="math">\({\bm H}^2 = {\bm I}\)</span></p></li>
+<li><p>正交: <span class="math">\({\bm H}^H{\bm H} = {\bm I}\)</span></p></li>
+<li><p><span class="math">\({\rm det}({\bm H}) = -1\)</span></p></li>
+</ul>
+<p><strong>定理:</strong> 设 <span class="math">\({\bm x} = (\xi_1, \xi_2, \cdots, \xi_n)^T \neq {\bm 0}\)</span> 单位列向量 <span class="math">\({\bm z}\)</span> , 则存在Householder矩阵 <span class="math">\({\bm H}\)</span> , 使得 <span class="math">\({\bm H}{\bm x} = |{\bm x}|{\bm z}\)</span> , 其中</p>
+<div class="math">
+\[{\bm H} = {\bm I} - 2{\bm v}{\bm v}^H
+
+\]</div>
+<p>且</p>
+<div class="math">
+\[{\bm v} = \frac{{\bm x} - |{\bm x}|{\bm z}}{|{\bm x} - |{\bm x}|{\bm z}|}
+
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子, 设 <span class="math">\({\bm x} = (2, 4, 4)^T\)</span> , 用 Householder 变换, 将 <span class="math">\({\bm x}\)</span> 化为与 <span class="math">\({\bm e}_1\)</span> 同方向的向量.</p>
+<p>解: 由题意, 有</p>
+<p><span class="math">\({\bm x} - |{\bm x}|{\bm e}_1 = (2,4,4)^T-6(1,0,0)^T = (-4, 4, 4)^T\)</span></p>
+<p>且
+<span class="math">\({\bm v} = \frac{{\bm x} - |{\bm x}|{\bm e}_1}{|{\bm x} - |{\bm x}|{\bm e}_1|} = \frac{(-4, 4, 4)^T}{\sqrt{4^2+4^2+4^2}} = (\frac{-1}{\sqrt 3}, \frac{1}{\sqrt 3}, \frac{1}{\sqrt 3})^T\)</span></p>
+<p>则
+<span class="math">\({\bm H} = {\bm I} - 2{\bm v}{\bm v}^H = \left[ {\begin{array}{ccc}{\frac{{\rm{1}}}{{\rm{3}}}}&amp;{\frac{{\rm{2}}}{{\rm{3}}}}&amp;{\frac{{\rm{2}}}{{\rm{3}}}}\\{\frac{{\rm{2}}}{{\rm{3}}}}&amp;{\frac{{\rm{1}}}{{\rm{3}}}}&amp;{\frac{{{\rm{ - 2}}}}{{\rm{3}}}}\\{\frac{{\rm{2}}}{{\rm{3}}}}&amp;{\frac{{{\rm{ - 2}}}}{{\rm{3}}}}&amp;{\frac{{\rm{1}}}{{\rm{3}}}}\end{array}} \right]\)</span>
+使得 <span class="math">\({\bm H}{\bm x} = (6, 0, 0)^T\)</span> .</p>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>谱分解<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>对于 <span class="math">\(n\)</span> 阶Hermite矩阵 <span class="math">\({\bm A}\)</span> , 存在 <span class="math">\(n\)</span> 阶酉矩阵 <span class="math">\({\bm P}\)</span> , 使得</p>
+<div class="math">
+\[{\bm P}^H{\bm A}{\bm P} = {\bm \Lambda } = {\rm diag}(\lambda_1, \lambda_2, \cdots, \lambda_n)
+
+\]</div>
+<p>即有</p>
+<div class="math">
+\[{\bm A} = {\bm P}{\bm \Lambda }{\bm P}^H = \lambda_1({\bm p}_1 {\bm p}_1^H) + \lambda_2({\bm p}_2 {\bm p}_2^H) + \cdots + \lambda_n({\bm p}_n {\bm p}_n^H)
+
+\]</div>
+<p>其中, <span class="math">\(\lambda_i (i=1,2,\cdots, n)\)</span> 是 <span class="math">\({\bm A}\)</span> 的特征值. 称上式为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>谱分解</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-spectral-decomposition"><span class="xref std std-term">Spectral decomposition</span></a> )</p>
+</div>
+</div>
+<div class="section" id="id18">
+<h2><span class="section-number">1.7.2. </span>总结<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<p>当复内积空间的内积定义为 <span class="math">\(\left\langle {{\bm{x}},{\bm{y}}} \right\rangle  = {\bm{x}}{{\bm{y}}^H}\)</span> (行向量) 或 <span class="math">\(\left\langle {{\bm{x}},{\bm{y}}} \right\rangle  = {\bm{x}}^H{{\bm{y}}}\)</span> (列向量) 时,</p>
+<ul class="simple">
+<li><p>欧式空间 –&gt; 实内积空间</p></li>
+<li><p>酉空间 –&gt; 复内积空间</p></li>
+<li><p>实內积空间与复内积空间一一对应</p></li>
+<li><p>实正交变换 对应 酉变换</p></li>
+<li><p>实对称变换 对应 酉对称变换</p></li>
+<li><p>正交变换在标准正交基下的矩阵为正交矩阵</p></li>
+<li><p>对称变换在标准正交基下的矩阵为实对称矩阵</p></li>
+<li><p>酉变换在标准正交基下的矩阵为酉矩阵</p></li>
+<li><p>酉对称变换在标准正交基下的矩阵为酉对称矩阵</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../NormTheory/index.html" class="btn btn-neutral float-right" title="2. 范数理论及应用" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="GeneralizedEigenValuesEigenVectors.html" class="btn btn-neutral" title="1.6. 广义特征值与特征向量" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

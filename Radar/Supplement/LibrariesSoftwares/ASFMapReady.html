@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.2. ASF MapReady &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="3. 雷达库与软件" href="index.html"/>
+        <link rel="next" title="3.3. SAR Training Processor" href="SARTrainingProcessor.html"/>
+        <link rel="prev" title="3.1. 简介" href="Introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SAR/index.html">合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">补充内容</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../RadarProducts/index.html">1. 雷达产品</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dataset/index.html">2. 雷达数据集</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3. 雷达库与软件</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">3.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.2. ASF MapReady</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SARTrainingProcessor.html">3.3. SAR Training Processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STEPSNAP.html">3.4. STEP与SNAP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PolSARpro.html">3.5. PolSARpro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Other.html">3.6. Other</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">4. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">补充内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">3. </span>雷达库与软件</a> &raquo;</li>
+        
+      <li><span class="section-number">3.2. </span>ASF MapReady</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asf-mapready">
+<span id="section-asfmapreadylibrariessoftwaressupplementradar"></span><h1><span class="section-number">3.2. </span>ASF MapReady<a class="headerlink" href="#asf-mapready" title="永久链接至标题">¶</a></h1>
+<p>Alaska Satellite Facility</p>
+<div class="section" id="id1">
+<h2><span class="section-number">3.2.1. </span>简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://www.asf.alaska.edu/software-tools/#mapready">MapReady</a> 是由 ASF 开发的遥感数据处理工具, 主要用于处理各种SAR数据, 尤其适合处理 CEOS 格式的数据, 其源码可以在 <a class="reference external" href="https://github.com/asfadmin/ASF_MapReady">这里</a> 获得. ASF MapReady 支持 ERS Level0 数据读取, 不支持 Sentinel Level0 数据读取.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>由 ASF MapReady 中的源码可知, 暂不支持 Sentinel Level0 级数据, 具体参见 <cite>src/libasf_import/import_sentinel.c</cite> 文件中的 <code class="xref py py-func docutils literal notranslate"><span class="pre">import_sentinel()</span></code> 函数:</p>
+<dl class="simple">
+<dt>if (strcmp_case(productType, “RAW”) == 0)</dt><dd><p>asfPrintError(“Product type ‘RAW’ currently not supported!n”);</p>
+</dd>
+<dt>else if (strcmp_case(productType, “SLC”) == 0 ||</dt><dd><p>strcmp_case(productType, “GRD”) == 0)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">3.2.2. </span>安装 ASF MapReady<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="ubuntu">
+<h3>Ubuntu下配置安装<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h3>
+<p>安装步骤如下:</p>
+<ol class="arabic">
+<li><p>安装依赖:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">gcc</span> <span class="n">g</span><span class="o">++</span> <span class="n">bison</span> <span class="n">flex</span> <span class="n">libcunit1</span><span class="o">-</span><span class="n">dev</span> <span class="n">libexif</span><span class="o">-</span><span class="n">dev</span> <span class="n">libfftw3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgdal</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgeotiff</span><span class="o">-</span><span class="n">dev</span> <span class="n">libglade2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libglib2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgsl</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgtk2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpng</span><span class="o">-</span><span class="n">dev</span> <span class="n">libproj</span><span class="o">-</span><span class="n">dev</span> <span class="n">libshp</span><span class="o">-</span><span class="n">dev</span> <span class="n">libtiff5</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxml2</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</li>
+<li><p>配置安装目录: <code class="docutils literal notranslate"><span class="pre">./configure</span> <span class="pre">--prefix=your_installation_path</span></code> , 注意更改为自己的安装目录, 如 <code class="docutils literal notranslate"><span class="pre">/mnt/e/sfw/sar/ASF_MapReady</span></code></p></li>
+<li><p>构建: <code class="docutils literal notranslate"><span class="pre">make</span></code> 或多线程构建 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j16</span></code></p></li>
+<li><p>安装: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code></p></li>
+<li><p>添加环境变量 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PATH=your_installation_path/bin:$PATH</span></code></p></li>
+</ol>
+<p>安装完成后, 在终端输入 <code class="docutils literal notranslate"><span class="pre">asf_mapready</span> <span class="pre">--help</span></code> 可查看帮助并验证安装是否成功, 若安装成功, 则可以看到如下提示::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>:~$ asf_mapready --help
+
+Tool name:
+   asf_mapready
+
+Usage:
+   asf_mapready [-create] [-input &lt;inFile&gt;] [-output &lt;outFile&gt;]
+                [-tmpdir &lt;dir&gt;] [-log &lt;logFile&gt;] [-quiet] [-license]
+                [-version] [-help]
+                &lt;config_file&gt;
+
+Description:
+   This program can ingest level one CEOS and GeoTIFF format data, calibrate
+   it to various radiometries, perform polarimetric decompositions, perform
+   Faraday Rotation correction, perform terrain correction, geocode it, and
+   then export it to a variety of graphics file formats. The user is able to
+   control how asf_mapready dictates the processiong flow by creating a
+   configuration file, which must then be edited, which is fed into
+   asf_mapready when it is called.
+:
+:
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">3.2.3. </span>ASF MapReady 源码分析<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>数据读取<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">asf_view</span> <span class="pre">--&gt;</span> <span class="pre">read</span> <span class="pre">--&gt;</span> <span class="pre">read_ceos/envi/seasat/terrasar/uavsar/tiff...</span></code></p>
+<p>通过分析源码可知, <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageInfo</span></code> 结构体是和读取显示图像相关的结构体, 在 <cite>asf_view.h</cite> 中定义了 <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageInfo</span></code> 指针类型的两个变量( <code class="xref py py-attr docutils literal notranslate"><span class="pre">curr</span></code> , <code class="xref py py-attr docutils literal notranslate"><span class="pre">mask</span></code> )和一个数组( <code class="xref py py-attr docutils literal notranslate"><span class="pre">image_info</span></code> )</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">//</span> <span class="n">Can</span> <span class="n">hold</span> <span class="n">five</span> <span class="n">images</span>
+<span class="c1">#define MAX_IMAGES 5</span>
+<span class="n">extern</span> <span class="n">ImageInfo</span> <span class="n">image_info</span><span class="p">[</span><span class="n">MAX_IMAGES</span><span class="p">];</span>
+<span class="o">//</span> <span class="s2">&quot;curr&quot;</span> <span class="n">always</span> <span class="n">points</span> <span class="n">to</span> <span class="n">the</span> <span class="n">currently</span> <span class="n">being</span> <span class="n">displayed</span> <span class="n">image</span> <span class="n">info</span>
+<span class="n">extern</span> <span class="n">ImageInfo</span> <span class="o">*</span><span class="n">curr</span><span class="p">;</span>
+<span class="n">extern</span> <span class="n">ImageInfo</span> <span class="o">*</span><span class="n">mask</span><span class="p">;</span>
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">current_image_info_index</span><span class="p">;</span>
+<span class="n">extern</span> <span class="nb">int</span> <span class="n">n_images_loaded</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>其中, 数组 <code class="xref py py-attr docutils literal notranslate"><span class="pre">image_info</span></code> 存储多个图像 <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageInfo</span></code> 结构体, <code class="xref py py-attr docutils literal notranslate"><span class="pre">curr</span></code> 指针总是指向当前要显示的图像信息. <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageInfo</span></code> 结构体中存储了待读取和显示图像的所有信息, 可以使用 <cite>cache.c</cite> 文件中的 <code class="xref py py-func docutils literal notranslate"><span class="pre">get_pixel()</span></code> 函数读取. <code class="xref py py-class docutils literal notranslate"><span class="pre">ImageInfo</span></code> 结构体成员如下.</p>
+<dl class="struct">
+<dt id="_CPPv49ImageInfo">
+<span id="_CPPv39ImageInfo"></span><span id="_CPPv29ImageInfo"></span><span id="ImageInfo"></span><em class="property">struct </em><code class="sig-name descname">ImageInfo</code><a class="headerlink" href="#_CPPv49ImageInfo" title="永久链接至目标">¶</a><br /></dt>
+<dd><dl>
+<dt>typedef struct {</dt><dd><p>int nl, ns; // number of lines(azimuth), number of samples(range)</p>
+<p>meta_parameters <a href="#id6"><span class="problematic" id="id7">*</span></a>meta; // meta parameters</p>
+<p>CachedImage <a href="#id8"><span class="problematic" id="id9">*</span></a>data_ci; //</p>
+<p>BandConfig band_cfg;</p>
+<p>ImageStats stats;</p>
+<p>ImageStatsRGB stats_r;</p>
+<p>ImageStatsRGB stats_g;</p>
+<p>ImageStatsRGB stats_b;</p>
+<p>char <a href="#id10"><span class="problematic" id="id11">*</span></a>filename;</p>
+<p>char <a href="#id12"><span class="problematic" id="id13">*</span></a>data_name;</p>
+<p>char <a href="#id14"><span class="problematic" id="id15">*</span></a>meta_name;</p>
+</dd>
+</dl>
+<p>} ImageInfo;</p>
+</dd></dl>
+
+<p>其中 <code class="xref py py-class docutils literal notranslate"><span class="pre">CachedImage</span></code> 也是一个结构体, 其中存储着待读取图像的信息以及读取方法.</p>
+<dl class="struct">
+<dt id="_CPPv411CachedImage">
+<span id="_CPPv311CachedImage"></span><span id="_CPPv211CachedImage"></span><span id="CachedImage"></span><em class="property">struct </em><code class="sig-name descname">CachedImage</code><a class="headerlink" href="#_CPPv411CachedImage" title="永久链接至目标">¶</a><br /></dt>
+<dd><p>typedef struct {
+// Here is the ImageCache stuff.  The global ImageCache that holds the loaded image is “data_ci”.  This is all private data.</p>
+<blockquote>
+<div><blockquote>
+<div><p>int nl, ns;               // Image dimensions.</p>
+<p>ClientInterface <a href="#id16"><span class="problematic" id="id17">*</span></a>client;  // pointers to data read implementations</p>
+<p>int n_tiles;              // Number of tiles in memory</p>
+<p>int reached_max_tiles;    // Have we loaded as many tiles as we can?</p>
+<p>int rows_per_tile;        // Number of rows in each tile</p>
+<p>int entire_image_fits;    // TRUE if we can load the entire image</p>
+<p>int <a href="#id18"><span class="problematic" id="id19">*</span></a>rowstarts;           // Row numbers starting each tile</p>
+<p>unsigned char <a href="#id20"><span class="problematic" id="id21">**</span></a>cache;    // Cached values (floats, unsigned chars …)</p>
+<p>int <a href="#id22"><span class="problematic" id="id23">*</span></a>access_counts;       // Updated when a tile is accessed</p>
+<p>int n_access;             // used to find oldest tile</p>
+<p>ssv_data_type_t data_type;// type of data we have</p>
+<p>meta_parameters <a href="#id24"><span class="problematic" id="id25">*</span></a>meta;    // metadata – don’t own this pointer</p>
+<p>ImageStats <a href="#id26"><span class="problematic" id="id27">*</span></a>stats;        // not owned by us, not populated by us</p>
+<p>ImageStatsRGB <a href="#id28"><span class="problematic" id="id29">*</span></a>stats_r;   // not owned by us, not populated by us</p>
+<p>ImageStatsRGB <a href="#id30"><span class="problematic" id="id31">*</span></a>stats_g;   // not owned by us, not populated by us</p>
+<p>ImageStatsRGB <a href="#id32"><span class="problematic" id="id33">*</span></a>stats_b;   // not owned by us, not populated by us</p>
+</div></blockquote>
+<p>} CachedImage;</p>
+</div></blockquote>
+</dd></dl>
+
+<p>其中 <code class="xref py py-class docutils literal notranslate"><span class="pre">ClientInterface</span></code> 也是一个结构体, 其中存储着待读取图像的方法.</p>
+<dl class="struct">
+<dt id="_CPPv415ClientInterface">
+<span id="_CPPv315ClientInterface"></span><span id="_CPPv215ClientInterface"></span><span id="ClientInterface"></span><em class="property">struct </em><code class="sig-name descname">ClientInterface</code><a class="headerlink" href="#_CPPv415ClientInterface" title="永久链接至目标">¶</a><br /></dt>
+<dd><p>typedef struct {</p>
+<blockquote>
+<div><p>ReadClientFn <a href="#id34"><span class="problematic" id="id35">*</span></a>read_fn;</p>
+<p>ThumbFn <a href="#id36"><span class="problematic" id="id37">*</span></a>thumb_fn;</p>
+<p>FreeFn <a href="#id38"><span class="problematic" id="id39">*</span></a>free_fn;</p>
+<p>void <a href="#id40"><span class="problematic" id="id41">*</span></a>read_client_info;</p>
+<p>ssv_data_type_t data_type;</p>
+<p>int require_full_load;</p>
+</div></blockquote>
+<p>} ClientInterface;</p>
+</dd></dl>
+
+<p>如对于CEOS格式, <code class="xref py py-attr docutils literal notranslate"><span class="pre">read_fn</span></code> 指向函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">read_ceos_client()</span></code>, 其参数如下:</p>
+<dl class="function">
+<dt id="_CPPv416read_ceos_clientiiPvPvP15meta_parametersi">
+<span id="_CPPv316read_ceos_clientiiPvPvP15meta_parametersi"></span><span id="_CPPv216read_ceos_clientiiPvPvP15meta_parametersi"></span><span id="read_ceos_client__i.i.voidP.voidP.meta_parametersP.i"></span>int <code class="sig-name descname">read_ceos_client</code><span class="sig-paren">(</span>int <em>row_start</em>, int <em>n_rows_to_get</em>, void *<em>dest_void</em>, void *<em>read_client_info</em>, meta_parameters *<em>meta</em>, int <em>data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416read_ceos_clientiiPvPvP15meta_parametersi" title="永久链接至目标">¶</a><br /></dt>
+<dd><ul class="simple">
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">row_start</span></code>  读取起始行(azimuth)</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_rows_to_get</span></code>  读取行数(azimuth)</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">dest_void</span></code>  输出缓存指针</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">read_client_info</span></code> 元信息指针</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">meta</span></code> 元信息指针</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">data_type</span></code> 数据类型</p></li>
+</ul>
+</dd></dl>
+
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">read_fn</span></code> 指针指向的函数被 <cite>cache.c</cite> 文件中的 <code class="xref py py-func docutils literal notranslate"><span class="pre">get_pixel()</span></code> 函数调用, 格式如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="bp">self</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">read_fn</span><span class="p">(</span><span class="n">rs</span><span class="p">,</span> <span class="n">rows_to_get</span><span class="p">,</span> <span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)(</span><span class="bp">self</span><span class="o">-&gt;</span><span class="n">cache</span><span class="p">[</span><span class="n">spot</span><span class="p">]),</span>
+       <span class="bp">self</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">read_client_info</span><span class="p">,</span> <span class="bp">self</span><span class="o">-&gt;</span><span class="n">meta</span><span class="p">,</span> <span class="bp">self</span><span class="o">-&gt;</span><span class="n">client</span><span class="o">-&gt;</span><span class="n">data_type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">get_pixel()</span></code> 入口参数如下</p>
+<dl class="function">
+<dt id="_CPPv49get_pixelP11CachedImageii">
+<span id="_CPPv39get_pixelP11CachedImageii"></span><span id="_CPPv29get_pixelP11CachedImageii"></span><span id="get_pixel__CachedImageP.i.i"></span><em class="property">static</em> unsigned char *<code class="sig-name descname">get_pixel</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411CachedImage" title="CachedImage">CachedImage</a> *<em>self</em>, int <em>line</em>, int <em>samp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49get_pixelP11CachedImageii" title="永久链接至目标">¶</a><br /></dt>
+<dd><ul class="simple">
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">self</span></code> CachedImage 指针</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">line</span></code> 像素所在行</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">samp</span></code> 像素所在列</p></li>
+</ul>
+</dd></dl>
+
+<p>函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">get_pixel()</span></code> 被函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">cached_image_get_pixel()</span></code> 调用, 函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">cached_image_get_pixel()</span></code> 被函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">cached_image_new_from_file()</span></code> 调用, 函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">cached_image_new_from_file()</span></code> 又被函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">read_file()</span></code> 调用. 总结调用如下</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>ASF MapReady读取数据函数调用顺序为: <code class="xref py py-func docutils literal notranslate"><span class="pre">main()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">on_new_button_clicked()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">new_file()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">load_file()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">load_file_banded()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">load_file_banded_imp()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">read_file()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">cached_image_new_from_file()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">cached_image_get_pixel()</span></code> –&gt; <code class="xref py py-func docutils literal notranslate"><span class="pre">get_pixel()</span></code> –&gt; <code class="xref py py-attr docutils literal notranslate"><span class="pre">read_fn</span></code> 指向的函数 (如 <code class="xref py py-func docutils literal notranslate"><span class="pre">read_ceos_client()</span></code>).</p>
+</div>
+</div>
+</div>
+<div class="section" id="id42">
+<h2><span class="section-number">3.2.4. </span>ASF MapReady 应用举例<a class="headerlink" href="#id42" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id43">
+<h3>数据导入<a class="headerlink" href="#id43" title="永久链接至标题">¶</a></h3>
+<p>在终端输入 <code class="docutils literal notranslate"><span class="pre">asf_import</span> <span class="pre">--help</span></code> 可查看帮助,</p>
+<div class="section" id="ers2-level0">
+<h4>导出 ERS2 Level0 级数据<a class="headerlink" href="#ers2-level0" title="永久链接至标题">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SARTrainingProcessor.html" class="btn btn-neutral float-right" title="3.3. SAR Training Processor" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral" title="3.1. 简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

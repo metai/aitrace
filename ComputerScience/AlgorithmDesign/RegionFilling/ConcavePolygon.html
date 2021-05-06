@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.3. 凹多边形区域填充 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 区域填充" href="index.html"/>
+        <link rel="next" title="互联部分" href="../../Internet/index.html"/>
+        <link rel="prev" title="1.2. 凸多边形区域填充" href="ConvexPolygon.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第四卷 计算机学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../OperatingSystem/index.html">操作系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Programing/index.html">程序设计</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">算法设计</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 区域填充</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Circle.html">1.1. 圆形区域填充</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvexPolygon.html">1.2. 凸多边形区域填充</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.3. 凹多边形区域填充</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Internet/index.html">互联部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ArtificialIntelligenceProcessor/index.html">人工智能处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmbeddedDevelopment/index.html">嵌入式系统开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第四卷 计算机学</a> &raquo;</li>
+        
+          <li><a href="../index.html">算法设计</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>区域填充</a> &raquo;</li>
+        
+      <li><span class="section-number">1.3. </span>凹多边形区域填充</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-convexpolygonregionfillingalgorithmdesigncomputerscience">
+<span id="id1"></span><h1><span class="section-number">1.3. </span>凹多边形区域填充<a class="headerlink" href="#section-convexpolygonregionfillingalgorithmdesigncomputerscience" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.3.1. </span>问题分析<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>该方法的核心思想是根据 <strong>多边形内的点满足多边形区域的边构成的不等式方程组</strong> 的思想, 即找到凸多边形区域内一点(如重心 <span class="math">\(P_c=(x_c, y_c)^T\)</span>), 判断改点确定的多边形的边构成的不等式方程组的符号, 然后对于待填充点 <span class="math">\(P_0=(x_0, y_0)^T\)</span>, 代入方程组并判断符号是否与 <span class="math">\(P_c\)</span> 一致, 若一致则在多边形区域内. 设有由 <span class="math">\(N\)</span> 个顶点 <span class="math">\({\mathbb V}={(x_i, y_i)^T}_{i=1}^N\)</span> 按顺序构成的多边形 <span class="math">\(\mathcal P\)</span>, 将其边构成的方程组记为</p>
+<div class="math" id="equation-equ-polygonedgeequation">
+<span class="eqno">(1.12)<a class="headerlink" href="#equation-equ-polygonedgeequation" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+l_1 &: a_1 x + b_1 y + c_1 = 0\\
+l_2 &: a_2 x + b_2 y + c_2 = 0\\
+    & {\ \vdots} \\
+l_{N-1} &: a_{N-1} x + b_{N-1} y + c_{N-1} = 0
+\end{aligned}.
+
+\]</div>
+<p>将重心 <span class="math">\(P_c\)</span> 的坐标代入方程组 <a class="reference internal" href="#equation-equ-polygonedgeequation">式.1.12</a> 并判断符号, 记为 <span class="math">\({\bm f}_c=(f_{c_1}, f_{c_2}, \cdots, f_{c_{N-1}})^T\)</span>, 其中大于等于0记为 <span class="math">\(1\)</span>, 小于0记为 <span class="math">\(0\)</span>.</p>
+<p>对于待填充点 <span class="math">\(P_0=(x_0, y_0)^T\)</span>, 代入方程组 <a class="reference internal" href="#equation-equ-polygonedgeequation">式.1.12</a> 并判断符号, 记为 <span class="math">\({\bm f}_0=(f_{0_1}, f_{0_2}, \cdots, f_{0_{N-1}})^T\)</span>, 其中大于等于0记为 <span class="math">\(1\)</span>, 小于0记为 <span class="math">\(0\)</span>.</p>
+<p>若符号向量 <span class="math">\({\bm f}_c\)</span> 与 <span class="math">\({\bm f}_0\)</span> 的值相同, 则待填充点在多边形区域内, 反之则不在区域内.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Internet/index.html" class="btn btn-neutral float-right" title="互联部分" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ConvexPolygon.html" class="btn btn-neutral" title="1.2. 凸多边形区域填充" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

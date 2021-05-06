@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3. 模糊逻辑 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 模糊集合" href="index.html"/>
+        <link rel="next" title="2.4. 模糊子代数" href="FuzzySubalgebra.html"/>
+        <link rel="prev" title="2.2. 隶属函数" href="MembershipFunction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">模糊数学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 模糊集合</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="FuzzySet.html">2.1. 模糊集合</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MembershipFunction.html">2.2. 隶属函数</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.3. 模糊逻辑</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FuzzySubalgebra.html">2.4. 模糊子代数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExtensionsFuzzySet.html">2.5. 模糊集合理论拓展</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyArithmetic/index.html">3. 模糊算术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyRelation/index.html">4. 模糊关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyInference/index.html">5. 模糊推理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzySystem/index.html">6. 模糊系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FuzzyTransform/index.html">7. 模糊变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">8. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">9. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">模糊数学</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>模糊集合</a> &raquo;</li>
+        
+      <li><span class="section-number">2.3. </span>模糊逻辑</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-fuzzylogic">
+<span id="id1"></span><h1><span class="section-number">2.3. </span>模糊逻辑<a class="headerlink" href="#section-fuzzylogic" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.3.1. </span>布尔逻辑与模糊逻辑<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在经典二值逻辑(也称布尔逻辑)运算中, 变量只能取 <span class="math">\(0\)</span> 或 <span class="math">\(1\)</span>, 与经典的二值逻辑运算不同, <strong>模糊逻辑</strong> (<a class="reference internal" href="../glossary.html#term-fuzzy-logic"><span class="xref std std-term">Fuzzy Logic</span></a>) 允许变量取 <span class="math">\(0, 1\)</span> 之间的实数.</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.3.2. </span>布尔逻辑与模糊逻辑算子<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>常用布尔逻辑与模糊逻辑算子定义如下, 更多参见 <a class="reference internal" href="FuzzySet.html#subsubsectionffuzzyoperator"><span class="std std-ref">模糊算子</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">|</span>    <span class="o">|</span>  <span class="n">布尔逻辑</span>  <span class="o">|</span>  <span class="n">模糊逻辑</span> <span class="o">|</span>
+<span class="o">|====|===========|===========|</span>
+<span class="o">|</span> <span class="n">与</span> <span class="o">|</span> <span class="n">AND</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="n">MIN</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|----|-----------|-----------|</span>
+<span class="o">|</span> <span class="n">或</span> <span class="o">|</span> <span class="n">OR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="o">|</span> <span class="n">MAX</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">|----|-----------|-----------|</span>
+<span class="o">|</span> <span class="n">非</span> <span class="o">|</span> <span class="n">NOT</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="o">|</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span>     <span class="o">|</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.3.3. </span>模糊规则<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><strong>模糊规则</strong> (<span class="xref std std-term">Fuzzy Rules</span>) 可用于对专家知识和常识进行建模. 一个模糊规则可以表示成三元组 <span class="math">\((A, B, R)\)</span></p>
+<div class="section" id="if-then">
+<h3>IF-THEN<a class="headerlink" href="#if-then" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">IF-THEN</span></code> 模糊规则(Fuzzy Rules)</p>
+<ul class="simple">
+<li><p>前提(Premise): x is A</p></li>
+<li><p>含义(Implication): IF x is A THEN y is B</p></li>
+<li><p>结果(Consequent): y is B</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.3.4. </span>模糊逻辑推理步骤<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>模糊逻辑推理步骤如下</p>
+<ol class="arabic simple">
+<li><p>模糊化(Fuzzification):</p></li>
+<li><p>模糊运算(Fuzzy Logic Operator):</p></li>
+<li><p>模糊规则推理(Fuzzy Rule):</p></li>
+<li><p>去模糊化(De-fuzzyfication):</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>参考文献 <a class="bibtex reference internal" href="../zreference.html#enrictrillas-2015" id="id6">[3]</a> Chapter 13 Reasoning and Fuzzy Logic</p>
+</div>
+<ul class="simple">
+<li><p>[模糊逻辑与模糊推理](<a class="reference external" href="https://wenku.baidu.com/view/3039bbd73186bceb19e8bbf8.html">https://wenku.baidu.com/view/3039bbd73186bceb19e8bbf8.html</a>)</p></li>
+<li><p>[模糊逻辑与模糊推理](<a class="reference external" href="https://wenku.baidu.com/view/261aac1eaeaad1f347933fbf.html?rec_flag=default">https://wenku.baidu.com/view/261aac1eaeaad1f347933fbf.html?rec_flag=default</a>)</p></li>
+<li><p>[模糊推理算法及应用](<a class="reference external" href="https://wenku.baidu.com/view/a89c6ac8a58da0116c1749c3.html">https://wenku.baidu.com/view/a89c6ac8a58da0116c1749c3.html</a>)</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FuzzySubalgebra.html" class="btn btn-neutral float-right" title="2.4. 模糊子代数" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MembershipFunction.html" class="btn btn-neutral" title="2.2. 隶属函数" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

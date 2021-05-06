@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. 线性压缩感知 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="稀疏信号处理" href="../index.html"/>
+        <link rel="next" title="5.1. 简介" href="Introduction.html"/>
+        <link rel="prev" title="4.3. 正交匹配追踪" href="../SignalSparseDecomposition/OrthogonalMatchingPursuit.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Digital/index.html">数字信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">稀疏信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SparsitySamplingRecon/index.html">2. 稀疏采样与重构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RepresentationDictionary/index.html">3. 表示字典</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SignalSparseDecomposition/index.html">4. 信号稀疏分解</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5. 线性压缩感知</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">5.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCS.html">5.2. 线性压缩感知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SignalModel.html">5.3. 线性压缩感知信号模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Measurement.html">5.4. 线性压缩感知观测</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Reconstruction.html">5.5. 线性压缩感知重构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html">5.6. 线性压缩感知实践</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../BayesianCompressiveSensing/index.html">6. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LearnedCompressiveSensing/index.html">7. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningCompressiveSensing/index.html">8. 深度学习与压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">9. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">10. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">稀疏信号处理</a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>线性压缩感知</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chapter-linearcompressivesensingsparsesignalprocessing">
+<span id="id1"></span><h1><span class="section-number">5. </span>线性压缩感知<a class="headerlink" href="#chapter-linearcompressivesensingsparsesignalprocessing" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">5.1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearCS.html">5.2. 线性压缩感知</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearCS.html#id4">5.2.1. 线性压缩感知概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearCS.html#id5">5.2.2. 一维线性压缩感知</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearCS.html#id6">稀疏信号的压缩采样与恢复</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearCS.html#id7">非稀疏信号的压缩采样与恢复</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearCS.html#id8">第一种方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCS.html#id9">第二种方式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearCS.html#id10">二维压缩感知</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearCS.html#id11">5.2.3. 复压缩感知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearCS.html#id12">5.2.4. 压缩感知与流形</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearCS.html#id16">5.2.5. 压缩感知分析实验</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SignalModel.html">5.3. 线性压缩感知信号模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Measurement.html">5.4. 线性压缩感知观测</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Measurement.html#id2">5.4.1. 感知矩阵的设计</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Measurement.html#id3">零空间条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Measurement.html#id7">有限等距性质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Measurement.html#id10">相干性/一致性条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Measurement.html#id11">稳定性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Measurement.html#id12">讨论</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Measurement.html#id14">5.4.2. 感知矩阵的构造</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Measurement.html#id15">5.4.3. 常见感知矩阵</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Reconstruction.html">5.5. 线性压缩感知重构</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Reconstruction.html#id2">5.5.1. 重构算法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Reconstruction.html#omp">OMP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearCSExperiments.html">5.6. 线性压缩感知实践</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearCSExperiments.html#subsubsection-csompsparsesignal">5.6.1. 稀疏信号实验</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearCSExperiments.html#id3">一维仿真信号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearCSExperiments.html#id4">二维图像信号</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html#id5">实验设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html#id6">实验代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html#id8">实验结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearCSExperiments.html#cs">5.6.2. 非稀疏信号CS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearCSExperiments.html#id9">压缩感知方式实验</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearCSExperiments.html#id10">一维压缩感知实验</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html#id11">无稀疏表示</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html#id12">含稀疏表示</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="LinearCSExperiments.html#id13">二维压缩感知实验1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LinearCSExperiments.html#id14">二维压缩感知实验2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LinearCSExperiments.html#id15">5.6.3. 复压缩感知实验</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LinearCSExperiments.html#id16">核磁共振成像</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html#id17">实验代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html#id18">实验结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Introduction.html" class="btn btn-neutral float-right" title="5.1. 简介" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../SignalSparseDecomposition/OrthogonalMatchingPursuit.html" class="btn btn-neutral" title="4.3. 正交匹配追踪" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

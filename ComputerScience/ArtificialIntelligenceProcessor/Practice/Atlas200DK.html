@@ -1,0 +1,951 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1. Atalas200DK简明教程 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 实战篇" href="index.html"/>
+        <link rel="next" title="嵌入式系统开发" href="../../EmbeddedDevelopment/index.html"/>
+        <link rel="prev" title="2. 实战篇" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第四卷 计算机学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../OperatingSystem/index.html">操作系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Programing/index.html">程序设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AlgorithmDesign/index.html">算法设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Internet/index.html">互联部分</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">人工智能处理器</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Basis/index.html">1. 基础篇</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 实战篇</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.1. Atalas200DK简明教程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmbeddedDevelopment/index.html">嵌入式系统开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第四卷 计算机学</a> &raquo;</li>
+        
+          <li><a href="../index.html">人工智能处理器</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>实战篇</a> &raquo;</li>
+        
+      <li><span class="section-number">2.1. </span>Atalas200DK简明教程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="atalas200dk">
+<span id="section-atlas200dkhaisiembeddeddevelopmentcomputerscience"></span><h1><span class="section-number">2.1. </span>Atalas200DK简明教程<a class="headerlink" href="#atalas200dk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1.1. </span>简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h3>硬件配置<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>Atalas200DK是华为开发的一款基于昇腾AI处理器Ascend 310的开发套件, 功耗低体积小, 适合于移动嵌入式场景应用. 下 <a class="reference internal" href="#table-hardwarecompareatalas200dk-miniboxse3"><span class="std std-numref">表 2.1</span></a> 给出了华为 Atalas200DK 与比特大陆 Mini Box SE3 硬件配置对比, 可知华为Atlas200DK开发套件性能要优于比特大陆Mini Box SE3.</p>
+<table class="docutils align-default" id="table-hardwarecompareatalas200dk-miniboxse3">
+<caption><span class="caption-number">表 2.1 </span><span class="caption-text">华为 Atalas200DK 与比特大陆 Mini Box SE3 硬件配置对比</span><a class="headerlink" href="#table-hardwarecompareatalas200dk-miniboxse3" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 68%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>华为Atlas200DK</p></th>
+<th class="head"><p>比特大陆 Mini Box SE3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>芯片型号</p></td>
+<td><p>华为Ascend 310</p></td>
+<td><p>比特大陆BM1682</p></td>
+</tr>
+<tr class="row-odd"><td><p>AI算力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8TFLOPS&#64;FP16</span></code>, 支持 <code class="docutils literal notranslate"><span class="pre">16TOPS</span></code>、<code class="docutils literal notranslate"><span class="pre">8TOPS</span></code>、<code class="docutils literal notranslate"><span class="pre">4TOPS</span></code> 三种算力配置</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3TFLOPS&#64;FP32</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>内存</p></td>
+<td><p>LPDDR4x, 8GB, 3200Mbps</p></td>
+<td><p>8GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>存储</p></td>
+<td><p>1个Micro SD卡, 支持SD3.0, 最高支持速率SDR50, 最大容量2TB</p></td>
+<td><p>EMMC 32GB, 支持SD扩展</p></td>
+</tr>
+<tr class="row-even"><td><p>网络接口</p></td>
+<td><p>1个GE RJ45</p></td>
+<td><p>1 x Gigabit</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB接口</p></td>
+<td><p>1个USB3.0 Type C接口, 仅作为从设备, 兼容USB2.0</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-even"><td><p>其它接口</p></td>
+<td><p>1个40pin IO连接器, 2个22pin MIPI 连接器, 2个板载麦克风</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-odd"><td><p>电源</p></td>
+<td><p>5V~28V DC, 默认配置12V 3A适配器</p></td>
+<td><p>12V DC</p></td>
+</tr>
+<tr class="row-even"><td><p>结构尺寸</p></td>
+<td><p>137.8mm x 93.0mm x 32.9mm</p></td>
+<td><p>210mm * 115mm * 45mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>功耗</p></td>
+<td><p>20W</p></td>
+<td><p>平均60W, 最大90W</p></td>
+</tr>
+<tr class="row-even"><td><p>重量</p></td>
+<td><p>234g</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-odd"><td><p>工作温度</p></td>
+<td><p>0℃~ 35℃</p></td>
+<td><p>-10℃ ~ 55℃</p></td>
+</tr>
+</tbody>
+</table>
+<p>Atlas200DK 主要包含Ascend 310 AI加速模块、图像/音频接口芯片 (Hi3559C) 和LAN Switch三部分, 系统架构如 <a class="reference internal" href="#fig-atlas200dksystemframework"><span class="std std-numref">图 2.5</span></a> 所示.</p>
+<div class="figure align-center" id="id33">
+<span id="fig-atlas200dksystemframework"></span><img alt="华为Atlas200DK系统架构" src="../../../_images/Atlas200DKSystemFramework.png" />
+<p class="caption"><span class="caption-number">图 2.5 </span><span class="caption-text">华为Atlas200DK系统架构</span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>华为Atlas200DK系统架构</p>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>软件配置<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>资料汇总<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.huaweicloud.com/ascend/doc/">文档中心</a> : Atlas200DK</p></li>
+<li><p><a class="reference external" href="https://www.huaweicloud.com/ascend/resources/Tools">软件工具</a> : 含制卡工具, MindSpore Studio, DDK 等, 注, 以下涉及的软件请换成最新版本 <code class="docutils literal notranslate"><span class="pre">1.3</span></code></p></li>
+<li><p><a class="reference external" href="https://gitee.com/HuaweiAtlas">Atlas GITEE仓库</a> : Samples, Custom Operator</p></li>
+<li><p><a class="reference external" href="https://gitee.com/HuaweiAtlas/CustomOperator">自定义算子示例(caffe tensorflow)</a></p></li>
+<li><p><a class="reference external" href="http://old-releases.ubuntu.com/releases/16.04.3/">操作系统获取路径</a> : Ubuntu 16.04.3</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>目前开源的Ascend芯片上的模型有:</p>
+<ul class="simple">
+<li><p>分类: alexnet, caffenet, car_color, car_plate_recognition, car_type, densenet, dpn98, face_attribute, face_emotion, feature_extract, googlenet, inception_age, inception_gender, inception_v2, inception_v3, inception_v4, mobilenet_v1, mobilenet_v2, pedestrian, resnet101, resnet152, resnet18, resnet50, sphereface, squeezenet, vanillacnn, vgg16, vgg19</p></li>
+<li><p>检测: car_plate_detection, face_body_detection, face_detection, faster_rcnn, faster_rcnn_vgg16, mobilnent_ssd, occlusion_face_detection, peppapig_detection, resnet_ssd, vgg16_ssd, vgg_ssd, vgg_ssd_voc0712, yolo_v2</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">2.1.2. </span>环境配置<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h3>准备<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id10">
+<h4>编译依赖<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>通过如下命令安装编译依赖</p>
+<div class="literal-block-wrapper docutils container" id="bind-id">
+<div class="code-block-caption"><span class="caption-number">代码 2.1 </span><span class="caption-text">编译依赖安装</span><a class="headerlink" href="#bind-id" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>0</pre></div></td><td class="code"><div class="highlight"><pre>sudo apt-get install gcc g++ cmake curl libboost-all-dev unzip haveged libatlas-base-dev python-skimage python3-skimage python-pip python3-pip liblmdb-dev libhdf5-serial-dev libsnappy-dev libleveldb-dev make graphviz autoconf libxml2-dev libxml2 sqlite3 python libzip-dev libssl-dev
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="java">
+<h4>Java<a class="headerlink" href="#java" title="永久链接至标题">¶</a></h4>
+<p>通过如下命令安装Java JDK环境</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-number">代码 2.2 </span><span class="caption-text">编译依赖安装</span><a class="headerlink" href="#id11" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>0
+1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># 添加源</span>
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+<span class="c1"># 安装java jdk</span>
+sudo apt-get install -y openjdk-8-jdk
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>安装完成后, 添加如下环境变量到 <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> 文件即完成 Java 的安装</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mindspore-studio">
+<h3>MindSpore Studio安装<a class="headerlink" href="#mindspore-studio" title="永久链接至标题">¶</a></h3>
+<p>以下假设工作主目录为 <code class="docutils literal notranslate"><span class="pre">Atlas200</span></code>, 含如下两个文件</p>
+<ul class="simple">
+<li><p><cite>mini_mind_studio_Ubuntu.rar</cite></p></li>
+<li><p><cite>MSpore_DDK-1.3.T34.B891-x86_64.ubuntu16.04-aarch64.ubuntu16.04-aarch64.ubuntu16.04.tar.gz</cite></p></li>
+</ul>
+<p>解压 <cite>mini_mind_studio_Ubuntu.rar</cite> 软件包, 并将压缩包 <cite>MSpore_DDK-1.3.T34.B891-x86_64.ubuntu16.04-aarch64.ubuntu16.04-aarch64.ubuntu16.04.tar.gz</cite> 放进解压目录 <cite>mini_mind_studio_Ubuntu</cite>.</p>
+<div class="section" id="id12">
+<h4>准备工作<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<ol class="arabic">
+<li><p>配置可选项</p>
+<ul class="simple">
+<li><p>打开文件 <cite>scripts/env.conf</cite></p></li>
+<li><p>设置IP, 端口等变量值, 安装用户, 举例如下</p></li>
+</ul>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-number">代码 2.3 </span><span class="caption-text">env.conf 配置</span><a class="headerlink" href="#id13" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">ip</span><span class="o">=</span>192.168.31.233
+<span class="nv">port</span><span class="o">=</span>8087
+<span class="nv">toolpath</span><span class="o">=</span>/yourdir/Atlas200/tools
+<span class="nv">backup</span><span class="o">=</span>/yourdir/Atlas200/wsbackup
+<span class="nv">profiler_port</span><span class="o">=</span>8099
+<span class="nv">max_log_size</span><span class="o">=</span>10
+<span class="nv">apache_user</span><span class="o">=</span>msvpUser
+<span class="nv">install_user</span><span class="o">=</span>ant
+<span class="nv">package_path</span><span class="o">=</span>/usr/bin
+<span class="nv">use_eth0</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">load_data</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="id14">
+<h4>执行安装<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>执行如下命令安装</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-number">代码 2.4 </span><span class="caption-text">install mind studio</span><a class="headerlink" href="#id15" title="永久链接至代码">¶</a></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll">bee@Smart:~/sfw/huawei/mini_mind_studio_Ubuntu$ sudo ./add_sudo.sh bee
+</span>[sudo] password for bee:
+<span class="hll">bee@Smart:~/sfw/huawei/mini_mind_studio_Ubuntu$ ./install.sh
+</span>files check pass!
+[INFO] Please make sure that you have configured in env.conf otherwise the installation will use default configuration.
+[INFO] Your ip address is 192.168.49.189
+[INFO] Using port: 8888
+[INFO] Using tool_path: /home/bee/tools
+[INFO] Using backup_path: /home/bee/wsbackup
+[INFO] Using profiler_port: 8099
+[INFO] Using apache_user: msvpUser
+[INFO] Mind-Studio package found: Mind-Studio_Ubuntu-x86-64.tar
+[INFO] DDK package found: MSpore_DDK-1.3.T34.B891-x86_64.ubuntu16.04-aarch64.ubuntu16.04-aarch64.ubuntu16.04.tar.gz
+[INFO] Extracting package, please wait for a minute...
+[INFO] Start installing Mind-Studio
+#### The current system is ubuntu 16.04.
+install user: bee
+Accept use_eth0 successfully!
+Accept load_data successfully!
+Accept run_type successfully!
+start check profiling pre-install software
+四 29 8月 2019 20:47:49 [INFO] [MSVP] [22906] install_profiling.sh: Current user is bee.
+===&gt; Start install mongodb
+===&gt; Successfully installed the mongod.
+===&gt; Started to prepare conf.
+===&gt; Successfully prepared conf.
+===&gt; Started to prepare rebootshell.
+===&gt; Successfully prepared rebootshell.
+/etc/init.d
+===&gt; Started to prepare envtools
+===&gt; Started to import gnupg key.
+===&gt; Successfully imported gnupg key
+===&gt; Successfully prepared envtools
+===&gt; Copy libCaffe
+/home/bee/sfw/huawei/mini_mind_studio_Ubuntu/Mind-Studio/vendor/envtools
+===&gt; Copy ArmPython
+===&gt; Started to prepare Mind_Studio_Project.
+openjdk version &quot;1.8.0_222&quot;
+OpenJDK Runtime Environment (build 1.8.0_222-8u222-b10-1ubuntu1~16.04.1-b10)
+OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)
+===&gt; Successfully prepared Mind_Studio_Project
+===&gt; No projects need to be loaded.
+===&gt; No my-datasets need to be loaded.
+===&gt; No my-model needs to be loaded.
+===&gt; No caffe-model need to load
+===&gt; No db needs to be loaded.
+===&gt; No offline-model needs to be loaded.
+===&gt; Successfully installed the environment
+Your time zone 20:49:01 is not a common time zone, Please check if the jvm virtual machine time zone matches.
+===&gt; Installing the DDK...
+MSpore_DDK-1.3.T34.B891-x86_64.ubuntu16.04-aarch64.ubuntu16.04-aarch64.ubuntu16.04.tar.gz
+===&gt; Starting to extract ddk.
+===&gt; Installing the DDK...
+===&gt; Successfully installed the DDK.
+===&gt; Write DDKConfig successfully!
+checking the JCE in JDK ...
+===&gt; Remove DDKConfig successfully!
+===&gt; Write DDKConfig successfully!
+start to check certificate expire days...
+==&gt; Certificate /home/bee/tools/conf/secure_keys/server.crt will sleep 365d!
+set ulimit -n 64000
+./logs/
+./logs/operation.log
+./rootkey/
+./rootkey/v1/
+./rootkey/v1/cat/
+./rootkey/v1/cat/c.txt
+./rootkey/v1/apple/
+./rootkey/v1/apple/a.txt
+./rootkey/v1/dog/
+./rootkey/v1/dog/d.txt
+./rootkey/v1/boy/
+./rootkey/v1/boy/b.txt
+./work_key.json
+about to fork child process, waiting until server is ready for connections.
+forked process: 24944
+child process started successfully, parent exiting
+===&gt; Successfully started the mongod server.
+===&gt; mongo password has been initialised, please change password in time. you can refer to instruction manual for help
+Total number of files is 0
+===&gt; Starting Mind Studio...Please wait.
+Server startup in 19688 ms
+/home/bee/tools/log
+===&gt; Successfully started Mind Studio.
+===&gt; Use Google Chrome https://IP:Port
+===&gt; You can check /home/bee/tools/log/mind_log/mind-20190829204746.log for installation details!
+the install path is not in PATH, add it to PATH.
+===&gt; Waiting for profiling to finish...
+===&gt; Successfully installed profiling.
+Starting to chmod folders.
+Installation finished.
+[INFO] delete temporary Mind-Studio directory.
+/home/bee/sfw/huawei/mini_mind_studio_Ubuntu
+[INFO] Please make sure that the Linux Kernel Version is higher than 4.18 or apply this patch https://bugzilla.kernel.org/attachment.cgi?id=277305 when Linux Kernel Version below 4.18, otherwise maybe stuck when converting model using omg with TE plugin.
+[INFO] Install successfully
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>若安装过程提示 <code class="docutils literal notranslate"><span class="pre">mongo</span></code> 安装启动失败, 可以通过 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">mongodb-server</span></code> 直接安装.</p>
+</div>
+<p>安装完成后在浏览器中输入上述 <code class="docutils literal notranslate"><span class="pre">https://IP:port</span></code> 地址, 如可以进入登录界面 (<a class="reference internal" href="#fig-loginmindsporestudio"><span class="std std-numref">图 2.6</span></a>), 则证明安装成功, 否则重复上述步骤</p>
+<div class="figure align-center" id="id34">
+<span id="fig-loginmindsporestudio"></span><a class="reference internal image-reference" href="../../../_images/MindSporeStudio_login.png"><img alt="MindSporeStudio 登录界面" src="../../../_images/MindSporeStudio_login.png" style="width: 688.0px; height: 504.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.6 </span><span class="caption-text">MindSporeStudio 登录界面</span><a class="headerlink" href="#id34" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>登录MindSpore Studio界面的用户名默认为“MindSporeStudioAdmin”, 不支持修改和新建. 初始密码为“Huawei123&#64;”, 请参见修改密码.
+登录Profiling界面的用户名为msvpadmin, 初始密码为Admin12#$, 请参见展示性能分析数据章节创建普通用户.</p>
+</div>
+<p>登录成功后即可进入Mind Spore Studio 工作界面 (<a class="reference internal" href="#fig-mindsporestudiowelcom"><span class="std std-numref">图 2.7</span></a>)</p>
+<div class="figure align-center" id="id35">
+<span id="fig-mindsporestudiowelcom"></span><a class="reference internal image-reference" href="../../../_images/MindSporeStudioWelcom.png"><img alt="MindSporeStudio 工作界面" src="../../../_images/MindSporeStudioWelcom.png" style="width: 575.2px; height: 481.6px;" /></a>
+<p class="caption"><span class="caption-number">图 2.7 </span><span class="caption-text">MindSporeStudio 工作界面</span><a class="headerlink" href="#id35" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h2><span class="section-number">2.1.3. </span>系统启动<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<div class="section" id="sd">
+<h3>SD卡启动镜像制作<a class="headerlink" href="#sd" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id17">
+<h4>准备工作<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><dl class="simple">
+<dt>硬件环境</dt><dd><ul>
+<li><p>一张MicroSD卡, 大于16GB</p></li>
+<li><p>一台装有PC机</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>软件环境</dt><dd><ul>
+<li><p>PC机装有 <code class="docutils literal notranslate"><span class="pre">ubuntu-16.04.3-desktop/server-amd64</span></code>, <code class="docutils literal notranslate"><span class="pre">MindSpore</span> <span class="pre">Studio</span></code>, <code class="docutils literal notranslate"><span class="pre">DDK</span></code></p></li>
+<li><p>嵌入式操作系统 <code class="docutils literal notranslate"><span class="pre">ubuntu-16.04.3-server-arm64.iso</span></code>, 可通过命令 <code class="docutils literal notranslate"><span class="pre">axel</span> <span class="pre">-n</span> <span class="pre">10</span> <span class="pre">-o</span> <span class="pre">./</span> <span class="pre">http://old-releases.ubuntu.com/releases/16.04.3/ubuntu-16.04.3-server-arm64.iso</span></code> 下载</p></li>
+<li><p>开发套件 <code class="docutils literal notranslate"><span class="pre">mini_developkit-xxx.rar</span></code></p></li>
+<li><p>脚本文件 <code class="docutils literal notranslate"><span class="pre">make_sd_card.py</span></code> 和 <code class="docutils literal notranslate"><span class="pre">make_ubuntu_sd.sh</span></code>, 可从 <a class="reference external" href="https://github.com/Ascend/tools/">GIT 仓库</a> 获取.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>新建文件夹 <cite>mksd</cite> (如 <cite>Atlas200/ascend/mksd</cite>), 将 <code class="docutils literal notranslate"><span class="pre">ubuntu-16.04.3-server-arm64.iso</span></code>, <code class="docutils literal notranslate"><span class="pre">mini_developkit-xxx.rar</span></code>, <code class="docutils literal notranslate"><span class="pre">make_sd_card.py</span></code> 和 <code class="docutils literal notranslate"><span class="pre">make_ubuntu_sd.sh</span></code> 放入该文件夹, 准备工作完成.</p>
+</div>
+<div class="section" id="id18">
+<h4>依赖安装<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>打开终端, 输入如下命令安装依赖</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-number">代码 2.5 </span><span class="caption-text">安装交叉编译器与依赖</span><a class="headerlink" href="#id19" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>0
+1</pre></div></td><td class="code"><div class="highlight"><pre>su - root
+apt-get install qemu-user-static binfmt-support python3-yaml gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="atlas200dkip">
+<h4>配置Atlas200DK开发板IP地址<a class="headerlink" href="#atlas200dkip" title="永久链接至标题">¶</a></h4>
+<p>修改文件 <code class="docutils literal notranslate"><span class="pre">make_sd_card.py</span></code> 中的参数值, 使其不与PC机冲突</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="c1"># 网卡IP地址, 通过网线连接时使用</span>
+<span class="n">NETWORK_CARD_DEFAULT_IP</span><span class="o">=</span><span class="s2">&quot;192.168.31.2&quot;</span>
+<span class="c1"># USB虚拟IP地址, 通过USB连接时使用</span>
+<span class="n">USB_CARD_DEFAULT_IP</span><span class="o">=</span><span class="s2">&quot;192.168.31.2&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>实测发现, IP <code class="docutils literal notranslate"><span class="pre">192.168.x.y</span></code> 中, <code class="docutils literal notranslate"><span class="pre">y</span></code> 只能为 <code class="docutils literal notranslate"><span class="pre">2</span></code>, 设置成其它值无法ping同!</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>注意, 上述IP地址应与PC机处于同一网段内. 若想重新制卡, 需要先删除上述操作生成的SD卡上的分区, 可以通过 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">gparted</span></code> 安装 Gparted 分区工具, 然后执行删除分区的操作即可.</p>
+</div>
+</div>
+<div class="section" id="id20">
+<h4>制作SD卡启动镜像<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h4>
+<p>进入 <cite>Atlas200/ascend/mksd/</cite> 目录, 执行命令 <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">make_sd_card.py</span> <span class="pre">local</span> <span class="pre">/dev/sdx</span></code> 制作SD卡, 注意 <code class="docutils literal notranslate"><span class="pre">sdx</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">x</span></code> 代表SD卡号, 可使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">fdisk</span> <span class="pre">-l</span></code> 查看, 输出日志如下</p>
+<p>打开终端, 输入如下命令安装依赖</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-number">代码 2.6 </span><span class="caption-text">制作SD卡</span><a class="headerlink" href="#id21" title="永久链接至代码">¶</a></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>0
+1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll">mksd# su - root
+</span>mksd# python3 make_sd_card.py local /dev/sdc
+Begin to make SD Card...
+Please make sure you have installed dependency packages:
+    apt-get install -y qemu-user-static binfmt-support gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+Please input Y: continue, other to install them:y
+Step: Start to make SD Card. It need some time, please wait...
+Make SD Card successfully!
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>若提示: [ERROR] Can not get disk, please use fdisk -l to check available disk name!
+首先检查是否输错 <code class="docutils literal notranslate"><span class="pre">sdx</span></code>, 若无执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">make_sd_card.py</span> <span class="pre">local</span> <span class="pre">/dev/sdx</span></code>.</p>
+</div>
+</div>
+<div class="section" id="id22">
+<h4>连接开发板与上位机<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<p>可以通过 <code class="docutils literal notranslate"><span class="pre">Type-c</span></code> 或网线连接, 可以直连, 也可以通过交换机/路由器相连, 保证开发板IP与PC机IP处于同一网段即可.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>在执行配置前, 建议先进行设备检查, 即通过 Type-c 线连接开发板与PC机, 在PC机中执行 <code class="docutils literal notranslate"><span class="pre">ifconfig</span> <span class="pre">-a</span></code> 查看是否有新的网卡设备, 若有, 证明上述制卡过程没问题, 否则很可能是嵌入式系统ubuntu版本不对, 或者是开发套件 <code class="docutils literal notranslate"><span class="pre">mini_developkit-xxx.rar</span></code> 版本不对, 实验发现, <a class="reference external" href="https://github.com/Ascend/tools/">Ascend tool 仓库</a> 中文件夹 <code class="docutils literal notranslate"><span class="pre">B883</span></code> 下的软件包做成镜像无法发现设备, 而 <code class="docutils literal notranslate"><span class="pre">B750SP05</span></code> 下的则可以.</p>
+</div>
+<p>无论使用USB连接还是网线连接, 均需要配置服务端静态IP, 可通过图形界面配置, 或者在PC端执行如下命令</p>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-number">代码 2.7 </span><span class="caption-text">配置服务端静态IP</span><a class="headerlink" href="#id23" title="永久链接至代码">¶</a></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">mksd</span><span class="c1"># su - root</span>
+
+<span class="c1"># open file /etc/network/interfaces</span>
+<span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">interfaces</span>
+
+<span class="c1"># add the following information</span>
+<span class="n">auto</span> <span class="n">ethname</span>
+<span class="n">iface</span> <span class="n">ethname</span> <span class="n">inet</span> <span class="n">static</span>
+<span class="n">address</span> <span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span>
+<span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
+
+<span class="c1"># modify file /etc/NetworkManager/NetworkManager.conf to enable the above settings permanently</span>
+<span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">NetworkManager</span><span class="o">/</span><span class="n">NetworkManager</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="c1"># set managed=true</span>
+<span class="n">managed</span><span class="o">=</span><span class="n">true</span>
+
+<span class="c1"># USB</span>
+<span class="n">ifdown</span> <span class="n">ethname</span>
+<span class="n">ifup</span> <span class="n">ethname</span>
+<span class="n">service</span> <span class="n">NetworkManager</span> <span class="n">restart</span>
+
+<span class="c1"># NIC restart network service</span>
+<span class="n">service</span> <span class="n">networking</span> <span class="n">restart</span>
+<span class="n">service</span> <span class="n">NetworkManager</span> <span class="n">restart</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>其中, <code class="docutils literal notranslate"><span class="pre">ethname</span></code> 为网卡名, 通过 <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> 查看, 举例如下</p>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-number">代码 2.8 </span><span class="caption-text">配置静态IP</span><a class="headerlink" href="#id24" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>0
+1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="c1"># enp0s20u2</span>
+</span><span class="hll">auto enp0s20u2
+</span><span class="hll">iface enp0s20u2 inet static
+</span><span class="hll">address 192.168.31.233
+</span>netmask 255.255.255.0
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>重启网络服务后, 可通过 <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> 查看对应网卡IP是否设置成功. 接着可以通过 <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">192.168.x.2</span></code> 来测试是否连接成功, 其中 <code class="docutils literal notranslate"><span class="pre">x</span></code> 为在制作SD卡中设置的值!</p>
+</div>
+<div class="section" id="id25">
+<h4>登录开发板系统<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h4>
+<p>由于通过网络连接开发板与PC机, 故可通过 <code class="docutils literal notranslate"><span class="pre">ssh</span></code> 协议访问, 若要登录开发板系统, 在PC端输入指令 <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">HwHiAiUser&#64;IP</span></code> (如 <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">HwHiAiUser&#64;192.168.31.2</span></code> )  即可, 默认HwHiAiUser密码为 <code class="docutils literal notranslate"><span class="pre">Mind&#64;123</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-number">代码 2.9 </span><span class="caption-text">登录开发板系统</span><a class="headerlink" href="#id26" title="永久链接至代码">¶</a></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre>bee@Smart:~$ ssh HwHiAiUser@192.168.31.2
+HwHiAiUser@192.168.31.2&#39;s password:
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.19.36+ aarch64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+HwHiAiUser@davinci-mini:~$ ls
+dump  hdcd  HIAI_PROJECTS  ide_daemon
+HwHiAiUser@davinci-mini:~$
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id27">
+<h2><span class="section-number">2.1.4. </span>MindSpore Studio开发<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h2>
+<p>MindSpore Studio的Matrix流程编排功能提供AI引擎可视化拖拽式编程及算法代码自动生成技术, 极大的降低了开发者的门槛. Matrix中的Engine是一个具体的业务节点, 一个业务节点表示一次处理过程, 多个Engine组成一个Graph, Graph负责对Engine的管理. 每个Engine节点间的连接在Graph配置文件中配置, 节点间数据的实际流向根据具体业务在节点中实现, 通过向业务的开始节点灌入数据启动整个Engine计算流程. (引自华为官网)</p>
+<div class="section" id="id28">
+<h3>开发概览<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<p>Mind Studio的Engine流程编排功能提供AI引擎可视化拖拽式编程及算法代码自动生成技术, 极大的降低了开发者的门槛. 其中, 最核心的步骤是编排流程, Mind Studio的Engine 编排流程如 <a class="reference internal" href="#fig-mindsporestudiodevelopflow"><span class="std std-numref">图 2.8</span></a> 所示, 该流程主要包含以下几个步骤：</p>
+<ul class="simple">
+<li><p>模型转换：将Caffe/Tensorflow等模型转换为适配硬件环境的模型.</p></li>
+<li><p>图像预处理：对数据进行特定的预处理, 比如将对信号进行时频变换, 或者需要对图片进行指定的裁剪、缩放、格式转换等操作, 以满足模型推理的需要.</p></li>
+<li><p>模型推理：将预处理后的输入进行推理执行输出结果.</p></li>
+<li><p>图像后处理：对数据进行特定的后处理, 比如将模型推理结果保存在文件中, 或者根据数据在图像上标注类别、概率、检测框等信息.</p></li>
+</ul>
+<div class="figure align-center" id="id36">
+<span id="fig-mindsporestudiodevelopflow"></span><a class="reference internal image-reference" href="../../../_images/MindSporeStudioDevelopFlow.png"><img alt="Engine编排总体流程" src="../../../_images/MindSporeStudioDevelopFlow.png" style="width: 695.2px; height: 301.6px;" /></a>
+<p class="caption"><span class="caption-number">图 2.8 </span><span class="caption-text">Engine编排总体流程(来自华为官网)</span><a class="headerlink" href="#id36" title="永久链接至图片">¶</a></p>
+</div>
+<p>Engine开发详细流程可参考官方文档 <a class="reference external" href="https://ascend.huawei.com/doc/Atlas200DK/1.3.0.0/zh/zh-cn_topic_0160786246.html">Engine编排总体流程</a>.</p>
+<div class="section" id="id29">
+<h4>添加与管理开发板设备<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h4>
+<p>启动 MindSpore Studio, 依次点击 <code class="docutils literal notranslate"><span class="pre">Tool--&gt;Atlas</span> <span class="pre">DK</span> <span class="pre">Configuration</span></code>, 在弹出的对话框中按提示输入信息 (<a class="reference internal" href="#fig-adddeviceatlas200dk"><span class="std std-numref">图 2.9</span></a>), 添加后如 <a class="reference internal" href="#fig-addeddeviceatlas200dk"><span class="std std-numref">图 2.10</span></a> 所示.</p>
+<div class="admonition danger">
+<p class="admonition-title">危险</p>
+<p>经测试, 使用Firefox 浏览器添加设备会弹出 <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> 对话框, 但又不提示错误信息, 使用 Google Chrome 无此问题, 可正常添加.</p>
+</div>
+<div class="figure align-center" id="id37">
+<span id="fig-adddeviceatlas200dk"></span><a class="reference internal image-reference" href="../../../_images/AddDevice.png"><img alt="添加开发板设备" src="../../../_images/AddDevice.png" style="width: 335.20000000000005px; height: 272.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.9 </span><span class="caption-text">添加开发板设备</span><a class="headerlink" href="#id37" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-center" id="id38">
+<span id="fig-addeddeviceatlas200dk"></span><a class="reference internal image-reference" href="../../../_images/AddDeviceOK.png"><img alt="添加好开发板设备的示意图" src="../../../_images/AddDeviceOK.png" style="width: 332.8px; height: 272.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.10 </span><span class="caption-text">添加好开发板设备的示意图</span><a class="headerlink" href="#id38" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id30">
+<h3>自定义算子<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h3>
+<p>待续!</p>
+</div>
+</div>
+<div class="section" id="id31">
+<h2><span class="section-number">2.1.5. </span>深度学习移植实例<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id32">
+<h3>简单例子<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h3>
+<p>MindSpore Studio的Matrix流程编排功能提供AI引擎可视化拖拽式编程及算法代码自动生成技术, 极大的降低了开发者的门槛. Matrix中的Engine是一个具体的业务节点, 一个业务节点表示一次处理过程, 多个Engine组成一个Graph, Graph负责对Engine的管理. 每个Engine节点间的连接在Graph配置文件中配置, 节点间数据的实际流向根据具体业务在节点中实现, 通过向业务的开始节点灌入数据启动整个Engine计算流程.</p>
+<div class="figure align-center" id="id39">
+<span id="fig-demossd300"></span><a class="reference internal image-reference" href="../../../_images/DemoSSD300.png"><img alt="SSD300目标检测网络在Mind Studio工具上的编排结果" src="../../../_images/DemoSSD300.png" style="width: 779.2px; height: 388.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.11 </span><span class="caption-text">SSD300目标检测网络在Mind Studio工具上的编排结果</span><a class="headerlink" href="#id39" title="永久链接至图片">¶</a></p>
+</div>
+<p>使用Mind Studio工具进行SSD300目标检测网络的编排, 这里使用的数据集为VOC数据集. 编排后的SSD目标检测网络流程如 <a class="reference internal" href="#fig-demossd300"><span class="std std-numref">图 2.11</span></a> 所示, SSD网络主要包含如下节点: 一个数据集 (Pascal100) 、一个模型 (SSD) 、一个数据预处理 (ImagePreProcess) 、一个执行引擎 (MindInferenceEngine) 以及一个图片后处理节点 (SSDPostProcess). 通过编译生成Ascend 310人工智能芯片上的可执行文件 <code class="file docutils literal notranslate"><span class="pre">vgg_ssd_voc0712.om</span></code>, 将该文件导入系统SD卡中即完成模型的移植工作.</p>
+</div>
+</div>
+<div class="section" id="pytorch-caffe">
+<h2><span class="section-number">2.1.6. </span>PyTorch 转 Caffe<a class="headerlink" href="#pytorch-caffe" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/xxradon/PytorchToCaffe">PytorchToCaffe</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../EmbeddedDevelopment/index.html" class="btn btn-neutral float-right" title="嵌入式系统开发" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2. 实战篇" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

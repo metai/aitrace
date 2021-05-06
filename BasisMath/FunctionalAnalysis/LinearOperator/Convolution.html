@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.1. 卷积算子 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 线性算子" href="index.html"/>
+        <link rel="next" title="1.2. 相关算子" href="Correlation.html"/>
+        <link rel="prev" title="1. 线性算子" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">泛函分析</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 线性算子</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.1. 卷积算子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Correlation.html">1.2. 相关算子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvolutionCorrelation.html">1.3. 卷积与相关</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">2. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">泛函分析</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>线性算子</a> &raquo;</li>
+        
+      <li><span class="section-number">1.1. </span>卷积算子</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-convolutionlinearoperatorfunctionalanalysisbasicmath">
+<span id="id1"></span><h1><span class="section-number">1.1. </span>卷积算子<a class="headerlink" href="#section-convolutionlinearoperatorfunctionalanalysisbasicmath" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1.1. </span>普通卷积<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在数学中, <strong>卷积</strong> ( <a class="reference internal" href="../../Topology/glossary.html#term-0"><span class="xref std std-term">Convolution</span></a> ) 是一种由两个函数(<span class="math">\(f, g\)</span>)产生第三个函数(<span class="math">\(h\)</span>)的操作, 即将两个函数(<span class="math">\(f, g\)</span>)中的一个进行翻转和平移不同量后与另一个分别相乘后再累加. 与相关分析类似, 不同的是在相关分析中, 无需进行翻转操作.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>卷积神经网络中的卷积(convolution)运算实际上是互相关(cross-correlation)运算, 详见 <a class="reference internal" href="../../../ArtificialIntelligence/NeuralNetwork/ModulesOfNN/ConvolutionUnit.html#section-convolutionunitmoduleofnnneuralnetworkartificialintelligence"><span class="std std-ref">卷积单元</span></a> 小节.</p>
+</div>
+<div class="section" id="id3">
+<h3>一维卷积<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>设有单变量连续函数 <span class="math">\(f(t)\)</span>, <span class="math">\(g(t)\)</span>, 两者之间的卷积可以表示为</p>
+<div class="math" id="equation-equ-1dconvcontinues">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-equ-1dconvcontinues" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+(f*g)(t) &= \int_{-\infty}^{+\infty}f(\tau)g(t-\tau){\rm d}\tau \\
+         &= \int_{-\infty}^{+\infty}f(t-\tau)g(\tau){\rm d}\tau
+\end{aligned}
+
+\]</div>
+<p>单变量离散序列 <span class="math">\(f[n]\)</span>, <span class="math">\(g[n]\)</span>, 两者之间的卷积可以表示为</p>
+<div class="math" id="equation-equ-1dconvdiscrete">
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-equ-1dconvdiscrete" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+(f*g)[n] &= \sum_{m=-\infty}^{+\infty}f[m]g[n-m] \\
+         &= \sum_{m=-\infty}^{+\infty}f[n-m]g[m]
+\end{aligned}
+
+\]</div>
+<p>一维卷积具有如下性质 (以连续卷积为例)</p>
+<ul class="simple">
+<li><p>分配律: <span class="math">\(f_1(t)*\left(f_2(t)+f_3(t)\right) = f_1(t)*f_2(t) + f_1(t) * f_3(t)\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(h(t) = h_1(t) + h_2(t)\)</span></p></li>
+<li><p>结合律: <span class="math">\(\left(f_1(t)*f_2(t)\right)*f_3(t) = f_1(t)*\left(f_2(t)*f_3(t)\right)\)</span> <span class="math">\(\Leftrightarrow\)</span> <span class="math">\(h(t) = h_1(t) * h_2(t)\)</span></p></li>
+<li><p>交换律: <span class="math">\(f_1(t)*f_2(t) = f_2(t)*f_1(t)\)</span></p></li>
+<li><p>时域卷积对应频域相乘: <span class="math">\(f_1(t)*f_2(t) \Leftrightarrow F_1(\omega)F_2(\omega)\)</span></p></li>
+<li><p>频域卷积对应时域相乘: <span class="math">\(F_1(\omega)*F_2(\omega) \Leftrightarrow 2\pi f_1(t)f_2(t)\)</span></p></li>
+<li><p>卷积的微分: <span class="math">\(\frac{{\rm d}}{{\rm d} t}\left[f_{1}(t) * f_{2}(t)\right]=f_{1}(t) * \frac{{\rm d} f_{2}(t)}{{\rm d} t}+f_{2}(t) * \frac{{\rm d} f_{1}(t)}{{\rm d} t}\)</span></p></li>
+<li><p>卷积的积分: <span class="math">\(\int_{-\infty}^{t} f_{1}(\tau) * f_{2}(\tau) {\rm d} \tau=f_{1}(t) * \int_{-\infty}^{t} f_{2}(\tau) {\rm d} \tau=f_{2}(t) * \int_{-\infty}^{t} f_{1}(\tau) {\rm d} \tau\)</span></p></li>
+</ul>
+<p>任意函数与冲击响应函数卷积的性质 (以连续卷积为例)</p>
+<ul class="simple">
+<li><p>任意函数与单位冲激信号卷积结果为自身: <span class="math">\(f(t)*\delta(t) = \int_{-\infty}^{+\infty}f(\tau)\delta(t-\tau){\rm d}\tau=f(t)\)</span></p></li>
+<li><p>任意函数与时延为 <span class="math">\(t_d\)</span> 的单位冲激信号卷积结果为自身时延 <span class="math">\(t_d\)</span> : <span class="math">\(f(t)*\delta(t-t_d) = \int_{-\infty}^{+\infty}f(\tau)\delta(t-t_d-\tau){\rm d}\tau=f(t-t_d)\)</span></p></li>
+<li><p>任意函数与单位冲激信号导数的卷积结果为自身的导数: <span class="math">\(f(t)*\delta^{(k)}(t)=f^{(k)}(t)\)</span></p></li>
+<li><p>任意函数与时延为 <span class="math">\(t_d\)</span> 单位冲激信号导数的卷积结果为自身时延 <span class="math">\(t_d\)</span> 导数: <span class="math">\(f(t)*\delta^{(k)}(t-t_d)=f^{(k)}(t-t_d)\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>二维卷积<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>对于双变量连续函数 <span class="math">\(f(x, y), g(x, y)\)</span>, 它们之间的二维卷积定义为</p>
+<div class="math" id="equation-equ-2dconvcontinues">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-equ-2dconvcontinues" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+(f*g)(x, y) &=\int_{-\infty}^{+\infty}f(u,v)g(x-u,y-v){\rm d}u{\rm d}v \\
+            &= \int_{-\infty}^{+\infty}f(x-u,y-v)g(u,v){\rm d}u{\rm d}v
+\end{aligned}
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.1.2. </span>回旋卷积<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p><strong>回旋卷积</strong> ( <span class="xref std std-term">Circular Convolution</span> ) 也称 <strong>循环卷积</strong> , 即当 <span class="math">\(g\)</span> 为周期函数时的卷积, 卷积结果也是周期的.</p>
+<div class="section" id="id6">
+<h3>连续形式<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>设有周期为 <span class="math">\(T\)</span> 的函数 <span class="math">\(g\)</span> , 定义如下连续形式循环卷积</p>
+<div class="math">
+\[f(t)*g_T(t) = \int_{t_0}^{t_0+T}\left(\sum_{k=-\infty}^{+\infty}f(\tau+kT)\right)g_T(t-\tau){\rm d}\tau
+
+\]</div>
+</div>
+<div class="section" id="id7">
+<h3>离散形式<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>设有周期为 <span class="math">\(T\)</span> 的函数 <span class="math">\(g\)</span> , 定义如下离散形式循环卷积</p>
+<div class="math">
+\[f[n]*g_N[n] = \sum_{m=0}^{N-1}\left(\sum_{k=-\infty}^{+\infty}f[m+kN]\right)g_N[n-m]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">1.1.3. </span>实验分析<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h3>二维卷积<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Correlation.html" class="btn btn-neutral float-right" title="1.2. 相关算子" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="1. 线性算子" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

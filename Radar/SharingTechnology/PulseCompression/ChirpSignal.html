@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.1. 线性调频信号 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 脉冲压缩" href="index.html"/>
+        <link rel="next" title="1.2. 接收信号" href="RecievedChirpSignal.html"/>
+        <link rel="prev" title="1. 脉冲压缩" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SAR/index.html">合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">共用技术</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 脉冲压缩</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.1. 线性调频信号</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RecievedChirpSignal.html">1.2. 接收信号</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ChirpMatchedFiltering.html">1.3. 匹配滤波与脉冲压缩</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ClutterSuppression/index.html">2. 杂波抑制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RadarCrossSection/index.html">3. 雷达散射截面积</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">4. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">5. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">共用技术</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>脉冲压缩</a> &raquo;</li>
+        
+      <li><span class="section-number">1.1. </span>线性调频信号</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-chirpsignalpulsecompressionsharingtechnologyradar">
+<span id="id1"></span><h1><span class="section-number">1.1. </span>线性调频信号<a class="headerlink" href="#section-chirpsignalpulsecompressionsharingtechnologyradar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1.1. </span>线性调频信号<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><strong>线性频率调制信号</strong> (<span class="xref std std-term">Linear Frequency Modulated</span> , LFM) 简称 <strong>线性调频信号</strong> (Chirp) , 之所以称之为 <em>线性调频</em> 是因为其频率随时间呈线性变化, 数学表示为:</p>
+<div class="math" id="equation-equ-linearfrequencymodulatedsignalwithoutcarrierfrequency">
+<span class="eqno">(1.13)<a class="headerlink" href="#equation-equ-linearfrequencymodulatedsignalwithoutcarrierfrequency" title="公式的永久链接">¶</a></span>\[s(t) = {\rm rect}\left(\frac{t}{T}\right){\rm exp}\left\{j\pi Kt^2\right\},
+
+\]</div>
+<p>其中, <span class="math">\(t\)</span> 为时间, 单位为 <span class="math">\(\text s\)</span> , <span class="math">\(K\)</span> 为线性调频率, 可正可负, 单位为 <span class="math">\(\text{Hz/s}\)</span>, <span class="math">\(T\)</span> 为脉冲宽度, 单位为 <span class="math">\(s\)</span>, 在脉冲持续时间内, 频率调制带宽为 <span class="math">\(B=|K|T\)</span>, 时间带宽积(Time Bandwidth Product, TBP)为 <span class="math">\({\rm TBP}=BT=|K|T^2\)</span>, <span class="math">\({\rm rect}\left(\frac{t}{T}\right)\)</span> 为矩形窗函数, 只是对信号加了一定大小的窗, 窗大小由 <span class="math">\(T\)</span> 决定,</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>矩形窗函数的表达式如下:</p>
+<div class="math">
+\[{\rm rect}(t) = \left\{ {\begin{array}{ccc}{0,\;\;\;\;\;|t| > 1/2}\\{1/2,\;\;\;|t| = 1/2}\\{1,\;\;\;\;\;|t| < 1/2}\end{array}} \right.
+
+\]</div>
+</div>
+<p>脉冲相位 <span class="math">\(\phi(t) = \pi Kt^2\)</span> 对时间取微分得到</p>
+<div class="math">
+\[f = \frac{{\rm d}({\phi(t)}/{2\pi})}{{\rm d}t} = Kt,
+
+\]</div>
+<p>即频率随时间线性变化, 因而称之为线性调频信号. 实际系统中, 可能会有一个初始相位 <span class="math">\(\phi_0\)</span>, 并且通常会把该信号加载到一个较高频率的载波 <span class="math">\({\rm exp}\left\{2j\pi F_c t\right\}\)</span> 上发射, 从而有最终的发射信号为</p>
+<div class="math" id="equation-equ-linearfrequencymodulatedsignalwithcarrierfrequency">
+<span class="eqno">(1.14)<a class="headerlink" href="#equation-equ-linearfrequencymodulatedsignalwithcarrierfrequency" title="公式的永久链接">¶</a></span>\[s(t) = {\rm rect}\left(\frac{t}{T}\right){\rm exp}\left\{j\phi_0 + j2\pi F_c t + j\pi Kt^2\right\},
+
+\]</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.1.2. </span>线性调频信号的频谱<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>线性调频信号 <span class="math">\(s(t)={\rm rect}\left(\frac{t}{T}\right){\rm exp}\{j\phi(t)\}\)</span> 的频谱为</p>
+<div class="math" id="equation-equ-linearfrequencymodulatedsignalwithoutcarrierfrequencyspectrumoriginal">
+<span class="eqno">(1.17)<a class="headerlink" href="#equation-equ-linearfrequencymodulatedsignalwithoutcarrierfrequencyspectrumoriginal" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+{\mathcal S}(f) &= \int_{-\infty}^{+\infty} s(t){\rm exp}\left\{-j2\pi ft\right\}{\rm d}t\\
+                &= \int_{-\infty}^{+\infty}{\rm rect}\left(\frac{t}{T}\right){\rm exp}\left\{j\phi(t)\right\}{\rm exp}\left\{-j2\pi ft\right\}{\rm d}t \\
+                &= \int_{-T/2}^{+T/2}{\rm rect}\left(\frac{t}{T}\right){\rm exp}\left\{j\left[\phi(t)-2\pi ft\right]\right\}{\rm d}t
+\end{aligned}
+
+\]</div>
+<p>很难直接求解出 <a class="reference internal" href="#equation-equ-linearfrequencymodulatedsignalwithoutcarrierfrequencyspectrumoriginal">式.1.17</a> 所示积分解, 线性调频信号的性质, 决定了可以利用驻定相位原理 (Principle of Stationary Phase, PoSP) <a class="bibtex reference internal" href="../zreference.html#key1961amethod" id="id4">[1]</a> 求解该积分的近似解. 在PoSP中, 将信号相位对于时间的导数为零的点称为驻留点, 在该点附近, 信号的相位是缓变的, 其值对积分的贡献大, 而在该区域之外的两侧, 是捷变的, 其正负部分几乎相互抵消, 积分为零, 因而, 积分值主要取决于驻留点附近的缓变区域. 只要时间带宽积 <span class="math">\({\rm TBP}\)</span> 足够大, 利用POSP原理求得的积分解就是十分准确的.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>PoSP原理表明, 对于一个包络为 <span class="math">\(w(t)\)</span> (时间缓变), 调制相位为 <span class="math">\(\phi(t)\)</span> (时间捷变)的线性或近似线性调频信号 <span class="math">\(g(t)=w(t){\rm exp}\{j\phi(t)\}\)</span>, 其频谱可以近似为</p>
+<div class="math" id="equation-equ-principleofstationaryphase">
+<span class="eqno">(1.16)<a class="headerlink" href="#equation-equ-principleofstationaryphase" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+{\mathcal G}(f) &= \int_{-\infty}^{+\infty}g(t){\rm exp}\{-j2\pi t\}\\
+               &= \int_{-\infty}^{+\infty}w(t){\rm exp}\{j\theta(t)\}\\
+               & \approx C w\left(t(f)\right) {\rm exp}\left\{j\left [\theta\left(t(f)\right) \pm \frac{\pi}{4}\right ]\right\}
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(C=\sqrt{2\pi /|\phi''(t_s)|}\)</span> 为一常数, <span class="math">\(w\left(t(f)\right)\)</span> 为频域包络, <span class="math">\(\theta\left(t(f)\right)\)</span> 为频域相位, <span class="math">\(\theta(t)=\phi(t)-2\pi ft\)</span> 为时域相位, <span class="math">\(t(f)\)</span> 由时频关系确定, <span class="math">\(\frac{\pi}{4}\)</span> 前的符号与 <span class="math">\(\phi''(t_s)\)</span> 的符号一致, <span class="math">\(t_s\)</span> 为驻留点, <span class="math">\(C, \frac{\pi}{4}\)</span> 通常可以被忽略. 线性调频信号的详细推导见 <a class="reference external" href="https://www.cnblogs.com/archerC/p/9359289.html">https://www.cnblogs.com/archerC/p/9359289.html</a></p>
+</div>
+<p>对于不含载频和初始相位的信号, 被积相位为 <span class="math">\(\theta(t)=\phi(t) - 2\pi ft=\pi Kt^2 - 2\pi ft\)</span>, 令 <span class="math">\({\rm d}{\theta(t)}/{\rm d}t=0\)</span>, 求得 <span class="math">\(f=Kt, t=f/K\)</span>, 则驻留点为 <span class="math">\(t_s=f/K\)</span>, 从而有 <span class="math">\(C=\sqrt{2\pi /|2\pi K|}=\sqrt{1/|K|}\)</span>, <span class="math">\(w(t(f))={\rm rect}(f/K)\)</span>  <span class="math">\(\theta(t(f))=\phi(f/K) - 2\pi f^2/K=-\pi {f^2}/K\)</span>, 最终得到该信号的频谱</p>
+<div class="math" id="equation-equ-linearfrequencymodulatedsignalwithoutcarrierfrequencyspectrumoriginal">
+<span class="eqno">(1.17)<a class="headerlink" href="#equation-equ-linearfrequencymodulatedsignalwithoutcarrierfrequencyspectrumoriginal" title="公式的永久链接">¶</a></span>\[{\mathcal S}(f) = \sqrt{\frac{1}{|K|}}{\rm rect}\left(\frac{f}{KT}\right){\rm exp}\left\{j\left[-\pi \frac{f^2}{K} + {\rm sign}(K) \frac{\pi}{4}\right]\right\}
+
+\]</div>
+<p>对于含载频和初始相位的信号, 被积相位为 <span class="math">\(\theta(t)=\phi(t) - 2\pi ft=\phi_0 + 2\pi F_c t + \pi Kt^2 - 2\pi ft\)</span>, 令 <span class="math">\({\rm d}{\theta(t)}/{\rm d}t=0\)</span>, 求得 <span class="math">\(f=F_c+Kt, t=(f-F_c)/K\)</span>, 则驻留点为 <span class="math">\(t_s=(f-F_c)/K\)</span>, 从而有 <span class="math">\(C=\sqrt{2\pi /|2\pi K|}=\sqrt{1/|K|}\)</span>, <span class="math">\(w(t(f))={\rm rect}((f-F_c)/K)\)</span>, <span class="math">\(\theta(t(f))=\phi((f-F_c)/K) - 2\pi f(f-F_c)/K=-\pi (f-F_c)^2/K\)</span>, 最终得到该信号的频谱</p>
+<div class="math" id="equation-equ-linearfrequencymodulatedsignalwithcarrierfrequencyspectrumoriginal">
+<span class="eqno">(1.18)<a class="headerlink" href="#equation-equ-linearfrequencymodulatedsignalwithcarrierfrequencyspectrumoriginal" title="公式的永久链接">¶</a></span>\[{\mathcal S}(f) = \sqrt{\frac{1}{|K|}}{\rm rect}\left(\frac{f-F_c}{KT}\right){\rm exp}\left\{j\left[-\pi \frac{(f-F_c)^2}{K} + {\rm sign}(K) \frac{\pi}{4}\right]\right\}
+
+\]</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.1.3. </span>实验仿真<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="lfm">
+<h3>生成分析LFM<a class="headerlink" href="#lfm" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id6">
+<h4>实验代码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>python 代码如下</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">rect</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">    Rectangle function:</span>
+<span class="sd">        rect(x) = {1, if |x|&lt;= 0.5; 0, otherwise}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">chirp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Kr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a chirp signal :</span>
+<span class="sd">        S_{tx}(t) = rect(t/T) * exp(1j*pi*Kr*t^2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">rect</span><span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">Kr</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">Ns</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Ns</span><span class="p">)</span>
+<span class="n">yrect</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">yrect</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time/s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">Kr1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">Kr2</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Ns</span><span class="p">)</span>
+<span class="n">ychirp1</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">Kr</span><span class="o">=</span><span class="n">Kr1</span><span class="p">)</span>
+<span class="n">ychirp2</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">Kr</span><span class="o">=</span><span class="n">Kr1</span><span class="p">)</span>
+
+<span class="n">ychirp3</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">Kr</span><span class="o">=</span><span class="n">Kr2</span><span class="p">)</span>
+<span class="n">ychirp4</span> <span class="o">=</span> <span class="n">chirp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">Kr</span><span class="o">=</span><span class="n">Kr2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ychirp1</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time/s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ychirp2</span><span class="p">,</span> <span class="s1">&#39;-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time/s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ychirp3</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time/s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ychirp4</span><span class="p">,</span> <span class="s1">&#39;-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time/s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># ==================compute spectral</span>
+
+<span class="n">ychirp1_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">ychirp1</span><span class="p">)</span>
+<span class="n">ychirp2_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">ychirp2</span><span class="p">)</span>
+<span class="n">ychirp3_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">ychirp3</span><span class="p">)</span>
+<span class="n">ychirp4_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">ychirp4</span><span class="p">)</span>
+
+<span class="n">ychirp1_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">ychirp1_fft</span><span class="p">)</span>
+<span class="n">ychirp2_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">ychirp2_fft</span><span class="p">)</span>
+<span class="n">ychirp3_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">ychirp3_fft</span><span class="p">)</span>
+<span class="n">ychirp4_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">ychirp4_fft</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># print(f)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="c1"># print(f)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ychirp1_fft</span><span class="p">),</span> <span class="s1">&#39;-r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency/Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ychirp2_fft</span><span class="p">),</span> <span class="s1">&#39;-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency/Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ychirp3_fft</span><span class="p">),</span> <span class="s1">&#39;-r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency/Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ychirp4_fft</span><span class="p">),</span> <span class="s1">&#39;-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency/Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;T=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;s, K=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Kr2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hz/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>实验结果<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>生成的 <span class="math">\(\rm rect\)</span> 信号：</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/rect.png"><img alt="rect信号" src="../../../_images/rect.png" style="width: 640.0px; height: 480.0px;" /></a>
+</div>
+<p>生成的 <span class="math">\(\rm chirp\)</span> 线性调频信号：</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/ChirpSignal.png"><img alt="线性调频Chirp信号" src="../../../_images/ChirpSignal.png" style="width: 640.0px; height: 480.0px;" /></a>
+</div>
+<p>生成的 <span class="math">\(\rm chirp\)</span> 线性调频信号的幅度谱：</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/ChirpSignalSpectralAmp.png"><img alt="线性调频信号的幅度谱" src="../../../_images/ChirpSignalSpectralAmp.png" style="width: 640.0px; height: 480.0px;" /></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RecievedChirpSignal.html" class="btn btn-neutral float-right" title="1.2. 接收信号" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="1. 脉冲压缩" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

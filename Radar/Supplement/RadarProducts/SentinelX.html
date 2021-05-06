@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.8. Sentinel系列产品介绍 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 雷达产品" href="index.html"/>
+        <link rel="next" title="1.9. AIRSAR 产品介绍" href="AIRSAR.html"/>
+        <link rel="prev" title="1.7. ALOS PALSAR 产品介绍" href="ALOSPALSAR.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SAR/index.html">合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">补充内容</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 雷达产品</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">1.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GetDataOverview.html">1.2. 雷达数据获取</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProductDataFormations.html">1.3. 雷达产品数据格式简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RADARSAT.html">1.4. RADARSAT 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ERS.html">1.5. ERS系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnvisatASAR.html">1.6. Envisat ASAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ALOSPALSAR.html">1.7. ALOS PALSAR 产品介绍</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.8. Sentinel系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIRSAR.html">1.9. AIRSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UAVSAR.html">1.10. UAVSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LVIS.html">1.11. LVIS产品介绍</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Dataset/index.html">2. 雷达数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LibrariesSoftwares/index.html">3. 雷达库与软件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">4. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">补充内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>雷达产品</a> &raquo;</li>
+        
+      <li><span class="section-number">1.8. </span>Sentinel系列产品介绍</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sentinel">
+<span id="section-sentinelradarproductsupplementradar"></span><h1><span class="section-number">1.8. </span>Sentinel系列产品介绍<a class="headerlink" href="#sentinel" title="永久链接至标题">¶</a></h1>
+<div class="section" id="sentinel-1">
+<h2><span class="section-number">1.8.1. </span>Sentinel-1 产品<a class="headerlink" href="#sentinel-1" title="永久链接至标题">¶</a></h2>
+<p>从 <a class="reference external" href="https://scihub.copernicus.eu/">SCIHUB</a> 和 <a class="reference external" href="https://www.asf.alaska.edu/">ASF</a> 均可以下载 Sentinel 系列卫星产品数据, 有关 Sentinel-1 SAR 的信息可在 <a class="reference external" href="https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar">这里</a> 查看.</p>
+<div class="section" id="id2">
+<h3>Sentinel-1 雷达参数与工作模式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>Sentinel-1 合成孔径雷达参数如 <a class="reference internal" href="#table-parameterssentinel1platform"><span class="std std-numref">表 1.7</span></a></p>
+<table class="docutils align-default" id="table-parameterssentinel1platform">
+<caption><span class="caption-number">表 1.7 </span><span class="caption-text">Sentinel-1平台参数</span><a class="headerlink" href="#table-parameterssentinel1platform" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Centre frequency</p></th>
+<th class="head"><p>5.405 GHz (corresponding to a wavelength of ~5.5465763cm cm)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bandwidth</p></td>
+<td><p>0-100 MHz (programmable)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Polarisation</p></td>
+<td><p>HH+HV, VV+VH, VV, HH</p></td>
+</tr>
+<tr class="row-even"><td><p>Incidence angle range</p></td>
+<td><p>20°- 46°</p></td>
+</tr>
+<tr class="row-odd"><td><p>Look direction</p></td>
+<td><p>right</p></td>
+</tr>
+<tr class="row-even"><td><p>Antenna type</p></td>
+<td><p>Slotted waveguide radiators</p></td>
+</tr>
+<tr class="row-odd"><td><p>Antenna size</p></td>
+<td><p>12.3 m x 0.821 m</p></td>
+</tr>
+<tr class="row-even"><td><p>Antenna mass</p></td>
+<td><p>880 kg (representing 40% of the total launch mass)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Azimuth beam width</p></td>
+<td><p>0.23°</p></td>
+</tr>
+<tr class="row-even"><td><p>Azimuth beam steering range</p></td>
+<td><p>-0.9° to +0.9°</p></td>
+</tr>
+<tr class="row-odd"><td><p>Elevation beam width</p></td>
+<td><p>3.43°</p></td>
+</tr>
+<tr class="row-even"><td><p>Elevation beam steering range</p></td>
+<td><p>-13.0° to +12.3°</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF Peak power</p></td>
+<td><ul class="simple">
+<li><p>4.368 kW, - 4.075 kW (IW, dual polarisations)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Pulse width</p></td>
+<td><p>5-100 µs (programmable)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Transmit duty cycle</p></td>
+<td><p>Max 12%, SM 8.5%, IW 9%, EW 5%, WV 0.8%</p></td>
+</tr>
+<tr class="row-even"><td><p>Receiver noise figure at module input</p></td>
+<td><p>3 dB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Maximum range bandwidth</p></td>
+<td><p>100 MHz</p></td>
+</tr>
+<tr class="row-even"><td><p>PRF (Pulse Repetition Frequency)</p></td>
+<td><p>1 000 - 3 000 Hz (programmable)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data compression</p></td>
+<td><p>FDBAQ (Flexible Dynamic Block Adaptive Quantization)</p></td>
+</tr>
+<tr class="row-even"><td><p>ADC sampling frequency</p></td>
+<td><p>300 MHz (real sampling)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data quantisation</p></td>
+<td><p>10 bit</p></td>
+</tr>
+<tr class="row-even"><td><p>Total instrument mass (including antenna)</p></td>
+<td><p>945 kg</p></td>
+</tr>
+<tr class="row-odd"><td><p>Attitude steering</p></td>
+<td><p>Zero-Doppler steering and roll steering</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>Sentinel-1产品格式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id4">
+<h4>传感器类型与产品类型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<p>Sentinel-1 SAR 具有多种传感器模式和数据产品, 列举如下:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>传感器模式 (Sensor Mode)</dt><dd><ul>
+<li><dl class="simple">
+<dt>Level-0 and Level-1</dt><dd><ul>
+<li><p>条带式 (Strip Map, SM): 80 km swath, 5 x 5 m spatial resolution</p></li>
+<li><p>干涉宽幅式 (Interferometric Wide Swath, IW): 250 km swath, 5 x 20 m spatial resolution</p></li>
+<li><p>超宽幅式 (Extra Wide Swath, EW): 400 km swath, 20 x 40 m spatial resolution</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Level-2</dt><dd><ul>
+<li><p>Wave (WV)</p></li>
+<li><p>干涉宽幅宽式 (Interferometric Wide Swath, IW)</p></li>
+<li><p>超宽幅宽式 (Extra Wide Swath, EW)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>产品类型 (Product Type)</dt><dd><ul>
+<li><dl class="simple">
+<dt>Level-0</dt><dd><ul>
+<li><p>原始回波数据格式 RAW</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Level-1</dt><dd><ul>
+<li><p>单视复数格式 (Single Look Complex, SLC)</p></li>
+<li><p>地距探测格式 Ground Range Detected (GRD)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Level-2</dt><dd><ul>
+<li><p>(Ocean, OCN) 包含3种成份: Ocean Swell spectra (OSW), Ocean Wind Fields (OWI), Surface Radial Velocities (RVL).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="figure align-center" id="id8">
+<img alt="Sentinel1 SAR Level 1 级别产品" src="../../../_images/Sentinel1_L1_products.png" />
+<p class="caption"><span class="caption-number">图 1.37 </span><span class="caption-text">Sentinel1 SAR Level 1 级别产品</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar/document-library">Sentinel PDF Documentation</a></p></li>
+<li><p>用户手册参见 <a class="reference external" href="https://earth.esa.int/web/sentinel/user-guides">User Guides</a></p></li>
+<li><p>技术手册参见 <a class="reference external" href="https://earth.esa.int/web/sentinel/sentinel-technical-guides">Sentinel Technical Guides</a></p></li>
+<li><p>传感器类型, 各级产品所采用的算法, 以及各级产品数据格式参见 <a class="reference external" href="https://sentinels.copernicus.eu/web/sentinel/technical-guides/sentinel-1-sar/products-algorithms">这里</a>.</p></li>
+<li><p>能量分布参见 <a class="reference external" href="https://www.energy-charts.de/">Willkommen bei den Energy Charts</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Sentinel 产品数据命名格式<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<div class="figure align-center" id="id9">
+<img alt="Sentinel Product Naming Convention" src="../../../_images/SentinelXProductNamingConvention.png" />
+<p class="caption"><span class="caption-number">图 1.38 </span><span class="caption-text">Sentinel 产品命名格式</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+<p>举例如下</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">S1A_S3_SLC__1SDV_20191202T094416_20191202T094445_030167_037285_9342</span></code> : Sentinel1A_S3_单视复数_L1SAR双V极化(VV/VH)_起始时间_结束时间_绝对轨道号_任务数据获取ID_产品特有ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">S1A_S3_RAW__0SDV_20191202T094415_20191202T094446_030167_037285_0156</span></code> : Sentinel1A_S3_原始数据_L0SAR双V极化(VV/VH)_起始时间_结束时间_绝对轨道号_任务数据获取ID_产品特有ID</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>数据下载与处理<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>下载数据需要注册账号. 从scihub上下载数据可根据 <a class="reference external" href="https://scihub.copernicus.eu/userguide/SelfRegistration">Self Registration</a> 页面说明注册账号, 具体使用方法参见 <a class="reference external" href="https://scihub.copernicus.eu/userguide/">Overview</a>; 从 asf 下载数据需要注册 <a class="reference external" href="https://earthdata.nasa.gov/">EARTHDATA</a> 账号. 若下载过慢, 可以使用多线程工具 (如 <code class="docutils literal notranslate"><span class="pre">aria2c</span></code>).</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>从scihub上下载数据时, 可通过右击设置多边形搜索区域.</p>
+</div>
+<div class="section" id="snap">
+<h4>SNAP<a class="headerlink" href="#snap" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://senbox.atlassian.net/wiki/spaces/SNAP/overview">SNAP Wiki</a>
++ <a class="reference external" href="https://senbox.atlassian.net/wiki/spaces/SNAP/pages/24051781/Using+SNAP+in+your+Python+programs">Using SNAP in your Python programs</a></p></li>
+<li><p><a class="reference external" href="http://step.esa.int/main/doc/">SANP docs</a>
++ <a class="reference external" href="http://step.esa.int/docs/v2.0/apidoc/engine/overview-summary.html">SNAP Engine 2.0 API docs</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sentinel1-level0">
+<h3>Sentinel1 Level0级数据解析<a class="headerlink" href="#sentinel1-level0" title="永久链接至标题">¶</a></h3>
+<p>Sentinel1 Level0 有四种数据产品: 标准产品、校正产品、噪声产品、标记产品; 波束模式可以为 SM, IW, EW, WV; 极化模式可以为单极化和双极化. 由于块自适应量化型 (Block Adaptive Quantisation-like, BAQ) 原始数据压缩器会引入量化噪声, 造成信噪比下降, 因而 Sentinel1 数据采用弹性动态块自适应量化 (Flexible Dynamic Block Adaptive Quantisation, FDBAQ) 技术, FDBAQ是基于熵约束块自适应量化(Entropy Constrained Block Adaptive Quantisation, ECBAQ)算法做出的改进.</p>
+<p>Sentinel产品数据格式基于欧洲标准文件格式(Standard Archive Format for Europe, SAFE)定制. SENTINEL-SAFE 格式包裹了一个包含二进制格式的图像数据和XML格式的产品元数据(metadata), 用法相当灵活, 足以表达各级别的Sentinel数据产品. 通常 Sentinel Level0 级 <code class="docutils literal notranslate"><span class="pre">SAFE</span></code> 格式产品包含以下文件:</p>
+<ul class="simple">
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">manifest.safe</span></code> : 以XML格式保存一般的产品信息(平台, 任务, 仪器, 产品历史, 时序, 轨道等等)</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">xxxxx.dat</span></code> : 观测数据组件(若为单极化则含有一个二进制数据文件, 若为双极化则含有两个二进制数据文件), 数据以大端(big-endian)格式存储</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">xxxx_index.dat</span></code> : 索引数据组件(若为单极化则含有一个二进制索引文件, 若为双极化则含有两个二进制索引文件), 索引数据包含了数据逻辑块描述(字节位置, 时间, 大小等等), 它指向了观测数据中的子块, 使得可以快速获取子块数据.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">xxxx_annot.dat</span></code> : 注释数据组件是二进制文件, 索引数据文件(若为单极化则含有一个二进制索引文件, 若为双极化则含有两个二进制索引文件), 索引数据包含了数据逻辑块描述(字节位置, 时间, 大小等等), 它指向了观测数据中的子块, 使得可以快速获取子块数据.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">support</span></code> : 表示数据文件的支持文件夹, 以XML格式提供观测数据和注释数据的格式或语法信息.</p></li>
+</ul>
+<p>如 <a class="reference internal" href="#fig-structureofsentinel1sarlevel0safe"><span class="std std-numref">图 1.39</span></a> 所示, 为双极化RAW格式数据, 可以看到上述文件组件, 详细的Level0级文件格式可参考文档 <a class="reference external" href="https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar/document-library/">Sentinel1 Level0 Product Format Specifications</a></p>
+<div class="figure align-center" id="id10">
+<span id="fig-structureofsentinel1sarlevel0safe"></span><img alt="Sentinel1 SAR Level 0 级别产品SAFE文件结构示例" src="../../../_images/Sentinel_RAW_L0_SAFE_demo.png" />
+<p class="caption"><span class="caption-number">图 1.39 </span><span class="caption-text">Sentinel1 SAR Level 0 级别产品SAFE文件结构示例</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="sentinel-2">
+<h2><span class="section-number">1.8.2. </span>Sentinel-2 雷达<a class="headerlink" href="#sentinel-2" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AIRSAR.html" class="btn btn-neutral float-right" title="1.9. AIRSAR 产品介绍" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ALOSPALSAR.html" class="btn btn-neutral" title="1.7. ALOS PALSAR 产品介绍" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

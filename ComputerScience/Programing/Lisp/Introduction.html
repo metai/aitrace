@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.1. 引言 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="4. Lisp程序设计" href="index.html"/>
+        <link rel="next" title="4.2. 基础语法" href="Grammar.html"/>
+        <link rel="prev" title="4. Lisp程序设计" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第四卷 计算机学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../OperatingSystem/index.html">操作系统</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">程序设计</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../C/index.html">1. C程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lua/index.html">2. Lua程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../IDL/index.html">3. IDL程序设计</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4. Lisp程序设计</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.1. 引言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Grammar.html">4.2. 基础语法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Python/index.html">5. Python程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Matlab/index.html">6. Matlab程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Julia/index.html">7. Julia程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PyTorch/index.html">8. PyTorch简明教程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Shell/index.html">9. Shell程序设计</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../AlgorithmDesign/index.html">算法设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Internet/index.html">互联部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ArtificialIntelligenceProcessor/index.html">人工智能处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmbeddedDevelopment/index.html">嵌入式系统开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第四卷 计算机学</a> &raquo;</li>
+        
+          <li><a href="../index.html">程序设计</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4. </span>Lisp程序设计</a> &raquo;</li>
+        
+      <li><span class="section-number">4.1. </span>引言</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-introductionlispprogramingcomputerscience">
+<span id="id1"></span><h1><span class="section-number">4.1. </span>引言<a class="headerlink" href="#section-introductionlispprogramingcomputerscience" title="永久链接至标题">¶</a></h1>
+<div class="section" id="lisp">
+<h2><span class="section-number">4.1.1. </span>什么是Lisp语言<a class="headerlink" href="#lisp" title="永久链接至标题">¶</a></h2>
+<p>Common Lisp语言的实现(解释器)有多种, 如 <strong>CLISP</strong>, <strong>SBCL (Steel Bank Common Lisp)</strong>, <strong>CCL (Clozure Common Lisp)</strong> 等等, 其功能特性对比如下 <a class="reference internal" href="#table-comparisonofimplementationofcommonlisp"><span class="std std-numref">表 4.1</span></a> 所示</p>
+<table class="docutils align-default" id="table-comparisonofimplementationofcommonlisp">
+<caption><span class="caption-number">表 4.1 </span><span class="caption-text">Common Lisp语言的实现特性对比</span><a class="headerlink" href="#table-comparisonofimplementationofcommonlisp" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 12%" />
+<col style="width: 29%" />
+<col style="width: 50%" />
+<col style="width: 4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>实现名称</p></th>
+<th class="head"><p>首页</p></th>
+<th class="head"><p>功能特性</p></th>
+<th class="head"><p>适用平台</p></th>
+<th class="head"><p>其它</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CLISP</p></td>
+<td><p><a class="reference external" href="http://clisp.org/">http://clisp.org/</a></p></td>
+<td><p>解释、编译、运行、调试、外部函数接口等等</p></td>
+<td><p>Linux、Windows、MacOS X、其它类Unix系统</p></td>
+<td><p>开源</p></td>
+</tr>
+<tr class="row-odd"><td><p>SBCL</p></td>
+<td><p><a class="reference external" href="http://www.sbcl.org/">http://www.sbcl.org/</a></p></td>
+<td><p>解释、编译、运行、调试、统计分析、代码覆盖等等</p></td>
+<td><p>Linux、Windows、MacOS X、其它类Unix系统</p></td>
+<td><p>开源免费</p></td>
+</tr>
+<tr class="row-even"><td><p>CCL</p></td>
+<td><p><a class="reference external" href="https://ccl.clozure.com/">https://ccl.clozure.com/</a></p></td>
+<td><p>快速编译、本机线程、精确、压缩的垃圾收集、方便的外部函数接口等等</p></td>
+<td><p>Linux (x86, x86-64, ppc32, ppc64, armv7l/armv6)、Windows (x86, x86-64)、Mac OS X (x86, x86-64)、其它类Unix系统</p></td>
+<td><p>开源</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>资源链接</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.common-lisp.net/">common lisp</a> : The amazing world of Common Lisp, the programmable programming language.</p></li>
+<li><p><a class="reference external" href="https://common-lisp.net/project/lispbox/">lispbox</a> : 集成了Lisp语言包, Emacs, Slime的集成开发环境.</p></li>
+<li><p><a class="reference external" href="https://acl.readthedocs.io/en/latest/zhCN/">ANSI Common Lisp ZH</a> : ANSI Common Lisp 中文版.</p></li>
+<li><p><a class="reference external" href="http://www.gigamonkeys.com/book/">practical common lisp</a> : An book on Common Lisp programing.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">4.1.2. </span>开发环境配置<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>安装Common Lisp实现<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>本节介绍Common Lisp实现的安装.</p>
+<div class="section" id="sbcl">
+<h4>安装SBCL实现<a class="headerlink" href="#sbcl" title="永久链接至标题">¶</a></h4>
+<p>Ubuntu上安装SBCL十分简单, 只需通过执行命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">sbcl</span></code> 即可安装, 安装完成后, 终端输入 <code class="docutils literal notranslate"><span class="pre">sbcl</span></code> 即可进入交互界面, 如 <a class="reference internal" href="#fig-sbclubuntuwelcome"><span class="std std-numref">图 4.4</span></a> 所示.</p>
+<div class="figure align-center" id="id15">
+<span id="fig-sbclubuntuwelcome"></span><a class="reference internal image-reference" href="../../../_images/SBCLUbuntuWelcome.png"><img alt="Welcome interface of SBCL on Ubuntu" src="../../../_images/SBCLUbuntuWelcome.png" style="width: 591.2px; height: 349.6px;" /></a>
+<p class="caption"><span class="caption-number">图 4.4 </span><span class="caption-text">Welcome interface of SBCL on Ubuntu</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Ubuntu上的SBCL欢迎界面</p>
+</div>
+</div>
+</div>
+<div class="section" id="clisp">
+<h4>安装CLISP实现<a class="headerlink" href="#clisp" title="永久链接至标题">¶</a></h4>
+<p>CLISP安装很简单, 从 <a class="reference external" href="http://clisp.org/">clisp.org</a> 可以下载安装包或源码. 对于Windows系统, 执行下载的可执行文件 <cite>clisp-2.49-win32-mingw-big.exe</cite> 安装即可, 安装完成后双击打开 <code class="docutils literal notranslate"><span class="pre">clisp.exe</span></code> 即可进入交互式界面, 如 <a class="reference internal" href="#fig-clispwindowswelcome"><span class="std std-numref">图 4.5</span></a> 所示. 对于Ubuntu系统, 可以直接通过包管理器安装, 打开终端, 输入命令 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">clisp</span></code> 即可安装, 安装完成后, 终端输入 <code class="docutils literal notranslate"><span class="pre">clisp</span></code> 命令进入交互式界面, 如 <a class="reference internal" href="#fig-clispubuntuwelcome"><span class="std std-numref">图 4.6</span></a> 所示.</p>
+<div class="figure align-center" id="id16">
+<span id="fig-clispwindowswelcome"></span><img alt="Welcome interface of Clisp on Windows" src="../../../_images/ClispWindowsWelcome.png" />
+<p class="caption"><span class="caption-number">图 4.5 </span><span class="caption-text">Welcome interface of Clisp on Windows</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Windows上的Clisp欢迎界面</p>
+</div>
+</div>
+<div class="figure align-center" id="id17">
+<span id="fig-clispubuntuwelcome"></span><a class="reference internal image-reference" href="../../../_images/ClispUbuntuWelcome.png"><img alt="Welcome interface of Clisp on Ubuntu" src="../../../_images/ClispUbuntuWelcome.png" style="width: 588.0px; height: 464.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.6 </span><span class="caption-text">Welcome interface of Clisp on Ubuntu</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Ubuntu上的Clisp欢迎界面</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>开发环境配置<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="emacs-slime">
+<h4>Emacs + Slime 环境<a class="headerlink" href="#emacs-slime" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="sublime">
+<h4>Sublime 环境<a class="headerlink" href="#sublime" title="永久链接至标题">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">4.1.3. </span>Lisp编程入门<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>交互式界面使用<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p><a class="reference internal" href="#fig-clispwindowswelcome"><span class="std std-numref">图 4.5</span></a> 和  <a class="reference internal" href="#fig-clispubuntuwelcome"><span class="std std-numref">图 4.6</span></a> 中同时给出了两个示例: 1) 打印字符串 (<code class="docutils literal notranslate"><span class="pre">(princ</span> <span class="pre">&quot;Hello</span> <span class="pre">World!&quot;)</span></code>); 2) 计算1+2的和 (<code class="docutils literal notranslate"><span class="pre">(+</span> <span class="pre">1</span> <span class="pre">2)</span></code>), 你可以尝试一下其它表达式的计算.</p>
+</div>
+<div class="section" id="id7">
+<h3>第一个Lisp程序<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>这里介绍如何像在Python和Lua中那样导入其它文件中的函数. 首先建立文件 <cite>add.lisp</cite>, 加入如下代码, 代码仅含1行, 定义了一个返回两个数加和的函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">add()</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="bind-id">
+<div class="code-block-caption"><span class="caption-number">代码 4.2 </span><span class="caption-text">add.lisp</span><a class="headerlink" href="#bind-id" title="永久链接至代码">¶</a></div>
+<div class="highlight-lisp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="p">(</span><span class="nb">defun</span> <span class="nv">add</span> <span class="p">(</span><span class="k">&amp;key</span> <span class="nv">a</span> <span class="nv">b</span><span class="p">)</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">a</span> <span class="nv">b</span><span class="p">))</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<p>然后新建 <cite>first.lisp</cite> 文件, 并加入如下代码, 代码第1行完成加载`add`模块的功能; 第3行完成打印字符串 <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world!</span></code> 的功能;  第5行调用 <code class="xref py py-func docutils literal notranslate"><span class="pre">add()</span></code>, 传入参数 <span class="math">\(a=1, b=2\)</span>, 并将返回值赋予变量 <span class="math">\(c\)</span>; 第7行以两位小数格式化打印结果, 第9行是将程序编译成可执行文件 <cite>main.exe</cite>.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-number">代码 4.3 </span><span class="caption-text">first.lisp</span><a class="headerlink" href="#id8" title="永久链接至代码">¶</a></div>
+<div class="highlight-lisp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="p">(</span><span class="nb">load</span> <span class="s">&quot;D:\\zhiliu\\ws\\Lisp\\add.lisp&quot;</span><span class="p">)</span>
+</span>
+<span class="hll"><span class="p">(</span><span class="nb">princ</span> <span class="s">&quot;Hello world!&quot;</span><span class="p">)</span>
+</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">c</span> <span class="p">(</span><span class="nv">add</span> <span class="ss">:a</span> <span class="mi">1</span> <span class="ss">:b</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nb">print</span> <span class="nv">c</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nv">EXT:SAVEINITMEM</span> <span class="s">&quot;main&quot;</span> <span class="ss">:QUIET</span> <span class="no">t</span> <span class="ss">:INIT-FUNCTION</span> <span class="ss">&#39;main</span> <span class="ss">:EXECUTABLE</span> <span class="no">t</span> <span class="ss">:NORC</span> <span class="no">t</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>打开lisp交互界面, 输入 <code class="docutils literal notranslate"><span class="pre">(load</span> <span class="pre">&quot;D:\\zhiliu\\ws\\Lisp\\first.lisp&quot;)</span></code> 可以加载并执行first模块. 也可以打开系统命令行终端, 输入 <code class="docutils literal notranslate"><span class="pre">sbcl</span> <span class="pre">--load</span> <span class="pre">.\first.lisp</span></code> 或 <code class="docutils literal notranslate"><span class="pre">clisp</span> <span class="pre">.\first.lisp</span></code> 运行程序, 如 <a class="reference internal" href="#fig-runlispfile"><span class="std std-numref">图 4.7</span></a> 所示</p>
+<div class="figure align-center" id="id18">
+<span id="fig-runlispfile"></span><img alt="Run lisp file" src="../../../_images/RunLispFile.png" />
+<p class="caption"><span class="caption-number">图 4.7 </span><span class="caption-text">Run lisp file</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>运行lisp程序</p>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>以上代码可以直接在交互式界面窗口执行.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">4.1.4. </span>包库管理<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="quicklisp">
+<h3>quicklisp<a class="headerlink" href="#quicklisp" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id10">
+<h4>安装<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://www.quicklisp.org/beta/">quicklisp</a> 是Common Lisp的库管理器, 支持用简单的几条命令下载, 安装和加载库. quicklisp的安装很简单, 以Ubuntu系统为例, 从quicklisp首页下载 <cite>quicklisp.lisp</cite> 安装脚本文件, 打开终端, 进入 <cite>quicklisp</cite> 文件所在目录, 执行 <code class="docutils literal notranslate"><span class="pre">clisp</span> <span class="pre">--load</span> <span class="pre">quicklisp.lisp</span></code> 或 <code class="docutils literal notranslate"><span class="pre">sbcl</span> <span class="pre">--load</span> <span class="pre">quicklisp.lisp</span></code> 进入安装界面, 如 <a class="reference internal" href="#fig-installquicklispubuntu"><span class="std std-numref">图 4.8</span></a> 所示, 按照提示, 执行 <code class="docutils literal notranslate"><span class="pre">(quicklisp-quickstart:install</span> <span class="pre">:path</span> <span class="pre">&quot;/mnt/e/sfw/lisplib/quicklisp/&quot;)</span></code> lisp命令既可安装, 其中 <code class="xref py py-attr docutils literal notranslate"><span class="pre">path</span></code> 用于指定安装路径.</p>
+<div class="figure align-center" id="id19">
+<span id="fig-installquicklispubuntu"></span><img alt="Install quicklisp on ubuntu" src="../../../_images/InstallQuickLispUbuntu.png" />
+<p class="caption"><span class="caption-number">图 4.8 </span><span class="caption-text">Install quicklisp on ubuntu</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Install quicklisp on ubuntu</p>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>设置默认加载<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>在Lisp交互界面, 首先加载quicklisp, 然后设置为启动默认加载, 命令如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">(</span><span class="n">load</span> <span class="s2">&quot;/mnt/e/sfw/lisplib/quicklisp/setup.lisp&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">ql</span><span class="p">:</span><span class="n">add</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">init</span><span class="o">-</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>命令输出如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">load</span> <span class="s2">&quot;/mnt/e/sfw/lisplib/quicklisp/setup.lisp&quot;</span><span class="p">)</span>
+<span class="p">;;</span> <span class="n">Loading</span> <span class="n">file</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">sfw</span><span class="o">/</span><span class="n">lisplib</span><span class="o">/</span><span class="n">quicklisp</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">lisp</span> <span class="o">...</span>
+<span class="p">;;</span> <span class="n">Loading</span> <span class="n">file</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">sfw</span><span class="o">/</span><span class="n">lisplib</span><span class="o">/</span><span class="n">quicklisp</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="n">asdf</span><span class="o">-</span><span class="n">fasls</span><span class="o">/</span><span class="mi">0</span><span class="n">hq63s</span><span class="o">/</span><span class="n">asdf</span><span class="o">.</span><span class="n">fas</span> <span class="o">...</span>
+<span class="p">;;</span> <span class="n">Loaded</span> <span class="n">file</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">sfw</span><span class="o">/</span><span class="n">lisplib</span><span class="o">/</span><span class="n">quicklisp</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="n">asdf</span><span class="o">-</span><span class="n">fasls</span><span class="o">/</span><span class="mi">0</span><span class="n">hq63s</span><span class="o">/</span><span class="n">asdf</span><span class="o">.</span><span class="n">fas</span>
+<span class="p">;;</span> <span class="n">Loaded</span> <span class="n">file</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">sfw</span><span class="o">/</span><span class="n">lisplib</span><span class="o">/</span><span class="n">quicklisp</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">lisp</span>
+<span class="n">T</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">ql</span><span class="p">:</span><span class="n">add</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">init</span><span class="o">-</span><span class="n">file</span><span class="p">)</span>
+<span class="n">I</span> <span class="n">will</span> <span class="n">append</span> <span class="n">the</span> <span class="n">following</span> <span class="n">lines</span> <span class="n">to</span> <span class="c1">#P&quot;/home/liu/.clisprc.lisp&quot;:</span>
+
+  <span class="p">;;;</span> <span class="n">The</span> <span class="n">following</span> <span class="n">lines</span> <span class="n">added</span> <span class="n">by</span> <span class="n">ql</span><span class="p">:</span><span class="n">add</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">init</span><span class="o">-</span><span class="n">file</span><span class="p">:</span>
+  <span class="c1">#-quicklisp</span>
+  <span class="p">(</span><span class="n">let</span> <span class="p">((</span><span class="n">quicklisp</span><span class="o">-</span><span class="n">init</span>
+<span class="p">(</span><span class="n">merge</span><span class="o">-</span><span class="n">pathnames</span> <span class="s2">&quot;/mnt/e/sfw/lisplib/quicklisp/setup.lisp&quot;</span>
+ <span class="p">(</span><span class="n">user</span><span class="o">-</span><span class="n">homedir</span><span class="o">-</span><span class="n">pathname</span><span class="p">))))</span>
+    <span class="p">(</span><span class="n">when</span> <span class="p">(</span><span class="n">probe</span><span class="o">-</span><span class="n">file</span> <span class="n">quicklisp</span><span class="o">-</span><span class="n">init</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">load</span> <span class="n">quicklisp</span><span class="o">-</span><span class="n">init</span><span class="p">)))</span>
+
+<span class="n">Press</span> <span class="n">Enter</span> <span class="n">to</span> <span class="k">continue</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>使用<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>quicklisp 用法</p>
+<ul class="simple">
+<li><p>To load/install a system, use: (ql:quickload “system-name”)</p></li>
+<li><p>To remove a system, use: (ql:uninstall “system-name”)</p></li>
+<li><p>To find systems, use: (ql:system-apropos “term”)</p></li>
+<li><p>To get updated software, use: (ql:update-dist “quicklisp”)</p></li>
+<li><p>To update the Quicklisp client, use: (ql:update-client)</p></li>
+<li><p>To see what systems depend on a particular system, use: (ql:who-depends-on “system-name”)</p></li>
+<li><p>To load Quicklisp every time you start Lisp, use: (ql:add-to-init-file)</p></li>
+<li><p>For more information, see <a class="reference external" href="http://www.quicklisp.org/beta/">http://www.quicklisp.org/beta/</a></p></li>
+</ul>
+</div>
+<p>以安装 <a class="reference external" href="https://github.com/j3pic/lisp-binary">lisp-binary</a> 进入Lisp交互环境, 执行 <code class="docutils literal notranslate"><span class="pre">(ql:quickload</span> <span class="pre">&quot;lisp-binary&quot;)</span></code> 命令即可安装, 安装日志如下</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>$ sbcl
+This is SBCL 1.3.1.debian, an implementation of ANSI Common Lisp.
+More information about SBCL is available at &lt;http://www.sbcl.org/&gt;.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (ql:quickload &quot;lisp-binary&quot;)
+To load &quot;lisp-binary&quot;:
+  Load 1 ASDF system:
+    lisp-binary
+; Loading &quot;lisp-binary&quot;
+[package uiop/package]............................
+..................................................
+..................................................
+..................................................
+..................................................
+[package closer-mop]..............................
+[package closer-common-lisp]......................
+[package closer-common-lisp-user].................
+[package metabang.moptilities]....................
+[package impl-specific-gray]......................
+[package trivial-gray-streams]....................
+[package flexi-streams]...........................
+..................................................
+..................................................
+..................................................
+..................................................
+[package iterate].................................
+..................................................
+[package quasiquote-2.0]..........................
+[package uiop/package]............................
+..................................................
+..................................................
+[package alexandria.0.dev]........................
+..................................................
+[package babel-encodings].........................
+[package babel]...................................
+..................................................
+[package cffi-sys]................................
+[package cffi]....................................
+..................................................
+[package cffi-features]...........................
+[package lisp-binary-utils].......................
+[package lisp-binary/integer].....................
+[package lisp-binary/float].......................
+[package simple-bit-stream].......................
+[package reverse-stream]..........................
+[package lisp-binary].............................
+...........
+(&quot;lisp-binary&quot;)
+*
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><span class="section-number">4.1.5. </span>生成可独立执行文件<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p>Lisp是脚本语言, 具备跨平台的特性. Ecl是一个开源的Lisp语言实现, 可以将lisp文件编译成独立可执行程序.</p>
+<dl class="simple">
+<dt>3.编译</dt><dd><p>CL-USER&gt; (setf c::<em>delete-files</em> nil)
+CL-USER&gt; (compile-file “test.lisp” :system-p t)
+CL-USER&gt; (c:build-program “test” :lisp-files ‘(“test.o”))</p>
+</dd>
+<dt>4.执行</dt><dd><p>#./test</p>
+</dd>
+</dl>
+<p>5.github demo:https://github.com/cwndrws/lisp-c-example</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Grammar.html" class="btn btn-neutral float-right" title="4.2. 基础语法" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="4. Lisp程序设计" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

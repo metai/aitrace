@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.1. 线性空间 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 线性空间与线性变换" href="index.html"/>
+        <link rel="next" title="1.2. 线性子空间" href="LinearSubspace.html"/>
+        <link rel="prev" title="1. 线性空间与线性变换" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 线性空间与线性变换</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.1. 线性空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearSubspace.html">1.2. 线性子空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html">1.3. 线性变换及其表示</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EigenValuesEigenVectors.html">1.4. 特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixDiagonalization.html">1.5. 矩阵对角化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html">1.6. 广义特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html">1.7. 特殊线性空间</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>线性空间与线性变换</a> &raquo;</li>
+        
+      <li><span class="section-number">1.1. </span>线性空间</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-linearspace">
+<span id="id1"></span><h1><span class="section-number">1.1. </span>线性空间<a class="headerlink" href="#section-linearspace" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1.1. </span>基础概念<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>域<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>域: 一种集合</p></li>
+<li><p>数域: 满足四则运算封闭</p></li>
+<li><p>事件域: 满足交并补运算封闭</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>映射<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>像: 映射后, 相当于因变量</p></li>
+<li><p>原像: 映射前, 相当于自变量</p></li>
+<li><p>相等: 变换后相同, <span class="math">\(\sigma_1\)</span>, <span class="math">\(\sigma_2\)</span>
+是集合<span class="math">\(S_1\)</span>到<span class="math">\(S_2\)</span>的映射, 若
+<span class="math">\(\forall a \in S_1\)</span>, 有<span class="math">\(\sigma_1(a) = \sigma_2(a)\)</span>, 则
+<span class="math">\(\sigma_1 = \sigma_2\)</span></p></li>
+<li><p>乘积: 设 <span class="math">\(\sigma\)</span>, <span class="math">\(\tau\)</span> 分别为 <span class="math">\(S\)</span> 到
+<span class="math">\(S_1\)</span>, <span class="math">\(S_1\)</span>到<span class="math">\(S_2\)</span>的映射, 则映射的乘积定义为
+<span class="math">\((\tau\sigma)(a) = \tau(\sigma(a))\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.1.2. </span>线性空间概念及性质<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>定义<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>涉及一个集合和一个数域, 五种运算, 分别为:</p>
+<ul class="simple">
+<li><p>集合内</p>
+<ul>
+<li><p>加法(元素的加法): <span class="math">\(\oplus\)</span></p></li>
+</ul>
+</li>
+<li><p>数域内</p>
+<ul>
+<li><p>加法(数的加法): <span class="math">\(+\)</span></p></li>
+<li><p>乘法(数的乘法): <span class="math">\(\times\)</span> 或省略</p></li>
+</ul>
+</li>
+<li><p>集合与数域间</p>
+<ul>
+<li><p>乘法(数乘): <span class="math">\(\odot\)</span></p></li>
+</ul>
+</li>
+</ul>
+<div class="proof proof-type-definition" id="id17">
+<span id="def-linearspace"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.1</span>
+        
+            <span class="proof-title-name">(线性空间)</span>
+        
+    </div><div class="proof-content">
+<p>给定数域 <span class="math">\({\mathbb K}\)</span>, 非空集合 <span class="math">\({\mathbb V}\)</span>,
+定义集合内的加法运算（<span class="math">\(\oplus\)</span>）和数域与集合间的数乘运算（<span class="math">\(\odot\)</span>）,
+若满足以下条件, 则称 <span class="math">\({\mathbb V}\)</span> 是数域 <span class="math">\({\mathbb K}\)</span> 上的 <strong>线性空间</strong> ( <a class="reference internal" href="../glossary.html#term-linear-space"><span class="xref std std-term">Linear Space</span></a> ) .</p>
+<ol class="arabic simple">
+<li><p>运算封闭性:</p>
+<ul class="simple">
+<li><p>加法封闭性: 对 <span class="math">\(\forall {\bm x}, {\bm y} \in {\mathbb V}\)</span>, 有唯一的和 <span class="math">\({\bm x} \oplus {\bm y} ∈ {\mathbb V}\)</span></p></li>
+<li><p>数乘封闭性: 对 <span class="math">\(\forall k \in {\mathbb K}, \forall {\bm x} \in {\mathbb V}\)</span>, 有唯一的元素 <span class="math">\(\forall k {\bm x} \in {\mathbb V}\)</span></p></li>
+</ul>
+</li>
+<li><p>交换律: <span class="math">\({\bm x} \oplus {\bm y} = {\bm y} \oplus {\bm x}\)</span></p></li>
+<li><p>结合律: <span class="math">\(({\bm x} \oplus {\bm y}) \oplus {\bm z} = {\bm x} \oplus ({\bm y} \oplus {\bm z})\)</span></p></li>
+<li><p>有零元: <span class="math">\(\forall {\bm x} \in {\mathbb V}, \exists {\bm 0} \in {\mathbb V}\)</span> 使得 <span class="math">\({\bm x} \oplus {\bm 0} = {\bm x}\)</span></p></li>
+<li><p>有负元: <span class="math">\(\forall {\bm x} \in {\mathbb V}, \exists {\bm y} \in {\mathbb V}\)</span> 使得 <span class="math">\({\bm x} \oplus {\bm y} = {\bm 0}\)</span></p></li>
+<li><p>乘1律: <span class="math">\(1 \odot {\bm x} = {\bm x}\)</span></p></li>
+<li><p>数因子分配律: <span class="math">\(k \odot (\bm{x} + \bm{y}) = k \odot {\bm x} + k \odot {\bm y}\)</span></p></li>
+<li><p>数乘分配律: <span class="math">\((k+l) \odot {\bm x} = k \odot {\bm x} + l \odot {\bm x}\)</span></p></li>
+<li><p>数乘结合律: <span class="math">\(k \odot (l \odot {\bm x}) = (kl) \odot {\bm x}\)</span></p></li>
+</ol>
+</div></div></div>
+<div class="section" id="id7">
+<h3>性质<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p><span class="math">\(\forall {\bm x} \in {\mathbb V}, 0,1\in {\mathbb K}\)</span>, 有:</p>
+<ol class="arabic simple">
+<li><p><span class="math">\(0 \odot {\bm x} = {\bm 0}\)</span>: 数 <span class="math">\(0\)</span>
+乘以 <span class="math">\({\mathbb V}\)</span> 中任意元素 <span class="math">\({\bm x}\)</span> 的结果为 <span class="math">\({\mathbb V}\)</span> 中零元素
+<span class="math">\({\bm 0}\)</span></p></li>
+<li><p><span class="math">\(1 \odot {\bm x} = {\bm x}\)</span>: 数 <span class="math">\(1\)</span>
+乘以 <span class="math">\({\mathbb V}\)</span> 中任意元素 <span class="math">\({\bm x}\)</span> 的结果仍为元素
+<span class="math">\({\bm x}\)</span></p></li>
+<li><p><span class="math">\(-1 \odot {\bm x} = - {\bm x}\)</span>: 数 <span class="math">\(-1\)</span>
+乘以 <span class="math">\({\mathbb V}\)</span> 中任意元素 <span class="math">\({\bm x}\)</span>
+的结果为<span class="math">\({\bm x}\)</span>的负元素 <span class="math">\(-{\bm x}\)</span></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p><span class="math">\((0 \odot {\bm x}) \oplus {\bm x} = (0 + 1) \odot {\bm x} = {\bm x}\)</span>     <span class="math">\(\Longrightarrow\)</span>     <span class="math">\(0 \odot {\bm x} = {\bm 0}\)</span></p></li>
+<li><p><span class="math">\((-1 \odot {\bm x}) \oplus {\bm x} = (-1 + 1) \odot {\bm x} = {\bm x} = 0 \odot {\bm x} = {\bm 0}\)</span>     <span class="math">\(\Longrightarrow\)</span>    <span class="math">\(-1 \odot {\bm x}\)</span> 为 <span class="math">\({\bm x}\)</span> 的负元素</p></li>
+<li><p><span class="math">\(k \odot ({\bm x} \oplus (-1\odot{\bm x})) = k\odot {\bm x} \oplus k \odot (- {\bm x}) = k \odot {\bm x} \oplus (-1)\odot(k\odot {\bm x}) = {\bm 0}\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>线性组合与线性表示<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id18">
+<span id="def-linearcombination"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.2</span>
+        
+            <span class="proof-title-name">(线性组合)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> 为线性空间 <span class="math">\({\mathbb V}\)</span> 中的 <span class="math">\(m\)</span> 个元素, <span class="math">\({\bm x} \in {\mathbb V}\)</span> , 若存在数 <span class="math">\(c_1, c_2, \cdots, c_m \in {\mathbb K}\)</span> , 使</p>
+<div class="math">
+\[{\bm x} = c_1 \odot {\bm x}_1 \oplus c_2 \odot {\bm x}_2 \oplus \cdots \oplus c_m \odot {\bm x}_m
+
+\]</div>
+<p>则称 <span class="math">\({\bm x}\)</span> 为 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> 的 <strong>线性组合</strong> (<a class="reference internal" href="../../glossary/glossary.html#term-linear-combination"><span class="xref std std-term">Linear Combination</span></a>), 也称 <span class="math">\({\bm x}\)</span> 可由 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> <strong>线性表示</strong> (<a class="reference internal" href="../../glossary/glossary.html#term-linear-representation"><span class="xref std std-term">Linear Representation</span></a>).</p>
+</div></div><div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>对比稀疏表示, 字典学习:</p>
+<ul class="simple">
+<li><p>原子可看作上述向量;</p></li>
+<li><p>字典可看作上述向量组;</p></li>
+<li><p>稀疏表示系数就是上述线性组合系数.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>线性相关与线性无关<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id19">
+<span id="def-linearlydependent"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.3</span>
+        
+            <span class="proof-title-name">(线性无关)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> 为线性空间 <span class="math">\({\mathbb V}\)</span> 中的 <span class="math">\(m\)</span> 个元素, 若 <strong>存在一组不全为零的数</strong> <span class="math">\(c_1, c_2, \cdots, c_m \in {\mathbb K}\)</span> , 使</p>
+<div class="math">
+\[c_1 \odot {\bm x}_1 \oplus c_2 \odot {\bm x}_2 \oplus \cdots \oplus c_m \odot {\bm x}_m = {\bm 0}
+
+\]</div>
+<p>则称 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> <strong>线性相关</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-linearly-dependent"><span class="xref std std-term">Linearly Dependent</span></a> ), 否则, 称其 <strong>线性无关</strong> ( <a class="reference internal" href="../../glossary/glossary.html#term-linearly-independent"><span class="xref std std-term">Linearly Independent</span></a> ).</p>
+</div></div><div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>若 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span>  线性无关, 则当且仅当 <span class="math">\(c_1, c_2, \cdots, c_m \in {\mathbb K}\)</span> 全为零时, <span class="math">\(c_1 \odot {\bm x}_1 \oplus c_2 \odot {\bm x}_2 \oplus \cdots \oplus c_m \odot {\bm x}_m = {\bm 0}\)</span> 成立.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><span class="section-number">1.1.3. </span>线性空间的基、坐标与维数<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id11">
+<h3>定义<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id20">
+<span id="id12"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.4</span>
+        
+            <span class="proof-title-name">(线性空间的基、坐标与维数)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\mathbb V}\)</span> 是数域 <span class="math">\({\mathbb K}\)</span> 上的线性空间, <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_n (n \geq 1)\)</span> 是属于  <span class="math">\({\mathbb V}\)</span> 的任意  <span class="math">\(n\)</span> 个元素, 若它们满足:</p>
+<ol class="arabic simple">
+<li><p><span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_n (n \geq 1)\)</span> 线性无关;</p></li>
+<li><p><span class="math">\(\forall {\bm x} \in {\mathbb V}\)</span> , 均可由 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_n (n \geq 1)\)</span> 线性表示, 记为</p></li>
+</ol>
+<blockquote>
+<div><div class="math">
+\[{\bm x} = {\xi}_1 \odot {\bm x}_1 \oplus {\xi}_2 \odot {\bm x}_2 \oplus \cdots \oplus {\xi}_n \odot {\bm x}_n
+
+\]</div>
+</div></blockquote>
+<p>则称</p>
+<ul class="simple">
+<li><p><span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_n (n \geq 1)\)</span> 是 <span class="math">\({\mathbb V}\)</span> 一个 <strong>基</strong> 或 <strong>基底</strong> ;</p></li>
+<li><p><span class="math">\({\xi}_1, {\xi}_2, \cdots, {\xi}_n (n \geq 1)\)</span> 为 <span class="math">\({\bm x}\)</span> 在该基下的 <strong>坐标</strong>.</p></li>
+<li><p><span class="math">\({\mathbb V}\)</span> 中最大线性无关的元素的数目为线性空间 <span class="math">\(\mathbb V\)</span> 的 <strong>维数</strong>, 记为 <span class="math">\({\rm dim}({\mathbb V})\)</span></p></li>
+</ul>
+</div></div><div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ol class="arabic simple">
+<li><p>基不一定是向量, 可能是矩阵, 或者其它更为抽象的;</p></li>
+<li><p>坐标是数.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><span class="section-number">1.1.4. </span>基变换与坐标变换<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<p>从一个基到另一个基时, 坐标的变化.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>以下部分, 在不引起混淆时, 对集合内的加法 ( <span class="math">\(\oplus\)</span> ) 与数域内的加法 ( <span class="math">\(+\)</span> ) , 及数乘 ( <span class="math">\(\odot\)</span> ) 与数域内的乘法 (<span class="math">\(\times\)</span> 或省略 ) 不作区分.</p>
+</div>
+<div class="section" id="id14">
+<h3>两个基之间的转换<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p><strong>基变换:</strong> 设 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_n\)</span> 是 <span class="math">\({\mathbb V}^{n}\)</span> 的旧基, <span class="math">\({\bm y}_1, {\bm y}_2, \cdots, {\bm y}_n\)</span> 是 <span class="math">\({\mathbb V}^{n}\)</span> 的新基, 则有</p>
+<div class="math">
+\[\left\{ {\begin{array}{ccc}{{{\bm{y}}_1} = {c_{11}}\odot{{\bm{x}}_1} \oplus {c_{21}}\odot{{\bm{x}}_2} \oplus  \cdots  \oplus {c_{n1}}\odot{{\bm{x}}_n}}\\{{{\bm{y}}_2} = {c_{12}}\odot{{\bm{x}}_1} \oplus {c_{22}}\odot{{\bm{x}}_2} \oplus  \cdots  \oplus {c_{n2}}\odot{{\bm{x}}_n}}\\ \vdots \\{{{\bm{y}}_n} = {c_{1n}}\odot{{\bm{x}}_1} \oplus {c_{2n}}\odot{{\bm{x}}_2} \oplus  \cdots  \oplus {c_{nn}}\odot{{\bm{x}}_n}}\end{array}} \right.
+
+\]</div>
+<p>写成矩阵形式为</p>
+<div class="math">
+\[{\rm{(}}{{\bm{y}}_1}{\rm{,}}\;{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n}{\rm{)}}\;{\rm{ = }}\;{\rm{(}}{{\bm{x}}_1}{\rm{,}}\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}{\rm{)}}\;\left[ {\begin{array}{cccc}{{c_{11}}}&{{c_{12}}}& \cdots &{{c_{1n}}}\\{{c_{21}}}&{{c_{22}}}& \cdots &{{c_{2n}}}\\ \vdots & \vdots & \ddots & \vdots \\{{c_{n1}}}&{{c_{n2}}}& \cdots &{{c_{nn}}}\end{array}} \right] = \;{\rm{(}}{{\bm{x}}_1}{\rm{,}}\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}{\rm{)}}\;{\bm{C}}
+
+\]</div>
+<p>即:</p>
+<div class="math">
+\[{\rm{(}}{{\bm{y}}_1}{\rm{,}}\;{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n}{\rm{)}}\;{\rm{ = }}\;{\rm{(}}{{\bm{x}}_1}{\rm{,}}\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}{\rm{)}}\;{\bm{C}}
+
+\]</div>
+<p>同理可得从新基变回旧基的表达式:</p>
+<div class="math">
+\[{\rm{(}}{{\bm{x}}_1}{\rm{,}}\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}{\rm{)}}\;{\rm{ = }}\; {\rm{(}}{{\bm{y}}_1}{\rm{,}}\;{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n}{\rm{)}}\; {\bm{A}} {\rm{ = }}\;{\rm{(}}{{\bm{x}}_1}{\rm{,}}\;{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}{\rm{)}}\;{\bm{C}} {\bm{A}}
+
+\]</div>
+<p>显然, :<span class="math">\({\bm{A}} = {\bm{C}}^{-1}\)</span></p>
+</div>
+<div class="section" id="id15">
+<h3>多个基之间的转换<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>设有线性空间 :<span class="math">\({\mathbb V}^n\)</span> , 及其三个基:</p>
+<ul class="simple">
+<li><p>基1: <span class="math">\({\bm X}_1, {\bm X}_2, \cdots, {\bm X}_n\)</span></p></li>
+<li><p>基2: <span class="math">\({\bm Y}_1, {\bm Y}_2, \cdots, {\bm Y}_n\)</span></p></li>
+<li><p>基3: <span class="math">\({\bm Z}_1, {\bm Z}_2, \cdots, {\bm Z}_n\)</span></p></li>
+</ul>
+<p>且设由基3到基1的过度矩阵为 <span class="math">\({\bm C}_1\)</span> , 且由基3到基2的过度矩阵为 <span class="math">\({\bm C}_2\)</span> , 则由基1到基2的过度矩阵为 <span class="math">\({\bm C}_1^{-1}{\bm C}_2\)</span> 由基2到基1的过度矩阵为 <span class="math">\({\bm C}_2^{-1}{\bm C}_1\)</span> , 即</p>
+<div class="figure align-center" id="id21">
+<a class="reference internal image-reference" href="../../../_images/jjgdjzgx.png"><img alt="多个基之间的转换" src="../../../_images/jjgdjzgx.png" style="width: 276.59999999999997px; height: 162.6px;" /></a>
+<p class="caption"><span class="caption-number">图 1.2 </span><span class="caption-text">多个基之间的转换</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>多个基之间的转换关系</p>
+</div>
+</div>
+<div class="math">
+\[{\rm{(}}{{\bm{Y}}_1}{\rm{,}}\;{{\bm{Y}}_2}, \cdots ,{{\bm{Y}}_n}{\rm{)}}\;{\rm{ = }}\;{\rm{(}}{{\bm{X}}_1}{\rm{,}}\;{{\bm{X}}_2}, \cdots ,{{\bm{X}}_n}{\rm{)}}\;{\bm{C}_1^{-1}}{{\bm C}_2}
+
+\]</div>
+<div class="math">
+\[{\rm{(}}{{\bm{X}}_1}{\rm{,}}\;{{\bm{X}}_2}, \cdots ,{{\bm{X}}_n}{\rm{)}}\;{\rm{ = }}\; {\rm{(}}{{\bm{Y}}_1}{\rm{,}}\;{{\bm{Y}}_2}, \cdots ,{{\bm{Y}}_n}{\rm{)}}\;{\bm{C}_2^{-1}}{{\bm C}_1}
+
+\]</div>
+</div>
+<div class="section" id="id16">
+<h3>坐标变换<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p><strong>坐标变换:</strong> 设向量 <span class="math">\(\bm z\)</span> 在上述旧基与新基下可表示为:</p>
+<div class="math">
+\[{\bm z}  = {\xi}_1 {\bm x}_1 + {\xi}_2 {\bm x}_2 + \cdots + {\xi}_n {\bm x}_n = {\eta}_1 {\bm y}_1 + {\eta}_2 {\bm y}_2 + \cdots + {\eta}_n {\bm y}_n
+
+\]</div>
+<p>则</p>
+<div class="math">
+\[{\bm{z}} = ({{\bm{x}}_1},{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n})\left[ {\begin{array}{ccc}{{\xi _1}}\\{{\xi _2}}\\ \vdots \\{{\xi _n}}\end{array}} \right] = ({{\bm{y}}_1},{{\bm{y}}_2}, \cdots ,{{\bm{y}}_n})\left[ {\begin{array}{ccc}{{\eta _1}}\\{{\eta _2}}\\ \vdots \\{{\eta _n}}\end{array}} \right] = ({{\bm{x}}_1},{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}){\bm{C}}\left[ {\begin{array}{ccc}{{\eta _1}}\\{{\eta _2}}\\ \vdots \\{{\eta _n}}\end{array}} \right]
+
+\]</div>
+<p>从而有</p>
+<div class="math">
+\[({{\bm{x}}_1},{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n})\left[ {\begin{array}{ccc}{{\xi _1}}\\{{\xi _2}}\\ \vdots \\{{\xi _n}}\end{array}} \right] = ({{\bm{x}}_1},{{\bm{x}}_2}, \cdots ,{{\bm{x}}_n}){\bm{C}}\left[ {\begin{array}{ccc}{{\eta _1}}\\{{\eta _2}}\\ \vdots \\{{\eta _n}}\end{array}} \right]
+
+\]</div>
+<p>由此得坐标变换公式</p>
+<div class="math">
+\[\left[ {\begin{array}{ccc}{{\eta _1}}\\{{\eta _2}}\\ \vdots \\{{\eta _n}}\end{array}} \right] = {{\bm{C}}^{ - 1}}\left[ {\begin{array}{ccc}{{\xi _1}}\\{{\xi _2}}\\ \vdots \\{{\xi _n}}\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="LinearSubspace.html" class="btn btn-neutral float-right" title="1.2. 线性子空间" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="1. 线性空间与线性变换" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.1. 常用总结 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="7. 杂项" href="index.html"/>
+        <link rel="next" title="7.2. 初等变换" href="ElementaryTransformation.html"/>
+        <link rel="prev" title="7. 杂项" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../LinearSpace/index.html">1. 线性空间与线性变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7. 杂项</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.1. 常用总结</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElementaryTransformation.html">7.2. 初等变换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialMatrix.html">7.3. 常见矩阵概念</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagonalMatrix.html">7.4. 对角矩阵</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixOperation.html">7.5. 矩阵运算</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">7. </span>杂项</a> &raquo;</li>
+        
+      <li><span class="section-number">7.1. </span>常用总结</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-often">
+<span id="id1"></span><h1><span class="section-number">7.1. </span>常用总结<a class="headerlink" href="#section-often" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">7.1.1. </span>顺序主子式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>设有 <span class="math">\(n\)</span> 阶方阵 <span class="math">\({\bm A}\)</span></p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{cccc}
+{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\
+{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
+ \vdots & \vdots & \ddots & \vdots \\
+{{a_{n1}}}&{{a_{n2}}}& \cdots &{{a_{nn}}}
+\end{array}} \right]
+
+\]</div>
+<p>则其 <span class="math">\(i, (0 \leq i \leq n)\)</span> 阶顺序主子式为行列式</p>
+<div class="math">
+\[D_i = \left| {\begin{array}{cccc}
+{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1i}}}\\
+{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2i}}}\\
+ \vdots & \vdots & \ddots & \vdots \\
+{{a_{i1}}}&{{a_{i2}}}& \cdots &{{a_{ii}}}
+\end{array}} \right|
+
+\]</div>
+<p>矩阵 <span class="math">\({\bm A}\)</span> 所有阶顺序主子式 <span class="math">\(D_1, D_2, \cdots, D_n\)</span> 组成 <span class="math">\({\bm A}\)</span> 的顺序主子式.</p>
+<ul class="simple">
+<li><p>矩阵 <span class="math">\({\bm A}\)</span> 为正定矩阵的充要条件是 <span class="math">\({\bm A}\)</span> 的所有顺序主子式 <span class="math">\(D_i\)</span> 大于零;</p></li>
+<li><p>矩阵 <span class="math">\({\bm A}\)</span> 有唯一LU分解的充要条件是 <span class="math">\({\bm A}\)</span> 的所有顺序主子式 <span class="math">\(D_i\)</span> 不等于零;</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">7.1.2. </span>伴随矩阵<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><strong>定义</strong> :  对于方阵 <span class="math">\({\bm A} = (a_{ij})_{n\times n}\)</span> , 将矩阵 <span class="math">\({\bm A}\)</span> 的第 <span class="math">\(i\)</span> 行第 <span class="math">\(j\)</span> 列去掉后, 剩下的元素按原来的顺序组成一个新的 <span class="math">\(n-1\)</span> 阶矩阵, 新矩阵的行列式称为元素 <span class="math">\(a_{ij}\)</span> 的 <strong>余子式</strong> , 记为 <span class="math">\(M_{ij}\)</span> ;  称 <span class="math">\(A_{ij} = (-1)^{i+j}M_{ij}\)</span> 为 <span class="math">\(a_{ij}\)</span> 的代数余子式; 将所有元素的代数余子式按如下规律组成一个矩阵, 将此矩阵称为方阵 <span class="math">\({\bm A}\)</span> 的 <strong>伴随矩阵</strong> , 记为: 方阵 <span class="math">\({\bm A}^{*}\)</span></p>
+<div class="math">
+\[{\bm A}^{*} = \left[ {\begin{array}{cccc}
+{{A_{11}}}&{{A_{21}}}& \cdots &{{A_{n1}}}\\
+{{A_{12}}}&{{A_{22}}}& \cdots &{{A_{n2}}}\\
+ \vdots & \vdots & \vdots & \vdots \\
+{{A_{1n}}}&{{A_{2n}}}& \ldots &{{A_{nn}}}
+\end{array}} \right]
+
+\]</div>
+<p>性质:</p>
+<ul class="simple">
+<li><p><span class="math">\({\bm A}\)</span> 可逆 <span class="math">\(\leftrightarrow\)</span> <span class="math">\({\bm A}^*\)</span> 可逆</p></li>
+<li><p><span class="math">\({\bm A}\)</span> 可逆 <span class="math">\(\leftrightarrow\)</span> <span class="math">\(({\bm A}^{-1})^* = ({\bm A}^*)^{-1}\)</span></p></li>
+<li><p><span class="math">\({\bm A}\)</span> 可逆 <span class="math">\(\leftrightarrow\)</span> <span class="math">\({\bm A}^* = |{\bm A}|{\bm A}^{-1}\)</span></p></li>
+<li><p><span class="math">\(({\bm A}^*)^* = (|{\bm A}|{\bm A}^{-1})^* = |{\bm A}|^{n-1}({\bm A}^*)^{-1}\)</span></p></li>
+<li><p><span class="math">\(({\bm A}^T)^* = ({\bm A}^*)^T\)</span></p></li>
+<li><p><span class="math">\((k{\bm A})^* = k^{n-1}{\bm A}^*\)</span></p></li>
+<li><p><span class="math">\(({\bm A}{\bm B})^* = {\bm B}^*{\bm A}^*\)</span></p></li>
+<li><p><span class="math">\(|{\bm A}^*| = |{\bm A}|^{n-1}\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">7.1.3. </span>矩阵的逆<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>性质<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>设 <span class="math">\({\bm A}, {\bm B}\)</span> 为 <span class="math">\(n\)</span> 阶可逆矩阵, 数 <span class="math">\(\lambda \neq 0\)</span> , 则</p>
+<ul class="simple">
+<li><p><span class="math">\(({\bm A}^{-1})^{-1} = {\bm A}\)</span></p></li>
+<li><p><span class="math">\(({\bm A}^T)^{-1} = ({\bm A}^{-1})^T\)</span></p></li>
+<li><p><span class="math">\((\lambda{\bm A})^{-1} = \lambda^{-1}{\bm A}^{-1}\)</span></p></li>
+<li><p><span class="math">\(({\bm A}{\bm B})^{-1} = {\bm B}^{-1}{\bm A}^{-1}\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>特殊矩阵的逆<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id7">
+<h4>二阶方阵的逆<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<div class="math">
+\[{\left[ {\begin{array}{ccc}a&b\\c&d\end{array}} \right]^{ - 1}} = \frac{1}{{ad - bc}}\left[ {\begin{array}{ccc}d&{ - b}\\{ - c}&a\end{array}} \right]
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>上述公式源于伴随矩阵求逆原理.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>三角矩阵的逆<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<div class="math">
+\[{\bm{C}} = \left[ {\begin{array}{ccccc}1&{}&{}&{}&{}\\1&1&{}&{}&{}\\1&1& \ddots &{}&{}\\ \vdots & \vdots & \ddots &1&{}\\1&1& \cdots &1&1\end{array}} \right],\;{{\bm{C}}^{ - 1}} = \left[ {\begin{array}{ccccc}1&{}&{}&{}&{}\\{ - 1}&1&{}&{}&{}\\{}&{ - 1}& \ddots &{}&{}\\{}&{}& \ddots &1&{}\\{}&{}&{}&{ - 1}&1\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>求解方法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>以以下矩阵为例:</p>
+<p><span class="math">\({\bm A} = \left[ {\begin{array}{ccc}1&amp;2&amp;2\\2&amp;1&amp;2\\2&amp;0&amp;1\end{array}} \right]\)</span></p>
+<div class="section" id="id10">
+<h4>伴随矩阵求逆<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>由 <span class="math">\({\bm A}^* = |{\bm A}|{\bm A}^{-1}\)</span> 知 <span class="math">\({\bm A}^{-1} = \frac{1}{|{\bm A}|}{\bm A}^*\)</span> , 故可根据此式计算.</p>
+<p>例如:</p>
+<div class="math">
+\[\begin{array}{l}
+{A_{11}} = \;\,{( - 1)^{1 + 1}}\left| {\begin{array}{ccc}
+1&2\\
+0&1
+\end{array}} \right| = 1,\;\,\,\,\,{A_{12}} = {( - 1)^{1 + 2}}\left| {\begin{array}{ccc}
+2&2\\
+2&1
+\end{array}} \right| = 2,\;\,\,\,\,{A_{13}} = {( - 1)^{1 + 3}}\left| {\begin{array}{ccc}
+2&1\\
+2&0
+\end{array}} \right| =  - 2\\
+{A_{21}} = {( - 1)^{2 + 1}}\left| {\begin{array}{ccc}
+2&2\\
+0&1
+\end{array}} \right| =  - 2,\;{A_{22}} = {( - 1)^{2 + 2}}\left| {\begin{array}{ccc}
+1&2\\
+2&1
+\end{array}} \right| =  - 3,\;{A_{23}} = {( - 1)^{2 + 3}}\left| {\begin{array}{ccc}
+1&2\\
+2&0
+\end{array}} \right| =  4\\
+{A_{31}} = {( - 1)^{3 + 1}}\left| {\begin{array}{ccc}
+2&2\\
+1&2
+\end{array}} \right| = 2,\;\;\;{A_{32}} = {( - 1)^{3 + 2}}\left| {\begin{array}{ccc}
+1&2\\
+2&2
+\end{array}} \right| =  2,\;{A_{33}} = {( - 1)^{3 + 3}}\left| {\begin{array}{ccc}
+1&2\\
+2&1
+\end{array}} \right| =  - 3
+\end{array}
+
+\]</div>
+<p>从而有</p>
+<div class="math">
+\[{{\bm{A}}^{1}} = \frac{1}{|{\bm A}|}\left[ {\begin{array}{ccc}
+{{A_{11}}}&{{A_{21}}}&{{A_{31}}}\\
+{{A_{12}}}&{{A_{22}}}&{{A_{32}}}\\
+{{A_{13}}}&{{A_{23}}}&{{A_{33}}}
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+1&{ - 2}&2\\
+2&{ - 3}&{ 2}\\
+{ - 2}&{ 4}&{ - 3}
+\end{array}} \right]
+
+\]</div>
+</div>
+<div class="section" id="id11">
+<h4>初等行变换求逆<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>将待求逆矩阵与单位矩阵拼成一个矩阵, 对新矩阵只进行 <strong>初等行变换</strong> , 使得待求逆矩阵部分变为单位矩阵, 那么对应的原始的单位阵变为待求逆矩阵的逆, 即</p>
+<div class="math">
+\[[{\bm A} | {\bm I}] \rightarrow [{\bm I} | {\bm A}^{-1}]
+
+\]</div>
+<p>例如:</p>
+<div class="figure align-center" id="id15">
+<a class="reference internal image-reference" href="../../../_images/demoElementaryTransformationINV.png"><img alt="some text" src="../../../_images/demoElementaryTransformationINV.png" style="width: 445.2px; height: 355.2px;" /></a>
+<p class="caption"><span class="caption-number">图 7.1 </span><span class="caption-text">初等变换求逆</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>初等变换求逆</p>
+</div>
+</div>
+</div>
+<div class="section" id="sherman-morrison-woodbury">
+<h4>Sherman-Morrison-Woodbury公式<a class="headerlink" href="#sherman-morrison-woodbury" title="永久链接至标题">¶</a></h4>
+<p>设 <span class="math">\({\bm A}\in {\mathbb R}^{n\times n}\)</span> 非奇异, <span class="math">\({\bm u}, {\bm v}\in {\mathbb R}^n\)</span> , 则有 Sherman-Morrison 等式</p>
+<div class="math" id="equation-equ-sherman-morrison">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-equ-sherman-morrison" title="公式的永久链接">¶</a></span>\[\left({\bm A} + {\bm u} {\bm v}^{T}\right)^{-1}={\bm A}^{-1}-{\bm A}^{-1} {\bm u}\left({\bm I} + {\bm v}^{T} {\bm A}^{-1} {\bm u}\right)^{-1} {\bm v}^{T} {\bm A}^{-1}.
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>Sherman-Morrison等式可以通过求解线性方程组 <span class="math">\(({\bm A} + {\bm u}{\bm v}^T){\bm x} = {\bm b}\)</span> 得到.</p>
+</div>
+<p>由 Sherman-Morrison 公 <a class="reference internal" href="#equation-equ-sherman-morrison">式.7.1</a> , 令 <span class="math">\({\bm U}\in {\mathbb R}^{n\times k}\)</span> , <span class="math">\({\bm V}\in {\mathbb R}^{n\times k}\)</span> , 则有 Sherman-Morrison-Woodbury 等式</p>
+<div class="math" id="equation-equ-sherman-morrison-woodbury">
+<span class="eqno">(7.2)<a class="headerlink" href="#equation-equ-sherman-morrison-woodbury" title="公式的永久链接">¶</a></span>\[\left({\bm A} + {\bm U} {\bm V}^{T}\right)^{-1}={\bm A}^{-1}-{\bm A}^{-1} {\bm U}\left({\bm I} + {\bm V}^{T} {\bm A}^{-1} {\bm U}\right)^{-1} {\bm V}^{T} {\bm A}^{-1}.
+
+\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2><span class="section-number">7.1.4. </span>矩阵的秩<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id13">
+<h3>性质<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><span class="math">\(0 \leq {\rm rank}({\bm A}_{m \times n}) \leq {\rm min} \{m, n\}\)</span></p></li>
+<li><p><span class="math">\({\rm rank}({\bm A}^T) = {\rm rank}({\bm A})\)</span></p></li>
+<li><p><span class="math">\({\rm rank}({\bm A}{\bm B}) \leq {\rm min}\{ {\rm rank}({\bm A}), {\rm rank}({\bm B})\}\)</span></p></li>
+<li><p><span class="math">\({\rm rank}({\bm A}+{\bm B}) \leq {\rm rank}({\bm A}) + {\rm rank}({\bm B})\)</span></p></li>
+<li><p><span class="math">\({\rm max}\{ {\rm rank}({\bm A}), {\rm rank}({\bm B})\} \leq {\rm rank}({\bm A}, {\bm B}) \leq {\rm rank}({\bm A}) + {\rm rank}({\bm B})\)</span></p></li>
+<li><p>若 <span class="math">\({\bm A} \sim {\bm B}\)</span> , 则 <span class="math">\({\rm rank}({\bm A}) = {\rm rank}({\bm B})\)</span></p></li>
+<li><p>若 <span class="math">\({\bm P} , {\bm Q}\)</span> 可逆 , 则 <span class="math">\({\rm rank}({\bm P}{\bm A}{\bm Q}) = {\rm rank}({\bm A})\)</span></p></li>
+<li><p>若 <span class="math">\({\bm A}_{m\times n}{\bm B}_{n\times l} = {\bm O}\)</span> , 则 <span class="math">\({\rm rank}({\bm A}) + {\rm rank}({\bm B}) \leq n\)</span></p></li>
+<li><p>若 <span class="math">\({\bm A}\)</span> 为列满秩矩阵, 且 <span class="math">\({\bm A}{\bm B} = {\bm O}\)</span> , 则 <span class="math">\({\bm B} = {\bm O}\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><span class="section-number">7.1.5. </span>矩阵的迹行列式特征值<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>方阵 <span class="math">\({\bm A}\)</span> 的行列式与特征值的关系: <span class="math">\(|{\bm A}| = \lambda_1\lambda_2 \cdots \lambda_n\)</span></p></li>
+<li><p>方阵 <span class="math">\({\bm A}\)</span> 的迹与特征值的关系: <span class="math">\({tr}({\bm A}) = \lambda_1 + \lambda_2 + \cdots + \lambda_n\)</span></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ElementaryTransformation.html" class="btn btn-neutral float-right" title="7.2. 初等变换" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="7. 杂项" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

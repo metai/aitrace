@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.4. SAR回波信号及其性质 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. SAR系统概述" href="index.html"/>
+        <link rel="next" title="2.5. 脉冲压缩" href="PulseCompression.html"/>
+        <link rel="prev" title="2.3. SAR发射信号及其性质" href="SAREmittedSignal.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">合成孔径雷达</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Introduction.html">1. 合成孔径雷达简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. SAR系统概述</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Concept.html">2.1. 相关概念汇总</a></li>
+<li class="toctree-l4"><a class="reference internal" href="System.html">2.2. SAR系统组成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SAREmittedSignal.html">2.3. SAR发射信号及其性质</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.4. SAR回波信号及其性质</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PulseCompression.html">2.5. 脉冲压缩</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Simulation/index.html">3. SAR仿真技术</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Imaging/index.html">4. SAR成像理论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HighresolutionImaging/index.html">5. SAR高分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SuperresolutionImaging/index.html">6. SAR超分辨成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningImaging/index.html">7. 深度学习与SAR成像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ImageSuperresolution/index.html">8. SAR图像超分辨</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experiments/index.html">9. 实验集锦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">10. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">11. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">合成孔径雷达</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>SAR系统概述</a> &raquo;</li>
+        
+      <li><span class="section-number">2.4. </span>SAR回波信号及其性质</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sar">
+<span id="section-sarechosignalsystemoverviewsarradar"></span><h1><span class="section-number">2.4. </span>SAR回波信号及其性质<a class="headerlink" href="#sar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">2.4.1. </span>SAR回波信号<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>假设, 在距离向雷达发射信号为:</p>
+<div class="math">
+\[s_t(\tau) = p(\tau){\rm exp}(j2\pi f_0 \tau),
+
+\]</div>
+<p>其中, <span class="math">\(f_0\)</span> 为中心频率, <span class="math">\(\tau\)</span> 是距离向时间, 也称快时间. <span class="math">\(p(\tau)\)</span> 为线性调频信号，通常为</p>
+<div class="math">
+\[p(\tau) = w_r(\tau){\rm exp}(j\pi K_r \tau^2),
+
+\]</div>
+<p>其中, <span class="math">\(K_r\)</span> 为距离向调频率, <span class="math">\(T_p\)</span> 为脉冲持续时间, <span class="math">\(w_r(\tau)={\rm rect}\left(\frac{\tau}{T_p}\right)\)</span> 为脉冲包络.</p>
+<p>在方位向, 接收信号的强度可以表示为方位时间的函数 <a class="footnote-reference brackets" href="#azimuthrecievesignalintensity" id="id2">1</a> :</p>
+<div class="math">
+\[w_a(\eta) = P^2_a\left(\theta(\eta)\right) = {\rm sinc}^2\left(\frac{0.886\theta(\eta)}{\beta_{bw}}\right),
+
+\]</div>
+<p>其中, <span class="math">\(\theta(\eta)\)</span> 为方位向 <span class="math">\(\eta\)</span> 时刻斜距平面内测得的 (slant range) 与视线的夹角 (即 <span class="math">\(\eta\)</span> 时刻目标与波束中心线的夹角, 不是斜视角, 显然目标处于波束中心时, 信号强度最大), <span class="math">\({\beta_{bw}} = 0.886\lambda/L_a\)</span> 为方位向波束宽度, <span class="math">\(L_a\)</span> 为天线方位向宽度.</p>
+<p>以零多普勒时间 ( <a class="reference internal" href="../glossary.html#term-zero-doppler-time"><span class="xref std std-term">Zero Doppler Time</span></a> ) 为参考, 记 <span class="math">\(\eta_c\)</span> 为波束中心经过目标的时刻, 在斜视角不为零时, <span class="math">\(\eta_c\)</span> 不为零 ( 前视时 <span class="math">\(\eta_c &lt; 0\)</span> , 后视时 <span class="math">\(\eta_c &gt; 0\)</span> )</p>
+<div class="math">
+\[\eta_c = - \frac{R_0{\rm tan}\theta_{r,c}}{V_r} = -\frac{R(\eta_c){\rm sin}\theta_{r,c}}{V_r} = - \frac{R_0{\rm tan}\theta_{s,c}}{V_g} = -\frac{R(\eta_c){\rm sin}\theta_{s,c}}{V_g}.
+
+\]</div>
+<p>其中, <span class="math">\(R(\eta_c)\)</span> 为目标被波束中心线照射时, 雷达与目标的斜距, <span class="math">\(\theta_{s,c}\)</span> 为 <span class="math">\(\eta_c\)</span> 时刻 <span class="math">\(\theta_s\)</span> 的值.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>多普勒中心频率是指 <span class="math">\(\eta =\eta_c\)</span> 时刻的多普勒频率</p>
+<div class="math">
+\[\begin{aligned}
+f_{\eta_c} &= -\frac{2}{\lambda}\frac{{\rm d}R(\eta)}{{\rm d}\eta}\Big |_{\eta=\eta_c} \\
+           &= -\frac{2V_r^2\eta_c}{\lambda R(\eta_c)} \\
+           &= \frac{2V_r {\rm sin}\theta_{r,c}}{\lambda} \\
+           &= \frac{2V_s {\rm sin}\theta_{s,c}}{\lambda},
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(\theta_{s,c}, \theta_{r,c}\)</span> 分别为 <span class="math">\(\eta_c\)</span> 时刻, 基于轨道几何与直线几何的斜视角(参见《合成孔径雷达成像算法与实现》p84). 且 <span class="math">\(\theta_s, \theta_r\)</span> 与方位向慢时间的关系为</p>
+<div class="math">
+\[\begin{aligned}
+{\sin}\theta_s &= \frac{Y_g}{R(\eta)}=-\frac{V_g\eta}{R(\eta)} \\
+{\sin}\theta_r &= \frac{Y_r}{R(\eta)}=-\frac{V_r\eta}{R(\eta)}
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(V_g, \theta_s, Y_g\)</span> 为地球弯曲几何中的变量, <span class="math">\(V_r, \theta_r, Y_r\)</span> 为直线几何中的变量, 且有 <span class="math">\(\theta_r=\frac{V_r}{V_g}\theta_s=\frac{V_s}{V_r}\theta_s\)</span>. 对于机载SAR, 两种几何模型之间的差异可以忽略, 等效为直线几何.</p>
+<p>低斜视角时, <span class="math">\(f_{\eta_c} \thickapprox -K_a\eta_c\)</span>.</p>
+</div>
+<p>这种情况下 <span class="math">\(\theta(\eta) = \theta_s -\theta_{s,c}\)</span> , 且有</p>
+<div class="math">
+\[w_a(\eta-\eta_c) = P^2_a(\theta_s -\theta_{s,c}) \thickapprox
+P^2_a\left( {\rm arctan}\left(\frac{V_g(\eta-\eta_c)}{R_0}\right) \right).
+
+\]</div>
+<p>其中, <span class="math">\(V_g\)</span> 为波束覆盖面沿着地球表面移动的速度, 设 <span class="math">\(V_s\)</span> 为SAR平台沿轨道的运行的速度, 即平台实际物理速度; <span class="math">\(V_r\)</span> 为等效雷达速度, 即按两点间直线距离计算出的等效的速度, 则</p>
+<div class="math">
+\[V_r \thickapprox \sqrt{V_sV_g}, V_g < V_r < V_s.
+
+\]</div>
+<p>时刻 <span class="math">\(\eta\)</span> 雷达与目标的斜距可表示为:</p>
+<div class="math">
+\[R^2(\eta) = R_0^2 + V_r^2\eta^2.
+
+\]</div>
+<p>接收的回波信号为二维的线性调频信号, 点目标回波表达式为:</p>
+<div class="math" id="equation-equ-sar-receive-signal-2d">
+<span class="eqno">(2.34)<a class="headerlink" href="#equation-equ-sar-receive-signal-2d" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+s(\eta, \tau) &= g(\eta, \tau) w_a(\eta-\eta_c) w_r\left(\tau-2R(\eta)/c\right) \\
+              &\quad {\rm exp}\left(2\pi f_0 (\tau-2R(\eta)/c)  +  \pi K_r\left(\tau-2R(\eta)/c\right)^2 \right\}
+\end{aligned}
+
+\]</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.4.2. </span>回波信号解调<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>载频不含目标信息, 解调便是将天线接收的信号中的载频成分移除. 在雷达接收系统中, 常采用正交解调的方法, 其原理图见  <a class="reference internal" href="#fig-sar-iq-demodulation"><span class="std std-numref">图 2.72</span></a> . 天线接收的信号 ① 分别与 <span class="math">\({\rm cos}(2πf_c t)\)</span>, <span class="math">\(-{\rm sin}(2πf_c t)\)</span> 相乘将有用信号与载频信号分离, 得到信号 ② 和 ③; 分离开的信号经低通滤波滤出高频(载频)信号, 从而得到有用信号 ④ 和 ⑤; 信号 ④ 和 ⑤ 分别作为实部虚部合成复数信号 ⑥, ⑦ 为 ⑥ 的离散化采样形式.</p>
+<div class="figure align-center" id="id11">
+<span id="fig-sar-iq-demodulation"></span><a class="reference internal image-reference" href="../../../_images/SAR_IQ_Demodulation.png"><img alt="SAR IQ Demodulation" src="../../../_images/SAR_IQ_Demodulation.png" style="width: 820.8000000000001px; height: 302.40000000000003px;" /></a>
+<p class="caption"><span class="caption-number">图 2.72 </span><span class="caption-text">SAR IQ Demodulation</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+<p>① <span class="math">\({\rm cos}\left(2\pi f_c\tau - \frac{4\pi f_c R(\eta)}{c} + \pi K_r \left(\tau-\frac{2R(\eta)}{c}\right)^2\right) = {\rm cos}\left(2\pi f_c \tau+ \phi(\eta, \tau)\right)\)</span></p>
+<p>② <span class="math">\(\frac{1}{2}{\rm cos}[\phi(\eta, \tau)] + \frac{1}{2}{\rm cos}[4\pi f_c\tau+ \phi(\eta, \tau)]\)</span></p>
+<p>③ <span class="math">\(\frac{1}{2}{\rm sin}[\phi(\eta, \tau)] + \frac{1}{2}{\rm sin}[4\pi f_c\tau+ \phi(\eta, \tau)]\)</span></p>
+<p>④ <span class="math">\(\frac{1}{2}{\rm cos}[\phi(\eta, \tau)]\)</span></p>
+<p>⑤ <span class="math">\(\frac{1}{2}{\rm sin}[\phi(\eta, \tau)]\)</span></p>
+<p>⑥ <span class="math">\(\frac{1}{2}{\rm exp}\{j\phi(\eta, \tau)\} = \frac{1}{2}{\rm exp}\left\{-j\frac{4\pi f_c R(\eta)}{c} + j\pi K_r \left(\tau-\frac{2R(\eta)}{c}\right)^2\right\}\)</span></p>
+<p><a class="reference internal" href="#equation-equ-sar-receive-signal-2d">式.2.34</a> 解调后的SAR信号可以表示为:</p>
+<div class="math" id="equation-equ-sarphasehistory">
+<span class="eqno">(2.35)<a class="headerlink" href="#equation-equ-sarphasehistory" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+s(\eta, \tau) &= g(\eta, \tau) w_a(\eta-\eta_c) w_r\left(\tau-2R(\eta)/c\right) \\
+              &\quad {\rm exp}\left\{ -j4\pi f_0 R(\eta)/c  +  j\pi K_r\left(\tau-2R(\eta)/c\right)^2 \right\}
+\end{aligned}
+
+\]</div>
+<p>其中系数 <span class="math">\(g(\eta, \tau)=G^{\prime}{\rm exp}(j\phi)\)</span> 为复常数, <span class="math">\(G^{\prime}\)</span> 为强度. 然后对距离向信号进行采样，可以得到SAR原始数据. 上式表示的是从场景反射系数 <span class="math">\(g(\eta, \tau)\)</span> 的点目标接收到的经解调后的SAR基带信号, 也是SAR系统进行记录与下传的信号, 称为 <strong>SAR原始数据</strong> (SAR raw data), <strong>SAR信号数据</strong> (SAR signal data), <strong>SAR相位历史数据</strong> (SAR <a class="reference internal" href="../glossary.html#term-phase-history-data"><span class="xref std std-term">phase history data</span></a> ).</p>
+<p>若场景中含 <span class="math">\(N\)</span> 个目标, 则接收到的SAR数据为各目标回波的叠加</p>
+<div class="math">
+\[s(\eta, \tau) = \sum_{i=1}^N s_i(\eta, \tau)
+
+\]</div>
+<p>若考虑系统噪声, 则有</p>
+<div class="math">
+\[s(\eta, \tau) = \sum_{i=1}^N s_i(\eta, \tau) + n(\eta, \tau)
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>方位向多普勒带宽, 调频率及目标照射时间，参见 <a class="footnote-reference brackets" href="#azimuthrecievesignalintensity" id="id4">1</a> p93 页.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.4.3. </span>SAR 冲击响应<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>SAR的回波信号可以看作是地面反射率 <span class="math">\(g(\eta, \tau)\)</span> 与雷达系统冲激响应 <span class="math">\(h(\eta, \tau)\)</span> 进行二维卷积, 即:</p>
+<div class="math" id="equation-equ-sarsignalconv2d">
+<span class="eqno">(2.36)<a class="headerlink" href="#equation-equ-sarsignalconv2d" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+s(\eta, \tau) &=g(\eta, \tau) \otimes h(\eta, \tau) + n( \eta, \tau) \\
+              &= \iint g(u, v)⋅h(\eta -u, \tau -v){\rm d}u{\rm d}v + n( \eta, \tau) \\
+              &= g(\eta, \tau) w_a(\eta-\eta_c) w_r\left(\tau-2R(\eta)/c\right)\\
+              &\quad {\rm exp}\left\{ -j4\pi f_0 R(\eta)/c  +  j\pi K_r\left(\tau-2R(\eta)/c\right)^2 \right\} + n(\eta, \tau)
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(n(\tau, \eta)\)</span> 为系统噪声. 雷达二维冲激响应为</p>
+<div class="math" id="equation-equ-sarimpulseresponse2d">
+<span class="eqno">(2.37)<a class="headerlink" href="#equation-equ-sarimpulseresponse2d" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+h(\eta, \tau) &= w_a(\eta-\eta_c) w_r\left(\tau-2R(\eta)/c\right) \\
+              &\quad {\rm exp}\left\{ -j4\pi f_0 R(\eta)/c  +  j\pi K_r\left(\tau-2R(\eta)/c\right)^2 \right\}
+\end{aligned}
+
+\]</div>
+<p>因此不管是点目标还是面目标都可以通过SAR的接收信号的一般模型求得回波表达式, SAR 的成像处理过程, 其实际上也是一个通过解卷积从回波信号中最大程度地、无失真地提取地表的后向散射系数的二维分布.</p>
+<p>冲激响应 <span class="math">\(h(\eta, \tau)\)</span> 可以表示成距离向上的冲激响应 <span class="math">\(h_r(\eta, \tau)\)</span> 和方位向上的冲激响应 <span class="math">\(h_a(\eta, \tau)\)</span> 之积, 即</p>
+<div class="math">
+\[h(\eta, \tau) = h_a(\eta,\tau) h_r(\eta,\tau) = h_r(\eta,\tau) h_a(\eta,\tau)
+
+\]</div>
+<p>则 <a class="reference internal" href="#equation-equ-sarsignalconv2d">式.2.36</a> 可以表示为地面反射系数与两个方向上的冲激响应的一维级联卷积</p>
+<div class="math" id="equation-equ-sarsignalconv1d">
+<span class="eqno">(2.38)<a class="headerlink" href="#equation-equ-sarsignalconv1d" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+s(\eta, \tau) &= g(\eta, \tau) \otimes h(\eta,\tau) \\
+&= g(\eta, \tau) * h_a(\eta,\tau)* h_r(\eta,\tau)\\
+&= g(\eta, \tau) * h_r(\eta,\tau)* h_a(\eta,\tau)
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(\otimes\)</span> 表示二维卷积, <span class="math">\(*\)</span> 表示一维卷积.</p>
+<p>方位向上的冲激响应为</p>
+<div class="math" id="equation-equ-sarimpulseresponse1da">
+<span class="eqno">(2.39)<a class="headerlink" href="#equation-equ-sarimpulseresponse1da" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+ h_a(\eta, \tau) &= w_a(\eta-\eta_c) \\
+      &\quad {\rm exp}\left\{ -j4\pi f_0 R(\eta)/c \right\}
+\end{aligned}
+
+\]</div>
+<p>距离向上的冲激响应为</p>
+<div class="math" id="equation-equ-sarimpulseresponse1dr">
+<span class="eqno">(2.40)<a class="headerlink" href="#equation-equ-sarimpulseresponse1dr" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+  h_r(\eta, \tau) &= w_r\left(\tau-2R(\eta)/c\right) \\
+  &\quad {\rm exp}\left\{j\pi K_r\left(\tau-2R(\eta)/c\right)^2 \right\}
+\end{aligned}
+
+\]</div>
+<p>若用 <span class="math">\(S, G, H\)</span> 分别表示SAR回波的频域信号, 地面目标后向散射系数的频域信号, 二维冲激响应的频域信号, 则</p>
+<div class="math" id="equation-equ-sarsignalfrequencydomain2d">
+<span class="eqno">(2.41)<a class="headerlink" href="#equation-equ-sarsignalfrequencydomain2d" title="公式的永久链接">¶</a></span>\[S = GH.
+
+\]</div>
+<p><a class="reference internal" href="#equation-equ-sarsignalfrequencydomain2d">式.2.41</a> 说明, 可以通过频域相乘来简化和加速SAR回波仿真过程. 其过程可以简要叙述为</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>频域SAR信号模拟生成</p>
+<p>输入: 时域场景反射系数矩阵 <span class="math">\({\bm G}_{H\times W}\)</span>, 时域二维冲激响应矩阵 <span class="math">\({\bm H}\)</span></p>
+<p>输出: 时域SAR回波信号矩阵 <span class="math">\({\bm S}_{N_a\times N_r}\)</span></p>
+<p>Step 1: 对时域场景反射系数矩阵 <span class="math">\({\bm G}_{H\times W}\)</span> 做二维傅里叶变换, 得到其频域二维形式 <span class="math">\(G = {\rm FFT}({\bm G})\)</span></p>
+<p>Step 2: 对时域二维冲激响应矩阵 <span class="math">\({\bm H}\)</span> 做二维傅里叶变换, 得到其频域二维形式 <span class="math">\(H = {\rm FFT}(\bm H)\)</span>
+Step3: 通过频域相乘得到频域SAR回波信号 <span class="math">\(S = GH\)</span></p>
+<p>Step4: 通过逆傅里叶变换得到时域SAR回波信号矩阵 <span class="math">\({\bm S} = {\rm IFFT}(S)\)</span></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">2.4.4. </span>小斜视SAR回波信号的频谱<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>在小斜视模式下, 方位 <span class="math">\(\eta\)</span> 时刻, 雷达与目标间的瞬时斜距可以近似表示为</p>
+<div class="math">
+\[R(\eta) = \sqrt{R_0^2 + V_r^2 \eta^2} \approx
+
+\]</div>
+<div class="section" id="id7">
+<h3>距离维频谱<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id8">
+<h3>方位维频谱<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id9">
+<h3>距离多普勒域频谱<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id10">
+<h3>二维频谱<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="azimuthrecievesignalintensity"><span class="brackets">1</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>参见 《合成孔径雷达成像——算法与实现》p91 页.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PulseCompression.html" class="btn btn-neutral float-right" title="2.5. 脉冲压缩" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SAREmittedSignal.html" class="btn btn-neutral" title="2.3. SAR发射信号及其性质" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

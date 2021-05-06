@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.7. 交替方向乘子法 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="3. 约束优化方法" href="index.html"/>
+        <link rel="next" title="3.8. 近端算法" href="ProximalAlgorithms.html"/>
+        <link rel="prev" title="3.6. 迭代收缩阈值类算法" href="ISTA.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">优化理论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Overview/index.html">1. 优化问题概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Unconstrained/index.html">2. 无约束优化方法</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3. 约束优化方法</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Overview.html">3.1. 约束优化方法概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DualAscent.html">3.2. 对偶上升算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="KKTCondition.html">3.3. KKT条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LagrangeMultiplier.html">3.4. 拉格朗日乘子法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AugmentedLagrangian.html">3.5. 增广拉格朗日法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ISTA.html">3.6. 迭代收缩阈值类算法</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.7. 交替方向乘子法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProximalAlgorithms.html">3.8. 近端算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SALSA.html">3.9. 分裂增广拉格朗日收缩算法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Derivation/index.html">4. 微分方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">5. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">6. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">优化理论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">3. </span>约束优化方法</a> &raquo;</li>
+        
+      <li><span class="section-number">3.7. </span>交替方向乘子法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-admm">
+<span id="id1"></span><h1><span class="section-number">3.7. </span>交替方向乘子法<a class="headerlink" href="#section-admm" title="永久链接至标题">¶</a></h1>
+<p>交替方向乘子法 ( <a class="reference internal" href="../glossary.html#term-alternating-direction-method-of-multipliers"><span class="xref std std-term">Alternating Direction Method of Multipliers</span></a>, ADMM) <a class="bibtex reference internal" href="../zreference.html#s-boyd-2011" id="id2">[1]</a> 结合了对偶分解 (dual decomposition) 和增广拉格朗日方法的优点, 最早可追溯到20世纪70年代中期 <a class="bibtex reference internal" href="../zreference.html#gabay197617" id="id3">[2]</a><a class="bibtex reference internal" href="../zreference.html#glowinski-1975" id="id4">[3]</a>.</p>
+<p>主页 <a class="footnote-reference brackets" href="#footnoteadmmlink" id="id5">1</a> 中提供了所有相关论文, 代码及应用文档.</p>
+<p>该问题与如下约束优化问题等价</p>
+<div class="math">
+\[{P_1}: {\rm min}_{{\bm x}, {\bm y}} f({\bm x}) + g({\bm y})\ \ {\rm s.t.} \ \ {\bm x} = {\bm y}.
+
+\]</div>
+<p>尽管这种变化可能看起来微不足道, 但现在可以使用约束优化方法来解决这个问题, 如增广拉格朗日方法. 此时目标函数被 <span class="math">\({\bm x}\)</span> 与 <span class="math">\({\bm y}\)</span> 分离, 对偶更新问题在于求解一个同时满足 <span class="math">\({\bm x}, {\bm y}\)</span> 的近似函数. ADMM算法通过交替迭代的方法求解该问题, 即先固定变量 <span class="math">\({\bm y}\)</span> 优化另一个变量 <span class="math">\(\bm x\)</span>, 再固定变量 <span class="math">\({\bm x}\)</span> 优化变量 <span class="math">\(\bm y\)</span>, 如此交替优化求解. 虽然这并非准确地最优化求解, 但该方法最终可以收敛到很好的解.</p>
+<div class="section" id="admm">
+<h2><span class="section-number">3.7.1. </span>ADMM原理<a class="headerlink" href="#admm" title="永久链接至标题">¶</a></h2>
+<p>ADMM 用于求解如下形式的约束优化问题</p>
+<div class="math" id="equation-equ-admm-originalproblem">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-equ-admm-originalproblem" title="公式的永久链接">¶</a></span>\[\begin{array}{ll}{\text { min }} & {f({\bm x})+g({\bm y})} \\ {\text {s.t. }} & {{\bm A} {\bm x} + {\bm B}{\bm y} = {\bm c}}\end{array}
+
+\]</div>
+<p>其中, <span class="math">\(f,g\)</span> 为凸函数, <span class="math">\({\bm x}\in{\mathbb R}^N\)</span>, <span class="math">\({\bm y}\in{\mathbb R}^M\)</span>, <span class="math">\({\bm A}\in{\mathbb R}^{p\times N}\)</span>, <span class="math">\({\bm B}\in{\mathbb R}^{p\times M}\)</span>, <span class="math">\({\bm c}\in{\mathbb R}^{p}\)</span>.</p>
+<p>与乘子法类似, <a class="reference internal" href="#equation-equ-admm-originalproblem">式.3.11</a> 的增广拉格朗日形式为</p>
+<div class="math" id="equation-equ-admm-augmentedlagrangianproblem">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-equ-admm-augmentedlagrangianproblem" title="公式的永久链接">¶</a></span>\[L({\bm x}, {\bm y}, {\bm \lambda}) = f({\bm x}) + g({\bm y}) + {\bm \lambda}^T({\bm A}{\bm x}+{\bm B}{\bm y}-{\bm c}) + \frac{\mu}{2}\|{\bm A}{\bm x}+{\bm B}{\bm y}-{\bm c}\|_2^2,
+
+\]</div>
+<p>其中, <span class="math">\(\mu\)</span> 为惩罚因子.</p>
+<p>ADMM算法的参数迭代更新规则为</p>
+<div class="math">
+\[\begin{aligned} {\bm x}^{k+1} & :=\underset{\bm x}{\operatorname{argmin}}\ L_{\mu}\left({\bm x}, {\bm y}^{k}, {\bm \lambda}^{k}\right) \\ {\bm y}^{k+1} & :=\underset{\bm y}{\operatorname{argmin}}\ L_{\mu}\left({\bm x}^{k+1}, {\bm y}, {\bm \lambda}^{k}\right) \\ {\bm \lambda}^{k+1} & :={\bm \lambda}^{k}+\mu\left({\bm A} {\bm x}^{k+1} + {\bm B}{\bm y}^{k+1} - {\bm c}\right) \end{aligned}
+
+\]</div>
+<p><a class="reference internal" href="#equation-equ-admm-originalproblem">式.3.11</a> 增广拉格朗日乘子法参数更新规则为</p>
+<div class="math" id="equation-equ-alm-iterations">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-equ-alm-iterations" title="公式的永久链接">¶</a></span>\[\begin{aligned}\left({\bm x}^{k+1}, {\bm y}^{k+1}\right) & :=\underset{{\bm x}, {\bm y}}{\operatorname{argmin}} L_{\mu}\left({\bm x}, {\bm y}, {\bm \lambda}^{k}\right) \\ {\bm \lambda}^{k+1} & :={\bm \lambda}^{k}+\mu\left({\bm A} {\bm x}^{k+1}+{\bm B} {\bm y}^{k+1}-{\bm c}\right) \end{aligned}
+
+\]</div>
+<p>可以看出, 增广拉格朗日乘子法需要同时优化两个原始变量 <span class="math">\(\bm x\)</span>, <span class="math">\(\bm y\)</span>. 与增广拉格朗日乘子法不同的是, 在ADMM中, <span class="math">\(\bm x\)</span> 与 <span class="math">\(\bm y\)</span> 采用交替迭代 (alternating direction) 更新的方法.</p>
+</div>
+<div class="section" id="scaleadmm">
+<h2><span class="section-number">3.7.2. </span>Scale版ADMM原理<a class="headerlink" href="#scaleadmm" title="永久链接至标题">¶</a></h2>
+<p>通过组合增广拉格朗日函数中的线性项与二次项并缩放对偶变量.</p>
+<div class="math">
+\[\begin{aligned}
+{\bm \lambda}^T{\bm r} + {\frac{\mu}{2}}\|{\bm r}\|_2^2 &= \frac{\mu}{2}\|{\bm r}+{\frac{1}{\mu}}{\bm \lambda}\|_2^2 - \frac{1}{2\mu}\|\bm \lambda\|_2^2 \\
+&= \frac{\mu}{2} \|{\bm r} + {\bm u}\|_2^2 - \frac{\mu}{2}\|{\bm u}\|_2^2
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\({\bm r} = {\bm A}{\bm x} + {\bm B}{\bm y} - {\bm c}\)</span> 为残差, <span class="math">\({\bm u} = \frac{1}{\mu}{\bm \lambda}\)</span> 为scale版对偶变量, 对应的scale版更新规则为</p>
+<div class="math">
+\[\begin{aligned} {\bm x}^{k+1} & :=\underset{{\bm x}}{\operatorname{argmin}}\left(f({\bm x})+(\mu / 2)\left\|{\bm A} {\bm x}+{\bm B} {\bm y}^{k}-{\bm c}+{\bm u}^{k}\right\|_{2}^{2}\right) \\ {\bm y}^{k+1} & :=\underset{{\bm y}}{\operatorname{argmin}}\left(g({\bm y})+(\mu / 2)\left\|{\bm A} {\bm x}^{k+1}+{\bm B} {\bm y}-{\bm c}+{\bm u}^{k}\right\|_{2}^{2}\right) \\ {\bm u}^{k+1} & :={\bm u}^{k}+{\bm A} {\bm x}^{k+1}+{\bm B} {\bm y}^{k+1}-{\bm c} \end{aligned}
+
+\]</div>
+<p>记第 <span class="math">\(k\)</span> 次的残差为 <span class="math">\({\bm r}^k = {\bm A}{\bm x}^k + {\bm B}{\bm y}^k - {\bm c}\)</span>, 则有scale版对偶变量更新规则</p>
+<div class="math">
+\[{\bm u}^k = {\bm u}^0 + \sum_{j=1}^k {\bm r}^j.
+
+\]</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">3.7.3. </span>收敛性分析<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">3.7.4. </span>最优条件与停止准则<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">3.7.5. </span>实验与分析<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="footnoteadmmlink"><span class="brackets"><a class="fn-backref" href="#id5">1</a></span></dt>
+<dd><p><a class="reference external" href="https://web.stanford.edu/~boyd/admm.html">https://web.stanford.edu/~boyd/admm.html</a></p>
+</dd>
+</dl>
+<p><a class="reference external" href="https://blog.csdn.net/pizibing880909/article/details/21192243">https://blog.csdn.net/pizibing880909/article/details/21192243</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ProximalAlgorithms.html" class="btn btn-neutral float-right" title="3.8. 近端算法" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ISTA.html" class="btn btn-neutral" title="3.6. 迭代收缩阈值类算法" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.2. 雷达数据获取 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 雷达产品" href="index.html"/>
+        <link rel="next" title="1.3. 雷达产品数据格式简介" href="ProductDataFormations.html"/>
+        <link rel="prev" title="1.1. 简介" href="Introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第七卷 雷达信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmitterSignalAnalysis/index.html">辐射源信号分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PulseRadar/index.html">脉冲雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ContinuousWaveRadar/index.html">连续波雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SAR/index.html">合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../POLSAR/index.html">极化合成孔径雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SharingTechnology/index.html">共用技术</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">补充内容</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 雷达产品</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">1.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.2. 雷达数据获取</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProductDataFormations.html">1.3. 雷达产品数据格式简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RADARSAT.html">1.4. RADARSAT 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ERS.html">1.5. ERS系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EnvisatASAR.html">1.6. Envisat ASAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ALOSPALSAR.html">1.7. ALOS PALSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SentinelX.html">1.8. Sentinel系列产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AIRSAR.html">1.9. AIRSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UAVSAR.html">1.10. UAVSAR 产品介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LVIS.html">1.11. LVIS产品介绍</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Dataset/index.html">2. 雷达数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LibrariesSoftwares/index.html">3. 雷达库与软件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">4. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第七卷 雷达信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">补充内容</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>雷达产品</a> &raquo;</li>
+        
+      <li><span class="section-number">1.2. </span>雷达数据获取</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-getdataoverviewradarproductsupplementradar">
+<span id="id1"></span><h1><span class="section-number">1.2. </span>雷达数据获取<a class="headerlink" href="#section-getdataoverviewradarproductsupplementradar" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.2.1. </span>合成孔径雷达<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="alaska-satellite-facility">
+<h3>Alaska Satellite Facility<a class="headerlink" href="#alaska-satellite-facility" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id3">
+<h4>公开数据介绍<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
+<p>阿拉斯加卫星设施(Alaska Satellite Facility, ASF)下载, 处理, 存档遥感数据并向世界各地的科学家分发, 其目的是使得遥感数据可公开访问获取. <a class="reference external" href="https://www.asf.alaska.edu/">ASF 主页</a> 给出了数据的获取方式, 数据的处理及可视化教程. 开放的数据覆盖星载与机载平台, 涉及SAR, 极化SAR, 干涉SAR等数据, 详细的开放数据信息可以从 <a class="reference external" href="https://www.asf.alaska.edu/get-started-2/#daac_data">ASF SAR公开数据列表</a> 获得, 包含数据获取平台, 数据存储格式, 数据的处理软件等信息.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 35%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>数据集</p></th>
+<th class="head"><p>日期</p></th>
+<th class="head"><p>类型</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ALOS</p></td>
+<td><p>2006-2011</p></td>
+<td><p>SAR</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sentinel</p></td>
+<td><p>2014-Ongoing</p></td>
+<td><p>Spaceborne SAR</p></td>
+</tr>
+<tr class="row-even"><td><p>UAVSAR</p></td>
+<td><p>2008-Ongoing</p></td>
+<td><p>Airborne SAR</p></td>
+</tr>
+<tr class="row-odd"><td><p>ERS-1</p></td>
+<td><p>1991-1997</p></td>
+<td><p>Spaceborne SAR</p></td>
+</tr>
+<tr class="row-even"><td><p>ERS-2</p></td>
+<td><p>1995-2011</p></td>
+<td><p>Spaceborne SAR</p></td>
+</tr>
+<tr class="row-odd"><td><p>AIRSAR</p></td>
+<td><p>1990-2004</p></td>
+<td><p>Airborne SAR</p></td>
+</tr>
+<tr class="row-even"><td><p>Seasat</p></td>
+<td><p>1978-1978</p></td>
+<td><p>Spaceborne SAR</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h4>公开数据检索与下载<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="id5">
+<h4>公开数据格式<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>从 <a class="reference external" href="https://www.asf.alaska.edu/sar-information/data-formats-in-depth/">这里</a> 可以查看 <code class="docutils literal notranslate"><span class="pre">CEOS</span></code>, <code class="docutils literal notranslate"><span class="pre">GeoTIFF</span></code>, <code class="docutils literal notranslate"><span class="pre">SAFE</span></code>, <code class="docutils literal notranslate"><span class="pre">HDF5</span></code>, <code class="docutils literal notranslate"><span class="pre">UAVSAR</span></code>, <code class="docutils literal notranslate"><span class="pre">AIRSAR</span></code> 六种SAR数据格式的说明.</p>
+</div>
+</div>
+<div class="section" id="esa">
+<h3>ESA<a class="headerlink" href="#esa" title="永久链接至标题">¶</a></h3>
+<p>注册 <a class="reference external" href="https://eo-sso-idp.eo.esa.int/">EO-SSO</a> 账号后可下载, 但好像得用ESA内部邮件账号.</p>
+<p><a class="reference external" href="https://earth.esa.int/web/guest/data-access/browse-data-products">https://earth.esa.int/web/guest/data-access/browse-data-products</a></p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p><a class="reference external" href="http://eo-virtual-archive4.esa.int/">GEO - Group on Earth Observations</a> 提供了部分数据镜像, 可直接供检索下载!</p>
+</div>
+</div>
+<div class="section" id="winsar">
+<h3>WInSAR<a class="headerlink" href="#winsar" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://winsar.unavco.org/">homepage</a> : 含InSAR数据, 软件</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ProductDataFormations.html" class="btn btn-neutral float-right" title="1.3. 雷达产品数据格式简介" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral" title="1.1. 简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

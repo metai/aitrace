@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2. 卷积单元 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 神经网络组件" href="index.html"/>
+        <link rel="next" title="2.3. 池化单元" href="PoolingUnit.html"/>
+        <link rel="prev" title="2.1. 激活函数单元" href="ActivationsUnit.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MachineLearning/index.html">机器学习</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">神经网络</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 神经网络组件</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ActivationsUnit.html">2.1. 激活函数单元</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.2. 卷积单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PoolingUnit.html">2.3. 池化单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RegularizationUnit.html">2.4. 正则化单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SkipConnection.html">2.5. 跳跃连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RecursiveUnit.html">2.6. 递归单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResidualUnit.html">2.7. 残差单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zreference.html">2.8. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LossFunctions/index.html">3. 神经网络常用损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SimpleNeuralNetwork/index.html">4. 简单神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SupportVectorMachine/index.html">5. 支撑矢量机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExtremeLearningMachine/index.html">6. 极速学习机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RecursiveNeuralNetwork/index.html">9. 递归神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResidualNeuralNetwork/index.html">11. 残差神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FractalNeuralNetwork/index.html">12. 分形神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticNeuralNetwork/index.html">13. 随机神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ComplexityAnalysis/index.html">14. 复杂度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">15. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">16. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">神经网络</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>神经网络组件</a> &raquo;</li>
+        
+      <li><span class="section-number">2.2. </span>卷积单元</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-convolutionunitmoduleofnnneuralnetworkartificialintelligence">
+<span id="id1"></span><h1><span class="section-number">2.2. </span>卷积单元<a class="headerlink" href="#section-convolutionunitmoduleofnnneuralnetworkartificialintelligence" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1">Intuitively Understanding Convolutions for Deep Learning</a> ： 很详细很全面</p></li>
+</ul>
+<div class="section" id="id2">
+<h2><span class="section-number">2.2.1. </span>经典卷积运算<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>经典二维卷积<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>设有 <span class="math">\(N_i\)</span> 个二维卷积输入 <span class="math">\({\bm I} \in {\mathbb R}^{N_i × C_i \times H_i \times W_i}\)</span>, <span class="math">\(C_k \times C_i\)</span> 个二维卷积核 <span class="math">\({\bm K} \in {\mathbb R}^{C_k \times C_i \times H_k \times W_k}\)</span>, <span class="math">\(N_o\)</span> 个卷积输出记为 <span class="math">\({\bm O} \in {\mathbb R}^{N_o × C_o \times H_o \times W_o}\)</span>, 在经典卷积神经网络中, 有 <span class="math">\(C_k = C_o, N_o = N_i\)</span>, <span class="math">\({\bm K}\)</span> 与 <span class="math">\(\bm I\)</span> 间的二维卷积运算可以表示为</p>
+<div class="math" id="equation-equ-classicalconv2din4d">
+<span class="eqno">(2.12)<a class="headerlink" href="#equation-equ-classicalconv2din4d" title="公式的永久链接">¶</a></span>\[\begin{aligned}
+{\bm O}_{n_o, c_o, :, :} &= \sum_{c_i=0}^{C_i-1} {\bm I}_{n_o, c_i, :,:} * {\bm K}_{c_o, c_i, :,:} \\
+&= \sum_{c_i=0}^{C_i-1}{\bm Z}_{n_o, c_o, c_i, :, :}
+\end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\(*\)</span> 表示经典二维卷积运算, 卷积核 <span class="math">\({\bm K}_{c_o, c_i, :,:}\)</span> 与输入 <span class="math">\({\bm I}_{n_o, c_i, :,:}\)</span> 的卷积结果记为 <span class="math">\({\bm Z}_{n_o, c_o, c_i, :, :}\in {\mathbb R}^{H_o \times W_o}\)</span>, 则</p>
+<div class="math" id="equation-equ-classicalconv2d">
+<span class="eqno">(2.13)<a class="headerlink" href="#equation-equ-classicalconv2d" title="公式的永久链接">¶</a></span>\[{\bm Z}_{n_o, c_o, c_i, h_o, w_o} = \sum_{h=0}^{H_k-1}\sum_{w=0}^{W_k-1} {\bm I}_{n_o, c_i, h_o + h - 1, w_o + w - 1} \cdot {\bm K}_{c_o, c_i, h, w}.
+
+\]</div>
+<p>记卷积过程中, 高度与宽度维上填补(padding)大小为 <span class="math">\(H_p \times W_p\)</span>, 卷积步长为 <span class="math">\(H_s \times W_s\)</span>, 则卷积输出大小满足</p>
+<div class="math" id="equation-equ-classicalconv2dsize">
+<span class="eqno">(2.14)<a class="headerlink" href="#equation-equ-classicalconv2dsize" title="公式的永久链接">¶</a></span>\[\begin{array}{ll}
+H_{o} &= \left\lfloor\frac{H_{i}  + 2 \times H_p - H_k}{H_s} + 1\right\rfloor \\
+W_{o} &= \left\lfloor\frac{W_{i}  + 2 \times W_p - W_k}{W_s} + 1\right\rfloor
+\end{array}
+
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>卷积神经网络中的卷积操作, 实际上是相关操作, 因为在运算过程中, 未对卷积核进行翻转操作, 卷积与相关的关系参见 <a class="reference internal" href="../../../BasisMath/FunctionalAnalysis/LinearOperator/ConvolutionCorrelation.html#section-convolutioncorrelationlinearoperatorfunctionalanalysisbasicmath"><span class="std std-ref">卷积与相关</span></a> 小节.</p>
+</div>
+<p>如 <a class="reference internal" href="#fig-democonv2d"><span class="std std-numref">图 2.31</span></a> 所示为二维卷积操作示意图.</p>
+<div class="figure align-center" id="id14">
+<span id="fig-democonv2d"></span><img alt="卷积示意图" src="../../../_images/conv2d.png" />
+<p class="caption"><span class="caption-number">图 2.31 </span><span class="caption-text">卷积示意图</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>卷积示意图</p>
+</div>
+</div>
+<p><a class="reference external" href="https://blog.csdn.net/LoseInVain/article/details/81098502">卷积与转置卷积</a></p>
+<p><a class="reference external" href="https://distill.pub/2016/deconv-checkerboard/">Deconvolution and Checkerboard Artifacts</a></p>
+</div>
+<div class="section" id="id5">
+<h3>经典膨胀二维卷积运算<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>设有 <span class="math">\(N_i\)</span> 个二维卷积输入 <span class="math">\({\bm I} \in {\mathbb R}^{N_i × C_i \times H_i \times W_i}\)</span>, <span class="math">\(C_k \times C_i\)</span> 个二维卷积核 <span class="math">\({\bm K} \in {\mathbb R}^{C_k \times C_i \times H_k \times W_k}\)</span>, 高度与宽度维上填补(padding)大小为 <span class="math">\(H_p×W_p\)</span>, 膨胀(dilation)大小为 <span class="math">\(H_d×W_d\)</span>, 卷积步长为 <span class="math">\(H_s×W_s\)</span>, 在经典膨胀二维卷积神经网络中, 有 <span class="math">\(C_k = C_o, N_o = N_i\)</span>, 则卷积后的输出为 <span class="math">\({\bm O} \in {\mathbb R}^{N_o × C_{o}\times H_{o} \times W_{o}}\)</span>, 其中</p>
+<div class="math" id="equation-equ-dilationconv2dsize">
+<span class="eqno">(2.15)<a class="headerlink" href="#equation-equ-dilationconv2dsize" title="公式的永久链接">¶</a></span>\[\begin{array}{ll}
+H_{o} &= \left\lfloor\frac{H_{i}  + 2 \times H_p - H_d \times (H_k - 1) - 1}{H_s} + 1\right\rfloor \\
+W_{o} &= \left\lfloor\frac{W_{i}  + 2 \times W_p - W_d \times (W_k - 1) - 1}{W_s} + 1\right\rfloor
+\end{array}
+
+\]</div>
+<p>对比 <a class="reference internal" href="#equation-equ-classicalconv2dsize">式.2.14</a> 和 <a class="reference internal" href="#equation-equ-dilationconv2dsize">式.2.15</a>, 可以发现当膨胀大小为 <span class="math">\(H_d×W_d = 1×1\)</span> 时, 膨胀卷积退化为经典卷积.</p>
+<p>更多二维卷积示意图参见 <a class="reference external" href="https://github.com/vdumoulin/conv_arithmetic">A technical report on convolution arithmetic in the context of deep learning</a>.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">2.2.2. </span>经典二维转置卷积运算<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>二维转置卷积是一种解卷积方法,</p>
+<p>设有二维卷积核 <span class="math">\({\bm K} \in {\mathbb R}^{C_o\times H_k \times W_k}\)</span>, 二维卷积输入 <span class="math">\({\bm I} \in {\mathbb R}^{N_i × C_{i}\times H_{i} \times W_{i}}\)</span>, 高度与宽度维上填补(padding)大小为 <span class="math">\(H_p×W_p\)</span>, 膨胀(dilation)大小为 <span class="math">\(H_d×W_d\)</span>, 卷积步长为 <span class="math">\(H_s×W_s\)</span>, 则卷积后填补(output-padding)大小为 <span class="math">\(H_{op}×W_{op}\)</span>, 则卷积后的输出为 <span class="math">\({\bm Y} \in {\mathbb R}^{N × C_{o}\times H_{o} \times W_{o}}\)</span>, 其中</p>
+<div class="math" id="equation-equ-transposeconv2dsize">
+<span class="eqno">(2.16)<a class="headerlink" href="#equation-equ-transposeconv2dsize" title="公式的永久链接">¶</a></span>\[\begin{array}{ll}
+H_{o} &= (H_{i} - 1) \times H_s - 2 \times H_p + H_d \times (H_k - 1) + H_{op} + 1 \\
+W_{o} &= (W_{i} - 1) \times W_s - 2 \times W_p + W_d \times (W_k - 1) + W_{op} + 1
+\end{array}
+
+\]</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">2.2.3. </span>新型卷积<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h3>平衡卷积<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="math" id="equation-equ-balancedconv2d">
+<span class="eqno">(2.17)<a class="headerlink" href="#equation-equ-balancedconv2d" title="公式的永久链接">¶</a></span>\[{\bm Z}_{n_o, c_i, h_o, w_o} = \sum_{h=0}^{H_k-1}\sum_{w=0}^{W_k-1} \left[{\bm I}_{n_o, c_i, h_o + h - 1, w_o + w - 1} + {\bm K}_{c_o, c_i, h, w}
+- {\bm I}_{n_o, c_i, h_o + h - 1, w_o + w - 1} \cdot {\bm K}_{c_o, c_i, h, w}\right].
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">2.2.4. </span>实验分析<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id10">
+<h3>卷积与相关<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id11">
+<h4>实验说明<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>以二维卷积为例, 设有矩阵 <span class="math">\({\bm a}, {\bm b}\)</span>,</p>
+<div class="math">
+\[{\bm a} = \left[ {\begin{array}{ccc}
+         1&2&3\\
+         4&5&6\\
+         7&8&9
+         \end{array}} \right]
+
+\]</div>
+<div class="math">
+\[{\bm b} = \left[ {\begin{array}{ccc}
+         1&2\\
+         3&4
+         \end{array}} \right]
+
+\]</div>
+<p>则有卷积 <span class="math">\({\bm a}*{\bm b}\)</span></p>
+<div class="math">
+\[{\bm a}*{\bm b} = \left[ {\begin{array}{cccc}
+                  1&4&7&6\\
+                  7&{23}&{33}&{24}\\
+                  {19}&{53}&{63}&{42}\\
+                  {21}&{52}&{59}&{36}
+                  \end{array}} \right]
+
+\]</div>
+<p>互相关 <span class="math">\({\bm a}\star{\bm b}\)</span></p>
+<div class="math">
+\[{\bm a}\star{\bm b} = \left[ {\begin{array}{cccc}
+                  4&{11}&{18}&9\\
+                  {18}&{37}&{47}&{21}\\
+                  {36}&{67}&{77}&{33}\\
+                  {14}&{23}&{26}&9
+                  \end{array}} \right]
+
+\]</div>
+</div>
+<div class="section" id="id12">
+<h4>实验结果<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>在 Matlab 环境中, 输入如下代码, 求解卷积 <span class="math">\({\bm a} * {\bm b}\)</span> 与相关 <span class="math">\({\bm a}\star{\bm b}\)</span></p>
+<div class="literal-block-wrapper docutils container" id="bind-id">
+<div class="code-block-caption"><span class="caption-number">代码 2.10 </span><span class="caption-text">2D convolution and cross-correlation Matlab</span><a class="headerlink" href="#bind-id" title="永久链接至代码">¶</a></div>
+<div class="highlight-matlab notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">;</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">;</span><span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span><span class="p">];</span>
+<span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span><span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="nb">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c">% convolution</span>
+<span class="hll"><span class="nb">disp</span><span class="p">(</span><span class="n">conv2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</span>
+<span class="c">% cross-correlation</span>
+<span class="hll"><span class="nb">disp</span><span class="p">(</span><span class="n">xcorr2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<p>MATLAB中的2D卷积和相关结果为</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre> <span class="mi">1</span>     <span class="mi">2</span>     <span class="mi">3</span>
+ <span class="mi">4</span>     <span class="mi">5</span>     <span class="mi">6</span>
+ <span class="mi">7</span>     <span class="mi">8</span>     <span class="mi">9</span>
+
+ <span class="mi">1</span>     <span class="mi">2</span>
+ <span class="mi">3</span>     <span class="mi">4</span>
+
+ <span class="mi">1</span>     <span class="mi">4</span>     <span class="mi">7</span>     <span class="mi">6</span>
+ <span class="mi">7</span>    <span class="mi">23</span>    <span class="mi">33</span>    <span class="mi">24</span>
+<span class="mi">19</span>    <span class="mi">53</span>    <span class="mi">63</span>    <span class="mi">42</span>
+<span class="mi">21</span>    <span class="mi">52</span>    <span class="mi">59</span>    <span class="mi">36</span>
+
+ <span class="mi">4</span>    <span class="mi">11</span>    <span class="mi">18</span>     <span class="mi">9</span>
+<span class="mi">18</span>    <span class="mi">37</span>    <span class="mi">47</span>    <span class="mi">21</span>
+<span class="mi">36</span>    <span class="mi">67</span>    <span class="mi">77</span>    <span class="mi">33</span>
+<span class="mi">14</span>    <span class="mi">23</span>    <span class="mi">26</span>     <span class="mi">9</span>
+</pre></div>
+</div>
+<p>在 Python 环境中, 输入如下代码, 求解卷积 <span class="math">\({\bm a} * {\bm b}\)</span></p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-number">代码 2.11 </span><span class="caption-text">2D convolution in PyTorch</span><a class="headerlink" href="#id13" title="永久链接至代码">¶</a></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">torch</span> <span class="kn">as</span> <span class="nn">th</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">th</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">th</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 1x3x3</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 1x1x3x3</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 1x2x2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 1x1x2x2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+
+<span class="hll"><span class="n">c</span> <span class="o">=</span> <span class="n">th</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>PyTorch中的2D卷积结果为</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">tensor</span><span class="p">([[[[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]]]])</span> <span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">tensor</span><span class="p">([[[[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]]]])</span> <span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">tensor</span><span class="p">([[[[</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">11.</span><span class="p">,</span> <span class="mf">18.</span><span class="p">,</span>  <span class="mf">9.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">18.</span><span class="p">,</span> <span class="mf">37.</span><span class="p">,</span> <span class="mf">47.</span><span class="p">,</span> <span class="mf">21.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">36.</span><span class="p">,</span> <span class="mf">67.</span><span class="p">,</span> <span class="mf">77.</span><span class="p">,</span> <span class="mf">33.</span><span class="p">],</span>
+          <span class="p">[</span><span class="mf">14.</span><span class="p">,</span> <span class="mf">23.</span><span class="p">,</span> <span class="mf">26.</span><span class="p">,</span>  <span class="mf">9.</span><span class="p">]]]])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>对比结果可以发现, PyTorch中的2D卷积实际上是2D相关操作, 与此类似, Tensorflow等深度神经网络框架中的卷积均为相关操作. 但这并不影响网络的性能, 这是因为卷积核是通过网络学习的, 通过学习得到的卷积核可以看作是翻转后卷积核.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PoolingUnit.html" class="btn btn-neutral float-right" title="2.3. 池化单元" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ActivationsUnit.html" class="btn btn-neutral" title="2.1. 激活函数单元" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

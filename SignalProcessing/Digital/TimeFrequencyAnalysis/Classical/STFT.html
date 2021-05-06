@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2.2. 短时傅立叶变换 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../../index.html"/>
+        <link rel="up" title="4.2. 经典时频分析" href="index.html"/>
+        <link rel="next" title="4.2.3. 小波变换" href="WT.html"/>
+        <link rel="prev" title="4.2.1. 经典时频分析" href="Introduction.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">数字信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../Introduction.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Basic/index.html">2. 基础内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../SpectralEstimation/index.html">3. 谱估计理论</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">4. 时频分析</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Introduction.html">4.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">4.2. 经典时频分析</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Summary.html">4.3. 总结</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">5. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Sparse/index.html">稀疏信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../../index.html">数字信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html"><span class="section-number">4. </span>时频分析</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4.2. </span>经典时频分析</a> &raquo;</li>
+        
+      <li><span class="section-number">4.2.2. </span>短时傅立叶变换</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-stftclassicaltimefrequencyanalysisdigitalsignalprocessing">
+<span id="id1"></span><h1><span class="section-number">4.2.2. </span>短时傅立叶变换<a class="headerlink" href="#section-stftclassicaltimefrequencyanalysisdigitalsignalprocessing" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>短时傅立叶变换<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>短时傅立叶变换 ( <a class="reference internal" href="../../glossary.html#term-short-time-fourier-transform"><span class="xref std std-term">Short Time Fourier Transform</span></a> , STFT) 是和傅里叶变换相关的一种数学变换, 用以确定时变信号其局部区域正弦波的频率与相位. 通过将长时间信号分成等长的短的片段,  计算每个片段的傅里叶变换, 将这些片段组成一个频率-时间矩阵得到. 与傅里叶变换类似, 分为连续时间 (Continuous-time) STFT 和离散时间 (Discrete-time) STFT.</p>
+<div class="section" id="stft">
+<h3>连续时间STFT<a class="headerlink" href="#stft" title="永久链接至标题">¶</a></h3>
+<p>设有连续时间信号 <span class="math">\(x(t)\)</span> , 窗函数 <span class="math">\(w(t)\)</span> , 在信号上滑动窗函数, 计算信号与窗函数乘积的傅里叶变换, 得到连续时间信号的二维时频STFT表示, 即</p>
+<div class="math">
+\[{\rm STFT}\{x(t)\}(\tau, \omega) = X(\tau, \omega) = \int_{-\infty}^{+\infty}x(t)w(t-\tau)e^{-j\omega t}{\rm d}t
+
+\]</div>
+<p>其中, <span class="math">\(t, \tau\)</span> , <span class="math">\(\omega=2\pi f\)</span> 均为连续的.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>信号 <span class="math">\(x(t)\)</span> 的傅里叶变换表示为</p>
+<div class="math">
+\[F(\omega) = \int_{-\infty}^{+\infty} x(t)e^{-j\omega t} {\rm d}t
+
+\]</div>
+<p>逆傅里叶变换表示为</p>
+<div class="math">
+\[x(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}F(\omega)e^{+j\omega t} {\rm d}\omega
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>离散时间STFT<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>设有离散时间信号 <span class="math">\(x[n]\)</span> , 窗函数 <span class="math">\(w[n]\)</span> , 在信号上滑动窗函数, 计算信号与窗函数乘积的傅里叶变换, 得到离散时间信号的二维时频STFT表示, 即</p>
+<div class="math">
+\[{\rm STFT}\{x[n]\}(m, \omega) = X(m, \omega) = \sum_{n=-\infty}^{+\infty} x[n]w[n-m]e^{-j\omega n}
+
+\]</div>
+<p>其中, <span class="math">\(n, m\)</span> 是离散的, <span class="math">\(\omega=2\pi f\)</span> 为连续的. 然而, 通常情况下傅里叶变换采用快速傅里叶变换(FFT)计算, 此时 <span class="math">\(\omega\)</span> 也是离散的.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>通常情况下, 窗取为重叠的 (overlap) ,</p>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>频谱表示<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>信号的功率谱密度的频谱表示为STFT结果的平方</p>
+<div class="math">
+\[{\rm{spectrogram}}\{x(t)\}(\tau, \omega) = |X(\tau, \omega)|^2
+
+\]</div>
+</div>
+<div class="section" id="id5">
+<h2>逆短时傅立叶变换<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>STFT是可逆的, 即原始信号可以从变换后的数据中恢复出来.</p>
+<div class="section" id="id6">
+<h3>连续时间逆STFT<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>设有连续时间信号 <span class="math">\(x(t)\)</span> 的STFT表示 <span class="math">\(X(\tau, \omega)\)</span> , 则</p>
+<div class="math">
+\[x(t) = \frac{1}{2\pi}{\int_{-\infty}^{+\infty}}{\int_{-\infty}^{+\infty}} X(\tau, \omega)e^{+j\omega t} {\rm d}\tau {\rm d}\omega
+
+\]</div>
+<p>或</p>
+<div class="math">
+\[x(t) = {\int_{-\infty}^{+\infty}}\left[\frac{1}{2\pi}{\int_{-\infty}^{+\infty}} X(\tau, \omega)e^{+j\omega t} {\rm d}\omega\right]{\rm d}\tau
+
+\]</div>
+</div>
+<div class="section" id="id7">
+<h3>离散时间逆STFT<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>实现步骤<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>离散时间STFT</p>
+<ul>
+<li><p>使用窗函数在信号上滑动, 将长时间信号分成等长的短的片段</p></li>
+<li><p>计算每个片段与窗函数乘积的傅里叶变换</p></li>
+<li><p>计算每个片段变换后的幅度或功率密度谱</p></li>
+<li><p>将这些片段组成一个频率-时间矩阵</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>实例分析<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id10">
+<h3>实验1: 仿真信号<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id11">
+<h4>实验内容<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>生成四个子信号, 四种频率:</p>
+<div class="math">
+\[x_1 = {\rm cos}(2πf_1 t), (0\Delta T \leq t < 1\Delta T) \\
+x_2 = {\rm cos}(2πf_2 t), (1\Delta T \leq t < 2\Delta T) \\
+x_3 = {\rm cos}(2πf_3 t), (2\Delta T \leq t < 3\Delta T) \\
+x_4 = {\rm cos}(2πf_4 t), (3\Delta T \leq t < 4\Delta T) \\
+
+\]</div>
+<p>合成一个信号, 含上述四种频率:</p>
+<div class="math">
+\[x = x_1 + x_2 + x_3 + x_4
+
+\]</div>
+<p>做以下实验</p>
+<ol class="arabic simple">
+<li><p>不同窗</p></li>
+<li><p>Gauss窗, 不同std</p></li>
+<li><p>Gauss窗, 不同窗大小</p></li>
+<li><p>Gauss窗, 不同重叠大小</p></li>
+<li><p>Gauss窗, 不同FFT大小</p></li>
+</ol>
+</div>
+<div class="section" id="id12">
+<h4>实验代码<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>核心函数: <code class="docutils literal notranslate"><span class="pre">scipy.signal.spectral.spectrogram</span></code></p>
+<ol class="arabic simple">
+<li><p>不同窗: <a class="reference external" href="../../../_static/src/SignalProcessing/Digital/TimeFrequencyAnalysis/Classical/STFT/demo_stft_windows.py">demo_stft_windows.py</a></p></li>
+<li><p>不同窗, 不同窗大小: <a class="reference external" href="../../../_static/src/SignalProcessing/Digital/TimeFrequencyAnalysis/Classical/STFT/demo_stft_gauss_windowsize.py">demo_stft_gauss_windowsize.py</a></p></li>
+<li><p>Gauss窗, 不同std: <a class="reference external" href="../../../_static/src/SignalProcessing/Digital/TimeFrequencyAnalysis/Classical/STFT/demo_stft_gauss_std.py">demo_stft_gauss_std.py</a></p></li>
+<li><p>Gauss窗, 不同窗大小: <a class="reference external" href="../../../_static/src/SignalProcessing/Digital/TimeFrequencyAnalysis/Classical/STFT/demo_stft_gauss_windowsize.py">demo_stft_gauss_windowsize.py</a></p></li>
+<li><p>Gauss窗, 不同重叠大小: <a class="reference external" href="../../../_static/src/SignalProcessing/Digital/TimeFrequencyAnalysis/Classical/STFT/demo_stft_gauss_noverlap.py">demo_stft_gauss_noverlap.py</a></p></li>
+<li><p>Gauss窗, 不同FFT大小: <a class="reference external" href="../../../_static/src/SignalProcessing/Digital/TimeFrequencyAnalysis/Classical/STFT/demo_stft_gauss_nfft.py">demo_stft_gauss_nfft.py</a></p></li>
+</ol>
+</div>
+<div class="section" id="id14">
+<h4>实验结果<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>实验中, 设四种信号频率为: <span class="math">\(f_1=10Hz, f_2=25Hz, f_3=50Hz, f_4=100Hz\)</span> , <span class="math">\(\Delta T = 5s\)</span> , 采样率为 <span class="math">\(400Hz\)</span> , 共 <span class="math">\(8000\)</span> 个样本点, 生成的合成信号如下图</p>
+<div class="figure align-center" id="id17">
+<a class="reference internal image-reference" href="../../../../_images/signal.png"><img alt="Synthetic signal" src="../../../../_images/signal.png" style="width: 1023.2px; height: 525.6px;" /></a>
+<p class="caption"><span class="caption-number">图 4.9 </span><span class="caption-text">Synthetic signal</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>合成的信号, 包含四种频率成分.</p>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>不同窗</p></li>
+</ol>
+<div class="figure align-center" id="id18">
+<a class="reference internal image-reference" href="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws500ms.png"><img alt="STFT在不同窗下的结果" src="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws500ms.png" style="width: 1032.8px; height: 706.4000000000001px;" /></a>
+<p class="caption"><span class="caption-number">图 4.10 </span><span class="caption-text">STFT在不同窗下的结果</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>对合成信号施加六种不同的窗 ( tukey, kaiser, gauss, hamming, cosine, blackman), 窗大小取 <span class="math">\(500ms\)</span> , FFT点数取 <span class="math">\(2048\)</span>, 重叠点数取 <span class="math">\(1\)</span> , 然后进行STFT分析.</p>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>不同窗, 不同窗大小</p></li>
+</ol>
+<p>对合成信号施加不同窗, 并改变窗大小, FFT点数取 <span class="math">\(2048\)</span> , 重叠点数取 <span class="math">\(1\)</span> , 其它参数见图. 由图可见窗大小影响较大, 窗过小, 频率难分辨.</p>
+<p>窗大小为 <span class="math">\(10ms\)</span> 时的结果</p>
+<div class="figure align-center" id="id19">
+<a class="reference internal image-reference" href="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws10ms.png"><img alt="STFT在不同窗大小下的结果" src="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws10ms.png" style="width: 1136.0px; height: 752.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.11 </span><span class="caption-text">STFT在窗大小为 <span class="math">\(10ms\)</span> 时的结果</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+</div>
+<p>窗大小为 <span class="math">\(100ms\)</span> 时的结果</p>
+<div class="figure align-center" id="id20">
+<a class="reference internal image-reference" href="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws100ms.png"><img alt="STFT在不同窗大小下的结果" src="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws100ms.png" style="width: 1064.8px; height: 705.6px;" /></a>
+<p class="caption"><span class="caption-number">图 4.12 </span><span class="caption-text">STFT在窗大小为 <span class="math">\(100ms\)</span> 时的结果</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+</div>
+<p>窗大小为 <span class="math">\(1000ms\)</span> 时的结果</p>
+<div class="figure align-center" id="id21">
+<a class="reference internal image-reference" href="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws1000ms.png"><img alt="STFT在不同窗大小下的结果" src="../../../../_images/STFT_DIFF_WINDOWS_nfft2048_noverlap1_ws1000ms.png" style="width: 1092.8px; height: 758.4000000000001px;" /></a>
+<p class="caption"><span class="caption-number">图 4.13 </span><span class="caption-text">STFT在窗大小为 <span class="math">\(1000ms\)</span> 时的结果</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>gauss窗, 不同 std</p></li>
+</ol>
+<div class="figure align-center" id="id22">
+<a class="reference internal image-reference" href="../../../../_images/STFT_GAUSS_STD_nfft2048_noverlap1.png"><img alt="STFT在gauss窗不同std下的结果" src="../../../../_images/STFT_GAUSS_STD_nfft2048_noverlap1.png" style="width: 1104.8px; height: 744.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.14 </span><span class="caption-text">STFT在gauss窗, 不同std下的结果</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>对合成信号施加gauss窗, 窗大小取 <span class="math">\(1000ms\)</span> , FFT点数取 <span class="math">\(2048\)</span>, 重叠点数取 <span class="math">\(1\)</span> , 使用不同标准差( <span class="math">\(0.5, 1.0,10, 30, 50, 100\)</span>), 然后进行STFT分析.</p>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>gauss窗, 不同窗大小</p></li>
+</ol>
+<div class="figure align-center" id="id23">
+<a class="reference internal image-reference" href="../../../../_images/STFT_GAUSS_WINDOWSIZE_nfft2048_noverlap1.png"><img alt="STFT在gauss窗, 不同窗大小下的结果" src="../../../../_images/STFT_GAUSS_WINDOWSIZE_nfft2048_noverlap1.png" style="width: 1042.4px; height: 699.2px;" /></a>
+<p class="caption"><span class="caption-number">图 4.15 </span><span class="caption-text">STFT在gauss窗, 不同窗大小下的结果</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>对合成信号施加gauss窗, 标准差取 <span class="math">\(30\)</span> , FFT点数取 <span class="math">\(2048\)</span> , 重叠点数取 <span class="math">\(1\)</span> , 使用不同窗大小( <span class="math">\(25ms, 100ms, 500ms, 1000ms, 2000ms, 3000ms\)</span>), 然后进行STFT分析.</p>
+</div>
+</div>
+<p>对于Gauss窗, 窗过小频率难区分, 窗过大时间难区分.</p>
+<ol class="arabic simple" start="5">
+<li><p>不同重叠点数</p></li>
+</ol>
+<div class="figure align-center" id="id24">
+<a class="reference internal image-reference" href="../../../../_images/STFT_GAUSS_NOVERLAP_std30_nfft2048.png"><img alt="STFT在不同重叠点数下的结果" src="../../../../_images/STFT_GAUSS_NOVERLAP_std30_nfft2048.png" style="width: 1098.4px; height: 737.6px;" /></a>
+<p class="caption"><span class="caption-number">图 4.16 </span><span class="caption-text">STFT在不同重叠点数下的结果</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>对合成信号施加gauss窗, 标准差取 <span class="math">\(30\)</span> , 窗大小取 <span class="math">\(1000ms\)</span> , FFT点数取 <span class="math">\(2048\)</span> , 使用不同重叠点数, 然后进行STFT分析.</p>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>不同FFT点数</p></li>
+</ol>
+<div class="figure align-center" id="id25">
+<a class="reference internal image-reference" href="../../../../_images/STFT_GAUSS_NFFT_std30_noverlap1.png"><img alt="STFT在不同FFT点数下的结果" src="../../../../_images/STFT_GAUSS_NFFT_std30_noverlap1.png" style="width: 864.0px; height: 732.0px;" /></a>
+<p class="caption"><span class="caption-number">图 4.17 </span><span class="caption-text">STFT在不同FFT点数下的结果</span><a class="headerlink" href="#id25" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>对合成信号施加gauss窗, 标准差取 <span class="math">\(30\)</span> , 窗大小取 <span class="math">\(1000ms\)</span> , 重叠点数取 <span class="math">\(1\)</span> , 使用不同FFT点数, 然后进行STFT分析.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id15">
+<h4>实验分析<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>对于所有窗函数, 窗大小影响较大</p></li>
+<li><p>重叠点数影响较小, 但不能过大</p></li>
+<li><p>FFT点数影响较小, 但要大于分段长度</p></li>
+<li><p>窗函数及其参数影响较大, 应仔细选取</p></li>
+<li><p>对于Gauss窗, 窗过小频率难区分, 窗过大时间难区分</p></li>
+<li><p>对于Gauss窗, 窗大小及标准差影响较大;</p></li>
+<li><p>对于tukey, 其参数影响较小;</p></li>
+<li><p>对于kaiser, 其参数影响较大.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>实验2: 真实信号<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p>语音信号</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="WT.html" class="btn btn-neutral float-right" title="4.2.3. 小波变换" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral" title="4.2.1. 经典时频分析" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

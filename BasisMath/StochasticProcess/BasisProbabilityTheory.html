@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 概率论基础 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../index.html"/>
+        <link rel="up" title="随机过程" href="index.html"/>
+        <link rel="next" title="2. 随机过程基础" href="BasisStochasticProcess.html"/>
+        <link rel="prev" title="随机过程" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">随机过程</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. 概率论基础</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1.1. 概率空间与随机变量</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="BasisStochasticProcess.html">2. 随机过程基础</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BrownMoving.html">3. 布朗运动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JumpStochasticProcess.html">4. 跳跃随机过程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StationaryProcess.html">5. 平稳过程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MarkovChain.html">6. 马尔可夫链</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary.html">7. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="index.html">随机过程</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>概率论基础</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chapter-basisprobabilitytheory">
+<span id="id1"></span><h1><span class="section-number">1. </span>概率论基础<a class="headerlink" href="#chapter-basisprobabilitytheory" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>概率空间与随机变量<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3><span class="section-number">1.1.1. </span>柯尔莫哥洛夫概率公理化体系<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>概率论公里化有三种学派：主观（任何命题都看作事件）、客观（频率的极限）、以测度论为基础（柯尔莫哥洛夫）</p>
+<div class="section" id="id4">
+<h4>是什么<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>是一种概率论公里化方法，结合了集合论、测度论、实变函数论（与复变函数论关系？）；</p></li>
+<li><p>是一个概率空间 <span class="math">\((\Omega, \mathcal{F}, \mathbb{P})\)</span> 的可测描述；</p></li>
+<li><p>测度为概率、可测函数为随机变量、全直线对应概率空间、点集对应事件集；</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4>为什么<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>19世纪下半叶，概率论自身有了一定的发展，但诸如概率、收敛性、随机变量数学期望等没有严格定义。</p>
+<ul class="simple">
+<li><p>为什么要有公里化方法：</p></li>
+<li><p>为什么会想到用测度论：</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h4>怎么办<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>怎么结合集合论、测度论、实变函数论公里化概率论</p></li>
+<li><p>怎么用这种公里化系统</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>概率空间</p></li>
+</ol>
+<p>概率空间可以用一个三元组表示为 <span class="math">\((\Omega, \mathcal{F}, \mathbb{P})\)</span> ，即样本空间 <span class="math">\(\Omega\)</span> 上的事件 <span class="math">\(\mathcal{F}\)</span> 对应的概率测度 <span class="math">\(\mathbb{P}\)</span> ，其中：</p>
+<ul class="simple">
+<li><p><strong>事件域：</strong> 事件域 <span class="math">\(\mathcal{F}\)</span> 为样本空间 <span class="math">\(\Omega\)</span> 的子集生成的 <span class="math">\(\sigma\)</span> -代数，即满足：</p>
+<ul>
+<li><p>空集是任意集合的子集： <span class="math">\(\emptyset \in \mathcal{F}\)</span></p></li>
+<li><p>补运算封闭性： 若 <span class="math">\(A \in \mathcal{F}\)</span> ，则 <span class="math">\(A^c \in \mathcal{F}\)</span></p></li>
+<li><p>并集运算封闭性： 若 <span class="math">\({A_1, A_2, ..., A_n, ...} \subset \mathcal{F}\)</span> ，则 <span class="math">\({\bigcup}_{n=1}^{\infty} \in \mathcal{F}\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>概率测度：</strong> 概率测度 <span class="math">\(\mathbb{P}\)</span> 是定义在事件域 <span class="math">\(\mathcal{F}\)</span> 上，取值为 <span class="math">\([0, 1]\)</span> 的函数</p>
+<ul>
+<li><p>非负性：<span class="math">\(P(A) &gt; 0\)</span></p></li>
+<li><p>规范性：测度空间为1， <span class="math">\(P(\Omega) = 1\)</span></p></li>
+<li><p>可列（完全）可加性：相互独立事件联合概率为各自概率和，若 <span class="math">\({A_1, A_2, ..., A_n, ...} \subset \mathcal{F}\)</span> 且两两互不相交（<span class="math">\(A_m \bigcap A_n = \emptyset, m \neq n\)</span>）</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p><span class="math">\(\sigma\)</span> -代数又称 <span class="math">\(\sigma\)</span> -域，是一个集合，是一个满足对交并补运算封闭的集合（数域是满足四则运算封闭的集合），集合 <span class="math">\(X\)</span> 上的 <span class="math">\(\sigma\)</span> -代数 是集合 <span class="math">\(X\)</span> 的所有子集集合（幂集）的一个子集。</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>随机变量</p></li>
+</ol>
+<p>设有概率空间 <span class="math">\((\Omega, \mathcal{F}, \mathbb{P})\)</span> ，随机变量 <span class="math">\(X(\omega)\)</span> 为样本空间 <span class="math">\(\Omega\)</span> 上的取值在 <span class="math">\(\mathbb{R}^d\)</span> 上的 <span class="math">\(\mathcal{F}\)</span> 可测函数，即 <span class="math">\(X(\omega): \Omega \rightarrow \mathbb{R}^d\)</span></p>
+</div>
+<div class="section" id="id7">
+<h4>还有什么<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>随机性的本质依然未解决</p></li>
+<li><p>随机性与确定性界限</p></li>
+<li><p>定义也是人为定义的，未必是严密的</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number">1.1.2. </span>傅立叶变换<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="BasisStochasticProcess.html" class="btn btn-neutral float-right" title="2. 随机过程基础" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="随机过程" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

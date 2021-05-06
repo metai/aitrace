@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2.3. 小波变换 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../../index.html"/>
+        <link rel="up" title="4.2. 经典时频分析" href="index.html"/>
+        <link rel="next" title="4.2.4. S变换" href="ST.html"/>
+        <link rel="prev" title="4.2.2. 短时傅立叶变换" href="STFT.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">数字信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../Introduction.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Basic/index.html">2. 基础内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../SpectralEstimation/index.html">3. 谱估计理论</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">4. 时频分析</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Introduction.html">4.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">4.2. 经典时频分析</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Summary.html">4.3. 总结</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">5. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Sparse/index.html">稀疏信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../../index.html">数字信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html"><span class="section-number">4. </span>时频分析</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4.2. </span>经典时频分析</a> &raquo;</li>
+        
+      <li><span class="section-number">4.2.3. </span>小波变换</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-wtclassicaltimefrequencyanalysisdigitalsignalprocessing">
+<span id="id1"></span><h1><span class="section-number">4.2.3. </span>小波变换<a class="headerlink" href="#section-wtclassicaltimefrequencyanalysisdigitalsignalprocessing" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>小波与小波变换<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>小波及其性质<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>小波 ( <a class="reference internal" href="../../glossary.html#term-wavelet"><span class="xref std std-term">Wavelet</span></a> ) , 即小区域的波, 是一种特殊的, 长度有限的, 平均值为零的波形.</p>
+<p>特点:</p>
+<ul class="simple">
+<li><p>“小”: 在时域具有紧支集或近似紧支集</p></li>
+<li><p>“波”: 正负交替的”波动性” , 直流分量为零</p></li>
+<li><p>信号可分解为一系列由同一母小波函数经平移与尺度伸缩得到的小波函数的叠加</p></li>
+</ul>
+<p>将小波母函数 <span class="math">\(\psi(t)\)</span> 进行平移与尺度伸缩, 得到</p>
+<div class="math">
+\[\psi_{a, \tau}(t) = \frac{1}{\sqrt a}\psi\left(\frac{t-\tau}{a}\right) , a, \tau \in {\mathbb R}, a > 0
+
+\]</div>
+<p>由同一小波母函数 <span class="math">\(\psi(t)\)</span> 进行平移与尺度伸缩后得到的一组函数序列称为 <strong>小波函数基</strong> .</p>
+</div>
+<div class="section" id="id4">
+<h3>小波变换<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p><strong>小波</strong> ( <a class="reference internal" href="../../glossary.html#term-wavelet"><span class="xref std std-term">Wavelet</span></a> ) 是一种数学函数, 用来将给定的函数或连续时间信号分解成不同的尺度分量. 通常人们可以为每个尺度分量指定一个频率范围. <strong>小波变换</strong> 是指用小波表示一个函数. 小波是有限长度或快速衰减振荡波 (称为母小波 <a class="reference internal" href="../../glossary.html#term-mother-wavelet"><span class="xref std std-term">Mother Wavelet</span></a> ) 的缩放和平移后的波 (称为子小波  <a class="reference internal" href="../../glossary.html#term-daughter-wavelet"><span class="xref std std-term">Daughter Wavelet</span></a> ). 与传统的傅立叶变换相比, 小波变换在表示具有不连续性和尖峰的函数以及精确解构和重构有限长, 非周期或非平稳信号方面具有优势.</p>
+<p>小波变换分为离散小波变换和连续小波变换. 注意, 离散小波变换和连续小波变换都是连续时间 (模拟) 变换. 它们可以用来表示连续时间 (模拟) 信号. 连续小波变换在所有可能的尺度和平移上执行, 而离散小波变换使用尺度与平移参数的特定的量化后的子集.</p>
+</div>
+<div class="section" id="id5">
+<h3>尺度与频率的关系<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>设 <span class="math">\(a\)</span> 为尺度, <span class="math">\(F_s\)</span> 为采样频率, <span class="math">\(F_c\)</span> 为小波中心频率, 则 <span class="math">\(a\)</span> 对应的实际频率 <span class="math">\(F_a = \frac{F_cF_s}{a}\)</span> .</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>连续小波变换<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>连续小波变换 ( <a class="reference internal" href="../../glossary.html#term-continuous-wavelet-transform"><span class="xref std std-term">Continuous Wavelet Transform</span></a>, CWT) 提供了对信号的过完备表示, 通过取各种平移 (translation) 与缩放 (scale) 参数得到一组小波函数基.</p>
+<p>函数 <span class="math">\(x(t)\)</span> 在尺度因子 <span class="math">\(a, a&gt;0, a\in {\mathbb R}\)</span> , 平移因子 <span class="math">\(\tau\)</span> 下的连续小波变换表示为</p>
+<div class="math">
+\[{\rm{CWT}}\{x(t)\}(a, \tau) = X(a, \tau) = \left\langle {x(t),\;{\psi _{a,\tau }}(t)} \right\rangle = \frac{1}{\sqrt{a}} \int_{-\infty}^{+\infty} x(t) \overline{\psi}\left(\frac{t-\tau}{a}\right) {\rm d}t
+
+\]</div>
+<p>其中, <span class="math">\(\psi\)</span> 为时域与频域的连续函数, 即小波母函数, <span class="math">\(\overline{\psi}\)</span> 表示复共轭.</p>
+<div class="section" id="id7">
+<h3>连续小波种类<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Continuous wavelets</dt><dd><ul>
+<li><dl class="simple">
+<dt>Real-valued</dt><dd><ul>
+<li><p>Beta wavelet</p></li>
+<li><p>Hermitian wavelet</p></li>
+<li><p>Hermitian hat wavelet</p></li>
+<li><p>Meyer wavelet</p></li>
+<li><p>Mexican hat wavelet</p></li>
+<li><p>Poisson wavelet</p></li>
+<li><p>Shannon wavelet</p></li>
+<li><p>Spline wavelet</p></li>
+<li><p>Stromberg wavelet</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Complex-valued</dt><dd><ul>
+<li><p>Complex Mexican hat wavelet</p></li>
+<li><p>fbsp wavelet</p></li>
+<li><p>Morlet wavelet</p></li>
+<li><p>Shannon wavelet</p></li>
+<li><p>Modified Morlet wavelet</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="mexh">
+<h4>Mexh小波<a class="headerlink" href="#mexh" title="永久链接至标题">¶</a></h4>
+<p>Mexican Hat小波函数为 Gauss 函数的二阶导数, 即</p>
+<div class="math">
+\[\psi(t) = (1-t^2)e^{-\frac{t^2}{2}}
+
+\]</div>
+<div class="math">
+\[\psi(\omega) = \sqrt{2\pi}\omega^2e^{-\frac{\omega^2}{2}}
+
+\]</div>
+</div>
+<div class="section" id="morlet">
+<h4>Morlet小波<a class="headerlink" href="#morlet" title="永久链接至标题">¶</a></h4>
+<p>Morlet小波为 Gauss 包络下的单频复正弦函数, 即</p>
+<div class="math">
+\[\psi(t) = Ce^{-\frac{t^2}{2}} {\rm{cos}}(5t)
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>算法步骤<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>Step1: 选择小波函数及其尺度值 <span class="math">\(a\)</span></p></li>
+<li><p>Step2: 从信号起始位置开始, 将小波函数与信号进行比较, 计算小波系数</p></li>
+<li><p>Step3: 沿时间轴移动小波函数, 即改变平移参数 <span class="math">\(\tau\)</span> , 在新的位置计算小波系数, 直至信号终点</p></li>
+<li><p>Step4: 改变尺度参数 <span class="math">\(a\)</span> 的值, 重复 <code class="docutils literal notranslate"><span class="pre">Step2,</span> <span class="pre">Step3</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>离散小波变换<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>离散小波变换 ( <a class="reference internal" href="../../glossary.html#term-discrete-wavelet-transform"><span class="xref std std-term">Discrete Wavelet Transform</span></a>, DWT) 提供了对信号的过完备表示.</p>
+<div class="section" id="id10">
+<h3>离散小波种类<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Discrete wavelets</dt><dd><ul>
+<li><p>Beylkin</p></li>
+<li><p>BNC wavelets</p></li>
+<li><p>Coiflet</p></li>
+<li><p>Cohen-Daubechies-Feauveau wavelet (Sometimes referred to as CDF N/P or Daubechies biorthogonal wavelets)</p></li>
+<li><p>Daubechies wavelet</p></li>
+<li><p>Binomial-QMF (Also referred to as Daubechies wavelet)</p></li>
+<li><p>Haar wavelet</p></li>
+<li><p>Mathieu wavelet</p></li>
+<li><p>Legendre wavelet</p></li>
+<li><p>Villasenor wavelet</p></li>
+<li><p>Symlet</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="haar">
+<h4>Haar小波<a class="headerlink" href="#haar" title="永久链接至标题">¶</a></h4>
+<p>Haar小波函数为:</p>
+<div class="math">
+\[\psi (t) = \left\{ {\begin{array}{ccc}
+{1,\;\;\;\;\;0 \le t \le 1/2}\\
+{ - 1,\;\;\;1/2 \le t \le 1}\\
+{0,\;\;\;{\rm{otherwise}}}
+\end{array}} \right.
+
+\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>连续逆小波变换<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>设有连续时间信号 <span class="math">\(x(t)\)</span> 的CWT变换表示 <span class="math">\(X(a, \tau)\)</span> , 则</p>
+<div class="math">
+\[x(t) = \frac{1}{2\pi \overline{\hat{\psi}}}(1)\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \frac{1}{a^2} X(a, \tau)e^{j\frac{t-\tau}{a}} {\rm d}\tau {\rm d}a
+
+\]</div>
+<p>其中, <span class="math">\(\hat{\psi}\)</span> 表示 <span class="math">\(\psi\)</span> 的傅里叶变换.</p>
+<p>由逆变换知小波函数应定义为</p>
+<div class="math">
+\[\psi(t) = w(t)e^{jt}
+
+\]</div>
+<p>其中, <span class="math">\(w(t)\)</span> 是窗函数, 这种定义的小波称为分析小波, 因为它可以进行时频分析, 分析小波是不需要满足容许条件的.</p>
+</div>
+<div class="section" id="id12">
+<h2>实例分析<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id13">
+<h3>仿真信号<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id14">
+<h4>实验内容<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>生成四个子信号, 四种频率:</p>
+<div class="math">
+\[x_1 = {\rm cos}(2πf_1 t), (0\Delta T \leq t < 1\Delta T) \\
+x_2 = {\rm cos}(2πf_2 t), (1\Delta T \leq t < 2\Delta T) \\
+x_3 = {\rm cos}(2πf_3 t), (2\Delta T \leq t < 3\Delta T) \\
+x_4 = {\rm cos}(2πf_4 t), (3\Delta T \leq t < 4\Delta T) \\
+
+\]</div>
+<p>合成一个信号, 含上述四种频率:</p>
+<div class="math">
+\[x = x_1 + x_2 + x_3 + x_4
+
+\]</div>
+<p>做CWT分析</p>
+</div>
+<div class="section" id="id15">
+<h4>实验代码<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>MATLAB代码:</p>
+<p>PYTHON代码:</p>
+</div>
+<div class="section" id="id16">
+<h4>实验结果<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<div class="figure align-center" id="id18">
+<a class="reference internal image-reference" href="../../../../_images/CWT_MATLAB_DEMO1.png"><img alt="MATLAB CWT结果" src="../../../../_images/CWT_MATLAB_DEMO1.png" style="width: 722.4000000000001px; height: 589.6px;" /></a>
+<p class="caption"><span class="caption-number">图 4.18 </span><span class="caption-text">MATLAB CWT结果</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>使用MATLAB对合成的信号进行CWT分析.</p>
+</div>
+</div>
+<div class="figure align-center" id="id19">
+<a class="reference internal image-reference" href="../../../../_images/CWT_PYTHON_DEMO1.png"><img alt="PYTHON CWT结果" src="../../../../_images/CWT_PYTHON_DEMO1.png" style="width: 733.6px; height: 575.2px;" /></a>
+<p class="caption"><span class="caption-number">图 4.19 </span><span class="caption-text">PYTHON CWT结果</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>使用PYTHON对合成的信号进行CWT分析.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>真实信号<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ST.html" class="btn btn-neutral float-right" title="4.2.4. S变换" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="STFT.html" class="btn btn-neutral" title="4.2.2. 短时傅立叶变换" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

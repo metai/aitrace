@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.2. 线性子空间 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 线性空间与线性变换" href="index.html"/>
+        <link rel="next" title="1.3. 线性变换及其表示" href="LinearTransformation.html"/>
+        <link rel="prev" title="1.1. 线性空间" href="LinearSpace.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 线性空间与线性变换</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="LinearSpace.html">1.1. 线性空间</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.2. 线性子空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearTransformation.html">1.3. 线性变换及其表示</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EigenValuesEigenVectors.html">1.4. 特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixDiagonalization.html">1.5. 矩阵对角化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GeneralizedEigenValuesEigenVectors.html">1.6. 广义特征值与特征向量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SpecialLinearSpace.html">1.7. 特殊线性空间</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>线性空间与线性变换</a> &raquo;</li>
+        
+      <li><span class="section-number">1.2. </span>线性子空间</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-linearsubspace">
+<span id="id1"></span><h1><span class="section-number">1.2. </span>线性子空间<a class="headerlink" href="#section-linearsubspace" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.2.1. </span>线性子空间<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>什么是线性子空间<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id12">
+<span id="def-linearlydependent"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.5</span>
+        
+            <span class="proof-title-name">(线性子空间)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\mathbb V}_1\)</span> 是数域 <span class="math">\({\mathbb K}\)</span> 上的线性空间 <span class="math">\({\mathbb V}\)</span>
+的非空子集，若对任意的
+<span class="math">\(k\in {\mathbb K}\)</span>，<span class="math">\({\bm x}, {\bm y} \in {\mathbb V}_1\)</span>，满足
+<span class="math">\({\mathbb V}\)</span> 中加法与数乘运算的封闭性，则称 <span class="math">\({\mathbb V}_1\)</span> 是 <span class="math">\({\mathbb V}\)</span>
+的 <strong>线性子空间</strong> (<a class="reference internal" href="../glossary.html#term-linear-subspace"><span class="xref std std-term">Linear Subspace</span></a>) ，即满足：</p>
+<ol class="arabic simple">
+<li><p>加法运算<span class="math">\(\oplus\)</span>封闭性:
+<span class="math">\({\bm x} \oplus {\bm y} \in {\mathbb V}_1\)</span></p></li>
+<li><p>数乘运算<span class="math">\(\odot\)</span>封闭性: <span class="math">\(k \odot {\bm x} \in {\mathbb V}_1\)</span></p></li>
+</ol>
+</div></div><div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举例: 对于三维欧式线性空间 <span class="math">\({\mathbb V}^3\)</span> :</p>
+<ol class="arabic simple">
+<li><p><span class="math">\({\mathbb V}^3\)</span> 中的任意一条直线构成其子空间 <span class="math">\({\mathbb V}_1\)</span></p></li>
+<li><p><span class="math">\({\mathbb V}^3\)</span> 中的任意两条不同的直线不构成其子空间</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../../_images/xxzkjsl.png"><img alt="../../../_images/xxzkjsl.png" class="align-center" src="../../../_images/xxzkjsl.png" style="width: 305.0px; height: 241.5px;" /></a>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>子空间的运算及其性质<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>设<span class="math">\({\mathbb V}_1 , {\mathbb V}_2\)</span> 是 <span class="math">\({\mathbb V}\)</span> 的子空间，定义如下三种运算：</p>
+<ul class="simple">
+<li><p>交(<span class="math">\(\cap\)</span>): <span class="math">\({\mathbb V}_1 \cap {\mathbb V}_2\)</span>;</p></li>
+<li><p>并(<span class="math">\(\cup\)</span>): <span class="math">\({\mathbb V}_1 \cup {\mathbb V}_2\)</span>;</p></li>
+<li><p>和(<span class="math">\(+\)</span>): <span class="math">\({\mathbb V}_1 + {\mathbb V}_2\)</span>.</p></li>
+</ul>
+<p>性质：</p>
+<ul>
+<li><p><span class="math">\({\mathbb V}_1 \cap {\mathbb V}_2  \subseteq {\mathbb V}_1 \cup {\mathbb V}_2 \subseteq {\mathbb V}_1 + {\mathbb V}_2\)</span></p></li>
+<li><p><span class="math">\({\mathbb V}_1 \cap {\mathbb V}_2 = {\mathbb V}_2 \cap {\mathbb V}_1\)</span>,
+<span class="math">\(({\mathbb V}_1 \cap {\mathbb V}_2) \cap {\mathbb V}_3 = {\mathbb V}_1 \cap ({\mathbb V}_2 \cap {\mathbb V}_3)\)</span></p></li>
+<li><p><span class="math">\({\mathbb V}_1 + {\mathbb V}_2 = {\mathbb V}_2 + {\mathbb V}_1\)</span>,
+<span class="math">\(({\mathbb V}_1 + {\mathbb V}_2) + {\mathbb V}_3 = {\mathbb V}_1 + ({\mathbb V}_2 + {\mathbb V}_3)\)</span></p></li>
+<li><p>交(<span class="math">\(\cap\)</span>): <span class="math">\({\mathbb V}_1 \cap {\mathbb V}_2\)</span> 是 <span class="math">\({\mathbb V}\)</span> 的子空间;</p></li>
+<li><p>和(<span class="math">\(+\)</span>): <span class="math">\({\mathbb V}_1 + {\mathbb V}_2\)</span> 是 <span class="math">\({\mathbb V}\)</span> 的子空间.</p></li>
+<li><p>并(<span class="math">\(\cup\)</span>): <span class="math">\({\mathbb V}_1 \cup {\mathbb V}_2\)</span> 不是 <span class="math">\({\mathbb V}\)</span> 的子空间;</p></li>
+<li><p>维数公式:</p>
+<div class="math">
+\[\underbrace{\dim {{\mathbb V}_1} }_{n_1} + \underbrace{\dim {{\mathbb V}_2} }_{n_2} = \underbrace{\dim ({{\mathbb V}_1} + {{\mathbb V}_2}) }_n + \underbrace{\dim ({{\mathbb V}_1} {\cap} {{\mathbb V}_2}) }_m
+
+\]</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举例：</p>
+<ul class="simple">
+<li><p><span class="math">\({\mathbb V}_1\)</span>: <span class="math">\(x\)</span> 轴上的点</p></li>
+<li><p><span class="math">\({\mathbb V}_2\)</span>: <span class="math">\(y\)</span> 轴上的点</p></li>
+<li><p><span class="math">\({\mathbb V}_1 \cap {\mathbb V}_2\)</span>: 原点</p></li>
+<li><p><span class="math">\({\mathbb V}_1 \cup {\mathbb V}_2\)</span>: <span class="math">\(x\)</span> 轴和 <span class="math">\(y\)</span> 轴上的点</p></li>
+<li><p><span class="math">\({\mathbb V}_1 + {\mathbb V}_2\)</span>: 二维平面</p></li>
+<li><p>维数公式： <span class="math">\(n_1 + n_2 = n + m \Rightarrow 1 + 1 = 2 + 0\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.2.2. </span>直和<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>什么是直和<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>和的特例，即存在唯一分解.</p>
+<div class="proof proof-type-definition" id="id13">
+<span id="def-directsum"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.6</span>
+        
+            <span class="proof-title-name">(直和)</span>
+        
+    </div><div class="proof-content">
+<p>若<span class="math">\(\forall {\bm z} \in {\mathbb V}_1 + {\mathbb V}_2\)</span>, 有唯一的
+<span class="math">\({\bm x}\in {\mathbb V}_1, {\bm y}\in {\mathbb V}_2\)</span>, 则称 <span class="math">\({\mathbb V}_1 + {\mathbb V}_2\)</span>
+为 <strong>直和</strong> (<a class="reference internal" href="../glossary.html#term-direct-sum"><span class="xref std std-term">Direct Sum</span></a>) , 记为 <span class="math">\({\mathbb V}_1 + {\mathbb V}_2\)</span> 或 <span class="math">\({\mathbb V}_1 \oplus {\mathbb V}_2\)</span>.</p>
+</div></div></div>
+<div class="section" id="id7">
+<h3>性质<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><span class="math">\({\mathbb V}_1 \oplus {\mathbb V}_2 \Leftrightarrow {\mathbb V}_1 \cap {\mathbb V}_2 = L({\bm 0})  \Leftrightarrow  {\dim} ({\mathbb V}_1) + {\dim} ({\mathbb V}_2) = {\dim} ({\mathbb V}_1+{\mathbb V}2)\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">1.2.3. </span>生成的子空间<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h3>什么是生成子空间<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id14">
+<span id="def-linearspan"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 1.7</span>
+        
+            <span class="proof-title-name">(生成子空间)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> 是数域 <span class="math">\({\mathbb K}\)</span> 上的线性空间 <span class="math">\({\mathbb V}\)</span> 上的一组向量, 其<strong>所有</strong>线性组合的集合</p>
+<div class="math">
+\[{\mathbb V}_1 = \left \{ {k_1 {\bm x}_1} + {k_2 {\bm x}_2} + \cdots + {k_m {\bm x}_m} \right \}, k_i \in {\mathbb K}, i = 1, 2, \cdots, m
+
+\]</div>
+<p>是 <span class="math">\({\mathbb V}\)</span> 的一个线性子空间, 称其为由
+<span class="math">\({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m\)</span> <strong>张成/生成的子空间</strong> (<a class="reference internal" href="../glossary.html#term-linear-span"><span class="xref std std-term">Linear Span</span></a>) ，记为</p>
+<div class="math">
+\[L({\bm x}_1, {\bm x}_2, \cdots, {\bm x}_m) = \left \{ {k_1 {\bm x}_1 } + {k_2 {\bm x}_2 } + \cdots + {k_m {\bm x}_m} \right \}
+
+\]</div>
+</div></div></div>
+<div class="section" id="id10">
+<h3>矩阵的列空间、核空间、秩与零度<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>设有矩阵 <span class="math">\({\bm A} = (a_{ij})\in {\mathbb R}^{m\times n}\)</span>,
+<span class="math">\({\bm a}_i(i=1,2,\cdots, n)\)</span> 为<span class="math">\({\bm A}\)</span>
+的地<span class="math">\(i\)</span>个列向量, 称矩阵 <span class="math">\({\bm A}\)</span>
+的所有列向量张成的空间
+<span class="math">\(L({\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n)\)</span> 为矩阵
+<span class="math">\({\bm A}\)</span> 的<strong>列空间(值域)</strong>, 记为</p>
+<div class="math">
+\[{\mathcal R}({\bm A}) = L({\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n)
+
+\]</div>
+<p>则矩阵 <span class="math">\({\bm A}\)</span> 列空间的维度定义为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>秩</strong></p>
+<div class="math">
+\[{\rm rank}{\bm A} = {\dim} {\mathcal R}({\bm A})
+
+\]</div>
+<p>设有矩阵
+<span class="math">\({\bm A} = (a_{ij})\in R^{m\times n}, {\bm a}_i(i=1,2,\cdots,n)\)</span>
+, 称集合 <span class="math">\(\{ {\bm x} {\lvert} {\bm A} {\bm x} = {\bm 0} \}\)</span>
+为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>核空间</strong> (<a class="reference internal" href="../glossary.html#term-kernel-space"><span class="xref std std-term">Kernel Space</span></a>) 或 <strong>零空间</strong> (<a class="reference internal" href="../glossary.html#term-null-space"><span class="xref std std-term">Null Space</span></a>) , 记为</p>
+<div class="math">
+\[{\mathcal N}({\bm A}) = \{ {\bm x} {\lvert} {\bm A}{\bm x} = {\bm 0} \}
+
+\]</div>
+<p>则矩阵 <span class="math">\({\bm A}\)</span> 核空间的维度定义为矩阵 <span class="math">\({\bm A}\)</span>
+的 <strong>零度</strong></p>
+<div class="math">
+\[n({\bm A}) = {\dim} {\mathcal N}({\bm A})
+
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>设 <span class="math">\({\bm u}, {\bm v}\)</span> 是方程组 <span class="math">\({\bm A}{\bm x} = {\bm b}\)</span> 的两个解, 则有</p>
+<div class="math">
+\[\begin{aligned}
+   {\bm A}{\bm u} &={\bm b} \\ {\bm A}{\bm v} &={\bm b}
+\end{aligned}
+\Rightarrow {\bm A}({\bm u}-{\bm v}) = {\bm b}-{\bm b} = {\bm 0}
+
+\]</div>
+<p>故任意不同的两个线性方程组的解的差位于矩阵 <span class="math">\(\bm A\)</span> 的零空间中.</p>
+<p>进一步地, 设 <span class="math">\({\bm v}\)</span> 是方程组 <span class="math">\({\bm A}{\bm x} = {\bm b}\)</span> 的一个解, 那么其任意解集可表示为</p>
+<div class="math" id="equation-equ-equ-solution">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-equ-equ-solution" title="公式的永久链接">¶</a></span>\[\{\bm{v}+\bm{x} | {\bm A} \bm{v}=\bm{b} \wedge \bm{x} \in {\mathcal N}({\bm A})\}
+
+\]</div>
+</div>
+</div>
+<div class="section" id="spark">
+<h3>矩阵的Spark<a class="headerlink" href="#spark" title="永久链接至标题">¶</a></h3>
+<p>设有矩阵 <span class="math">\({\bm A}\)</span>, 称其列空间中线性相关的向量数目为矩阵 <span class="math">\({\bm A}\)</span> 的 <strong>Spark</strong>, 记为 <span class="math">\({\rm Spark}({\bm A})\)</span> .</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<ul class="simple">
+<li><p>矩阵的Rank是最大线性无关的列数</p></li>
+<li><p>矩阵的Spark是最小线性相关的列数</p></li>
+</ul>
+<div class="math">
+\[{\bm A}_{1}=\left[\begin{array}{llll}{1} & {0} & {0} & {1} \\ {0} & {1} & {0} & {0} \\ {0} & {0} & {1} & {0}\end{array}\right] \Leftrightarrow\left\{\begin{array}{l}{\operatorname{Rank}({\bm A})=3} \\ {\operatorname{Spark}({\bm A})=2}\end{array}\right.
+
+\]</div>
+<div class="math">
+\[{\bm A}_{2}=\left[\begin{array}{cccc}{1} & {0} & {0} & {1} \\ {0} & {1} & {0} & {1} \\ {0} & {0} & {1} & {0}\end{array}\right] \Leftrightarrow\left\{\begin{array}{l}{\operatorname{Rank}({\bm A})=3} \\ {\operatorname{Spark}({\bm A})=3}\end{array}\right.
+
+\]</div>
+<div class="math">
+\[{\bm A}_{3}=\left[\begin{array}{llll}{1} & {0} & {0} & {1} \\ {0} & {1} & {0} & {1} \\ {0} & {0} & {1} & {1}\end{array}\right] \Leftrightarrow\left\{\begin{array}{l}{\operatorname{Rank}({\bm A})=3} \\ {\operatorname {Spark}({\bm A})=4}\end{array}\right.
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>总结<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>矩阵的列空间/值域:</p>
+<div class="math">
+\[{\mathcal R}({\bm A}) =  \left \{ {\bm A} {\bm x} {\lvert} {\bm x} \in {R^n} \right \}
+
+\]</div>
+</li>
+<li><p>矩阵的核空间/零空间:</p>
+<div class="math">
+\[{\mathcal N}({\bm A}) = \left \{ {\bm x} {\lvert} {\bm A}{\bm x} = {0} \right \}
+
+\]</div>
+</li>
+<li><p>矩阵的秩(列空间的维度):
+<span class="math">\({\rm rank} {\bm A} = {\dim} {\mathcal R}({\bm A})\)</span></p></li>
+<li><p>矩阵的零度(核空间的维度):
+<span class="math">\(n({\bm A}) = {\dim} {\mathcal N}({\bm A})\)</span></p></li>
+<li><p><span class="math">\({\rm rank} {\bm A} + n({\bm A})  = n\)</span></p></li>
+<li><p><span class="math">\({\rm rank} {\bm A^T} + n({\bm A}^T)  = m\)</span></p></li>
+<li><p><span class="math">\(n({\bm A}) - n({\bm A}^T)  = n-m\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="LinearTransformation.html" class="btn btn-neutral float-right" title="1.3. 线性变换及其表示" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="LinearSpace.html" class="btn btn-neutral" title="1.1. 线性空间" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

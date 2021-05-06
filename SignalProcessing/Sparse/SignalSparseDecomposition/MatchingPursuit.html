@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2. 匹配追踪 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="4. 信号稀疏分解" href="index.html"/>
+        <link rel="next" title="4.3. 正交匹配追踪" href="OrthogonalMatchingPursuit.html"/>
+        <link rel="prev" title="4.1. 简介" href="Introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Digital/index.html">数字信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">稀疏信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SparsitySamplingRecon/index.html">2. 稀疏采样与重构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RepresentationDictionary/index.html">3. 表示字典</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4. 信号稀疏分解</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">4.1. 简介</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.2. 匹配追踪</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OrthogonalMatchingPursuit.html">4.3. 正交匹配追踪</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LinearCompressiveSensing/index.html">5. 线性压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../BayesianCompressiveSensing/index.html">6. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LearnedCompressiveSensing/index.html">7. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningCompressiveSensing/index.html">8. 深度学习与压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">9. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">10. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">稀疏信号处理</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4. </span>信号稀疏分解</a> &raquo;</li>
+        
+      <li><span class="section-number">4.2. </span>匹配追踪</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-matchingpursuitsignalsparsedecompositionsparsesignalprocessing">
+<span id="id1"></span><h1><span class="section-number">4.2. </span>匹配追踪<a class="headerlink" href="#section-matchingpursuitsignalsparsedecompositionsparsesignalprocessing" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">4.2.1. </span>什么是匹配追踪<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>匹配追踪 (<a class="reference internal" href="../../../BasisMath/ProbabilityStatistics/glossary.html#term-matching-pursuit"><span class="xref std std-term">Matching Pursuit</span></a> , MP) 最初被提出来是用于信号的稀疏分解 <a class="bibtex reference internal" href="../zreference.html#mp-mallat" id="id3">[9]</a>, 匹配追踪在很多领域中有应用, 匹配追踪用于量子模拟 <a class="bibtex reference internal" href="../zreference.html#jchph-118-6720w" id="id4">[1]</a>.</p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">4.2.2. </span>匹配追踪算法<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>匹配追踪算法步骤见算法1.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>算法1: 匹配追踪算法步骤</p>
+<p>输入: 列归一化过完备字典矩阵 <span class="math">\({\bm A} \in {\mathbb R}^{m \times n}\)</span>, 待分解信号 <span class="math">\({\bm y}\in {\mathbb R}^{m \times 1}\)</span>, 稀疏度 <span class="math">\(K\)</span>, 容忍残差模值 <span class="math">\(\epsilon\)</span></p>
+<p>输出: 稀疏分解系数 <span class="math">\(\hat{\bm x} \in {\mathbb R}^{n\times 1}\)</span>, 索引集合 <span class="math">\({\mathbb I} \subset {\mathbb U} = \{1,2,\cdots,n\}\)</span>, 待分解信号近似 <span class="math">\(\hat{\bm y}\)</span> 和残差向量 <span class="math">\({\bm r} = {\bm y} - \hat{\bm y}\)</span></p>
+<p>Step1: 初始化稀疏信号 <span class="math">\({\bm x}_{0} = {\bm 0}\)</span>, 残差 <span class="math">\({\bm r}_{0} = {\bm y} - \bm{A}{\bm x}_0 = {\bm y}\)</span>, 索引集合(支撑) <span class="math">\({\mathbb I}_{0} = \empty\)</span>, 迭代计数器 <span class="math">\(k = 1\)</span>.</p>
+<p>Step2: 选择与残差最相关的原子, 即求解索引 <span class="math">\(\lambda_k\)</span> 满足优化问题</p>
+<div class="math">
+\[i_k = \arg \max _{i\in{\mathbb U}} |{\bm A}_i^T{\bm r}_{k-1}|.
+
+\]</div>
+<p>Step3: 更新索引集 <span class="math">\({\mathbb I}_{k} = {\mathbb I}_{k-1} \cup {i_k}\)</span></p>
+<p>Step4: 更新稀疏分解系数 <span class="math">\(x[i_k] = {\langle {\bm A}_{i_k}, {\bm r}_{k-1} \rangle} = {\bm A}_{i_k}^T{\bm r}_{k-1}\)</span></p>
+<p>Step5: 计算新的残差 <span class="math">\({\bm r}_{k} = {\bm r}_{k-1} - {\bm A}_{i_k}x[i_k]\)</span></p>
+<p>Step6: 更新迭代计数器 <span class="math">\(k = k + 1\)</span> 若 <span class="math">\(k&lt;K\)</span> 且 <span class="math">\(||{\bm r}||_2 &lt; \epsilon\)</span> , 重复 Step2 至 Step6, 否则停止迭代, 转 Step7.</p>
+<p>Step7: 输出 <span class="math">\(\hat{\bm x} = \bm{x}\)</span>, <span class="math">\(\hat{\bm y} = \hat{\bm y}_{k}\)</span>, <span class="math">\({\bm r} = {\bm r}_k\)</span>. 其中, <span class="math">\(\hat{\bm x}\)</span> 在位置 <span class="math">\({\mathbb I}_k\)</span> 处非零.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">4.2.3. </span>实验与分析<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OrthogonalMatchingPursuit.html" class="btn btn-neutral float-right" title="4.3. 正交匹配追踪" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral" title="4.1. 简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

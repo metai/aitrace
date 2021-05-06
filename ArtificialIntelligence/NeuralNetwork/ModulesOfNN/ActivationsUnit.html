@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1. 激活函数单元 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. 神经网络组件" href="index.html"/>
+        <link rel="next" title="2.2. 卷积单元" href="ConvolutionUnit.html"/>
+        <link rel="prev" title="2. 神经网络组件" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MachineLearning/index.html">机器学习</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">神经网络</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 简介</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. 神经网络组件</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.1. 激活函数单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConvolutionUnit.html">2.2. 卷积单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PoolingUnit.html">2.3. 池化单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RegularizationUnit.html">2.4. 正则化单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SkipConnection.html">2.5. 跳跃连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RecursiveUnit.html">2.6. 递归单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ResidualUnit.html">2.7. 残差单元</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zreference.html">2.8. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LossFunctions/index.html">3. 神经网络常用损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SimpleNeuralNetwork/index.html">4. 简单神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SupportVectorMachine/index.html">5. 支撑矢量机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExtremeLearningMachine/index.html">6. 极速学习机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RecursiveNeuralNetwork/index.html">9. 递归神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResidualNeuralNetwork/index.html">11. 残差神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FractalNeuralNetwork/index.html">12. 分形神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StochasticNeuralNetwork/index.html">13. 随机神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ComplexityAnalysis/index.html">14. 复杂度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">15. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">16. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+          <li><a href="../index.html">神经网络</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>神经网络组件</a> &raquo;</li>
+        
+      <li><span class="section-number">2.1. </span>激活函数单元</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-activationsunit">
+<span id="id1"></span><h1><span class="section-number">2.1. </span>激活函数单元<a class="headerlink" href="#section-activationsunit" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1.1. </span>什么是激活函数<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.1.2. </span>为什么要有激活函数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.1.3. </span>经典激活函数分类<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>参考文档</dt><dd><ul>
+<li><p><a class="reference external" href="http://cs231n.github.io/neural-networks-1/">CS2131N: Commonly used activation functions</a></p></li>
+<li><p><a class="reference external" href="https://www.cnblogs.com/makefile/p/activation-function.html">激活函数(ReLU, Swish, Maxout)</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../../../_images/Activations_ZoomOut.png"><img alt="Activations函数图像" src="../../../_images/Activations_ZoomOut.png" style="width: 652.0px; height: 524.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.18 </span><span class="caption-text">Activations函数图像</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Activations函数图像</p>
+</div>
+</div>
+<p>思维导图补充</p>
+<div class="section" id="id5">
+<h3>恒等函数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>函数表达式: <span class="math">\(y = x\)</span></p></li>
+<li><p>函数特性: 线性</p></li>
+</ul>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../../../_images/linear.png"><img alt="恒等函数图像" src="../../../_images/linear.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.19 </span><span class="caption-text">恒等函数图像</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>恒等函数图像, 线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="tanh">
+<h3>tanh<a class="headerlink" href="#tanh" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://en.volupedia.org/wiki/Hyperbolic_function#Tanh">tanh, sinh, cosh</a></p></li>
+<li><p>函数表达式: <span class="math">\(y = {\rm tanh}(x) = {{e^{2x} - 1} \over {e^{2x} + 1}}\)</span></p></li>
+<li><p>函数特性: 非线性, 存在梯度弥散</p></li>
+</ul>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../../../_images/tanh.png"><img alt="tanh函数图像" src="../../../_images/tanh.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.20 </span><span class="caption-text">tanh函数图像</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>tanh函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sigmoid">
+<h3>Sigmoid<a class="headerlink" href="#sigmoid" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://en.volupedia.org/wiki/Sigmoid_function">sigmoid</a></p></li>
+<li><p>函数表达式: <span class="math">\(y = {e^x \over {e^x + 1}}\)</span></p></li>
+<li><p>函数特性: 非线性, 存在梯度弥散</p></li>
+</ul>
+<div class="figure align-center" id="id11">
+<a class="reference internal image-reference" href="../../../_images/sigmoid.png"><img alt="Sigmoid函数图像" src="../../../_images/sigmoid.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.21 </span><span class="caption-text">Sigmoid函数图像</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Sigmoid函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="softplus">
+<h3>softplus<a class="headerlink" href="#softplus" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>函数表达式: <span class="math">\({\rm log}(e^x + 1)\)</span></p></li>
+<li><p>函数特性: 非线性</p></li>
+</ul>
+<div class="figure align-center" id="id12">
+<a class="reference internal image-reference" href="../../../_images/softplus.png"><img alt="tanh函数图像" src="../../../_images/softplus.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.22 </span><span class="caption-text">softplus函数图像</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>softplus函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="softsign">
+<h3>softsign<a class="headerlink" href="#softsign" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>函数表达式: <span class="math">\(\frac{x} {({\rm abs}(x) + 1)}\)</span></p></li>
+<li><p>函数特性: 非线性</p></li>
+</ul>
+<div class="figure align-center" id="id13">
+<a class="reference internal image-reference" href="../../../_images/softsign.png"><img alt="tanh函数图像" src="../../../_images/softsign.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.23 </span><span class="caption-text">softsign函数图像</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>softsign函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="elu">
+<h3>elu<a class="headerlink" href="#elu" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>函数表达式: <span class="math">\(y = \left\{ {\begin{array}{ccc}{x,\;\;\;\;\;\;\;\;\;x \ge 0}\\{{e^x} - 1,\;\;\;x &lt; 0}\end{array}} \right.\)</span></p></li>
+<li><p>函数特性: 非线性</p></li>
+</ul>
+<div class="figure align-center" id="id14">
+<a class="reference internal image-reference" href="../../../_images/elu.png"><img alt="elu函数图像" src="../../../_images/elu.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.24 </span><span class="caption-text">elu函数图像</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>elu函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="relu">
+<h3>relu<a class="headerlink" href="#relu" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>函数表达式: <span class="math">\({\rm max}(x, 0)\)</span></p></li>
+<li><p>函数特性: 非线性+线性</p></li>
+</ul>
+<div class="figure align-center" id="id15">
+<a class="reference internal image-reference" href="../../../_images/relu.png"><img alt="relu函数图像" src="../../../_images/relu.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.25 </span><span class="caption-text">relu函数图像</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>relu函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="relu6">
+<h3>relu6<a class="headerlink" href="#relu6" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.cs.utoronto.ca/~kriz/conv-cifar10-aug2010.pdf">Convolutional Deep Belief Networks on CIFAR-10. A. Krizhevsky</a></p></li>
+<li><p>函数表达式: <span class="math">\({\rm min}({\rm max}(x, 0), 6)\)</span></p></li>
+<li><p>函数特性: 非线性+线性</p></li>
+</ul>
+<div class="figure align-center" id="id16">
+<a class="reference internal image-reference" href="../../../_images/relu6.png"><img alt="relu6函数图像" src="../../../_images/relu6.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.26 </span><span class="caption-text">relu6函数图像</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>relu6函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="leaky-relu">
+<h3>leaky relu<a class="headerlink" href="#leaky-relu" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://web.stanford.edu/~awni/papers/relu_hybrid_icml2013_final.pdf">“Rectifier Nonlinearities Improve Neural Network Acoustic Models” AL Maas, AY Hannun, AY Ng - Proc. ICML, 2013</a></p></li>
+<li><p>函数表达式: <span class="math">\(y = \left\{ {\begin{array}{ccc}{x,\;\;\;\;\;\;x \ge 0}\\{\alpha x,\;\;\;x &lt; 0}\end{array}} \right.\)</span></p></li>
+<li><p>函数特性: 非线性+线性</p></li>
+</ul>
+<div class="figure align-center" id="id17">
+<a class="reference internal image-reference" href="../../../_images/leaky_relu.png"><img alt="leaky relu函数图像" src="../../../_images/leaky_relu.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.27 </span><span class="caption-text">leaky relu函数图像</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>leaky relu函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="selu">
+<h3>selu<a class="headerlink" href="#selu" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1706.02515">Self-Normalizing Neural Networks</a></p></li>
+<li><p>函数表达式: <span class="math">\(y = \lambda \left\{ {\begin{array}{ccc}{x,\;\;\;\;\;\;\;\;\;\;\;\;\;x \ge 0}\\{\alpha ({e^x} - 1),\;\;\;\;x &lt; 0}\end{array}} \right.\)</span></p></li>
+<li><p>函数特性: 非线性, 自归一化</p></li>
+</ul>
+<div class="figure align-center" id="id18">
+<a class="reference internal image-reference" href="../../../_images/selu.png"><img alt="selu函数图像" src="../../../_images/selu.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.28 </span><span class="caption-text">selu函数图像</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>selu函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="crelu">
+<h3>crelu<a class="headerlink" href="#crelu" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1603.05201">Understanding and Improving Convolutional Neural Networks via Concatenated Rectified Linear Units. W. Shang, et al.</a></p></li>
+<li><p>函数表达式: <span class="math">\(y = e^x \over (e^x + 1)\)</span></p></li>
+<li><p>函数特性: 非线性, 存在梯度弥散</p></li>
+</ul>
+<div class="figure align-center" id="id19">
+<a class="reference internal image-reference" href="../../../_images/crelu.png"><img alt="crelu函数图像" src="../../../_images/crelu.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.29 </span><span class="caption-text">crelu函数图像</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>crelu函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+<div class="section" id="swish">
+<h3>Swish<a class="headerlink" href="#swish" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1710.05941">Searching for Activation Functions” (Ramachandran et al. 2017)</a></p></li>
+<li><p>函数表达式: <span class="math">\(y = x\cdot {\rm sigmoid}(\beta x) = {e^{(\beta x)} \over {e^{(\beta x)} + 1}} \cdot x\)</span></p></li>
+<li><p>函数特性: 非线性, 存在梯度弥散</p></li>
+</ul>
+<div class="figure align-center" id="id20">
+<a class="reference internal image-reference" href="../../../_images/swish.png"><img alt="Swish函数图像" src="../../../_images/swish.png" style="width: 512.0px; height: 384.0px;" /></a>
+<p class="caption"><span class="caption-number">图 2.30 </span><span class="caption-text">Swish函数图像</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Swish函数图像, 非线性函数.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">2.1.4. </span>新颖激活函数<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ConvolutionUnit.html" class="btn btn-neutral float-right" title="2.2. 卷积单元" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2. 神经网络组件" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

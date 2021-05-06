@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1. Lua笔记 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="2. Lua程序设计" href="index.html"/>
+        <link rel="next" title="2.2. wxLua 简明教程" href="wxLua.html"/>
+        <link rel="prev" title="2. Lua程序设计" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第四卷 计算机学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../OperatingSystem/index.html">操作系统</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">程序设计</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../C/index.html">1. C程序设计</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2. Lua程序设计</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.1. Lua笔记</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wxLua.html">2.2. wxLua 简明教程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../IDL/index.html">3. IDL程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lisp/index.html">4. Lisp程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Python/index.html">5. Python程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Matlab/index.html">6. Matlab程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Julia/index.html">7. Julia程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PyTorch/index.html">8. PyTorch简明教程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Shell/index.html">9. Shell程序设计</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../AlgorithmDesign/index.html">算法设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Internet/index.html">互联部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ArtificialIntelligenceProcessor/index.html">人工智能处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmbeddedDevelopment/index.html">嵌入式系统开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第四卷 计算机学</a> &raquo;</li>
+        
+          <li><a href="../index.html">程序设计</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">2. </span>Lua程序设计</a> &raquo;</li>
+        
+      <li><span class="section-number">2.1. </span>Lua笔记</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lua">
+<span id="section-luanotesluaprogramingcomputerscience"></span><h1><span class="section-number">2.1. </span>Lua笔记<a class="headerlink" href="#lua" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1.1. </span>Lua相关资料<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h3>基础<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.lua.org">Lua官网</a></p></li>
+<li><p><a class="reference external" href="http://lua-users.org/">Lua Users</a></p></li>
+<li><p><a class="reference external" href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 英文参考手册</a></p></li>
+<li><p><a class="reference external" href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 中文参考手册</a></p></li>
+<li><p><a class="reference external" href="http://vdisk.weibo.com/s/z63ACRNxK4cLS?sudaref=www.baidu.com">Programming in Lua</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.1.2. </span>从这里开始<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在类Unix系统上 (Linux、OSMax等等) , 可能已经安装了Lua, 或者有可用的安装包; 对于Windows可以使用<a class="reference external" href="http://luadist.org/">LuaDist</a>等发布的预编译包.</p>
+<p>由于Lua开源, 所以还有另外一种安装方法: 通过源码安装, 分构建和安装两步完成.</p>
+<div class="section" id="unix">
+<h3>类Unix系统<a class="headerlink" href="#unix" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p><a href="#id6"><span class="problematic" id="id7">**</span></a>构建Lua (Build Lua) **
+Lua在类Unix系统上的构建很简单, 输入<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">+</span> <span class="pre">平台名</span></code>即可, 如Linux平台下:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>make linux
+</pre></div>
+</div>
+</li>
+<li><p><a href="#id8"><span class="problematic" id="id9">**</span></a>安装Lua (Install Lua) ** 通过以下命令即可安装至默认位置.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre>make install
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h3>
+<p>Windows下的构建过程稍微复杂一些, 看到两种方案都挺好, 大同小异.</p>
+<ol class="arabic simple">
+<li><p>参考Lua官网给出的Wiki上的文章<a class="reference external" href="http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies">Building Lua In Windows For
+Newbies</a>很容易实现, 基本上需要两样工具, 一是Lua源码, 二是编译工具TDM-GCC.</p></li>
+<li><p>参照<a class="reference external" href="http://www.thijsschreijer.nl/blog/?p=863">这里</a>, 需要安装MinGW, 文中还给出了LuaRocks的安装流程.</p></li>
+</ol>
+<div class="section" id="id10">
+<h4>方法一<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p><strong>构建Lua</strong></p>
+<ul class="simple">
+<li><p>安装GCC编译器
+TDM-GCC的安装参照<a class="reference external" href="http://blog.csdn.net/enjoyyl/article/details/46545263#tdm-gccgccg">这里</a>.</p></li>
+<li><p>新建一个名为<strong>lua-gcc-Install</strong>的文件夹, 在里面新建文本文档, 命名为<strong>buil.cmd</strong>, 将下面的代码复制到该文件中, 注意更改你的编译器路径
+和 lua版本.</p></li>
+</ul>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre>@echo off
+:: ========================
+:: file build.cmd
+:: ========================
+setlocal
+:: you may change the following variable&#39;s value
+:: to suit the downloaded version
+set lua_version=5.3.2
+
+set work_dir=%~dp0
+:: Removes trailing backslash
+:: to enhance readability in the following steps
+set work_dir=%work_dir:~0,-1%
+set lua_install_dir=%work_dir%\lua
+set compiler_bin_dir=E:\devtools\TDM-GCC-64\bin
+set lua_build_dir=%work_dir%\lua-%lua_version%
+set path=%compiler_bin_dir%;%path%
+
+cd /D %lua_build_dir%
+mingw32-make PLAT=mingw
+
+echo.
+echo **** COMPILATION TERMINATED ****
+echo.
+echo **** BUILDING BINARY DISTRIBUTION ****
+echo.
+
+:: create a clean &quot;binary&quot; installation
+mkdir %lua_install_dir%
+mkdir %lua_install_dir%\doc
+mkdir %lua_install_dir%\bin
+mkdir %lua_install_dir%\include
+
+copy %lua_build_dir%\doc\*.* %lua_install_dir%\doc\*.*
+copy %lua_build_dir%\src\*.exe %lua_install_dir%\bin\*.*
+copy %lua_build_dir%\src\*.dll %lua_install_dir%\bin\*.*
+copy %lua_build_dir%\src\luaconf.h %lua_install_dir%\include\*.*
+copy %lua_build_dir%\src\lua.h %lua_install_dir%\include\*.*
+copy %lua_build_dir%\src\lualib.h %lua_install_dir%\include\*.*
+copy %lua_build_dir%\src\lauxlib.h %lua_install_dir%\include\*.*
+copy %lua_build_dir%\src\lua.hpp %lua_install_dir%\include\*.*
+
+echo.
+echo **** BINARY DISTRIBUTION BUILT ****
+echo.
+
+%lua_install_dir%\bin\lua.exe -e&quot;print [[Hello!]];print[[Simple Lua test successful!!!]]&quot;
+
+echo.
+
+pause
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>将解压后的lua源码文件放入<strong>lua-gcc-install</strong>文件夹中, 运行<strong>build.cmd</strong>文件, 等待提示完成即可看到<strong>lua-gcc-install</strong>文件夹下多了一个<strong>lua</strong>文件夹 (<strong>bin</strong>子文件夹下包含了需要的文件) , 如下图所示:
+<img alt="这里写图片描述" src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMjIzMjI1MzU5MDcx" /></p></li>
+</ul>
+<p><strong>安装Lua</strong>
+将上述构建的文件 (<strong>bin</strong>下的文件) 复制到你的安装目录, 并添加路径至PATH环境变量即可.
+<a href="#id11"><span class="problematic" id="id12">**</span></a>注: <a href="#id13"><span class="problematic" id="id14">**</span></a>由于是用GCC编译生成的, 所以在其它木有GCC的平台上是不能运行的.</p>
+</div>
+<div class="section" id="id15">
+<h4>方法2<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>参考<a class="reference external" href="http://www.thijsschreijer.nl/blog/?p=863">Installing Lua on a Windows
+system</a>, 包含以下内容:</p>
+<ol class="arabic simple">
+<li><p>install a compiler (<a class="reference external" href="http://www.mingw.org/wiki/Getting_Started">MinGW (and
+MSYS)</a>)</p></li>
+<li><p>compile and install <a class="reference external" href="http://www.lua.org">Lua</a></p></li>
+<li><p>install <a class="reference external" href="http://www.luarocks.org/">LuaRocks</a></p></li>
+</ol>
+<p><strong>install a compiler ([MinGW (and MSYS)]</strong></p>
+<p>这里, 我用的<a class="reference external" href="http://www.mingw.org/">MinGW</a>中的GCC版本为4.8.1, 且安装在“E:”目录下, 所以添加: <code class="docutils literal notranslate"><span class="pre">E:\devtools\MinGw\bin;</span></code>到系统环境变量PATH.</p>
+<p><strong>compile and install Lua</strong></p>
+<p>去<a class="reference external" href="http://www.lua.org">Lua</a>下载Lua源码, 我用的Lua5.3.2, 解压到任意路径, 如: “E:-5.3.2”, 然后以管理员身份打开**命令提示符 (管理员) <a href="#id16"><span class="problematic" id="id17">**</span></a>, 输入如下指令:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre>SET PATH=%PATH%;E:\devtools\MinGW\msys\1.0\bin
+cd /d E:\lua-5.3.2
+make clean
+make mingw
+make install INSTALL_TOP=E:/devtools/lua/5.3 TO_BIN=&quot;lua.exe luac.exe lua53.dll&quot;
+</pre></div>
+</div>
+<p>输出结果类似这样:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre>C:\windows\system32&gt;&gt;SET PATH=%PATH%;E:\devtools\MinGW\msys\1.0\bin
+
+C:\windows\system32&gt;cd /d E:\lua-5.3.2
+
+E:\lua-5.3.2&gt;make clean
+cd src &amp;&amp; make clean
+make[1]: Entering directory `/e/lua-5.3.2/src&#39;
+rm -f liblua.a lua luac lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o lauxlib.o lbaselib.o lbitlib.o lcorolib.o ldblib.o liolib.o lmathlib.o loslib.o lstrlib.o ltablib.o lutf8lib.o loadlib.o linit.o  lua.o luac.o
+make[1]: Leaving directory `/e/lua-5.3.2/src&#39;
+
+E:\lua-5.3.2&gt;make mingw
+cd src &amp;&amp; make mingw
+make[1]: Entering directory `/e/lua-5.3.2/src&#39;
+make &quot;LUA_A=lua53.dll&quot; &quot;LUA_T=lua.exe&quot; \
+        &quot;AR=gcc -std=gnu99 -shared -o&quot; &quot;RANLIB=strip --strip-unneeded&quot; \
+        &quot;SYSCFLAGS=-DLUA_BUILD_AS_DLL&quot; &quot;SYSLIBS=&quot; &quot;SYSLDFLAGS=-s&quot; lua.exe
+make[2]: Entering directory `/e/lua-5.3.2/src&#39;
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lua.o lua.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lapi.o lapi.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lcode.o lcode.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lctype.o lctype.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o ldebug.o ldebug.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o ldo.o ldo.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o ldump.o ldump.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lfunc.o lfunc.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lgc.o lgc.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o llex.o llex.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lmem.o lmem.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lobject.o lobject.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lopcodes.o lopcodes.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lparser.o lparser.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lstate.o lstate.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lstring.o lstring.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o ltable.o ltable.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o ltm.o ltm.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lundump.o lundump.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lvm.o lvm.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lzio.o lzio.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lauxlib.o lauxlib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lbaselib.o lbaselib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lbitlib.o lbitlib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lcorolib.o lcorolib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o ldblib.o ldblib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o liolib.o liolib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lmathlib.o lmathlib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o loslib.o loslib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lstrlib.o lstrlib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o ltablib.o ltablib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o lutf8lib.o lutf8lib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o loadlib.o loadlib.c
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2 -DLUA_BUILD_AS_DLL    -c -o linit.o linit.c
+gcc -std=gnu99 -shared -o lua53.dll lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o lauxlib.o lbaselib.o lbitlib.o lcorolib.o ldblib.o liolib.o lmathlib.o loslib.o lstrlib.o ltablib.o lutf8lib.o loadlib.o linit.o
+strip --strip-unneeded lua53.dll
+gcc -std=gnu99 -o lua.exe -s  lua.o lua53.dll -lm
+make[2]: Leaving directory `/e/lua-5.3.2/src&#39;
+make &quot;LUAC_T=luac.exe&quot; luac.exe
+make[2]: Entering directory `/e/lua-5.3.2/src&#39;
+gcc -std=gnu99 -O2 -Wall -Wextra -DLUA_COMPAT_5_2     -c -o luac.o luac.c
+ar rcu liblua.a lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o lauxlib.o lbaselib.o lbitlib.o lcorolib.o ldblib.o liolib.o lmathlib.o loslib.o lstrlib.o ltablib.o lutf8lib.o loadlib.o linit.o
+ranlib liblua.a
+gcc -std=gnu99 -o luac.exe   luac.o liblua.a -lm
+make[2]: Leaving directory `/e/lua-5.3.2/src&#39;
+make[1]: Leaving directory `/e/lua-5.3.2/src&#39;
+
+E:\lua-5.3.2&gt;make install INSTALL_TOP=E:/devtools/lua/5.3 TO_BIN=&quot;lua.exe luac.exe lua53.dll&quot;
+cd src &amp;&amp; mkdir -p E:/devtools/lua/5.3/bin E:/devtools/lua/5.3/include E:/devtools/lua/5.3/lib E:/devtools/lua/5.3/man/man1 E:/devtools/lua/5.3/share/lua/5.3 E:/devtools/lua/5.3/lib/lua/5.3
+cd src &amp;&amp; install -p -m 0755 lua.exe luac.exe lua53.dll E:/devtools/lua/5.3/bin
+cd src &amp;&amp; install -p -m 0644 lua.h luaconf.h lualib.h lauxlib.h lua.hpp E:/devtools/lua/5.3/include
+cd src &amp;&amp; install -p -m 0644 liblua.a E:/devtools/lua/5.3/lib
+cd doc &amp;&amp; install -p -m 0644 lua.1 luac.1 E:/devtools/lua/5.3/man/man1
+
+E:\lua-5.3.2&gt;
+</pre></div>
+</div>
+<p>最后一步是添加Lua安装路径<code class="docutils literal notranslate"><span class="pre">E:\devtools\lua\5.3\bin</span></code>到系统环境变量PATH.</p>
+<p>在cmd终端输入: <code class="docutils literal notranslate"><span class="pre">lua</span></code>即可进入Lua解释器交互界面, 也可以输入<code class="docutils literal notranslate"><span class="pre">lua</span> <span class="pre">-e</span> <span class="pre">&quot;print('hello</span> <span class="pre">world')&quot;</span></code>来测试安装是否正确 (打印出hello
+world) .</p>
+<p><strong>install LuaRocks</strong></p>
+<p>下载Windows版的<a class="reference external" href="http://luarocks.org/releases/">LuaRocks</a>, 解压到E盘, 然后输入如下命令安装, 其中, <code class="docutils literal notranslate"><span class="pre">/P</span> <span class="pre">E:\devtools\LuaRocks</span></code>指定安装目录, 可以使用<code class="docutils literal notranslate"><span class="pre">install</span> <span class="pre">/?</span></code>查看更多选项.</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre>cd luarocks-2.3.0-win32
+install /MW /F /LV 5.3 /P E:\devtools\LuaRocks
+</pre></div>
+</div>
+<p><strong>注</strong>: 执行完毕后, 末尾打印如下类似信息, 告诉你如何添加环境变量:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre>============================
+== LuaRocks is installed! ==
+============================
+
+
+You may want to add the following elements to your paths;
+Lua interpreter;
+  PATH     :   E:\devtools\lua\5.3\bin\
+  PATHEXT  :   .LUA
+LuaRocks;
+  PATH     :   E:\devtools\LuaRocks
+  LUA_PATH :   E:\devtools\LuaRocks\lua\?.lua;E:\devtools\LuaRocks\lua\?\init.lua
+Local user rocktree (Note: %APPDATA% is user dependent);
+  PATH     :   %APPDATA%\LuaRocks\bin
+  LUA_PATH :   %APPDATA%\LuaRocks\share\lua\5.3\?.lua;%APPDATA%\LuaRocks\share\lua\5.3\?\init.lua
+  LUA_CPATH:   %APPDATA%\LuaRocks\lib\lua\5.3\?.dll
+System rocktree
+  PATH     :   e:\devtools\lua\5.3\\bin
+  LUA_PATH :   e:\devtools\lua\5.3\\share\lua\5.3\?.lua;e:\devtools\lua\5.3\\share\lua\5.3\?\init.lua
+  LUA_CPATH:   e:\devtools\lua\5.3\\lib\lua\5.3\?.dll
+
+Note that the %APPDATA% element in the paths above is user specific and it MUST be replaced by its actual value.
+For the current user that value is: C:\Users\liu\AppData\Roaming.
+</pre></div>
+</div>
+<p>根据上述, 添加必要的环境变量, 由于<code class="docutils literal notranslate"><span class="pre">PATH</span></code>已经存在, 所以只需要<code class="docutils literal notranslate"><span class="pre">LUA_PATH</span></code>和<code class="docutils literal notranslate"><span class="pre">LUA_CPATH</span></code>, 文<a class="reference external" href="http://www.thijsschreijer.nl/blog/?p=863">Installing
+Lua on a Windows
+system</a>中说, 对于Lua5.3, 添加<code class="docutils literal notranslate"><span class="pre">LUA_PATH_5_3</span></code>和<code class="docutils literal notranslate"><span class="pre">LUA_CPATH_5_3</span></code>, 我试了一下, 两个都对, 如果你安装了不同版本的Lua, 应该用后者指示不同版本.</p>
+<p>为测试LuaRocks安装正确, cmd命令行输入<code class="docutils literal notranslate"><span class="pre">luarocks</span> <span class="pre">help</span></code>会打印很多帮助信息.</p>
+<p>比如可以通过<code class="docutils literal notranslate"><span class="pre">luarocks</span> <span class="pre">install</span> <span class="pre">pakage</span></code>来安装包, 通过<code class="docutils literal notranslate"><span class="pre">luarocks</span> <span class="pre">remove</span> <span class="pre">pakage</span></code>来卸载包</p>
+<p>举例: 安装luafilesystem</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre>C:\windows\system32&gt;luarocks install luafilesystem
+Installing https://luarocks.org/luafilesystem-1.6.3-2.src.rock...
+Using https://luarocks.org/luafilesystem-1.6.3-2.src.rock... switching to &#39;build&#39; mode
+mingw32-gcc -O2 -c -o src/lfs.o -IE:/devtools/lua/5.3/include/ src/lfs.c
+In file included from src/lfs.c:67:0:
+src/lfs.h:21:0: warning: &quot;fileno&quot; redefined [enabled by default]
+ #define fileno(f) (_fileno(f))
+ ^
+In file included from src/lfs.c:38:0:
+e:\devtools\mingw\include\stdio.h:595:0: note: this is the location of the previous definition
+ #define fileno(__F) ((__F)-&gt;_file)
+ ^
+mingw32-gcc -shared -o lfs.dll src/lfs.o E:/devtools/lua/5.3/bin/lua53.dll -lm
+Updating manifest for e:\devtools\lua\5.3\/lib/luarocks/rocks
+luafilesystem 1.6.3-2 is now built and installed in e:\devtools\lua\5.3\ (license: MIT/X11)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h2><span class="section-number">2.1.3. </span>语法<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 英文参考手册</a></p></li>
+<li><p><a class="reference external" href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 中文参考手册</a></p></li>
+<li><p><a class="reference external" href="http://vdisk.weibo.com/s/z63ACRNxK4cLS?sudaref=www.baidu.com">Programming in
+Lua</a></p></li>
+</ul>
+<div class="section" id="id19">
+<h3>多重赋值<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<p>在Lua中, 多重赋值是合法的, 如<code class="docutils literal notranslate"><span class="pre">a,b,c</span> <span class="pre">=</span> <span class="pre">1,2,3</span></code>, 则相当于<code class="docutils literal notranslate"><span class="pre">a=1;</span> <span class="pre">b=2;</span> <span class="pre">c=3</span></code>. 参考<a class="reference external" href="http://www.lua.org/manual/5.3/manual.html#3.3.3">Lua
+5.3 Reference Manual §3.3.3 –
+Assignment</a>, 可以看到赋值规则是这样的:
+[Lua5.3][Lua53refman]</p>
+<blockquote>
+<div><p>Before the assignment, the list of values is adjusted to the length
+of the list of variables. If there are more values than needed, the
+excess values are thrown away. If there are fewer values than
+needed, the list is extended with as many nil’s as needed. If the
+list of expressions ends with a function call, then all values
+returned by that call enter the list of values, before the
+adjustment (except when the call is enclosed in parentheses; see
+§3.4). 在作赋值操作之前, 那值列表会被 <em>调整</em>
+为左边变量列表的个数. 如果值比需要的更多的话, 多余的值就被扔掉.
+如果值的数量不够需求, 将会按所需扩展若干个
+nil. 如果表达式列表以<strong>一个函数调用结束</strong>, 这个函数所返回的所有值都会在调整操作之前被置入值列表中 (除非这个函数调用被用<strong>括号括了起来</strong>; 参见
+§3.4) .</p>
+<p>The assignment statement first evaluates all its expressions and
+only then the assignments are performed.
+赋值语句首先让所有的表达式完成运算, 之后再做赋值操作.</p>
+</div></blockquote>
+<p>看下面一段代码及其对应输出, 函数<strong>maxmin</strong>有两个返回值, 依次输出两个输入参数的最大和最小.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span class="k">function</span> <span class="nf">maxmin</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="k">then</span>
+        <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">maxmin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>                 <span class="c1">-- &lt;---&gt; 3   1   4   nil</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">maxmin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>                 <span class="c1">-- &lt;---&gt; 1   3   4   nil</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">maxmin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>                 <span class="c1">-- &lt;---&gt; 1   4   3   2</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="n">maxmin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>                 <span class="c1">-- &lt;---&gt; 1   4   3   nil</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>           <span class="c1">-- &lt;---&gt; 4   20  nil</span>
+
+<span class="c1">-- swap value</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>                   <span class="c1">-- &lt;---&gt; 2   3   1</span>
+</pre></div>
+</div>
+<p>由上面的规则可知: 1.
+<strong>只有当表达式列表以一个函数调用结束, 并且函数调用没有被用括号``()``扩起来, 这个函数所返回的所有值才会在调整操作之前都被置入值列表中</strong>, 所以只有<code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c,</span> <span class="pre">d</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">maxmin(2,3)</span></code>对应的右端值列表中有4个值; 2.
+<strong>赋值语句首先让所有的表达式完成运算, 之后再做赋值操作</strong>, 所以<code class="docutils literal notranslate"><span class="pre">i,</span> <span class="pre">a[i]</span> <span class="pre">=</span> <span class="pre">i+1,</span> <span class="pre">20</span></code>, 只改变了<code class="docutils literal notranslate"><span class="pre">a[3]</span></code>的值.</p>
+</div>
+<div class="section" id="id20">
+<h3>协同<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>线程和协同主要区别: 线程同时运行多个线程, 协同在同一时刻只有一个协同程序运行, 且只有在运行的协同程序明确要求挂起才挂起;</p></li>
+<li><p>给 yield 的参数
+会传给resume, 主函数返回值也会传给resume, 传给resume的参数也会传给yield;</p></li>
+<li><p>yield
+是挂起程序, resume时, yield接受resume传来的新的参数, 从挂起处开始执行;</p></li>
+</ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">suspended follows: &#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">co&quot;</span><span class="p">,</span> <span class="nb">coroutine.yield</span><span class="p">())</span>
+    <span class="c1">-- body</span>
+<span class="k">end</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">))</span>         <span class="c1">--&gt; suspended follows --&gt;true</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span>         <span class="c1">--&gt; suspended</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>   <span class="c1">-- co   4   5  --&gt;true</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.status</span><span class="p">(</span><span class="n">co</span><span class="p">))</span>         <span class="c1">--&gt; dead</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>   <span class="c1">--&gt; false   cannot resume dead coroutine</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">------------&#39;</span><span class="p">)</span>
+<span class="n">co</span> <span class="o">=</span> <span class="nb">coroutine.create</span><span class="p">(</span><span class="k">function</span><span class="p">()</span>
+    <span class="k">return</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span>
+<span class="k">end</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">coroutine.resume</span><span class="p">(</span><span class="n">co</span><span class="p">))</span>         <span class="c1">--&gt; true    6   7</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gui">
+<h2><span class="section-number">2.1.4. </span>GUI开发<a class="headerlink" href="#gui" title="永久链接至标题">¶</a></h2>
+<p>可以使用 <a class="reference external" href="http://wxlua.sourceforge.net/">wxLua</a> 进行 GUI 开发, 参考
+<a class="reference external" href="http://wxlua.sourceforge.net/docs/install.html#C2.5">Build using GCC in
+Linux</a>
+在Linux上安装, Windows上直接下载二进制包安装即可.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wxLua.html" class="btn btn-neutral float-right" title="2.2. wxLua 简明教程" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2. Lua程序设计" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

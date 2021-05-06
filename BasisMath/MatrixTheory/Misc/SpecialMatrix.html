@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.3. 常见矩阵概念 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="7. 杂项" href="index.html"/>
+        <link rel="next" title="7.4. 对角矩阵" href="DiagonalMatrix.html"/>
+        <link rel="prev" title="7.2. 初等变换" href="ElementaryTransformation.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../LinearSpace/index.html">1. 线性空间与线性变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixDecomposition/index.html">4. 矩阵分解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7. 杂项</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="offen.html">7.1. 常用总结</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ElementaryTransformation.html">7.2. 初等变换</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.3. 常见矩阵概念</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DiagonalMatrix.html">7.4. 对角矩阵</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatrixOperation.html">7.5. 矩阵运算</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">7. </span>杂项</a> &raquo;</li>
+        
+      <li><span class="section-number">7.3. </span>常见矩阵概念</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">7.3. </span>常见矩阵概念<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">7.3.1. </span>奇异非奇异<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>奇异(singular)与非奇异(non-singular)和不可逆(non-invertible)与可逆(invertible)是相同的,</p>
+<ul class="simple">
+<li><p>首先是指方阵 <span class="math">\({\bm A}^{n\times n}\)</span> ;</p></li>
+<li><p>非奇异阵 <span class="math">\(\leftrightarrow\)</span> 可逆矩阵 <span class="math">\(\leftrightarrow\)</span> 满秩 <span class="math">\(\leftrightarrow\)</span> 行列式不等于零 <span class="math">\(\|{\bm A}\| {\neq} 0\)</span> <span class="math">\(\leftrightarrow\)</span> 正定阵;</p></li>
+<li><p>奇异阵 <span class="math">\(\leftrightarrow\)</span> 非可逆矩阵 <span class="math">\(\leftrightarrow\)</span> 非满秩 <span class="math">\(\leftrightarrow\)</span> 行列式等于零 <span class="math">\(\|{\bm A}\| = 0\)</span> <span class="math">\(\leftrightarrow\)</span> 非正定阵;</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">7.3.2. </span>特殊矩阵<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>概念汇总<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p>对称矩阵</p>
+<ul class="simple">
+<li><p>实对称: <span class="math">\({\bm A}^T = {\bm A}\)</span> , <span class="math">\({\bm A}\in {\mathbb R}^{n\times n}\)</span></p></li>
+<li><p>酉对称: <span class="math">\({\bm A}^H = {\bm A}\)</span> , <span class="math">\({\bm A}\in {\mathbb C}^{n\times n}\)</span>, 也叫Hermite矩阵</p></li>
+<li><p>复对称: <span class="math">\({\bm A}^T = {\bm A}\)</span> , <span class="math">\({\bm A}\in {\mathbb C}^{n\times n}\)</span></p></li>
+</ul>
+</li>
+<li><p>正规矩阵 ( <a class="reference internal" href="../../glossary/glossary.html#term-normal-matrix"><span class="xref std std-term">Normal Matrix</span></a> )</p>
+<ul class="simple">
+<li><p>正规矩阵: <span class="math">\({\bm A}^H{\bm A} = {\bm A}{\bm A}^H\)</span> , <span class="math">\({\bm A}\in {\mathbb C}^{n\times n}\)</span></p></li>
+<li><p>正交矩阵, 酉矩阵, 对角矩阵, 实对称矩阵及酉对称矩阵均为正规矩阵</p></li>
+</ul>
+</li>
+<li><p>正交矩阵</p>
+<ul class="simple">
+<li><p>实正交矩阵: <span class="math">\({\bm A}^T{\bm A} = {\bm A}{\bm A}^T = {\bm I}\)</span> , <span class="math">\({\bm A}\in {\mathbb R}^{n\times n}\)</span></p></li>
+<li><p>复正交矩阵: <span class="math">\({\bm A}^H{\bm A} = {\bm A}{\bm A}^H = {\bm I}\)</span> , <span class="math">\({\bm A}\in {\mathbb C}^{n\times n}\)</span> , 也叫酉矩阵</p></li>
+</ul>
+</li>
+</ol>
+<p><a class="reference external" href="http://en.volupedia.org/wiki/Hermitian_matrix">Hermitian matrix</a>  也叫自伴随矩阵 (self-adjoint matrix)</p>
+</div>
+<div class="section" id="id5">
+<h3>结论<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>设 <span class="math">\({\bm A}\in {\mathbb C}_{r}^{m\times n} , (r&gt;0)\)</span> , 则</p>
+<ol class="arabic simple">
+<li><p><span class="math">\({\bm A}^H{\bm A}\)</span> 是 Hermite矩阵, 即 <span class="math">\(({\bm A}^H{\bm A})^H = {\bm A}^H{\bm A}\)</span> , 其特征值为非负实数;</p></li>
+<li><p><span class="math">\({\rm rank}({\bm A}^H{\bm A}) = {\rm rank}({\bm A}{\bm A}^H) = {\rm rank}({\bm A})\)</span> ;</p></li>
+<li><p><span class="math">\({\bm A} = {\bm 0}\)</span> 的充要条件是 <span class="math">\({\bm A}^H{\bm A} = {\bm 0}\)</span> , 此时, <span class="math">\(r=0\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DiagonalMatrix.html" class="btn btn-neutral float-right" title="7.4. 对角矩阵" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ElementaryTransformation.html" class="btn btn-neutral" title="7.2. 初等变换" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

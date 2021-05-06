@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.1. 信息检索 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 经典评价方法" href="index.html"/>
+        <link rel="next" title="1.2. 数据分类" href="Classification.html"/>
+        <link rel="prev" title="1. 经典评价方法" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第十卷 应用实践</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../ChangeDetection/index.html">变化检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PathPlanning/index.html">路径规划</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">评价方法</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 经典评价方法</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.1. 信息检索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Classification.html">1.2. 数据分类</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Similarity.html">1.3. 相似性度量指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ImageQuality.html">1.4. 图像质量评价</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ComputationalComplexityPerformance.html">1.5. 计算复杂度/性能</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">2. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第十卷 应用实践</a> &raquo;</li>
+        
+          <li><a href="../index.html">评价方法</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>经典评价方法</a> &raquo;</li>
+        
+      <li><span class="section-number">1.1. </span>信息检索</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-evaluationmethodclassicalretrieval">
+<span id="id1"></span><h1><span class="section-number">1.1. </span>信息检索<a class="headerlink" href="#section-evaluationmethodclassicalretrieval" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1.1. </span>常用数据检索指标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>基本概念<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>信息检索是指从一些相关(relevant)和不相关(irrelevant)的信息中检索出相关信息, 为便于论述, 记检索出的为正 (positive) 响应, 未检索出的为负 (negative) 响应. 下面论述的这些评价指标也通常被用在目标检测, 图像分割, 变化检测等应用领域. 主要包括以下指标</p>
+<ul class="simple">
+<li><p>真正 (True Positive, TP): 实际上是正样本, 被检索为正样本, 真相关, 也称正确检出数</p></li>
+<li><p>真负 (True Negative, TN): 实际上是负样本, 被检索为负样本, 真不相关</p></li>
+<li><p>假正 (False Positive, FP): 实际上是负样本, 被检索为正样本, 假相关, 也称为虚警</p></li>
+<li><p>假负 (False Negative, FN): 实际上是正样本, 被检索为负样本, 假不相关, 也称为漏检</p></li>
+<li><p>查准率 (Precision): 检索到的真相关样本占检索到的样本的比例</p></li>
+<li><p>查全率 (Recall): 检索到的真相关样本占总体相关样本的比例</p></li>
+<li><p>相关样本总体: 检索到的真相关样本(正确检出数, TP)与未检索到的相关样本(FN)之和</p></li>
+<li><p>不相关样本总体: 检索到的假相关样本(虚警, FP)与未检索到的不相关样本(TN)之和</p></li>
+<li><p>检索到的样本: 检索到的真相关样本(正确检出数, TP)与检索到的假相关样本(FN)之和</p></li>
+</ul>
+<div class="figure align-center" id="id9">
+<a class="reference internal image-reference" href="../../../_images/Precisionrecall.svg"><img alt="Precision and recall" src="../../../_images/Precisionrecall.svg" /></a>
+<p class="caption"><span class="caption-number">图 1.42 </span><span class="caption-text">Precision and recall (来自维基百科)</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Precision and recall (来自维基百科)</p>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>查准率<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p><strong>查准率</strong> (<a class="reference internal" href="../glossary.html#term-precision"><span class="xref std std-term">Precision</span></a>) 指检索到的真相关样本占检索到的样本的比例, 即在所有检索结果中, 真正相关样本所占比例, 亦即所有正响应中, 真正相关的样本所占比例, 在分类问题中也称正预测值 (Positive PredictIve Value, PPV), 可以表示为</p>
+<div class="math" id="equation-equ-precision">
+<span class="eqno">(1.27)<a class="headerlink" href="#equation-equ-precision" title="公式的永久链接">¶</a></span>\[{\rm PPV} = {P} = \frac{\rm TP}{{\rm TP} + {\rm FP}}
+
+\]</div>
+</div>
+<div class="section" id="id5">
+<h3>查全率<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p><strong>查全率</strong> (<a class="reference internal" href="../glossary.html#term-recall"><span class="xref std std-term">Recall</span></a>), 指检索到的真相关样本占总体相关样本的比例; 即在总体相关样本中, 检出的真正相关样本所占比例; 亦即所有正样本中, 响应为正的样本所占比例, 也称 <strong>召回率</strong> 在其它领域也称灵敏度(Sensitivity), 真正率(True Positive Rate, TPR)可以表示为</p>
+<div class="math" id="equation-equ-recall">
+<span class="eqno">(1.28)<a class="headerlink" href="#equation-equ-recall" title="公式的永久链接">¶</a></span>\[{\rm TPR} = {R} = \frac{\rm TP}{{\rm TP} + {\rm FN}}
+
+\]</div>
+</div>
+<div class="section" id="f-measure">
+<h3>F-measure<a class="headerlink" href="#f-measure" title="永久链接至标题">¶</a></h3>
+<p>查准率(<span class="math">\(P\)</span>)与查全率(<span class="math">\(R\)</span>)只能从一个方面衡量模型性能, 当查准率与查全率均比较高时, 模型效果越好. <a class="reference internal" href="../glossary.html#term-f-measure"><span class="xref std std-term">F-measure</span></a> 是一种融合了查准率与查全率的综合评价指标, 可以表示为</p>
+<div class="math" id="equation-equ-f-measure">
+<span class="eqno">(1.29)<a class="headerlink" href="#equation-equ-f-measure" title="公式的永久链接">¶</a></span>\[F_{\beta} = \frac{(1+\beta^2)⋅P⋅R}{\beta^2⋅P + R}
+
+\]</div>
+<p>其中, <span class="math">\(\beta\)</span> 用于调整查准率与查全率所占比重, 通常取 <span class="math">\(\beta=0.5, 1, 2\)</span>. 当 <span class="math">\(\beta=0.5\)</span> 时, 更强调查准率; 当 <span class="math">\(\beta=2\)</span> 时, 更强调查全率.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>举例: 假设有 n 对预测与真值数据对 <span class="math">\(\{{\bm X}_i, {\bm Y}_i\}_{i=1}^n\)</span>, 其中前 <span class="math">\(n-1\)</span> 对的值全为零, 第 <span class="math">\(n\)</span> 对, 仅有一个正例样本点且被正确预测/检索.</p>
+<p>若将所有数据对看作总体, 有 <span class="math">\({\rm TP}=1\)</span>, <span class="math">\({\rm FP}=0, {\rm FN}=0\)</span>, 从而有查准率 <span class="math">\(P=1\)</span>, 查全率 <span class="math">\(R=1\)</span>, 继而有F值 <span class="math">\(F_{all} = 1\)</span></p>
+<p>若将每一个数据对看作总体, 对于前 <span class="math">\(n-1\)</span> 个数据, 有 <span class="math">\({\rm TP}=0\)</span>, <span class="math">\({\rm FP}=0, {\rm FN}=0\)</span>, 从而有查准率 <span class="math">\(P=0\)</span>, 查全率 <span class="math">\(R=0\)</span>, <span class="math">\(F^{(i)}=0, i=1,2,\cdots, n-1\)</span>; 对于第 <span class="math">\(n\)</span> 个数据对有 <span class="math">\({\rm TP}=1\)</span>, <span class="math">\({\rm FP}=0, {\rm FN}=0\)</span>, 从而有查准率 <span class="math">\(P=1\)</span>, 查全率 <span class="math">\(R=1\)</span>, <span class="math">\(F^{(n)}=1\)</span>, 故平均F值为 <span class="math">\(F_{avg}=(F^{(1)} + F^{(2)} + F^{(n-1)} + F^{(n)}) / n = 1/n\)</span>.</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>虚警率<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p><strong>虚警率</strong> (<span class="xref std std-term">False Alarm Rate</span>) 也称错误发现率 (False Discovery Rate, FDR), 是指在检索出的样本中, 不相关的样本所占比例, 与查准率互补, 可以表示为</p>
+<div class="math" id="equation-equ-falsediscoveryrate">
+<span class="eqno">(1.30)<a class="headerlink" href="#equation-equ-falsediscoveryrate" title="公式的永久链接">¶</a></span>\[{\rm FDR} = \frac{\rm FP}{{\rm TP} + {\rm FP}} = 1 - P
+
+\]</div>
+</div>
+<div class="section" id="id7">
+<h3>漏检率<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p><strong>漏检率</strong> (<span class="xref std std-term">Miss Alarm Rate</span>) 也称假负率 (False Negative Rate, FNR), 是指未检索出的正类样本占总正类样本的比例, 与召回率互补, 可以表示为</p>
+<div class="math" id="equation-equ-falsenegativerate">
+<span class="eqno">(1.31)<a class="headerlink" href="#equation-equ-falsenegativerate" title="公式的永久链接">¶</a></span>\[{\rm FNR} = \frac{\rm FN}{{\rm FN} + {\rm TP}} = 1 - R
+
+\]</div>
+</div>
+<div class="section" id="id8">
+<h3>总结<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>sensitivity, recall, hit rate, or true positive rate (TPR)</p>
+<div class="math">
+\[{ \mathrm {TPR} ={\frac {\mathrm {TP} }{\mathrm {P} }}={\frac {\mathrm {TP} }{\mathrm {TP} +\mathrm {FN} }}=1-\mathrm {FNR} }
+
+\]</div>
+</li>
+<li><p>specificity, selectivity or true negative rate (TNR)</p>
+<div class="math">
+\[{ \mathrm {TNR} ={\frac {\mathrm {TN} }{\mathrm {N} }}={\frac {\mathrm {TN} }{\mathrm {TN} +\mathrm {FP} }}=1-\mathrm {FPR} }
+
+\]</div>
+</li>
+<li><p>precision or positive predictive value (PPV)</p>
+<div class="math">
+\[{ \mathrm {PPV} ={\frac {\mathrm {TP} }{\mathrm {TP} +\mathrm {FP} }}=1-\mathrm {FDR} }
+
+\]</div>
+</li>
+<li><p>negative predictive value (NPV)</p>
+<div class="math">
+\[{ \mathrm {NPV} ={\frac {\mathrm {TN} }{\mathrm {TN} +\mathrm {FN} }}=1-\mathrm {FOR} }
+
+\]</div>
+</li>
+<li><p>miss rate or false negative rate (FNR)</p>
+<div class="math">
+\[{ \mathrm {FNR} ={\frac {\mathrm {FN} }{\mathrm {P} }}={\frac {\mathrm {FN} }{\mathrm {FN} +\mathrm {TP} }}=1-\mathrm {TPR} }
+
+\]</div>
+</li>
+<li><p>fall-out or false positive rate (FPR)</p>
+<div class="math">
+\[{ \mathrm {FPR} ={\frac {\mathrm {FP} }{\mathrm {N} }}={\frac {\mathrm {FP} }{\mathrm {FP} +\mathrm {TN} }}=1-\mathrm {TNR} }
+
+\]</div>
+</li>
+<li><p>false discovery rate (FDR)</p>
+<div class="math">
+\[{ \mathrm {FDR} ={\frac {\mathrm {FP} }{\mathrm {FP} +\mathrm {TP} }}=1-\mathrm {PPV} }
+
+\]</div>
+</li>
+<li><p>false omission rate (FOR)</p>
+<div class="math">
+\[{ \mathrm {FOR} ={\frac {\mathrm {FN} }{\mathrm {FN} +\mathrm {TN} }}=1-\mathrm {NPV} }
+
+\]</div>
+</li>
+<li><p>Threat score (TS) or Critical Success Index (CSI)</p>
+<div class="math">
+\[{ \mathrm {TS} ={\frac {\mathrm {TP} }{\mathrm {TP} +\mathrm {FN} +\mathrm {FP} }}}
+
+\]</div>
+</li>
+<li><p>accuracy (ACC)</p>
+<div class="math">
+\[{ \mathrm {ACC} ={\frac {\mathrm {TP} +\mathrm {TN} }{\mathrm {P} +\mathrm {N} }}={\frac {\mathrm {TP} +\mathrm {TN} }{\mathrm {TP} +\mathrm {TN} +\mathrm {FP} +\mathrm {FN} }}}
+
+\]</div>
+</li>
+<li><p>F1 score: is the harmonic mean of precision and sensitivity</p>
+<div class="math">
+\[{ \mathrm {F} _{1}=2\cdot {\frac {\mathrm {PPV} \cdot \mathrm {TPR} }{\mathrm {PPV} +\mathrm {TPR} }}={\frac {2\mathrm {TP} }{2\mathrm {TP} +\mathrm {FP} +\mathrm {FN} }}}
+
+\]</div>
+</li>
+<li><p>Matthews correlation coefficient (MCC)</p>
+<div class="math">
+\[{ \mathrm {MCC} ={\frac {\mathrm {TP} \times \mathrm {TN} -\mathrm {FP} \times \mathrm {FN} }{\sqrt {(\mathrm {TP} +\mathrm {FP} )(\mathrm {TP} +\mathrm {FN} )(\mathrm {TN} +\mathrm {FP} )(\mathrm {TN} +\mathrm {FN} )}}}}
+
+\]</div>
+</li>
+<li><p>Informedness or Bookmaker Informedness (BM)</p>
+<div class="math">
+\[{ \mathrm {BM} =\mathrm {TPR} +\mathrm {TNR} -1}
+
+\]</div>
+</li>
+<li><p>Markedness (MK)</p>
+<div class="math">
+\[{ \mathrm {MK} =\mathrm {PPV} +\mathrm {NPV} -1}
+
+\]</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Classification.html" class="btn btn-neutral float-right" title="1.2. 数据分类" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="1. 经典评价方法" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

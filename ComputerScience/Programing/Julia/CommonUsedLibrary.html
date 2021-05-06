@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.2. 常用依赖库 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="7. Julia程序设计" href="index.html"/>
+        <link rel="next" title="8. PyTorch简明教程" href="../PyTorch/index.html"/>
+        <link rel="prev" title="7.1. 引言" href="Introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第四卷 计算机学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../OperatingSystem/index.html">操作系统</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">程序设计</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../C/index.html">1. C程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lua/index.html">2. Lua程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../IDL/index.html">3. IDL程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lisp/index.html">4. Lisp程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Python/index.html">5. Python程序设计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Matlab/index.html">6. Matlab程序设计</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">7. Julia程序设计</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">7.1. 引言</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">7.2. 常用依赖库</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PyTorch/index.html">8. PyTorch简明教程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Shell/index.html">9. Shell程序设计</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../AlgorithmDesign/index.html">算法设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Internet/index.html">互联部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ArtificialIntelligenceProcessor/index.html">人工智能处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../EmbeddedDevelopment/index.html">嵌入式系统开发</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第四卷 计算机学</a> &raquo;</li>
+        
+          <li><a href="../index.html">程序设计</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">7. </span>Julia程序设计</a> &raquo;</li>
+        
+      <li><span class="section-number">7.2. </span>常用依赖库</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-commonusedlibraryjuliaprogramingcomputerscience">
+<span id="id1"></span><h1><span class="section-number">7.2. </span>常用依赖库<a class="headerlink" href="#section-commonusedlibraryjuliaprogramingcomputerscience" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">7.2.1. </span>基础库<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>构建编译<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="cmake">
+<h4>CMake<a class="headerlink" href="#cmake" title="永久链接至标题">¶</a></h4>
+<p>使用命令 <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">CMake</span></code> 即可安装, 本书作者在安装过程中提示如下错误:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre>(@v1.4) pkg&gt; add CMake
+  Resolving package versions...
+  Installed CMake ─ v1.2.0
+   Updating `~/.juliapro/JuliaPro_v1.4.0-1/environments/v1.4/Project.toml`
+  [631607c0] + CMake v1.2.0
+   Updating `~/.juliapro/JuliaPro_v1.4.0-1/environments/v1.4/Manifest.toml`
+ [no changes]
+   Building CMake → `~/.juliapro/JuliaPro_v1.4.0-1/packages/CMake/ULbyn/deps/build.log`
+┌ Error: Error building `CMake`:
+│   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+│                                  Dload  Upload   Total   Spent    Left  Speed
+100   607  100   607    0     0    338      0  0:00:01  0:00:01 --:--:--   337
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+│ curl: (51) SSL: certificate subject name (ubuntu) does not match target host name &#39;github-production-release-asset-2e65be.s3.amazonaws.com&#39;
+│ [ Info: Attempting to create directory /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/CMake/ULbyn/deps/downloads
+│ [ Info: Downloading file https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3.tar.gz
+│ ERROR: LoadError: failed process: Process(`curl -f -o /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/CMake/ULbyn/deps/downloads/cmake-3.15.3.tar.gz -L https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3.tar.gz`, ProcessExited(51)) [51]
+│
+│ Stacktrace:
+│  [1] pipeline_error at ./process.jl:525 [inlined]
+│  [2] run(::Cmd; wait::Bool) at ./process.jl:440
+│  [3] run(::Cmd) at ./process.jl:438
+│  [4] run(::BinDeps.SynchronousStepCollection) at /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/BinDeps/eiJeV/src/BinDeps.jl:524
+│  [5] run(::FileRule) at /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/BinDeps/eiJeV/src/BinDeps.jl:486
+│  [6] run(::BinDeps.SynchronousStepCollection) at /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/BinDeps/eiJeV/src/BinDeps.jl:524
+│  [7] run(::FileRule) at /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/BinDeps/eiJeV/src/BinDeps.jl:486
+│  [8] run(::BinDeps.SynchronousStepCollection) at /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/BinDeps/eiJeV/src/BinDeps.jl:524
+│  [9] top-level scope at /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/CMake/ULbyn/deps/build.jl:158
+│  [10] include(::String) at ./client.jl:439
+│  [11] top-level scope at none:5
+│ in expression starting at /home/liu/.juliapro/JuliaPro_v1.4.0-1/packages/CMake/ULbyn/deps/build.jl:158
+└ @ Pkg.Operations /home/buildbot/build-worker/worker/juliapro-release-centos7-0_6/build/tmp_julia/share/julia/stdlib/v1.4/Pkg/src/Operations.jl:892
+</pre></div>
+</div>
+<p>根据错误提示可知, 证书名不匹配, 所以无法下载文件 <code class="docutils literal notranslate"><span class="pre">cmake-3.15.3.tar.gz</span></code>, 故手动下载该文件, 并放在目录 <cite>downloads</cite> 目录下, 执行 <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">CMake</span></code> 命令即可. 构建完成后, 输入 <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">CMake</span></code> 若无错误提示, 则证明安装成功.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>在下面的安装过程中出现类似错误均可通过自行下载解决. 如在安装 <code class="docutils literal notranslate"><span class="pre">HDF5</span></code> 时, 可能需要自行下载 <cite>HDF5, Zlib, Blosc</cite>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="io">
+<h3>IO库<a class="headerlink" href="#io" title="永久链接至标题">¶</a></h3>
+<p>在安装本节提及的库时, 可能会用到上一节中的库, 故建议先安装上一节中的库.</p>
+<div class="section" id="hdf5">
+<h4>HDF5<a class="headerlink" href="#hdf5" title="永久链接至标题">¶</a></h4>
+<p>执行 <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">Pkg;</span> <span class="pre">Pkg.add(&quot;HDF5&quot;)</span></code> 即可, 若出现文件无法下载的情况, 可参考 <code class="docutils literal notranslate"><span class="pre">CMake</span></code> 部分的解决方法, 以下不再赘述.</p>
+</div>
+<div class="section" id="mat">
+<h4>MAT<a class="headerlink" href="#mat" title="永久链接至标题">¶</a></h4>
+<p>Julia交互窗口执行 <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">Pkg;</span> <span class="pre">Pkg.add(&quot;MAT&quot;)</span></code> 即可安装, 或者按 <kbd class="kbd docutils literal notranslate">]</kbd> 进入包管理器交互界面, 执行 <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">MAT</span></code> 即可安装.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">7.2.2. </span>科学计算库<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../PyTorch/index.html" class="btn btn-neutral float-right" title="8. PyTorch简明教程" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral" title="7.1. 引言" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

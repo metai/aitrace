@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>神经网络 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../index.html"/>
+        <link rel="up" title="第六卷 人工智能" href="../index.html"/>
+        <link rel="next" title="1. 简介" href="intro.html"/>
+        <link rel="prev" title="4. 名词术语" href="../MachineLearning/glossary.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">第六卷 人工智能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimization/index.html">优化方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MachineLearning/index.html">机器学习</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">神经网络</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html">1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/index.html">2. 神经网络组件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/index.html">3. 神经网络常用损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/index.html">4. 简单神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SupportVectorMachine/index.html">5. 支撑矢量机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/index.html">6. 极速学习机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RecursiveNeuralNetwork/index.html">9. 递归神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ResidualNeuralNetwork/index.html">11. 残差神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FractalNeuralNetwork/index.html">12. 分形神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StochasticNeuralNetwork/index.html">13. 随机神经网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ComplexityAnalysis/index.html">14. 复杂度分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zreference.html">15. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glossary.html">16. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../DeepLearning/index.html">深度学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FuzzySystem/index.html">模糊神经系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CurriculumLearning/index.html">课程学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SelfPacedLearning/index.html">自步学习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">第六卷 人工智能</a> &raquo;</li>
+        
+      <li>神经网络</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="part-neuralnetwork">
+<span id="id1"></span><h1>神经网络<a class="headerlink" href="#part-neuralnetwork" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. 简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-is">1.1. What is？</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#dddddddd">1.1.1. dddddddd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#why">1.2. Why？</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#id2">1.2.1. dddddddd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#how">1.3. How?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#materials">1.3.1. materials</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ModulesOfNN/index.html">2. 神经网络组件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/ActivationsUnit.html">2.1. 激活函数单元</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ActivationsUnit.html#id2">2.1.1. 什么是激活函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ActivationsUnit.html#id3">2.1.2. 为什么要有激活函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ActivationsUnit.html#id4">2.1.3. 经典激活函数分类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ActivationsUnit.html#id7">2.1.4. 新颖激活函数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/ConvolutionUnit.html">2.2. 卷积单元</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ConvolutionUnit.html#id2">2.2.1. 经典卷积运算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ConvolutionUnit.html#id6">2.2.2. 经典二维转置卷积运算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ConvolutionUnit.html#id7">2.2.3. 新型卷积</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ConvolutionUnit.html#id9">2.2.4. 实验分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/PoolingUnit.html">2.3. 池化单元</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/PoolingUnit.html#id2">2.3.1. 经典二维池化运算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/PoolingUnit.html#id3">2.3.2. 膨胀二维池化运算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/PoolingUnit.html#id4">2.3.3. 金字塔池化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/RegularizationUnit.html">2.4. 正则化单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/SkipConnection.html">2.5. 跳跃连接</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/SkipConnection.html#id2">2.5.1. 前向跳跃连接</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/SkipConnection.html#id6">2.5.2. 后向跳跃连接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/RecursiveUnit.html">2.6. 递归单元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/ResidualUnit.html">2.7. 残差单元</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ModulesOfNN/ResidualUnit.html#id2">2.7.1. 经典残差块分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesOfNN/zreference.html">2.8. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LossFunctions/index.html">3. 神经网络常用损失函数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LossFunctions/Error.html">3.1. 基于误差的损失函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Error.html#id2">3.1.1. 什么是误差</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Error.html#id3">3.1.2. 均方误差损失</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Error.html#id4">3.1.3. 绝对误差损失</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Error.html#id5">3.1.4. 光滑绝对误差损失</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LossFunctions/Entropy.html">3.2. 基于熵的损失函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Entropy.html#id2">3.2.1. 什么是熵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Entropy.html#id4">3.2.2. 交叉熵损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Entropy.html#id6">3.2.3. 相对熵损失函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LossFunctions/Entropy.html#id8">3.2.4. 二值交叉熵损失函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SimpleNeuralNetwork/index.html">4. 简单神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SimpleNeuralNetwork/SingleLayerPerceptron.html">4.1. 单层感知器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/SingleLayerPerceptron.html#id2">4.1.1. 什么是感知器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/SingleLayerPerceptron.html#id3">4.1.2. 单层感知器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/SingleLayerPerceptron.html#id4">4.1.3. 实例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SimpleNeuralNetwork/MultiLayerPerceptron.html">4.2. 多层感知器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/MultiLayerPerceptron.html#id2">4.2.1. 概念与内涵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/MultiLayerPerceptron.html#id3">4.2.2. 实例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/MultiLayerPerceptron.html#mnist">4.2.3. MNIST手写体分类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimpleNeuralNetwork/MultiLayerPerceptron.html#cfar10">4.2.4. CFAR10物体分类</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SimpleNeuralNetwork/AutoencoderNeuralNetwork.html">4.3. 自编码神经网络</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SupportVectorMachine/index.html">5. 支撑矢量机</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SupportVectorMachine/SVM.html">5.1. 支撑矢量机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SupportVectorMachine/FuzzySVM.html">5.2. 模糊支撑矢量机</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SupportVectorMachine/FuzzySVM.html#fsvm">5.2.1. FSVM原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SupportVectorMachine/FuzzySVM.html#subsubsection-fsvm-membershipfuncselection">5.2.2. 隶属函数选择</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SupportVectorMachine/FuzzySVM.html#id12">5.2.3. 实验及结果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SupportVectorMachine/zreference.html">5.3. 参考文献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SupportVectorMachine/glossary.html">5.4. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ExtremeLearningMachine/index.html">6. 极速学习机</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/ELM.html">6.1. 经典极速学习机</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELM.html#id2">6.1.1. 什么是极速学习机</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html">6.2. 基于局部感受野的极速学习机</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id2">6.2.1. 说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id6">6.2.2. 摘要内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id7">6.2.3. 引言部分</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#elm-cnnhtm">6.2.4. 回顾ELM, CNN和HTM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#elm-lrf">6.2.5. ELM-LRF 原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id17">6.2.6. 局部感受野的实现</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id18">6.2.7. 讨论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id19">6.2.8. 实验</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id24">6.2.9. 结论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id25">6.2.10. 代码实现</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/ELMLRF.html#id32">6.2.11. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/FuzzyELM.html">6.3. 模糊极速学习机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/FuzzyELMLRF.html">6.4. 基于局部感受野的模糊极速学习机</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/FuzzyELMLRF.html#id2">6.4.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/FuzzyELMLRF.html#felm-lrf">6.4.2. FELM-LRF原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/FuzzyELMLRF.html#id4">6.4.3. 隶属函数选择</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/FuzzyELMLRF.html#id5">6.4.4. 实验及结果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/OSELM.html">6.5. 在线极速学习机</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/OSELM.html#id2">6.5.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/OSELM.html#oselm">6.5.2. OSELM 原理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/OSELMLRF.html">6.6. 基于局部感受野的在线极速学习机</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/OSELMLRF.html#id2">6.6.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExtremeLearningMachine/OSELMLRF.html#oselm-lrf">6.6.2. OSELM-LRF原理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/zreference.html">6.7. 参考文献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExtremeLearningMachine/glossary.html">6.8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EnergyBasedNeuralNetwork/index.html">7. 基于能量的神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EnergyBasedNeuralNetwork/Hopfield.html">7.1. Hopfield 神经网络</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnergyBasedNeuralNetwork/BMRBM.html">7.2. 玻尔兹曼机与受限玻尔兹曼机</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ConvolutionalNeuralNetwork/index.html">8. 卷积神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ConvolutionalNeuralNetwork/ClassicalCNN.html">8.1. 经典卷积神经网络</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ConvolutionalNeuralNetwork/ClassicalCNN.html#id4">8.1.1. 卷积神经网络举例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="RecursiveNeuralNetwork/index.html">9. 递归神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="RecursiveNeuralNetwork/RecursiveNeuralNetwork.html">9.1. 递归神经网络</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GenerativeNeuralNetwork/index.html">10. 生成式神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GenerativeNeuralNetwork/GenerativeNeuralNetwork.html">10.1. 生成式神经网络</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ResidualNeuralNetwork/index.html">11. 残差神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ResidualNeuralNetwork/ResidualNeuralNetwork.html">11.1. 残差神经网络</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FractalNeuralNetwork/index.html">12. 分形神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FractalNeuralNetwork/FractalNeuralNetwork.html">12.1. 分形神经网络</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="StochasticNeuralNetwork/index.html">13. 随机神经网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="StochasticNeuralNetwork/StochasticNeuralNetwork.html">13.1. 随机神经网络</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComplexityAnalysis/index.html">14. 复杂度分析</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ComplexityAnalysis/MeasureIndex.html">14.1. 衡量指标</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ComplexityAnalysis/MeasureIndex.html#id2">14.1.1. 运算量计算</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ComplexityAnalysis/Examples.html">14.2. 实例分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ComplexityAnalysis/Examples.html#ssd300">14.2.1. SSD300目标检测网络分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zreference.html">15. 参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">16. 名词术语</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="intro.html" class="btn btn-neutral float-right" title="1. 简介" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../MachineLearning/glossary.html" class="btn btn-neutral" title="4. 名词术语" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

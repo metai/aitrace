@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.3. 相似性度量指标 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 经典评价方法" href="index.html"/>
+        <link rel="next" title="1.4. 图像质量评价" href="ImageQuality.html"/>
+        <link rel="prev" title="1.2. 数据分类" href="Classification.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第十卷 应用实践</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../ChangeDetection/index.html">变化检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PathPlanning/index.html">路径规划</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">评价方法</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 经典评价方法</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Retrieval.html">1.1. 信息检索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Classification.html">1.2. 数据分类</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.3. 相似性度量指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ImageQuality.html">1.4. 图像质量评价</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ComputationalComplexityPerformance.html">1.5. 计算复杂度/性能</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">2. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第十卷 应用实践</a> &raquo;</li>
+        
+          <li><a href="../index.html">评价方法</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>经典评价方法</a> &raquo;</li>
+        
+      <li><span class="section-number">1.3. </span>相似性度量指标</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-evaluationmethodclassicalsimilarity">
+<span id="id1"></span><h1><span class="section-number">1.3. </span>相似性度量指标<a class="headerlink" href="#section-evaluationmethodclassicalsimilarity" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.3.1. </span>集合方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="jaccard">
+<h3>Jaccard<a class="headerlink" href="#jaccard" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id3">
+<h4>Jaccard 指数与距离<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
+<p>Jaccard 指数 (index), 也称为并上交 (Intersection over Union, IoU) 或 Jaccard 相似性系数 (<a class="reference internal" href="../glossary.html#term-jaccard-similarity-coefficient"><span class="xref std std-term">Jaccard Similarity Coefficient</span></a>), 用于测量样本集的相似性与多样性. Jaccard系数用于衡量有限样本集间的相似性, 被定义为集合交的势除并的势.</p>
+<div class="math" id="equation-equ-jaccardsimilaritycoefficient">
+<span class="eqno">(1.32)<a class="headerlink" href="#equation-equ-jaccardsimilaritycoefficient" title="公式的永久链接">¶</a></span>\[J({\mathbb A}, {\mathbb B})=\frac{|{\mathbb A} \cap {\mathbb B}|}{|{\mathbb A} \cup {\mathbb B}|}=\frac{|{\mathbb A} \cap {\mathbb B}|}{|{\mathbb A}|+|{\mathbb B}|-|{\mathbb A} \cap {\mathbb B}|}
+
+\]</div>
+<p>其中, <span class="math">\(|\mathbb A|\)</span> 表示集合 <span class="math">\(\mathbb A\)</span> 的势 <a class="footnote-reference brackets" href="#setcard" id="id4">1</a>, <span class="math">\(0 &lt; J({\mathbb A}, {\mathbb B}) &lt; 1\)</span>, 若 <span class="math">\({\mathbb A}, {\mathbb B}\)</span> 为空集, 定义 <span class="math">\(J({\mathbb A}, {\mathbb B}) = 1\)</span>.</p>
+<div class="figure align-center" id="id8">
+<a class="reference internal image-reference" href="../../../_images/Intersection_over_Union.png"><img alt="Jaccard index" src="../../../_images/Intersection_over_Union.png" style="width: 300.0px; height: 234.0px;" /></a>
+<p class="caption"><span class="caption-number">图 1.43 </span><span class="caption-text">Intersection over Union</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+<div class="legend">
+<p>Intersection over Union</p>
+</div>
+</div>
+<p>Jaccard 距离用于衡量样本集合间的差异, 常定义如下:</p>
+<div class="math">
+\[d_{J}({\mathbb A}, {\mathbb B})=1-J({\mathbb A}, {\mathbb B})=\frac{|{\mathbb A} \cup {\mathbb B}|-|{\mathbb A} \cap {\mathbb B}|}{|{\mathbb A} \cup {\mathbb B}|}
+
+\]</div>
+</div>
+<div class="section" id="id5">
+<h4>加权 Jaccard 指数与距离<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="id6">
+<h4>概率 Jaccard 指数与距离<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+</div>
+</div>
+<div class="section" id="dice">
+<h3>Dice 系数<a class="headerlink" href="#dice" title="永久链接至标题">¶</a></h3>
+<p>Sørensen–Dice coefficient 简称为 <a class="reference internal" href="../glossary.html#term-dice-coefficient"><span class="xref std std-term">Dice Coefficient</span></a> 或 Dice Similarity Coefficient, 衡量两个样本集合的相似性, 给定集合 <span class="math">\({\mathbb A}, {\mathbb B}\)</span>, Dice系数定义为</p>
+<div class="math" id="equation-equ-dicecoefficient">
+<span class="eqno">(1.35)<a class="headerlink" href="#equation-equ-dicecoefficient" title="公式的永久链接">¶</a></span>\[S = {\rm DSC} = \frac{2|{\mathbb A}\cap{\mathbb B}|}{|{\mathbb A}|+|{\mathbb B}|}.
+
+\]</div>
+<p>对于二值数据, 采用 true positive (TP), false positive (FP), 和 false negative (FN) 的定义, 则Dice系数可以表示为</p>
+<div class="math" id="equation-equ-dicecoefficientbin">
+<span class="eqno">(1.34)<a class="headerlink" href="#equation-equ-dicecoefficientbin" title="公式的永久链接">¶</a></span>\[S = {\rm DSC} = \frac{2{\rm TP}}{2{\rm TP} + {\rm FP} + {\rm FN}}.
+
+\]</div>
+<p>容易得出 Dice系数与Jaccard系数间存在如下关系</p>
+<div class="math" id="equation-equ-dicecoefficient">
+<span class="eqno">(1.35)<a class="headerlink" href="#equation-equ-dicecoefficient" title="公式的永久链接">¶</a></span>\[\begin{array}{l}{J=S /(2-S)} \\ {S=2 J /(1+J)}\end{array}.
+
+\]</div>
+<p>且此时有 <span class="math">\({\rm DSC} = {\rm F}_1\)</span>.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>将查准率 <a class="reference internal" href="Retrieval.html#equation-equ-precision">式.1.27</a> 与查全率 <a class="reference internal" href="Retrieval.html#equation-equ-recall">式.1.28</a> 代入 <a class="reference internal" href="Retrieval.html#equation-equ-precision">式.1.27</a> 中, 有</p>
+<div class="math">
+\[F_1 = \frac{(1+1^2)⋅P⋅R}{1^2⋅P+R} = \frac{(1+1^2)⋅\frac{\rm TP}{{\rm TP} + {\rm FP}}⋅ \frac{\rm TP}{{\rm TP} + {\rm FN}}}{1^2⋅\frac{\rm TP}{{\rm TP} + {\rm FP}} + \frac{\rm TP}{{\rm TP} + {\rm FN}}}\\
+=\frac{2{\rm TP}^2}{({\rm TP}+{\rm FP})({\rm TP}+{\rm FN})}⋅\frac{({\rm TP}+{\rm FP})({\rm TP}+{\rm FN})}{{\rm TP}(2{\rm TP}+{\rm FP}+{\rm FN})}\\
+= \frac{2{\rm TP}}{2{\rm TP} + {\rm FP}+ {\rm FN}} = {\rm DSC}
+
+\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">1.3.2. </span>结构相似性度量<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>有关图像领域中的结构相似性度量指标(SSIM)参见 <span class="xref std std-ref">_Section-EvaluationMethodImageQuality</span> 小节.</p>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="setcard"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>集合的势即即集合中元素的个数, 参见 <a class="reference internal" href="../../../BasisMath/AdvancedMath/SetTheory/SetBasis.html#subsubsection-setcard"><span class="std std-ref">集合的势与基数</span></a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ImageQuality.html" class="btn btn-neutral float-right" title="1.4. 图像质量评价" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Classification.html" class="btn btn-neutral" title="1.2. 数据分类" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.4. 线性压缩感知观测 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="5. 线性压缩感知" href="index.html"/>
+        <link rel="next" title="5.5. 线性压缩感知重构" href="Reconstruction.html"/>
+        <link rel="prev" title="5.3. 线性压缩感知信号模型" href="SignalModel.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Digital/index.html">数字信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">稀疏信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SparsitySamplingRecon/index.html">2. 稀疏采样与重构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RepresentationDictionary/index.html">3. 表示字典</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SignalSparseDecomposition/index.html">4. 信号稀疏分解</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">5. 线性压缩感知</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">5.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCS.html">5.2. 线性压缩感知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SignalModel.html">5.3. 线性压缩感知信号模型</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.4. 线性压缩感知观测</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Reconstruction.html">5.5. 线性压缩感知重构</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCSExperiments.html">5.6. 线性压缩感知实践</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../BayesianCompressiveSensing/index.html">6. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LearnedCompressiveSensing/index.html">7. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningCompressiveSensing/index.html">8. 深度学习与压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">9. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">10. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">稀疏信号处理</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">5. </span>线性压缩感知</a> &raquo;</li>
+        
+      <li><span class="section-number">5.4. </span>线性压缩感知观测</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-measurementlinearcompressivesensingsparsesignalprocessing">
+<span id="id1"></span><h1><span class="section-number">5.4. </span>线性压缩感知观测<a class="headerlink" href="#section-measurementlinearcompressivesensingsparsesignalprocessing" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">5.4.1. </span>感知矩阵的设计<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>感知矩阵的设计需要满足如下条件.</p>
+<div class="section" id="id3">
+<h3>零空间条件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>设有信号空间 <span class="math">\({\mathbb X}^n\)</span> 中的任意不同信号 <span class="math">\({\bm x}_1, {\bm x}_2 \in {\mathbb X}^n\)</span>, 感知矩阵 <span class="math">\({\bm A}\in{\mathbb R}^{m\times n}\)</span>, 对应的观测向量分别为 <span class="math">\({\bm y}_1, {\bm y}_2 \in {\mathbb Y}^m\)</span>. 若想从 <span class="math">\({\bm y}_1, {\bm y}_2\)</span> 中恢复 <span class="math">\({\bm x}_1, {\bm x}_2\)</span>, 需保证不同信号在投影后依然不同 <span class="math">\({\bm y}_1 = {\bm A}{\bm x}_1 \neq {\bm y}_2 = {\bm A}{\bm x}_2\)</span>, 即 <span class="math">\({\bm A}({\bm x}_1 - {\bm x}_2) \neq 0\)</span>, 亦即 <span class="math">\({\bm x}_1 - {\bm x}_2 \notin {\mathcal N}({\bm A})\)</span>. 这一性质可以通过矩阵的 Spark, 零空间性质等表达.</p>
+<div class="proof proof-type-theorem" id="id17">
+<span id="thensp1"></span>
+    <div class="proof-title">
+        <span class="proof-type">Theorem 5.3</span>
+        
+    </div><div class="proof-content">
+<p>对于 <span class="math">\(\forall {\bm y}\in {\mathbb Y}^m\)</span>, 当且仅当 <span class="math">\({\rm Spark}({\bm A}) &gt; 2k\)</span> 时, 最多存在一个 <span class="math">\(k\)</span> 稀疏信号 <span class="math">\({\bm x}\in {\mathbb X}^n_k\)</span>, 使得 <span class="math">\({\bm y} = {\bm A}{\bm x}\)</span> 成立.</p>
+</div></div><p>该定理的证明参见文献 <a class="bibtex reference internal" href="../zreference.html#eldar-2012" id="id4">[5]</a>.</p>
+<p>下面介绍矩阵的零空间性质 (Null Space Property, NSP) <a class="bibtex reference internal" href="../zreference.html#eldar-2012" id="id5">[5]</a>.</p>
+<div class="proof proof-type-definition" id="id18">
+<span id="defnsp1"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 5.4</span>
+        
+            <span class="proof-title-name">(零空间性质 (Null Space Property, NSP))</span>
+        
+    </div><div class="proof-content">
+<p>设矩阵 <span class="math">\({\bm A} = [{\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n]\in {\mathbb R}^{m\times n}\)</span> , <span class="math">\({\bm a}_i \in {\mathbb R}^m, i=1,2,\cdots, n\)</span>. 若 <span class="math">\(\forall {\bm v}\in{\mathcal N}({\bm A})\)</span>, 满足</p>
+<div class="math" id="equation-equ-nsp-cs">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-equ-nsp-cs" title="公式的永久链接">¶</a></span>\[\|{\bm v}_{\mathbb K}\|_1 < \|{\bm v}_{\bar{\mathbb K}}\|_1
+
+\]</div>
+<p>其中, <span class="math">\({\mathbb K} \subset {\mathbb N}\)</span>, <span class="math">\({\mathbb N}=\{1, 2, \cdots, n\}\)</span>, <span class="math">\(\bar{\mathbb K}\)</span> 为 <span class="math">\({\mathbb K}\)</span> 在 <span class="math">\({\mathbb N}\)</span> 中的补集, <span class="math">\({\rm card}({\mathbb K}) \leq k\)</span>. 则称矩阵 <span class="math">\(\bm A\)</span> 满足 <span class="math">\(k\)</span> 阶 <strong>零空间性质</strong> (Null Space Property, NSP).</p>
+</div></div><p>下面介绍矩阵的零空间性质 (<a class="reference internal" href="../glossary.html#term-null-space-property"><span class="xref std std-term">Null Space Property</span></a>, NSP) 的另一种定义 <a class="bibtex reference internal" href="../zreference.html#foucart-2013" id="id6">[6]</a>.</p>
+<div class="proof proof-type-definition" id="id19">
+<span id="defnsp2"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 5.5</span>
+        
+            <span class="proof-title-name">(零空间性质 (Null Space Property, NSP))</span>
+        
+    </div><div class="proof-content">
+<p>设矩阵 <span class="math">\({\bm A} = [{\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n]\in {\mathbb R}^{m\times n}\)</span> , <span class="math">\({\bm a}_i \in {\mathbb R}^m, i=1,2,\cdots, n\)</span>. 若 <span class="math">\(\forall {\bm v}\in{\mathcal N}({\bm A})\)</span>, <span class="math">\(\exists C&gt;0\)</span> 满足</p>
+<div class="math" id="equation-equ-nsp-cs">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-equ-nsp-cs" title="公式的永久链接">¶</a></span>\[\|{\bm v}_{\mathbb K}\|_2 \leq C\frac{\|{\bm v}_{\bar{\mathbb K}}\|_1}{\sqrt{k}}
+
+\]</div>
+<p>其中, <span class="math">\({\mathbb K} \subset {\mathbb N}\)</span>, <span class="math">\({\mathbb N}=\{1, 2, \cdots, n\}\)</span>, <span class="math">\(\bar{\mathbb K}\)</span> 为 <span class="math">\({\mathbb K}\)</span> 在 <span class="math">\({\mathbb N}\)</span> 中的补集, <span class="math">\({\rm card}({\mathbb K}) \leq k\)</span>. 则称矩阵 <span class="math">\(\bm A\)</span> 满足 <span class="math">\(k\)</span> 阶 <strong>零空间性质</strong> (<a class="reference internal" href="../glossary.html#term-null-space-property"><span class="xref std std-term">Null Space Property</span></a>, NSP).</p>
+</div></div></div>
+<div class="section" id="id7">
+<h3>有限等距性质<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>RIP 被广泛用于压缩感知 (<a class="reference internal" href="../glossary.html#term-compressive-sensing"><span class="xref std std-term">Compressive Sensing</span></a>, CS) 中 <a class="bibtex reference internal" href="../zreference.html#candes-2008" id="id8">[7]</a> . 在CS中, 感知矩阵 (<span class="math">\({\bm A} = {\bm \Phi}{\bm \Psi}\)</span> ) 是否满足RIP条件直接决定了重构信号质量. 在CS中, 矩阵 <span class="math">\({\bm A}\)</span> 的有限等距常数定义为</p>
+<div class="proof proof-type-definition" id="id20">
+<span id="defric2"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 5.6</span>
+        
+            <span class="proof-title-name">(有限等距常数 (Restricted Isometry Constant))</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\bm A} = [{\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n]\in {\mathbb R}^{m\times n}\)</span> , <span class="math">\({\bm a}_i \in {\mathbb R}^m, i=1,2,\cdots, n\)</span>. 对于每个整数 <span class="math">\(k\in [1, n]\)</span> , 定义矩阵 <span class="math">\({\bm A}\)</span> 的 <span class="math">\(k\)</span> 阶有限等距常数为满足下式的最小的数 <span class="math">\(\delta_k\)</span></p>
+<div class="math" id="equation-equ-rip-cs">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-equ-rip-cs" title="公式的永久链接">¶</a></span>\[(1-\delta_k)\|{\bm x}\| \leq \|{\bm A}{\bm x}\| \leq (1+\delta_k)\|{\bm x}\|
+
+\]</div>
+<p>其中, <span class="math">\({\bm x} \in {\mathbb R}^n_k\)</span> 为 <span class="math">\(k\)</span> 稀疏信号.</p>
+<p>更一般地, 设 <span class="math">\(0 &lt; \beta &lt; \gamma &lt;+\infty\)</span>,</p>
+<div class="math" id="equation-equ-rip-cs2">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-equ-rip-cs2" title="公式的永久链接">¶</a></span>\[{\beta}\|{\bm x}\| \leq \|{\bm A}{\bm x}\| \leq {\gamma}\|{\bm x}\|
+
+\]</div>
+<p>其中, <span class="math">\({\bm x} \in {\mathbb R}^n_k\)</span> 为 <span class="math">\(k\)</span> 稀疏信号.</p>
+</div></div><p>矩阵 <span class="math">\({\bm A}\)</span> 具有 <strong>有限等距特性</strong> (<a class="reference internal" href="../glossary.html#term-restricted-isometry-property"><span class="xref std std-term">Restricted Isometry Property</span></a>, RIP) <a class="bibtex reference internal" href="../zreference.html#foucart-2013" id="id9">[6]</a> 是指对于足够大的 <span class="math">\(k\)</span> 和充分小的 <span class="math">\(\delta_k\)</span> , 矩阵 <span class="math">\({\bm A}\)</span> 满足 <a class="reference internal" href="#equation-equ-rip-cs">式.5.9</a>. <a class="reference internal" href="#equation-equ-rip-cs">式.5.9</a> 表明, 矩阵 <span class="math">\({\bm A}\)</span> 对信号 <span class="math">\(\bm x\)</span> 投影前后的长度仅有微小的改变. <strong>即RIP特性保证了来自矩阵</strong> <span class="math">\(\bm A\)</span> <strong>的投影可以保持两个信号</strong> <span class="math">\({\bm x}_1, {\bm x}_2\)</span> <strong>间的距离</strong>, <a class="reference internal" href="#equation-equ-rip-cs">式.5.9</a> 可以等价地表示为</p>
+<div class="math" id="equation-equ-rip-cs-2">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-equ-rip-cs-2" title="公式的永久链接">¶</a></span>\[(1-\delta_k)\|{\bm x}_1-{\bm x}_2\| \leq \|{\bm A}({\bm x}_1-{\bm x}_2)\| \leq (1+\delta_k)\|{\bm x}_1-{\bm x}_2\|.
+
+\]</div>
+<p>一个矩阵 <span class="math">\(\bm A\)</span> 以很高概率满足 RIP, 也就保证了稀疏信号 <span class="math">\(\bm x\)</span> 可以被以高概率重构.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>对于 <a class="reference internal" href="#equation-equ-rip-cs2">式.5.10</a> 中的矩阵 <span class="math">\(\bm A\)</span>, 用 <span class="math">\(\sqrt{2/(\beta + \gamma)}\)</span> 乘以 <span class="math">\(\bm A\)</span>, 则有 <span class="math">\(\sqrt{2/(\beta + \gamma)}{\bm A}\)</span> 满足 <a class="reference internal" href="#equation-equ-rip-cs">式.5.9</a>, 其中, <span class="math">\(\delta_k = (\beta-\gamma)/(\beta+\gamma)\)</span>.
+更多内容参见 <a class="reference internal" href="../SparsitySamplingRecon/Reconstruction.html#subsection-restrictedisometryproperty"><span class="std std-ref">有限等距性</span></a> 小节.</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>相干性/一致性条件<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id21">
+<span id="defcoherence"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 5.7</span>
+        
+            <span class="proof-title-name">(相干性/一致性 (Coherence))</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\bm A} = [{\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n]\in {\mathbb R}^{m\times n}\)</span> , <span class="math">\({\bm a}_i \in {\mathbb R}^m, i=1,2,\cdots, n\)</span>. 对于每个整数 <span class="math">\(k\in [1, n]\)</span> , 定义矩阵 <span class="math">\({\bm A}\)</span> 的一致性为</p>
+<div class="math" id="equation-equ-matrixcoherence">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-equ-matrixcoherence" title="公式的永久链接">¶</a></span>\[\mu({\bm A}) = \max _{1 \leq i \neq j \leq N}\left|\left\langle{\frac{\bm{a}_{i}}{\|\bm{a}_{i}\|_2}}, \frac{\bm{a}_{j}}{\|\bm{a}_{j}\|_2}\right\rangle\right| = \max _{1 \leq i \neq j \leq N}\frac{\left|\left\langle \bm{a}_{i}, \bm{a}_{j}\right\rangle\right|}{\|\bm{a}_{i}\|_2\|\bm{a}_{j}\|_2}
+
+\]</div>
+</div></div><div class="proof proof-type-theorem" id="id22">
+
+    <div class="proof-title">
+        <span class="proof-type">Theorem 5.8</span>
+        
+    </div><div class="proof-content">
+<p>对于任意矩阵 <span class="math">\({\bm A}\)</span> 有</p>
+<div class="math" id="equation-equ-coherencetheorem1">
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-equ-coherencetheorem1" title="公式的永久链接">¶</a></span>\[{\rm Spark}({\bm A}) \geq 1+\frac{1}{\mu({\bm A})}
+
+\]</div>
+</div></div><div class="proof proof-type-theorem" id="id23">
+
+    <div class="proof-title">
+        <span class="proof-type">Theorem 5.9</span>
+        
+    </div><div class="proof-content">
+<p>对于矩阵 <span class="math">\({\bm A}\)</span> , 若</p>
+<div class="math" id="equation-equ-coherencetheorem2">
+<span class="eqno">(5.14)<a class="headerlink" href="#equation-equ-coherencetheorem2" title="公式的永久链接">¶</a></span>\[k < \frac{1}{2}\left(1+\frac{1}{\mu({\bm A})}\right)
+
+\]</div>
+<p>则对于 <span class="math">\(\forall {\bm y}\in{\mathbb R}^m\)</span> , 最多存在一个 <span class="math">\(k\)</span> 稀疏信号, 满足 <span class="math">\({\bm y} = {\bm A}{\bm x}\)</span>.</p>
+</div></div></div>
+<div class="section" id="id11">
+<h3>稳定性<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="proof proof-type-definition" id="id24">
+<span id="defcstable"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 5.10</span>
+        
+            <span class="proof-title-name">(C稳定系统)</span>
+        
+    </div><div class="proof-content">
+<p>设有感知系统 <span class="math">\({\mathcal F} = {\bm A}\in{\mathbb R}^{m\times n} : {\mathbb R}^n \rightarrow {\mathbb R}^m\)</span>, 重构算法 <span class="math">\({\mathcal G}: {\mathbb R}^m \rightarrow {\mathbb R}^n\)</span>, <span class="math">\(m \leq n\)</span> . 若对于任意 <span class="math">\(k\)</span> 稀疏信号 <span class="math">\({\bm x}\in {\mathbb R}^n_k\)</span> 和误差向量 <span class="math">\({\bm e} \in {\mathbb R}^m\)</span>, 有</p>
+<div class="math" id="equation-equ-labelname">
+<span class="eqno">(5.15)<a class="headerlink" href="#equation-equ-labelname" title="公式的永久链接">¶</a></span>\[\|{\mathcal G}({\mathcal F}({\bm x}) + {\bm e}) - {\bm x}\|_2 = \|{\mathcal G}({\bm A}{\bm x} + {\bm e}) - {\bm x}\|_2 \leq C\|{\bm e}\|_2
+
+\]</div>
+<p>则称系统 <span class="math">\(\{{\mathcal F}={\bm A}, {\mathcal G}\}\)</span> 是 <span class="math">\(C\)</span> 稳定的.</p>
+</div></div><p>该定义说明, 对于 <span class="math">\(C\)</span> 稳定的系统, 若观测存在很小的误差或者对观测施加小量的噪声, 重建质量不会受到大的影响, RIP 保证了上述性质的成立.</p>
+</div>
+<div class="section" id="id12">
+<h3>讨论<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>NSP 不容易证明, 且容易受噪声影响;</p></li>
+<li><p>RIP 比 NSP 更为严格和鲁棒 <a class="footnote-reference brackets" href="#f1" id="id13">1</a> .</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><span class="section-number">5.4.2. </span>感知矩阵的构造<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="id15">
+<h2><span class="section-number">5.4.3. </span>常见感知矩阵<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id13">1</a></span></dt>
+<dd><p>参见文献 <a class="bibtex reference internal" href="../zreference.html#eldar-2012" id="id16">[5]</a> p24.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Reconstruction.html" class="btn btn-neutral float-right" title="5.5. 线性压缩感知重构" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SignalModel.html" class="btn btn-neutral" title="5.3. 线性压缩感知信号模型" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

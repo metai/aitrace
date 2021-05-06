@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.6. 线性压缩感知实践 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="5. 线性压缩感知" href="index.html"/>
+        <link rel="next" title="6. 学习式压缩感知" href="../BayesianCompressiveSensing/index.html"/>
+        <link rel="prev" title="5.5. 线性压缩感知重构" href="Reconstruction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第五卷 信号处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Analog/index.html">模拟信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Digital/index.html">数字信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Nonlinear/index.html">非线性信号处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Statistical/index.html">统计信号处理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">稀疏信号处理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../intro.html">1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SparsitySamplingRecon/index.html">2. 稀疏采样与重构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RepresentationDictionary/index.html">3. 表示字典</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SignalSparseDecomposition/index.html">4. 信号稀疏分解</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">5. 线性压缩感知</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Introduction.html">5.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinearCS.html">5.2. 线性压缩感知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SignalModel.html">5.3. 线性压缩感知信号模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Measurement.html">5.4. 线性压缩感知观测</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Reconstruction.html">5.5. 线性压缩感知重构</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.6. 线性压缩感知实践</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../BayesianCompressiveSensing/index.html">6. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LearnedCompressiveSensing/index.html">7. 学习式压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DeepLearningCompressiveSensing/index.html">8. 深度学习与压缩感知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">9. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">10. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../DigitalImage/index.html">数字图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第五卷 信号处理</a> &raquo;</li>
+        
+          <li><a href="../index.html">稀疏信号处理</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">5. </span>线性压缩感知</a> &raquo;</li>
+        
+      <li><span class="section-number">5.6. </span>线性压缩感知实践</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-linearcsexperimentslinearcompressivesensingsparsesignalprocessing">
+<span id="id1"></span><h1><span class="section-number">5.6. </span>线性压缩感知实践<a class="headerlink" href="#section-linearcsexperimentslinearcompressivesensingsparsesignalprocessing" title="永久链接至标题">¶</a></h1>
+<div class="section" id="subsubsection-csompsparsesignal">
+<span id="id2"></span><h2><span class="section-number">5.6.1. </span>稀疏信号实验<a class="headerlink" href="#subsubsection-csompsparsesignal" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>一维仿真信号<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>信号(时域): <span class="math">\({\bm x}_o = {\rm sin}(2 \pi  f_1 t) + {\rm sin}(2 \pi  f_2 t) + {\rm sin}(2 \pi  f_3 t)\)</span></p></li>
+<li><p>信号(频域): <span class="math">\({\bm x} = {\rm abs}({\rm DFT}({\bm x}_o))\)</span></p></li>
+<li><p>观测矩阵: <span class="math">\({\bm A}\)</span> 高斯矩阵和过完备DCT矩阵</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>过完备DCT字典的构造参见 <a class="reference internal" href="../RepresentationDictionary/DWTDICTs.html#subsection-odctdict"><span class="std std-ref">过完备DCT字典</span></a> 小节.</p>
+</div>
+<p>设置时域信号 <span class="math">\({\bm x}_o\)</span> 中的三个频率分别为 <span class="math">\(f_1=100Hz, f_2=200Hz, f_3=700Hz\)</span>; 设置采样率 <span class="math">\(F_s = 2000Hz\)</span>, 采样时间 <span class="math">\(T_s = 1s\)</span>; 则时域信号长度为 <span class="math">\(N_s = F_sT_s = 2000\)</span>. 信号 <span class="math">\({\bm x}_o\)</span> 经离散FFT变换后, 并取模后得到频域信号 <span class="math">\({\bm x}\)</span>, 将该信号作为欠采样的信号进行压缩采样.</p>
+<div class="figure align-center" id="id19">
+<a class="reference internal image-reference" href="../../../_images/sin3Signal.svg"><img alt="Signal in Time and Frequency domains." height="5520.0" src="../../../_images/sin3Signal.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.4 </span><span class="caption-text">Signal in Time (left, <span class="math">\({\bm x}_o\)</span> ) and Frequency (right, <span class="math">\({\bm x}\)</span>) domains.</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+</div>
+<p>记压缩比为 <span class="math">\({\rm CR}\)</span>, 频域信号长度 <span class="math">\(N = N_s\)</span>, 则观测向量长度 <span class="math">\(M = N/CR\)</span>. 易知频域信号 <span class="math">\({\bm x}\)</span> 的稀疏度为 <span class="math">\(k=6\)</span> (包含负频), 实验中分别设置不同的稀疏度 <span class="math">\(k_1 = 2, k_2 = 4, k_3 = 6, k_4 = 100\)</span> 进行信号重构.</p>
+<p>实现代码, 参见文件 <a class="reference external" href="https://github.com/antsfamily/pysparse/tree/master/examples/LinearCS/demo_cs_omp_sparse_sin3.py">demo_omp_sin3.py</a>  .</p>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span> 时, Gaussian观测矩阵, 设置不同稀疏度下的信号重构均方误差结果如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>  <span class="mf">2020.810604016191</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span>  <span class="mf">1051.920200728807</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">6</span><span class="p">:</span>  <span class="mf">392.8334107460182</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x4</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">100</span><span class="p">:</span>  <span class="mf">49.64637577207484</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id20">
+<a class="reference internal image-reference" href="../../../_images/sin3CR4alpha0DictGaussianRecovery.svg"><img alt="Recovered signal in frequency domain with different sparse degree :math:`k`." height="5520.0" src="../../../_images/sin3CR4alpha0DictGaussianRecovery.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.5 </span><span class="caption-text">Recovered signal in frequency domain with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 16\)</span> 时, Gaussian观测矩阵, 设置不同稀疏度下的信号重构均方误差结果如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>  <span class="mf">2049.017843656981</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span>  <span class="mf">1091.209561325295</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">6</span><span class="p">:</span>  <span class="mf">411.9556346140723</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x4</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">100</span><span class="p">:</span>  <span class="mf">316.7049674291499</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id21">
+<a class="reference internal image-reference" href="../../../_images/sin3CR16alpha0DictGaussianRecovery.svg"><img alt="Recovered signal in frequency domain with different sparse degree :math:`k`." height="5520.0" src="../../../_images/sin3CR16alpha0DictGaussianRecovery.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.6 </span><span class="caption-text">Recovered signal in frequency domain with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span> 时, DCT过完备观测矩阵, 设置不同稀疏度下的信号重构均方误差结果如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>  <span class="mf">2965.911207728454</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span>  <span class="mf">2055.5346968994822</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">6</span><span class="p">:</span>  <span class="mf">1082.970762562038</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x4</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">100</span><span class="p">:</span>  <span class="mf">1460.2482895078417</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id22">
+<a class="reference internal image-reference" href="../../../_images/sin3CR4alpha0DictDCTRecovery.svg"><img alt="Recovered signal in frequency domain with different sparse degree :math:`k`." height="5520.0" src="../../../_images/sin3CR4alpha0DictDCTRecovery.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.7 </span><span class="caption-text">Recovered signal in frequency domain with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 16\)</span> 时, DCT过完备观测矩阵, 设置不同稀疏度下的信号重构均方误差结果如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>  <span class="mf">4805.715254609675</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span>  <span class="mf">4182.01590082246</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">6</span><span class="p">:</span>  <span class="mf">3227.931982399867</span>
+<span class="o">---</span><span class="n">MSE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x4</span><span class="p">)</span> <span class="k">with</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">100</span><span class="p">:</span>  <span class="mf">3760.2420462992363</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id23">
+<a class="reference internal image-reference" href="../../../_images/sin3CR16alpha0DictDCTRecovery.svg"><img alt="Recovered signal in frequency domain with different sparse degree :math:`k`." height="5520.0" src="../../../_images/sin3CR16alpha0DictDCTRecovery.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.8 </span><span class="caption-text">Recovered signal in frequency domain with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>二维图像信号<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id5">
+<h4>实验设置<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>实验中使用稀疏图像信号作为实验对象, 并对图像的每一列采用OMP进行恢复.</p>
+<ul class="simple">
+<li><p>图像信号: <span class="math">\({\bm X}\)</span> 为稀疏图像</p></li>
+<li><p>观测矩阵: <span class="math">\({\bm A}\)</span> 为高斯矩阵和过完备DCT矩阵</p></li>
+</ul>
+<div class="figure align-center" id="id24">
+<a class="reference internal image-reference" href="../../../_images/tomographyData.svg"><img alt="Tomography image." height="5520.0" src="../../../_images/tomographyData.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.9 </span><span class="caption-text">Tomography image</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>实验代码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>实现代码, 参见文件 <a class="reference external" href="https://github.com/antsfamily/pysparse/tree/master/examples/LinearCS/demo_omp_img.py">demo_omp_sin3.py</a>  .</p>
+</div>
+<div class="section" id="id8">
+<h4>实验结果<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span> 时, Gaussian观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">15.580596793850813</span> <span class="mf">1798.9565809738183</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">16.51005632425414</span> <span class="mf">1452.36150189551</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">16.236071194072142</span> <span class="mf">1546.9391881886033</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">15.509964880400881</span> <span class="mf">1828.4533008529795</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.650356290567599</span> <span class="mf">2228.6646872408483</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">13.870332301892105</span> <span class="mf">2667.148094123919</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">1475.4</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id25">
+<a class="reference internal image-reference" href="../../../_images/tomographyCR4alpha1e-6DictGaussianRecovery.svg"><img alt="Recovered tomography image with different sparse degree :math:`k`." src="../../../_images/tomographyCR4alpha1e-6DictGaussianRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.10 </span><span class="caption-text">Recovered tomography image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id25" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 16\)</span> 时, Gaussian观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.971158037789456</span> <span class="mf">3280.6851824428386</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.936695435825893</span> <span class="mf">3306.8219923587253</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.334155129944055</span> <span class="mf">2396.9824147020495</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.869213943506328</span> <span class="mf">2119.136669233503</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.284916845043584</span> <span class="mf">2424.312922047151</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">13.839801158638902</span> <span class="mf">2685.9643555265966</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">1470.3</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id26">
+<a class="reference internal image-reference" href="../../../_images/tomographyCR16alpha1e-6DictGaussianRecovery.svg"><img alt="Recovered tomography image with different sparse degree :math:`k`." src="../../../_images/tomographyCR16alpha1e-6DictGaussianRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.11 </span><span class="caption-text">Recovered tomography image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id26" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span> 时, 一维DCT过完备观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.440057558389176</span> <span class="mf">2339.239048987087</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.407312672319945</span> <span class="mf">2356.9430754649925</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.392225830410263</span> <span class="mf">2365.1450361331595</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.438509731511893</span> <span class="mf">2340.0729030920506</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">15.093057465950091</span> <span class="mf">2012.6794588911266</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.015175521723268</span> <span class="mf">2579.6620142755596</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">1378.4</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id27">
+<a class="reference internal image-reference" href="../../../_images/tomographyCR4alpha1e-6Dict1DODCTRecovery.svg"><img alt="Recovered tomography image with different sparse degree :math:`k`." src="../../../_images/tomographyCR4alpha1e-6Dict1DODCTRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.12 </span><span class="caption-text">Recovered tomography image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id27" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 16\)</span> 时, 一维DCT过完备观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.971158037789456</span> <span class="mf">3280.6851824428386</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.936695435825893</span> <span class="mf">3306.8219923587253</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.334155129944055</span> <span class="mf">2396.9824147020495</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.869213943506328</span> <span class="mf">2119.136669233503</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">14.284916845043584</span> <span class="mf">2424.312922047151</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">13.839801158638902</span> <span class="mf">2685.9643555265966</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">1380.3</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id28">
+<a class="reference internal image-reference" href="../../../_images/tomographyCR16alpha1e-6Dict1DODCTRecovery.svg"><img alt="Recovered tomography image with different sparse degree :math:`k`." src="../../../_images/tomographyCR16alpha1e-6Dict1DODCTRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.13 </span><span class="caption-text">Recovered tomography image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id28" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cs">
+<h2><span class="section-number">5.6.2. </span>非稀疏信号CS<a class="headerlink" href="#cs" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h3>压缩感知方式实验<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>Python 实现参见文件 <a class="reference external" href="https://github.com/antsfamily/pysparse/tree/master/examples/LinearCS/demo_csTwoWayAnalysis.py">demo_csTwoWayAnalysis.py</a></p>
+<p>以cameraman图像为例, 两种非稀疏信号的压缩采样与恢复结果如下</p>
+<p>压缩比设置为2, 采用OMP算法重构图像信号, 稀疏度设置为 <span class="math">\(k=32\)</span> 时的结果为</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/cameramanNonSparseCS1hCR2k32.svg"><img alt="" height="5520.0" src="../../../_images/cameramanNonSparseCS1hCR2k32.svg" width="7360.0" /></a>
+</div>
+<p>压缩比设置为4, 采用OMP算法重构图像信号, 稀疏度设置为 <span class="math">\(k=32\)</span> 时的结果为</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../_images/cameramanNonSparseCS1hCR4k32.svg"><img alt="" height="5520.0" src="../../../_images/cameramanNonSparseCS1hCR4k32.svg" width="7360.0" /></a>
+</div>
+<p>两种非稀疏信号的压缩采样与恢复方式表示为</p>
+<p>方式1</p>
+<ol class="arabic simple">
+<li><p>变换: <span class="math">\({\bm z} = {\bm \Psi}_1{\bm x}\)</span></p></li>
+<li><p>观测: <span class="math">\({\bm y} = {\bm \Phi}{\bm z}\)</span>,</p></li>
+<li><p>求解: <span class="math">\({\rm min}_{\bm z} \|{\bm z}\|_p  \ \  s.t. \  {\bm y} = {\bm \Phi}{\bm z}\)</span></p></li>
+<li><p>重构: <span class="math">\({\bm x} = {\bm \Psi}_2{\bm z}\)</span></p></li>
+</ol>
+<p>方式2</p>
+<ol class="arabic simple">
+<li><p>观测: <span class="math">\({\bm y} = {\bm \Phi}{\bm x}\)</span></p></li>
+<li><p>求解: <span class="math">\({\rm min}_{\bm z} \|{\bm z}\|_p \ \  s.t. \  {\bm y} = {\bm \Phi}{\bm \Psi}_1{\bm z}\)</span></p></li>
+<li><p>重构: <span class="math">\({\bm x} = {\bm \Psi}_2{\bm z}\)</span></p></li>
+</ol>
+<p>记 <span class="math">\(\bm D\)</span> 为正交DCT变换矩阵 (<span class="math">\({\bm D}^{-1} = {\bm D}^T\)</span>), 使用不同的 <span class="math">\({\bm \Psi}_1\)</span>, <span class="math">\({\bm \Psi}_2\)</span> 组合, 衡量两种CS方法重构图像与原图间的均方误差, 结果为</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 38%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math">\({\bm \Psi}_1\)</span></p></th>
+<th class="head"><p><span class="math">\({\bm \Psi}_2\)</span></p></th>
+<th class="head"><p>方式1</p></th>
+<th class="head"><p>方式2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math">\({\bm D}\)</span></p></td>
+<td><p><span class="math">\({\bm D}\)</span></p></td>
+<td><p>3802</p></td>
+<td><p>743</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math">\({\bm D}^T\)</span></p></td>
+<td><p><span class="math">\({\bm D}\)</span></p></td>
+<td><p>770</p></td>
+<td><p>3816</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math">\({\bm D}\)</span></p></td>
+<td><p><span class="math">\({\bm D}^T\)</span></p></td>
+<td><p>616</p></td>
+<td><p>3754</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math">\({\bm D}^T\)</span></p></td>
+<td><p><span class="math">\({\bm D}^T\)</span></p></td>
+<td><p>3874</p></td>
+<td><p>589</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>一维压缩感知实验<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>实验完成对二维图像的高度维压缩采样与恢复.</p>
+<div class="section" id="id11">
+<h4>无稀疏表示<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>图像信号: <span class="math">\(H\times W = 256\times 256\)</span></p></li>
+<li><p>表示字典: 无</p></li>
+<li><p>观测矩阵: Gaussian观测矩阵, 一维DCT过完备观测矩阵, 尺寸 <span class="math">\(M\times N\)</span> , <span class="math">\(N = 256\)</span></p></li>
+<li><p>压缩比率: <span class="math">\({\rm CR} = N/M\)</span></p></li>
+</ul>
+<div class="figure align-center" id="id29">
+<a class="reference internal image-reference" href="../../../_images/lenaData.svg"><img alt="Lena image." height="5520.0" src="../../../_images/lenaData.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.14 </span><span class="caption-text">Lena image</span><a class="headerlink" href="#id29" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span> 时, Gaussian观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.22232377711354</span> <span class="mf">19536.554946899414</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.251123223918265</span> <span class="mf">19407.430450439453</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.356613492689134</span> <span class="mf">18941.702514648438</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.456996728640617</span> <span class="mf">18508.903366088867</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">6.588493687182973</span> <span class="mf">14263.660461425781</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">6.0725505137777835</span> <span class="mf">16062.950073242188</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">431.7</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id30">
+<a class="reference internal image-reference" href="../../../_images/lenaCR4alpha1e-6DictGaussianRecovery.svg"><img alt="Recovered lena image with different sparse degree :math:`k`." src="../../../_images/lenaCR4alpha1e-6DictGaussianRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.15 </span><span class="caption-text">Recovered lena image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id30" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 16\)</span> 时, Gaussian观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.210776416835353</span> <span class="mf">19588.569381713867</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.229416619643459</span> <span class="mf">19504.67413330078</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.409661839488037</span> <span class="mf">18711.740112304688</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.444672361916549</span> <span class="mf">18561.502349853516</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.33433084335866</span> <span class="mf">19039.137771606445</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.271223842201596</span> <span class="mf">19317.813842773438</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">374.4</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id31">
+<a class="reference internal image-reference" href="../../../_images/lenaCR16alpha1e-6DictGaussianRecovery.svg"><img alt="Recovered lena image with different sparse degree :math:`k`." src="../../../_images/lenaCR16alpha1e-6DictGaussianRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.16 </span><span class="caption-text">Recovered lena image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id31" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span> 时, 一维DCT过完备观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.343276737179728</span> <span class="mf">18999.960021972656</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.4361581642123955</span> <span class="mf">18597.92724609375</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.456286226270971</span> <span class="mf">18511.93165588379</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.477199979749907</span> <span class="mf">18423.000457763672</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">6.330385584444022</span> <span class="mf">15137.069412231445</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">10.306663047919827</span> <span class="mf">6059.182815551758</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">426.0</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id32">
+<a class="reference internal image-reference" href="../../../_images/lenaCR4alpha1e-6Dict1DODCTRecovery.svg"><img alt="Recovered lena image with different sparse degree :math:`k`." src="../../../_images/lenaCR4alpha1e-6Dict1DODCTRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.17 </span><span class="caption-text">Recovered lena image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 16\)</span> 时, 一维DCT过完备观测矩阵, 设置不同稀疏度下的信号重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.241856072986026</span> <span class="mf">19448.88702392578</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.225959176230842</span> <span class="mf">19520.208099365234</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.354500199748536</span> <span class="mf">18950.92185974121</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.515306696304636</span> <span class="mf">18262.056884765625</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">6.040420221353212</span> <span class="mf">16182.22885131836</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">9.144875858455052</span> <span class="mf">7917.585739135742</span> <span class="mi">255</span> <span class="n">uint8</span>
+
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">383.2</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id33">
+<a class="reference internal image-reference" href="../../../_images/lenaCR16alpha1e-6Dict1DODCTRecovery.svg"><img alt="Recovered lena image with different sparse degree :math:`k`." src="../../../_images/lenaCR16alpha1e-6Dict1DODCTRecovery.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.18 </span><span class="caption-text">Recovered lena image with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>含稀疏表示<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>图像信号: <span class="math">\(H\times W = 256\times 256\)</span></p></li>
+<li><p>表示字典: DCT, 尺寸 <span class="math">\(256\times 256\)</span></p></li>
+<li><p>观测矩阵: Gaussian, 尺寸 <span class="math">\(M\times N\)</span> , <span class="math">\(N = 256\)</span></p></li>
+<li><p>压缩比率: <span class="math">\({\rm CR} = N/M\)</span></p></li>
+</ul>
+<div class="figure align-center" id="id34">
+<a class="reference internal image-reference" href="../../../_images/lenaCS1hObsmatGaussionDictDCT.svg"><img alt="Orignal image signal, dictionary matrix, observation matrix, sparse coefficient matrix." height="5520.0" src="../../../_images/lenaCS1hObsmatGaussionDictDCT.svg" width="7360.0" /></a>
+<p class="caption"><span class="caption-number">图 5.19 </span><span class="caption-text">Orignal image signal, dictionary matrix, observation matrix, sparse coefficient matrix.</span><a class="headerlink" href="#id34" title="永久链接至图片">¶</a></p>
+</div>
+<p>实现代码, 参见文件 <a class="reference external" href="https://github.com/antsfamily/pysparse/tree/master/examples/LinearCS/demo_cs1h_omp_img.py">demo_cs1h_omp_img.py</a>  .</p>
+<p>压缩比 <span class="math">\({\rm CR} = 2\)</span> 时, Lena 图像重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">19.35324312034611</span> <span class="mf">754.6681976318359</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">21.35199359181007</span> <span class="mf">476.3004608154297</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">22.084221813206373</span> <span class="mf">402.4001922607422</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">21.93230942365929</span> <span class="mf">416.72486877441406</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">18.413869479192858</span> <span class="mf">936.9003753662109</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.772999668544614</span> <span class="mf">17209.98112487793</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">754.8</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id35">
+<a class="reference internal image-reference" href="../../../_images/lenaCS1hCR2ObsmatGaussionDictDCTalpha1e-6.svg"><img alt="Recovery results (:math:`{\rm CR} = 2`) with different sparse degree :math:`k`." src="../../../_images/lenaCS1hCR2ObsmatGaussionDictDCTalpha1e-6.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.20 </span><span class="caption-text">Recovery results (<span class="math">\({\rm CR} = 2\)</span>) with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id35" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span> 时, Lena 图像重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">17.30050349526095</span> <span class="mf">1210.6817932128906</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">17.13251590038045</span> <span class="mf">1258.4291534423828</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">16.41341724769021</span> <span class="mf">1485.0416564941406</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">15.891063092434477</span> <span class="mf">1674.8428039550781</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">6.054397672821921</span> <span class="mf">16130.231246948242</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.569662696862794</span> <span class="mf">18034.914642333984</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">352.2</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id36">
+<a class="reference internal image-reference" href="../../../_images/lenaCS1hCR4ObsmatGaussionDictDCTalpha1e-6.svg"><img alt="Recovery results (:math:`{\rm CR} = 4`) with different sparse degree :math:`k`." src="../../../_images/lenaCS1hCR4ObsmatGaussionDictDCTalpha1e-6.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.21 </span><span class="caption-text">Recovery results (<span class="math">\({\rm CR} = 4\)</span>) with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id36" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 8\)</span> 时, Lena 图像重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.711132296542491</span> <span class="mf">3483.1095275878906</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.24455126500644</span> <span class="mf">3878.1556396484375</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.08576911176013</span> <span class="mf">4022.5685119628906</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">6.243422364533981</span> <span class="mf">15443.229461669922</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.658814132793683</span> <span class="mf">17668.470169067383</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.437810904144429</span> <span class="mf">18590.851013183594</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">380.7</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id37">
+<a class="reference internal image-reference" href="../../../_images/lenaCS1hCR8ObsmatGaussionDictDCTalpha1e-6.svg"><img alt="Recovery results (:math:`{\rm CR} = 8`) with different sparse degree :math:`k`." src="../../../_images/lenaCS1hCR8ObsmatGaussionDictDCTalpha1e-6.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.22 </span><span class="caption-text">Recovery results (<span class="math">\({\rm CR} = 8\)</span>) with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id37" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 16\)</span> 时, Lena 图像重构结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">---</span><span class="n">PSNR1</span><span class="p">,</span> <span class="n">MSE1</span><span class="p">,</span> <span class="n">Vpeak1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.530425704027621</span> <span class="mf">3631.0964965820312</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR2</span><span class="p">,</span> <span class="n">MSE2</span><span class="p">,</span> <span class="n">Vpeak2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">12.46201822823682</span> <span class="mf">3688.744186401367</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR3</span><span class="p">,</span> <span class="n">MSE3</span><span class="p">,</span> <span class="n">Vpeak3</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">6.453316341931616</span> <span class="mf">14714.609008789062</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR4</span><span class="p">,</span> <span class="n">MSE4</span><span class="p">,</span> <span class="n">Vpeak4</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.758194148603205</span> <span class="mf">17268.751739501953</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR5</span><span class="p">,</span> <span class="n">MSE5</span><span class="p">,</span> <span class="n">Vpeak5</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.461627943974914</span> <span class="mf">18489.17642211914</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="o">---</span><span class="n">PSNR6</span><span class="p">,</span> <span class="n">MSE6</span><span class="p">,</span> <span class="n">Vpeak6</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span>  <span class="mf">5.355063389623071</span> <span class="mf">18948.464477539062</span> <span class="mi">255</span> <span class="n">uint8</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">396.7</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id38">
+<a class="reference internal image-reference" href="../../../_images/lenaCS1hCR16ObsmatGaussionDictDCTalpha1e-6.svg"><img alt="Recovery results (:math:`{\rm CR} = 16`) with different sparse degree :math:`k`." src="../../../_images/lenaCS1hCR16ObsmatGaussionDictDCTalpha1e-6.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.23 </span><span class="caption-text">Recovery results (<span class="math">\({\rm CR} = 16\)</span>) with different sparse degree <span class="math">\(k\)</span>.</span><a class="headerlink" href="#id38" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>二维压缩感知实验1<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>实验完成对二维图像的高度维和宽度维压缩采样与恢复, 实验中将原始图像拉成列向量, 应用压缩感知理论进行采样模拟与恢复.</p>
+</div>
+<div class="section" id="id14">
+<h3>二维压缩感知实验2<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>实验完成对二维图像的高度维和宽度维压缩采样与恢复, 实验中, 应用压缩感知理论, 对图像信号分别进行高度维和宽度维的两次压缩采样与恢复.</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h2><span class="section-number">5.6.3. </span>复压缩感知实验<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id16">
+<h3>核磁共振成像<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p>对核磁共振图像(MRI)原始 k-space 数据进行行方向上的压缩采样与恢复, 采用OMP算法恢复信号.</p>
+<div class="section" id="id17">
+<h4>实验代码<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<p>实现代码, 参见文件 <a class="reference external" href="https://github.com/antsfamily/pysparse/tree/master/examples/LinearCS/demo_cs1h_omp_img.py">demo_cs1d_omp_mri.py</a>  .</p>
+</div>
+<div class="section" id="id18">
+<h4>实验结果<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span>, 无稀疏表示字典时, MRI 图像重构结果:</p>
+<div class="figure align-center" id="id39">
+<a class="reference internal image-reference" href="../../../_images/mriCCS1hCR4ObsmatGaussionDictNoneSparseDegree100alpha1e-6.svg"><img alt="Recovery results (:math:`{\rm CR} = 4`) with sparse degree :math:`k=100`." src="../../../_images/mriCCS1hCR4ObsmatGaussionDictNoneSparseDegree100alpha1e-6.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.24 </span><span class="caption-text">Recovery results (<span class="math">\({\rm CR} = 4\)</span>) with sparse degree <span class="math">\(k=100\)</span>.</span><a class="headerlink" href="#id39" title="永久链接至图片">¶</a></p>
+</div>
+<p>压缩比 <span class="math">\({\rm CR} = 4\)</span>, DCT稀疏表示字典时, MRI 图像重构结果:</p>
+<div class="figure align-center" id="id40">
+<a class="reference internal image-reference" href="../../../_images/mriCCS1hCR4ObsmatGaussionDictDCTSparseDegree100alpha1e-6.svg"><img alt="Recovery results (:math:`{\rm CR} = 4`) with sparse degree :math:`k=100`." src="../../../_images/mriCCS1hCR4ObsmatGaussionDictDCTSparseDegree100alpha1e-6.svg" /></a>
+<p class="caption"><span class="caption-number">图 5.25 </span><span class="caption-text">Recovery results (<span class="math">\({\rm CR} = 4\)</span>) with sparse degree <span class="math">\(k=100\)</span>.</span><a class="headerlink" href="#id40" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../BayesianCompressiveSensing/index.html" class="btn btn-neutral float-right" title="6. 学习式压缩感知" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Reconstruction.html" class="btn btn-neutral" title="5.5. 线性压缩感知重构" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.4. 正交三角分解 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="4. 矩阵分解" href="index.html"/>
+        <link rel="next" title="4.5. 奇异值分解" href="SingularValueDecomposition.html"/>
+        <link rel="prev" title="4.3. 满秩分解" href="FullRankDecomposition.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">矩阵论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../LinearSpace/index.html">1. 线性空间与线性变换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../NormTheory/index.html">2. 范数理论及应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../MatrixAnalysis/index.html">3. 矩阵分析及应用</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4. 矩阵分解</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="intro.html">4.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TriangularDecomposition.html">4.2. 三角分解</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FullRankDecomposition.html">4.3. 满秩分解</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.4. 正交三角分解</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingularValueDecomposition.html">4.5. 奇异值分解</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../EigenvalueEstimation/index.html">5. 特征值估计</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GeneralizedInverse/index.html">6. 广义逆矩阵</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Misc/index.html">7. 杂项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">8. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Optimization/index.html">优化理论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">矩阵论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">4. </span>矩阵分解</a> &raquo;</li>
+        
+      <li><span class="section-number">4.4. </span>正交三角分解</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-orthogonaltriangulardecomposition">
+<span id="id1"></span><h1><span class="section-number">4.4. </span>正交三角分解<a class="headerlink" href="#section-orthogonaltriangulardecomposition" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">4.4.1. </span>什么是正交三角分解<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>正交三角分解 ( <a class="reference internal" href="../../glossary/glossary.html#term-orthogonal-triangular-decomposition"><span class="xref std std-term">Orthogonal Triangular Decomposition</span></a> ), 是指将一矩阵分解正 (酉) 交矩阵 <span class="math">\({\bm Q}\)</span>  与非奇异上三角矩阵 <span class="math">\({\bm R}\)</span> 两个矩阵的乘积的分解.</p>
+<div class="proof proof-type-definition" id="id5">
+<span id="def-orthogonaltriangulardecomposition"></span>
+    <div class="proof-title">
+        <span class="proof-type">Definition 4.3</span>
+        
+            <span class="proof-title-name">(正交三角分解)</span>
+        
+    </div><div class="proof-content">
+<p>设 <span class="math">\({\bm A} \in {\mathbb C}_{m\times n}\)</span> , 若存在矩阵 <span class="math">\({\bm Q} \in {\mathbb C}\)</span>  和 <span class="math">\({\bm R} \in {\mathbb C}\)</span> 使得</p>
+<div class="math">
+\[{\bm A}_{m\times n} = {\bm Q}_{m\times n} {\bm R}_{n\times n}
+
+\]</div>
+<p>则称上述分解为 <strong>正交三角分解</strong> ,  简称 <strong>QR 分解</strong> .</p>
+</div></div></div>
+<div class="section" id="id3">
+<h2><span class="section-number">4.4.2. </span>求解方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="schmidt">
+<h3>Schmidt 正交化方法<a class="headerlink" href="#schmidt" title="永久链接至标题">¶</a></h3>
+<p>对矩阵 <span class="math">\({\bm A} \in {\mathbb C}_{m\times n}\)</span> 进行QR分解的步骤如下:</p>
+<ol class="arabic simple">
+<li><p>记矩阵 <span class="math">\({\bm A} = ({\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n)\)</span> , 其中 <span class="math">\({\bm a}_j\)</span> 为矩阵 <span class="math">\({\bm A}\)</span> 的第 <span class="math">\(j\)</span> 列;</p></li>
+<li><p>正交化向量组 <span class="math">\({\bm a}_1, {\bm a}_2, \cdots, {\bm a}_n\)</span> , 得正交化后的向量组 <span class="math">\({\bm b}_1, {\bm b}_2, \cdots, {\bm b}_n\)</span> ;</p></li>
+<li><p>单位化向量组 <span class="math">\({\bm b}_1, {\bm b}_2, \cdots, {\bm b}_n\)</span> , 得单位化后的向量组 <span class="math">\({\bm q}_1, {\bm q}_2, \cdots, {\bm q}_n\)</span> , 其中 <span class="math">\({\bm q}_j = \frac{1}{|{\bm b}_j|}{\bm b}_j\)</span> , <span class="math">\(j = 1, 2, \cdots, n\)</span> ;</p></li>
+<li><p>将正交化的向量组按顺序组成矩阵 <span class="math">\({\bm Q} = ({\bm q}_1, {\bm q}_2, \cdots, {\bm q}_n)\)</span> ;</p></li>
+<li><p>计算上三角矩阵 <span class="math">\({\bm R} = {\rm diag}(|{\bm b}_1|, |{\bm b}_2|, \cdots, |{\bm b}_n|) \cdot {\bm C}\)</span> ;</p></li>
+</ol>
+<p>其中,</p>
+<div class="math">
+\[{\bm C} = \left[ {\begin{array}{cccc}
+{\rm{1}}&{{k_{21}}}& \cdots &{{k_{n1}}}\\
+{}&1& \cdots &{{k_{n2}}}\\
+{}&{}& \ddots &{}\\
+{}&{}&{}&1
+\end{array}} \right]
+
+\]</div>
+<p>且 <span class="math">\(k_{ij} = \frac{\left\langle {\bm a}_i{\bm b}_j \right\rangle}{\left\langle {\bm b}_j{\bm b}_j \right\rangle}\)</span> , <span class="math">\(j &lt; i\)</span> .</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子, 求如下矩阵的QR分解,</p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+<p>解: 由题意有,</p>
+<p>令 <span class="math">\({\bm a}_1 = (0, 2, 0)^T\)</span> , <span class="math">\({\bm a}_2 = (2, 1, 2)^T\)</span> , <span class="math">\({\bm a}_3 = (2, 2, 1)^T\)</span></p>
+<p>正交化得</p>
+<p><span class="math">\({\bm b}_1 = {\bm a}_1 = (0, 2, 0)^T\)</span> , <span class="math">\(k_{21} = \frac{\left\langle{\bm a_2}, {\bm b}_1\right\rangle }{\left\langle{\bm b}_1, {\bm  b}_1\right\rangle } = \frac{1}{2}\)</span></p>
+<p><span class="math">\({\bm b}_2 = {\bm a}_2 - k_{21}{\bm b}_1\)</span> <span class="math">\(= (2, 1, 2)^T - \frac{1}{2}(0, 2, 0)^T = (2, 0, 2)^T\)</span> , <span class="math">\(k_{32} = \frac{\left\langle{\bm a_3}, {\bm b}_2\right\rangle }{\left\langle{\bm b}_2, {\bm  b}_2\right\rangle } = \frac{3}{4}\)</span> , <span class="math">\(k_{31} = \frac{\left\langle{\bm a_3}, {\bm b}_1\right\rangle }{\left\langle{\bm b}_1, {\bm  b}_1\right\rangle } = 1\)</span></p>
+<p><span class="math">\({\bm b}_3 = {\bm a}_3 - k_{32}{\bm b}_2 - k_{31}{\bm b}_1\)</span> <span class="math">\(= (2, 2, 1)^T - \frac{3}{4}(2, 0, 2)^T - 1(0, 2, 0)^T = (\frac{1}{2}, 0, \frac{-1}{2})^T\)</span></p>
+<p>单位化得</p>
+<p><span class="math">\({\bm q}_1 = \frac{(0, 2, 0)^T}{2} = (0, 1, 0)^T\)</span> , <span class="math">\({\bm q}_2 = \frac{(2, 0, 2)^T}{2\sqrt 2} = (\frac{1}{\sqrt 2}, 0, \frac{1}{\sqrt 2})^T\)</span> , <span class="math">\({\bm q}_3 = \frac{(\frac{1}{2}, 0, \frac{-1}{2})^T}{\frac{1}{\sqrt 2}} = (\frac{\sqrt 2}{2}, 0, \frac{-\sqrt 2}{2})^T\)</span></p>
+<p>从而有</p>
+<div class="math">
+\[{\bm{C}} = \left[ {\begin{array}{ccc}
+1&{{k_{21}}}&{{k_{31}}}\\
+0&1&{{k_{32}}}\\
+0&0&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+1&{\frac{1}{2}}&{1}\\
+0&1&{\frac{3}{4}}\\
+0&0&1
+\end{array}} \right]
+
+\]</div>
+<p>由 <span class="math">\({\bm R} = {\rm diag}(|{\bm b}_1|, |{\bm b}_2|, |{\bm b}_3|) \cdot {\bm C}\)</span> 知</p>
+<div class="math">
+\[{\bm R} = \left[ {\begin{array}{ccc}
+               {2 }&0&0\\
+               0&{2\sqrt 2 }&0\\
+               0&0&{\frac{1}{\sqrt 2}}
+               \end{array}} \right]\left[ {\begin{array}{ccc}
+               1&{\frac{1}{2}}&{1}\\
+               0&1&{\frac{3}{4}}\\
+               0&0&1
+               \end{array}} \right] = \left[ {\begin{array}{ccc}
+               {2}&{1}&{2}\\
+               0&{2\sqrt 2}&{\frac{3}{\sqrt 2}}\\
+               0&0&{\frac{1}{\sqrt 2}}
+               \end{array}} \right]
+
+\]</div>
+<div class="math">
+\[{\bm{Q}} = \left[ {\begin{array}{ccc}
+{0}&{\frac{1}{{\sqrt 2}}}&{\frac{\sqrt 2}{2}}\\
+{1}&{0}&0\\
+{0}&{\frac{1}{{\sqrt 2}}}&{\frac{-\sqrt 2}{2}}
+\end{array}} \right]
+= \left[ {\begin{array}{ccc}
+0&{\frac{1}{{\sqrt 2 }}}&{\frac{1}{{\sqrt 2 }}}\\
+1&0&0\\
+0&{\frac{1}{{\sqrt 2 }}}&{\frac{{ - 1}}{{\sqrt 2 }}}
+\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="givens">
+<h3>Givens 变换方法<a class="headerlink" href="#givens" title="永久链接至标题">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子, 求如下矩阵的QR分解,</p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+<p>解: 由题意有,</p>
+<p>记 <span class="math">\({\bm A}^{(1)} = {\bm A}\)</span> , 取 <span class="math">\({\bm A}^{(1)}\)</span> 的第一列 <span class="math">\({\bm a}_1^{(1)} = (0, 2, 0)^T\)</span> , 构造Givens矩阵, 使得 <span class="math">\({\bm G}^{(1)}{\bm a}_1^{(1)} = |{\bm a}_1^{(1)}| {\bm e}_1\)</span> :</p>
+<p>取 <span class="math">\({\bm G}^{(1)}_{1,2} = \left[ {\begin{array}{ccc} 0&amp;1&amp;0\\ {{-}1}&amp;0&amp;0\\ 0&amp;0&amp;1 \end{array}} \right]\)</span> , 其中, <span class="math">\(c = \frac{\xi_1}{\sqrt{\xi_1^2 + \xi_2^2}} = \frac{0}{\sqrt{0^2 + 2^2}} = 0\)</span> , <span class="math">\(s = \frac{\xi_2}{\sqrt{\xi_1^2 + \xi_2^2}} = \frac{2}{\sqrt{0^2 + 2^2}} = 1\)</span> .</p>
+<p>从而 <span class="math">\({\bm G}^{(1)}_{1,2}{\bm a}_1^{(1)} = (2, 0, 0)^T = 2 {\bm e}_1   \)</span> 的第二坐标分量变为 <span class="math">\(0\)</span> , 又第三坐标分量为 <span class="math">\(0\)</span> , 所以无需再构造 <span class="math">\({\bm G}^{(1)}_{1,3}\)</span> 使第三坐标分量为 <span class="math">\(0\)</span> , 当然也可以对 <span class="math">\((2, 0, 0)^T\)</span> 继续构造</p>
+<p><span class="math">\({\bm G}^{(1)}_{1,3} = \left[ {\begin{array}{ccc} 1&amp;0&amp;0\\ 0&amp;1&amp;0\\ 0&amp;0&amp;1 \end{array}} \right]\)</span> , 其中, <span class="math">\(c = \frac{\sqrt{\xi_1^2+\xi_2^2}}{\sqrt{\xi_1^2 + \xi_2^2 +\xi_3^2}} = \frac{\sqrt{2^2+0^2}}{\sqrt{2^2 + 0^2 + 0^2}} = 1\)</span> , <span class="math">\(s = \frac{\xi_3}{\sqrt{\xi_1^2 + \xi_2^2 +\xi_3^2}} = \frac{0}{\sqrt{2^2 + 0^2 + 0^2}} = 0\)</span> , 可见 <span class="math">\({\bm G}^{(1)}_{1,3}\)</span> 为单位阵.</p>
+<p>从而有</p>
+<div class="math">
+\[{\bm G}^{(1)}{\bm A}^{(1)} = {\bm G}^{(1)}_{1,3}{\bm G}^{(1)}_{1,2}{\bm A}^{(1)}
+= \left[ {\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&1&0\\
+{{\rm{ - }}1}&0&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right] \\
+= \left[ {\begin{array}{ccc}
+2&1&2\\
+0&{{-}2}&{{-}2}\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+<p>对 <span class="math">\({\bm A}^{(2)} = \left[ {\begin{array}{cc}{-2}&amp;{-2}\\2&amp;1\end{array}} \right]\)</span> , 取其第一列 <span class="math">\({\bm a}_1^{(2)} = (-2, 2)^T\)</span> , 构造Givens矩阵, 使得 <span class="math">\({\bm G}^{(2)}{\bm a}_1^{(2)} =  |{\bm a}_1^{(2)}| {\bm e}_1\)</span> :</p>
+<p>取 <span class="math">\({\bm G}^{(2)}_{1,2} = \left[ {\begin{array}{cc}{\frac{{{\rm{ - }}1}}{{\sqrt 2 }}}&amp;{\frac{1}{{\sqrt 2 }}}\\{\frac{{{\rm{ - }}1}}{{\sqrt 2 }}}&amp;{\frac{{{\rm{ - }}1}}{{\sqrt 2 }}}\end{array}} \right]\)</span> , 其中, <span class="math">\(c = \frac{\xi_1}{\sqrt{\xi_1^2 + \xi_2^2}} = \frac{-2}{\sqrt{{-2}^2 + 2^2}} = \frac{-1}{\sqrt 2}\)</span> , <span class="math">\(s = \frac{\xi_2}{\sqrt{\xi_1^2 + \xi_2^2}} = \frac{2}{\sqrt{{-2}^2 + 2^2}} = \frac{1}{\sqrt 2}\)</span> .</p>
+<p>从而有</p>
+<div class="math">
+\[{\bm G}^{(2)}{\bm A}^{(2)} = {\bm G}^{(2)}_{1,2}{\bm A}^{(2)} =
+\left[ {\begin{array}{cc}
+{\frac{{{\rm{ - }}1}}{{\sqrt 2 }}}&{\frac{1}{{\sqrt 2 }}}\\
+{\frac{{{\rm{ - }}1}}{{\sqrt 2 }}}&{\frac{{{\rm{ - }}1}}{{\sqrt 2 }}}
+\end{array}} \right]\left[ {\begin{array}{cc}
+{{\rm{ - }}2}&{{\rm{ - }}2}\\
+2&1
+\end{array}} \right]{\rm{ = }}\left[ {\begin{array}{cc}
+{2\sqrt 2 }&{\frac{3}{{\sqrt 2 }}}\\
+0&{\frac{1}{{\sqrt 2 }}}
+\end{array}} \right]
+
+\]</div>
+<p>最后, 令</p>
+<div class="math">
+\[{\bm G} = \left[ {\begin{array}{cc} 1&{}\\ {}&{{{\bm{G}}^{(2)}}} \end{array}} \right]{{\bm{G}}^{(1)}}
+= \left[ {\begin{array}{ccc}
+1&0&0\\
+0&{\frac{{ - 1}}{{\sqrt 2 }}}&{\frac{1}{{\sqrt 2 }}}\\
+0&{\frac{{ - 1}}{{\sqrt 2 }}}&{\frac{{ - 1}}{{\sqrt 2 }}}
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&1&0\\
+{{\rm{ - }}1}&0&0\\
+0&0&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+0&1&0\\
+{\frac{1}{{\sqrt 2 }}}&0&{\frac{1}{{\sqrt 2 }}}\\
+{\frac{1}{{\sqrt 2 }}}&0&{\frac{{ - 1}}{{\sqrt 2 }}}
+\end{array}} \right]
+
+\]</div>
+<p>则有</p>
+<div class="math">
+\[{\bm Q} = {\bm G}^T = \left[ {\begin{array}{ccc}
+0&{\frac{1}{{\sqrt 2 }}}&{\frac{1}{{\sqrt 2 }}}\\
+1&0&0\\
+0&{\frac{1}{{\sqrt 2 }}}&{\frac{{ - 1}}{{\sqrt 2 }}}
+\end{array}} \right]
+
+\]</div>
+<div class="math">
+\[{\bm{R}}{\rm{ = }}\left[ {\begin{array}{ccc}
+2&1&2\\
+0&{2\sqrt 2 }&{\frac{{3\sqrt 2 }}{2}}\\
+0&0&{\frac{{\sqrt 2 }}{2}}
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+2&1&2\\
+0&{2\sqrt 2 }&{\frac{3}{{\sqrt 2 }}}\\
+0&0&{\frac{1}{{\sqrt 2 }}}
+\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="householder">
+<h3>Householder 变换方法<a class="headerlink" href="#householder" title="永久链接至标题">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>举个例子, 求如下矩阵的QR分解,</p>
+<div class="math">
+\[{\bm A} = \left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+<p>解: 由题意有,</p>
+<p>记 <span class="math">\({\bm A}^{(1)} = {\bm A}\)</span> , 取 <span class="math">\({\bm A}^{(1)}\)</span> 的第一列 <span class="math">\({\bm a}_1^{(1)} = (0, 2, 0)^T\)</span> , 构造Householder矩阵, 使得 <span class="math">\({\bm H}^{(1)}{\bm a}_1^{(1)} =  |{\bm a}_1^{(1)}| {\bm e}_1\)</span> :</p>
+<p><span class="math">\({\bm b}_1^{(1)} = {\bm a}_1^{(1)} - |{\bm a}_1^{(1)}|{\bm e}_1 = (0, 2, 0)^T - 2(1, 0, 0)^T = (-2, 2, 0)^T\)</span> , <span class="math">\({\bm u}_1^{(1)} = \frac{{\bm b}_1^{(1)}}{|{\bm b}_1^{(1)}|} = \frac{(-2, 2, 0)^T}{2\sqrt{2}} = (\frac{-1}{\sqrt 2}, \frac{1}{\sqrt 2}, 0)^T\)</span></p>
+<div class="math">
+\[{\bm u}_1^{(1)}{{\bm u}_1^{(1)}}^T = \left[ {\begin{array}{ccc}{\frac{1}{2}}&{\frac{{ - 1}}{2}}&0\\{\frac{{ - 1}}{2}}&{\frac{1}{2}}&0\\0&0&0\end{array}} \right]
+
+\]</div>
+<div class="math">
+\[{{\bm{H}}^{(1)}} = {\bm{I}} - 2{\bm u}_1^{(1)}{{\bm u}_1^{(1)}}^T =
+\left[ {\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{array}} \right] - \left[ {\begin{array}{ccc}
+1&{ - 1}&0\\
+{ - 1}&1&0\\
+0&0&0
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]
+
+\]</div>
+<div class="math">
+\[{{\bm{H}}^{(1)}}{{\bm{A}}^{(1)}} = \left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&2&2\\
+2&1&2\\
+0&2&1
+\end{array}} \right] = \left[ {\begin{array}{ccc}
+2&1&2\\
+0&2&2\\
+0&2&1
+\end{array}} \right]
+
+\]</div>
+<p>对 <span class="math">\({\bm A}^{(2)} = \left[ {\begin{array}{cc}2&amp;2\\2&amp;1\end{array}} \right]\)</span> , 取其第一列 <span class="math">\({\bm a}_1^{(2)} = (2, 2)^T\)</span> , 构造Householder矩阵, 使得 <span class="math">\({\bm H}^{(2)}{\bm a}_1^{(2)} =  |{\bm a}_1^{(2)}| {\bm e}_1\)</span> :</p>
+<p><span class="math">\({\bm b}_1^{(2)} = {\bm a}_1^{(2)} - |{\bm a}_1^{(2)}|{\bm e}_1 = (2, 2)^T - 2{\sqrt 2}(1, 0)^T = (2-2{\sqrt 2}, 2)^T\)</span> , <span class="math">\({\bm u}_1^{(2)} = \frac{{\bm b}_1^{(2)}}{|{\bm b}_1^{(2)}|} = \frac{(2-2{\sqrt 2}, 2)^T}{2{\sqrt{4-2\sqrt 2}}} = \frac{(1-{\sqrt 2}, 1)^T}{{\sqrt{4-2\sqrt 2}}}\)</span></p>
+<div class="math">
+\[{\bm u}_1^{(2)}{{\bm u}_1^{(2)}}^T = \frac{1}{{4{-}2\sqrt 2 }}\left[ {\begin{array}{cc}
+{1{-}\sqrt 2 }\\
+1
+\end{array}} \right]\left[ {\begin{array}{ccc}
+{1{-}\sqrt 2 }&1
+\end{array}} \right]{\rm{ = }}\frac{1}{{4{-}2\sqrt 2 }}\left[ {\begin{array}{ccc}
+{3{-}2\sqrt 2 }&{1{-}\sqrt 2 }\\
+{1{-}\sqrt 2 }&1
+\end{array}} \right]
+
+\]</div>
+<div class="math">
+\[{{\bm{H}}^{(2)}} = {\bm{I}} - 2{\bm u}_1^{(2)}{{\bm u}_1^{(2)}}^T = \left[ {\begin{array}{ccc}
+1&0\\
+0&1
+\end{array}} \right] - \frac{1}{{{\rm{2 - }}\sqrt 2 }}\left[ {\begin{array}{ccc}
+{3{-}2\sqrt 2 }&{1{-}\sqrt 2 }\\
+{1{-}\sqrt 2 }&1
+\end{array}} \right]{\rm{ = }}\left[ {\begin{array}{ccc}
+{\frac{{\sqrt 2 }}{2}}&{\frac{{\sqrt 2 }}{2}}\\
+{\frac{{\sqrt 2 }}{2}}&{\frac{{{-}\sqrt 2 }}{2}}
+\end{array}} \right]
+
+\]</div>
+<div class="math">
+\[{{\bm{H}}^{{\rm{(2)}}}}{{\bm{A}}^{{\rm{(2)}}}} = \left[ {\begin{array}{ccc}
+{\frac{{\sqrt 2 }}{2}}&{\frac{{\sqrt 2 }}{2}}\\
+{\frac{{\sqrt 2 }}{2}}&{\frac{{{-}\sqrt 2 }}{2}}
+\end{array}} \right]\left[ {\begin{array}{ccc}
+2&2\\
+2&1
+\end{array}} \right]{\rm{ = }}\left[ {\begin{array}{ccc}
+{2\sqrt 2 }&{\frac{{3\sqrt 2 }}{2}}\\
+0&{\frac{{\sqrt 2 }}{2}}
+\end{array}} \right]
+
+\]</div>
+<p>再令</p>
+<div class="math">
+\[{\bm{S}} = \left[ {\begin{array}{ccc}
+1&0\\
+0&{{{\bm{H}}^{{\rm{(2)}}}}}
+\end{array}} \right]{{\bm{H}}^{{\rm{(1)}}}}{\rm{ = }}\left[ {\begin{array}{ccc}
+1&0&0\\
+0&{\frac{{\sqrt 2 }}{2}}&{\frac{{\sqrt 2 }}{2}}\\
+0&{\frac{{\sqrt 2 }}{2}}&{\frac{{{-}\sqrt 2 }}{2}}
+\end{array}} \right]\left[ {\begin{array}{ccc}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{array}} \right]
+
+\]</div>
+<p>从而</p>
+<div class="math">
+\[{\bm Q} = {\bm S}^T = \left[ {\begin{array}{ccc}
+0&{\frac{1}{{\sqrt 2 }}}&{\frac{1}{{\sqrt 2 }}}\\
+1&0&0\\
+0&{\frac{1}{{\sqrt 2 }}}&{\frac{{ - 1}}{{\sqrt 2 }}}
+\end{array}} \right]
+
+\]</div>
+<p>且</p>
+<div class="math">
+\[{\bm{R}} = \left[ {\begin{array}{ccc}
+2&1&2\\
+0&{2\sqrt 2 }&{\frac{3}{{\sqrt 2 }}}\\
+0&0&{\frac{1}{{\sqrt 2 }}}
+\end{array}} \right]
+
+\]</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>代码实现<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>matlab代码</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">;</span><span class="mi">2</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">;</span><span class="mi">0</span> <span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">A</span> <span class="o">=</span>
+
+     <span class="mi">0</span>     <span class="mi">2</span>     <span class="mi">2</span>
+     <span class="mi">2</span>     <span class="mi">1</span>     <span class="mi">2</span>
+     <span class="mi">0</span>     <span class="mi">2</span>     <span class="mi">1</span>
+
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">]</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">Q</span> <span class="o">=</span>
+
+         <span class="mi">0</span>    <span class="mf">0.7071</span>   <span class="o">-</span><span class="mf">0.7071</span>
+   <span class="o">-</span><span class="mf">1.0000</span>         <span class="mi">0</span>         <span class="mi">0</span>
+         <span class="mi">0</span>    <span class="mf">0.7071</span>    <span class="mf">0.7071</span>
+
+<span class="n">R</span> <span class="o">=</span>
+
+   <span class="o">-</span><span class="mf">2.0000</span>   <span class="o">-</span><span class="mf">1.0000</span>   <span class="o">-</span><span class="mf">2.0000</span>
+         <span class="mi">0</span>    <span class="mf">2.8284</span>    <span class="mf">2.1213</span>
+         <span class="mi">0</span>         <span class="mi">0</span>   <span class="o">-</span><span class="mf">0.7071</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SingularValueDecomposition.html" class="btn btn-neutral float-right" title="4.5. 奇异值分解" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FullRankDecomposition.html" class="btn btn-neutral" title="4.3. 满秩分解" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.3. KKT条件 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="3. 约束优化方法" href="index.html"/>
+        <link rel="next" title="3.4. 拉格朗日乘子法" href="LagrangeMultiplier.html"/>
+        <link rel="prev" title="3.2. 对偶上升算法" href="DualAscent.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第一卷 数学基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html">引言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ConceptAnalysis/index.html">概念解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Geometry/index.html">几何学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../NumberTheory/index.html">数论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AdvancedMath/index.html">高等数学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../MatrixTheory/index.html">矩阵论</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ProbabilityStatistics/index.html">概率与统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../StochasticProcess/index.html">随机过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Topology/index.html">拓扑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FunctionalAnalysis/index.html">泛函分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FuzzyMath/index.html">模糊数学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">优化理论</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Overview/index.html">1. 优化问题概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Unconstrained/index.html">2. 无约束优化方法</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3. 约束优化方法</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Overview.html">3.1. 约束优化方法概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DualAscent.html">3.2. 对偶上升算法</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.3. KKT条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LagrangeMultiplier.html">3.4. 拉格朗日乘子法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AugmentedLagrangian.html">3.5. 增广拉格朗日法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ISTA.html">3.6. 迭代收缩阈值类算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ADMM.html">3.7. 交替方向乘子法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProximalAlgorithms.html">3.8. 近端算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SALSA.html">3.9. 分裂增广拉格朗日收缩算法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Derivation/index.html">4. 微分方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zreference.html">5. 参考文献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">6. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../glossary/glossary.html">名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Application/index.html">第十卷 应用实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第一卷 数学基础</a> &raquo;</li>
+        
+          <li><a href="../index.html">优化理论</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">3. </span>约束优化方法</a> &raquo;</li>
+        
+      <li><span class="section-number">3.3. </span>KKT条件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kkt">
+<span id="section-kktcondition"></span><h1><span class="section-number">3.3. </span>KKT条件<a class="headerlink" href="#kkt" title="永久链接至标题">¶</a></h1>
+<p><a class="reference internal" href="../glossary.html#term-karushkuhntucker"><span class="xref std std-term">Karush–Kuhn–Tucker</span></a> (KKT) 条件给出了一类约束优化问题的解的约束, 通过这些约束可以求解优化问题.</p>
+<div class="section" id="id1">
+<h2><span class="section-number">3.3.1. </span>概念与内涵<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>考虑如下非线性最小或最大化问题</p>
+<div class="math">
+\[{P}_0 : \begin{array}{l}{\min_{\bm x} f({\bm x})} \\ {\text {s.t.}} \left\{\begin{array}{c}{g_{i}({\bm x}) = 0, i=1,2, \ldots, M_g} \\ {h_{j}({\bm x}) \leq 0, j=1,2, \ldots, M_h}\end{array}\right. \end{array}
+
+\]</div>
+<p>其中, <span class="math">\({\bm x}, {\bm \alpha}, {\bm \beta}\)</span> 为待求变量. <span class="math">\({\bm \alpha}, {\bm \beta}\)</span> 为由KKT乘子组成的向量, 上式转化为拉格朗日函数</p>
+<div class="math" id="equation-equ-lagrangianfunctionkkt">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-equ-lagrangianfunctionkkt" title="公式的永久链接">¶</a></span>\[{P}_1 : L({\bm x}, {\bm \alpha}, {\bm \beta}) = f({\bm x}) + \sum_{i=1}^{M_g}{\alpha_i}g_i({\bm x}) + \sum_{j=1}^{M_h}{\beta_j}h_j({\bm x})
+
+\]</div>
+<p>则其解满足如下KKT条件</p>
+<div class="math" id="equation-equ-kktcondition">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-equ-kktcondition" title="公式的永久链接">¶</a></span>\[\begin{aligned} \nabla_{{\bm x}} L({\bm x}^{*}, {\bm \alpha}^{*}, {\bm \beta}^{*}) &=0 \\ \beta_{j}^{*} h_{j}({\bm x}^{*}) &=0, j=1,2, \ldots, M_h \\ g_{i}({\bm x}^{*}) &=0, i=1,2, \ldots, M_g \\ h_{j}({\bm x}^{*}) & \leq 0, j=1,2, \ldots, M_h \\ \beta_{j}^{*} & \geq 0, j=1,2, \ldots, M_h \end{aligned}
+
+\]</div>
+<p>其中, <span class="math">\({\bm \alpha}^{*}=[\alpha_1^{*},\alpha_2^{*},\cdots,\alpha_{M_g}^{*}]^T\)</span>, <span class="math">\({\bm \beta}^{*}=[\beta_1^{*},\beta_2^{*},\cdots,\beta_{M_g}^{*}]\)</span>, <span class="math">\({\bm x}^{*}=[x_1^{*},x_2^{*},\cdots,x_{N}^{*}]\)</span>.</p>
+<p>KKT条件是使一组解成为最优解的必要条件, 当原问题是凸优化问题的时, KKT条件也是充分条件.</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>当 <span class="math">\(M_h = 0\)</span> 即不含不等式约束时, 一般称为拉格朗日乘子法.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="LagrangeMultiplier.html" class="btn btn-neutral float-right" title="3.4. 拉格朗日乘子法" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DualAscent.html" class="btn btn-neutral" title="3.2. 对偶上升算法" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

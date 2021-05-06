@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.5. 计算复杂度/性能 &mdash; A tutorial on Artificial Intelligence 0.1 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon1.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/proof.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/katex-math.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="A tutorial on Artificial Intelligence 0.1 文档" href="../../../index.html"/>
+        <link rel="up" title="1. 经典评价方法" href="index.html"/>
+        <link rel="next" title="2. 名词术语" href="../glossary.html"/>
+        <link rel="prev" title="1.4. 图像质量评价" href="ImageQuality.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> A tutorial on Artificial Intelligence
+          
+
+          
+            
+            <img src="../../../_static/logo1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction/intro.html">引言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisMath/index.html">第一卷 数学基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../BasisPhysics/index.html">第二卷 经典物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ModernPhysics/index.html">第三卷 现代物理学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ComputerScience/index.html">第四卷 计算机学</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SignalProcessing/index.html">第五卷 信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ArtificialIntelligence/index.html">第六卷 人工智能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Radar/index.html">第七卷 雷达信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Medical/index.html">第八卷 医学信号处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Astronomy/index.html">第九卷 天文学</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">第十卷 应用实践</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../ChangeDetection/index.html">变化检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../PathPlanning/index.html">路径规划</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">评价方法</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">1. 经典评价方法</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Retrieval.html">1.1. 信息检索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Classification.html">1.2. 数据分类</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Similarity.html">1.3. 相似性度量指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ImageQuality.html">1.4. 图像质量评价</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1.5. 计算复杂度/性能</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glossary.html">2. 名词术语</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Supplement/index.html">补充内容</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Supplement/index.html">第十一卷 补充内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/glossary.html">名词术语</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">A tutorial on Artificial Intelligence</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">第十卷 应用实践</a> &raquo;</li>
+        
+          <li><a href="../index.html">评价方法</a> &raquo;</li>
+        
+          <li><a href="index.html"><span class="section-number">1. </span>经典评价方法</a> &raquo;</li>
+        
+      <li><span class="section-number">1.5. </span>计算复杂度/性能</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="section-computationalcomplexityperformanceclassicalevaluationmethodapplication">
+<span id="id1"></span><h1><span class="section-number">1.5. </span>计算复杂度/性能<a class="headerlink" href="#section-computationalcomplexityperformanceclassicalevaluationmethodapplication" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.5.1. </span>操作数相关指标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>操作数或运算次数通常用于衡量处理器的性能, 也可以用于衡量算法的复杂度.</p>
+<p>当用于衡量处理器性能时, 通常用 <strong>操作数/每秒</strong> (Operations Per Second, OPS)表示处理器每秒所能执行的操作次数, 用 <strong>浮点运算次数/每秒</strong> (FLoating-point Operations Per Second, FLOPS) 表示处理器每秒所能执行的浮点运算次数. 有时也用 <code class="docutils literal notranslate"><span class="pre">OPS&#64;FPx</span></code> 来表示处理器的 <code class="docutils literal notranslate"><span class="pre">x</span></code> 位浮点数处理能力, 如 <code class="docutils literal notranslate"><span class="pre">1TOPS&#64;FP16</span></code> 表示半精度浮点数下的浮点数运算能力为 <code class="docutils literal notranslate"><span class="pre">1TOPS</span></code>, 其中, <code class="docutils literal notranslate"><span class="pre">FP</span></code> 表示浮点数(Float Point) <span class="math">\(1\rm{TOPS}=10^{12} \rm{OPS}\)</span>, 不加说明时, <span class="math">\({\rm FLOPS} = {\rm OPS}&#64;{\rm FP}32\)</span>, 下 <a class="reference internal" href="#table-quantityunitletter"><span class="std std-numref">表 1.9</span></a> 给出了其它单位的值.</p>
+<table class="docutils align-default" id="table-quantityunitletter">
+<caption><span class="caption-number">表 1.9 </span><span class="caption-text">常用数量单位及字母表示</span><a class="headerlink" href="#table-quantityunitletter" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>单位</p></th>
+<th class="head"><p>中文</p></th>
+<th class="head"><p>英文</p></th>
+<th class="head"><p>值</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math">\(\rm M\)</span></p></td>
+<td><p>一百万</p></td>
+<td><p>Mega</p></td>
+<td><p><span class="math">\(10^6\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math">\(\rm G\)</span></p></td>
+<td><p>十亿</p></td>
+<td><p>Giga</p></td>
+<td><p><span class="math">\(10^9\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math">\(\rm T\)</span></p></td>
+<td><p>一万亿</p></td>
+<td><p>Tera</p></td>
+<td><p><span class="math">\(10^{12}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math">\(\rm P\)</span></p></td>
+<td><p>一千万亿</p></td>
+<td><p>Peta</p></td>
+<td><p><span class="math">\(10^{15}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math">\(\rm E\)</span></p></td>
+<td></td>
+<td><p>Exa</p></td>
+<td><p><span class="math">\(10^{18}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math">\(\rm Z\)</span></p></td>
+<td></td>
+<td><p>Zetta</p></td>
+<td><p><span class="math">\(10^{21}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math">\(\rm Y\)</span></p></td>
+<td></td>
+<td><p>Yotta</p></td>
+<td><p><span class="math">\(10^{24}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>通常用 <span class="math">\({\rm FP}64\)</span> 表示64位(bit)双精度浮点数, <span class="math">\({\rm FP}32\)</span> 表示32位(bit)单精度浮点数, <span class="math">\({\rm FP}16\)</span> 表示16位(bit)半精度浮点数, <span class="math">\({\rm FP}8\)</span> 表示8位(bit)浮点数, <span class="math">\({\rm INT}64\)</span> 表示64位(bit)整数等等.</p>
+<p>一般地, <span class="math">\(1{\rm OPS}&#64;{\rm FP}64 = 2{\rm OPS}&#64;{\rm FP}32 = 4{\rm OPS}&#64;{\rm FP}16 = 8{\rm OPS}&#64;{\rm FP}8\)</span>, 不过不是总能成立, 有的处理器略有差异. 此外, 一个 <span class="math">\(1{\rm OPS}&#64;{\rm FP}16\)</span> 的处理器的16位整数运算性能略大于 <span class="math">\(1{\rm OPS}&#64;{\rm INT}16\)</span>.</p>
+</div>
+<p>当用于衡量算法的复杂度时, 通常用 <strong>操作数</strong> (OPerations, OPs)表示算法所需要执行的操作次数, 用 <strong>浮点运算次数</strong> (FLoating-point OPerations, FLOPs)表示算法所需要执行的浮点运算次数.</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.5.2. </span>处理器的衡量指标<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>传统指标<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>操作数(Operations Per Second, OPS): 即每秒执行的操作次数</p></li>
+<li><p>浮点运算次数(FLoating-point Operations Per Second, FLOPS): 即每秒执行的浮点运算次数</p></li>
+<li><p>单位: 一百万(Mega, <span class="math">\(10^6\)</span>), 十亿(Giga, <span class="math">\(10^9\)</span>), 一万亿(Tera, <span class="math">\(10^{12}\)</span>), 一千万亿(Peta, <span class="math">\(10^{15}\)</span>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.5.3. </span>计算平台与模型性能指标<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>衡量一个计算平台或模型的性能指标可以通过计算量(算力/运算量) <span class="math">\(\pi\)</span> 与访存量(内存读写带宽/内存读写量) <span class="math">\(\beta\)</span> 以及计算强度 <span class="math">\(\mathcal I\)</span> 来分析. 通常地, 计算强度定义为</p>
+<div class="math">
+\[{\mathcal I} = \frac{\pi}{\beta}
+
+\]</div>
+<p>当评估计算平台性能时, <span class="math">\(\pi\)</span> 表示计算平台的算力, 即每秒可执行的运算次数 (Operations Per Second, OPS), <span class="math">\(\beta\)</span> 表示计算平台内存带宽, 单位通常为 bps(bit per second); 当评估模型性能时, <span class="math">\(\pi\)</span> 表示模型计算量, 即需要执行的运算次数 (OPerations, OPs),  <span class="math">\(\beta\)</span> 表示内存读写量, 单位通常为字节 B (Byte).</p>
+<p>举个例子, <a class="reference internal" href="#fig-figuressd-flops-memrw"><span class="std std-numref">图 1.44</span></a> 给出了SSD300网络的各层计算量与内存访问量分析结果, 包括输入输出大小, 参数量 (params), 乘累加量 (Fused multiply–add, Madd), 浮点数运算量 (FLOPs) 以及内存读写量 (MemR+W).</p>
+<div class="figure align-center" id="id6">
+<span id="fig-figuressd-flops-memrw"></span><a class="reference internal image-reference" href="../../../_images/SSD_FLOPS_MEMRW.png"><img alt="LeNet" src="../../../_images/SSD_FLOPS_MEMRW.png" style="width: 1124.0px; height: 854.4000000000001px;" /></a>
+<p class="caption"><span class="caption-number">图 1.44 </span><span class="caption-text">SSD 300 网络计算量与内存访问量分析</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+<p>由 <a class="reference internal" href="#fig-figuressd-flops-memrw"><span class="std std-numref">图 1.44</span></a> 知, SSD300网络含有 <span class="math">\(26,285,486\)</span> 个参数, 内存占用为 <span class="math">\(207.65{\rm MB}\)</span>, 总乘累加次数为 <span class="math">\(62.78{\rm GB}\)</span>, 总浮点运算次数为 <span class="math">\(31.44{\rm GFLOPs&#64;FP32}\)</span>, 见 <a class="reference internal" href="#table-parameterscomplexityssd300"><span class="std std-numref">表 1.10</span></a>. 即对于每张 <span class="math">\(300\times 300\)</span> 大小的图片, 前向推理一次需要的浮点数运算量约为 <span class="math">\(31.44{\rm GFLOPs}\)</span> 访存量为 <span class="math">\(542.79{\rm MB}\)</span>, 故 SSD300 模型的计算强度为 <span class="math">\({\mathcal I}_{ssd} = 31.44{\rm GFLOPs} / 542.79{\rm MB} = 4\times 31.44e9 / 542.79e6 = 231.69 {\rm FLOPs/Byte}\)</span>.</p>
+<table class="docutils align-default" id="table-parameterscomplexityssd300">
+<caption><span class="caption-number">表 1.10 </span><span class="caption-text">SSD300网络参数与计算量</span><a class="headerlink" href="#table-parameterscomplexityssd300" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Total params</p></th>
+<th class="head"><p>Total memory</p></th>
+<th class="head"><p>Total MAdd</p></th>
+<th class="head"><p>Total FLOPs</p></th>
+<th class="head"><p>Total MemR+W</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>26,285,486</p></td>
+<td><p>207.65MB</p></td>
+<td><p>62.78G</p></td>
+<td><p>31.44G</p></td>
+<td><p>542.79MB</p></td>
+</tr>
+</tbody>
+</table>
+<p>昇腾处理器Ascend 310的开发套件的内存为8GB, 远大于SSD300网络的内存占用量(207.65MB), 内存规格为LPDDR4x, 带宽为 <span class="math">\(3200{\rm Mbps}\)</span>. 昇腾处理器Ascend 310的浮点数处理能力为 <span class="math">\(8{\rm TOPS&#64;FP16}\)</span>, 即 <span class="math">\(8{\rm TFLOPS&#64;FP16}\)</span>, 亦即 <span class="math">\(4{\rm TFLOPS&#64;FP32}\)</span>. Ascend 310 处理器的计算强度为 <span class="math">\({\mathcal I}_{Ascend310} = (4\times 4e12) / (3200e6/8) = 40000 {\rm FLOPs}/{\rm Byte}\)</span>. 由此可知, Ascend 310 处理器的计算强度约为SSD300模型的计算强度的 <span class="math">\(172\)</span> 倍. 然而, 计算平台的带宽为 <span class="math">\(3200{\rm Mbps}\)</span>, 即每秒读写数据量最多为 <span class="math">\(400{\rm MB}\)</span>, 而SSD网络的访存量为 <span class="math">\(542.79{\rm MB}\)</span>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../glossary.html" class="btn btn-neutral float-right" title="2. 名词术语" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ImageQuality.html" class="btn btn-neutral" title="1.4. 图像质量评价" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019，刘志，西安电子科技大学，智能感知与图像理解教育部重点实验室.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../../_static/proof.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="../../../_static/katex_autorenderer.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
